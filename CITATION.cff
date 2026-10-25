@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "signal-processing-ai999x: an offline, verified signal processing solver"
+authors:
+  - family-names: Farabi
+    given-names: Ibnul Jaif
+    affiliation: AI999X
+version: 1.0.0
+license: Apache-2.0
+url: "https://huggingface.co/AI999X/signal-processing-ai999x"
+repository-code: "https://huggingface.co/AI999X/signal-processing-ai999x"
+keywords:
+  - signal processing
+  - dsp
+  - fft
+  - dft
+  - digital filters
+  - modulation
+  - communications
+  - rf
+  - transmission lines
+  - radar
+  - ai999x
+  - offline
