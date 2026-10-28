@@ -923,6 +923,10 @@ $$
 - **Assumes:** real samples
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![Magnitude of the 32-point DFT returned by the package for x[n] = sin(2π·3n/32) + 0](https://huggingface.co/AI999X/signal-processing-ai999x/resolve/main/figures/dft-spectrum-spectrum.svg)
+
+*Magnitude of the 32-point DFT returned by the package for x[n] = sin(2π·3n/32) + 0.5 sin(2π·7n/32), n = 0…31 (bins 0–16 shown; the rest mirror them). The two tones appear at bins 3 and 7; marked: |X[3]| = 16, |X[7]| = 8.*
+
 ```python
 signal_processing_ai999x.solve('dft_spectrum', x='1, 2, 3, 4')
 # -> peak_magnitude = 10, peak_bin = 0, magnitude = [10.0, 2.8284271247461903, 2.0, 2.8284271247461903], phase = [0.0, 2.356194490192345, 3.141592653589793, -2.356194490192345], real = [10.0, -2.0, -2.0, -2.0], imag = [0.0, 2.0, 0.0, -2.0]   (SOLVED)
@@ -1176,6 +1180,10 @@ $$
 - **Method:** direct-form FIR difference equation
 - **Assumes:** zero initial conditions
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![A sampled signal (fs = 8000 Hz; a 166](https://huggingface.co/AI999X/signal-processing-ai999x/resolve/main/figures/fir-filter-output-signal.svg)
+
+*A sampled signal (fs = 8000 Hz; a 166.7 Hz tone plus a 3000 Hz tone of amplitude 0.4) and the output of the 21-tap Hamming-window FIR low-pass filter (fc = 1000 Hz) designed by the package, the output computed by it sample by sample: the 3000 Hz component is removed and the slow tone passes, delayed by 10 samples (1.25 ms).*
 
 ```python
 signal_processing_ai999x.solve('fir_filter_output', b='0.5, 0.5', x='1, 2, 3, 4')
@@ -1473,6 +1481,10 @@ $$
 - **Assumes:** $N  \geq  1$; $fc > 0$; $f  \geq  0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![Gain of Butterworth low-pass filters of order N = 1, 2, 4 and 8 with cutoff fc = 1000 Hz (each curve 81 frequencies computed by the package, 0](https://huggingface.co/AI999X/signal-processing-ai999x/resolve/main/figures/butterworth-magnitude-response.svg)
+
+*Gain of Butterworth low-pass filters of order N = 1, 2, 4 and 8 with cutoff fc = 1000 Hz (each curve 81 frequencies computed by the package, 0.1 fc to 10 fc on a log axis); every order is 3 dB down at fc and falls by 20N dB per decade. Marked: f = 2000 Hz, N = 4, gain = −24.0993 dB.*
+
 ```python
 signal_processing_ai999x.solve('butterworth_magnitude', N=4, fc=1000.0, f=2000.0)
 # -> magnitude = 0.0623783, attenuation_db = 24.0993   (SOLVED)
@@ -1681,6 +1693,10 @@ $$
 - **Method:** polynomial roots (closed form up to degree 2; Durand-Kerner iteration with Newton polishing above)
 - **Assumes:** a[0] != 0; orders up to 4; both polynomials in powers of $z^{-1}$ (padded to equal length)
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![Poles and zeros returned by the package for the order-4 Butterworth low-pass filter (fc = 1000 Hz, fs = 8000 Hz) designed by it: 4 poles, largest radius 0](https://huggingface.co/AI999X/signal-processing-ai999x/resolve/main/figures/poles-zeros-poles.svg)
+
+*Poles and zeros returned by the package for the order-4 Butterworth low-pass filter (fc = 1000 Hz, fs = 8000 Hz) designed by it: 4 poles, largest radius 0.757669 (inside the unit circle: stable), and 4 zeros clustered at z = −1 (each within 0.000351186 of it).*
 
 ```python
 signal_processing_ai999x.solve('poles_zeros', b='1, -1', a='1, -0.9')
@@ -3055,6 +3071,10 @@ $$
 - **Method:** analog prototype poles, frequency scaling with the pre-warped cutoff 2 fs tan(pi fc / fs), bilinear transform, polynomial expansion
 - **Assumes:** $0 < fc < fs/2$; $1  \leq  N  \leq  8$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![Impulse response (stems) and step response (line) of the order-4 Butterworth low-pass filter designed by the package for fc = 1000 Hz at fs = 8000 Hz (b = [0](https://huggingface.co/AI999X/signal-processing-ai999x/resolve/main/figures/butterworth-design-stems.svg)
+
+*Impulse response (stems) and step response (line) of the order-4 Butterworth low-pass filter designed by the package for fc = 1000 Hz at fs = 8000 Hz (b = [0.01021, 0.04084, 0.06126, 0.04084, 0.01021], a = [1, -1.968, 1.736, -0.7245, 0.1204]), 30 samples each computed by the package; the step response settles at the DC gain 1 after overshooting to 1.11966. Marked: the largest impulse sample h[4] = 0.289522.*
 
 ```python
 signal_processing_ai999x.solve('butterworth_design', N=2, fc=1000.0, fs=8000.0, btype='lowpass')

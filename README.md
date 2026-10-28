@@ -4,7 +4,7 @@
 
 **[Install](https://pypi.org/project/signal-processing-ai999x/)** · **[Capability guide](https://huggingface.co/AI999X/signal-processing-ai999x/tree/main/docs)** · **[Evaluation](https://huggingface.co/AI999X/signal-processing-ai999x/tree/main/evaluation)** · **[AI999X on Hugging Face](https://huggingface.co/AI999X)** · **[Website](https://ai999x.com)** · **[Support: Buy Me a Coffee](https://buymeacoffee.com/ibnuljaiffarabi)**
 
-License: Apache-2.0 · Author: Ibnul Jaif Farabi (creator and engineer) · Organization: AI999X · Version 1.0.0
+License: Apache-2.0 · Author: Ibnul Jaif Farabi (creator and engineer) · Organization: AI999X · Version 1.0.1
 
 Field: **Engineering** · Tasks: Question Answering, Token Classification, Text Classification, Sentence Similarity, Feature Extraction
 
@@ -27,7 +27,7 @@ signal-processing-ai999x is an offline, deterministic Python solver that answers
 
 | Property | Value |
 |---|---|
-| Package | `signal-processing-ai999x` 1.0.0 (import `signal_processing_ai999x`) |
+| Package | `signal-processing-ai999x` 1.0.1 (import `signal_processing_ai999x`) |
 | Type | Deterministic neuro-symbolic signal processing engine (rule-based reading + certified symbolic capabilities) |
 | Capabilities | 74 certified procedures |
 | Knowledge pack | version 1.0.0 |
@@ -61,7 +61,18 @@ signal_processing.ask("Who created you?").message
 # -> signal-processing-ai999x was created and engineered by Ibnul Jaif Farabi at AI999X.
 ```
 
-Command line: `signal-processing-ai999x "<question>"`, `signal-processing-ai999x --capabilities`. The outputs above were produced by running this exact code on signal-processing-ai999x 1.0.0.
+Command line: `signal-processing-ai999x "<question>"`, `signal-processing-ai999x --capabilities`. The outputs above were produced by running this exact code on signal-processing-ai999x 1.0.1.
+
+## Find the right capability, and draw it
+
+`signal_processing.search()` finds which certified capability a question is about — across **every** AI999X model, so a question for another model points you to it. It runs **[ai999x-encoder](https://huggingface.co/AI999X/ai999x-encoder)**, AI999X's own capability encoder (4.7M parameters, a 4.9 MB ONNX model, offline; the root `model.safetensors` of this repository): `pip install "signal-processing-ai999x[search]"`. `ask(question, suggest=True)` adds the same pointers to a question it does not answer; an answer itself never changes.
+
+```python
+import signal_processing_ai999x as signal_processing
+
+signal_processing.search("Solve x^2 - 5x + 6 = 0", k=2)
+# -> Roots of a quadratic equation (math-foundations-ai999x, 0.63); Roots of a cubic equation (math-foundations-ai999x, 0.59)
+```
 
 ## How every answer is verified
 
@@ -71,6 +82,116 @@ Command line: `signal-processing-ai999x "<question>"`, `signal-processing-ai999x
 4. **Checking** — dimensions, substitution back into the defining equation, and agreement between independent readings; any disagreement becomes a refusal, never a number.
 
 Capabilities are certified before they ship: each must reproduce hand-worked reference cases, reject a deliberately wrong variant (a control), and leave every benchmark answer unchanged.
+
+## Worked examples
+
+Each question was put to `signal-processing-ai999x`; the answer is the one it returned, with the steps it took.
+
+**Nyquist rate** · _Sampling and signal basics_
+
+> What is the Nyquist rate for a signal with a maximum frequency of 4 kHz?
+
+→ **fs_min = 8000 Hz, Ts_max = 0.000125 s**
+
+<details><summary>Steps</summary>
+
+- Nyquist rate: fmax = 4 kHz → fs_min = 8000 Hz, Ts_max = 0.000125 s
+
+</details>
+
+**DFT spectrum of a sequence (FFT)** · _DFT and FFT_
+
+> Compute the DFT of x = [1, 2, 3, 4].
+
+→ **peak_magnitude = 10, peak_bin = 0, magnitude = [10, 2.828427125, 2, 2.828427125], phase = [0, 2.35619449, 3.141592654, -2.35619449], real = [10, -2, -2, -2], imag = [0, 2, 0, -2]**
+
+<details><summary>Steps</summary>
+
+- DFT spectrum of a sequence (FFT): x = [1, 2, 3, 4] → peak_magnitude = 10, peak_bin = 0, magnitude = [10, 2.828427125, 2, 2.828427125], phase = [0, 2.35619449, 3.141592654, -2.35619449], real = [10, -2, -2, -2], imag = [0, 2, 0, -2]
+
+</details>
+
+**Bit error rate of BPSK (and coherent BFSK) in AWGN** · _Digital communication_
+
+> What is the bit error rate of BPSK at Eb/N0 = 8 dB?
+
+→ **ber = 0.0001909077741, ber_bfsk = 0.0060043864**
+
+<details><summary>Steps</summary>
+
+- Bit error rate of BPSK (and coherent BFSK) in AWGN: ebn0_db = 8 → ber = 0.0001909077741, ber_bfsk = 0.0060043864
+
+</details>
+
+**Reflection coefficient, VSWR and return loss of a load** · _Transmission lines_
+
+> A 50 ohm line is terminated in a load of 75 + j25 ohm. Find the reflection coefficient and the VSWR.
+
+→ **gamma_mag = 0.2773500981, gamma_angle_deg = 33.69006753, gamma_re = 0.2307692308, gamma_im = 0.1538461538, vswr = 1.767591879, return_loss_db = 11.13943352, mismatch_loss_db = 0.3476210626**
+
+<details><summary>Steps</summary>
+
+- Reflection coefficient, VSWR and return loss of a load: RL = 75 ohm, XL = 25 ohm, Z0 = 50 ohm → gamma_mag = 0.2773500981, gamma_angle_deg = 33.69006753, gamma_re = 0.2307692308, gamma_im = 0.1538461538, vswr = 1.767591879, return_loss_db = 11.13943352, mismatch_loss_db = 0.3476210626
+
+</details>
+
+**Digital Butterworth filter design (bilinear transform)** · _Filter design_
+
+`m.solve("butterworth_design", N=2, fc="1 kHz", fs="8 kHz", btype="lowpass")`
+
+→ **b = [0.09763107294, 0.1952621459, 0.09763107294], a = [1, -0.9428090416, 0.3333333333]**
+
+<details><summary>Steps</summary>
+
+- Digital Butterworth filter design (bilinear transform): N = 2, fc = 1 kHz, fs = 8 kHz, btype = lowpass → b = [0.09763107294, 0.1952621459, 0.09763107294], a = [1, -0.9428090416, 0.3333333333]
+
+</details>
+
+**Magnitude of an analog Butterworth low-pass response** · _Analog filters_
+
+> What is the magnitude response of a 4th-order Butterworth low-pass filter with a cutoff frequency of 1 kHz at 2 kHz?
+
+→ **magnitude = 0.06237828616, attenuation_db = 24.09933123**
+
+<details><summary>Steps</summary>
+
+- Magnitude of an analog Butterworth low-pass response: N = 4, fc = 1 kHz, f = 2 kHz → magnitude = 0.06237828616, attenuation_db = 24.09933123
+
+</details>
+
+## Figures
+
+Every point was computed by `signal-processing-ai999x`.
+
+**DFT magnitude spectrum of a two-tone signal**
+
+![DFT magnitude spectrum of a two-tone signal — computed by signal-processing-ai999x](https://huggingface.co/AI999X/signal-processing-ai999x/resolve/main/figures/dft-spectrum-spectrum.svg)
+
+_Magnitude of the 32-point DFT returned by the package for x[n] = sin(2π·3n/32) + 0.5 sin(2π·7n/32), n = 0…31 (bins 0–16 shown; the rest mirror them). The two tones appear at bins 3 and 7; marked: |X[3]| = 16, |X[7]| = 8._
+
+**Butterworth low-pass responses of four orders**
+
+![Butterworth low-pass responses of four orders — computed by signal-processing-ai999x](https://huggingface.co/AI999X/signal-processing-ai999x/resolve/main/figures/butterworth-magnitude-response.svg)
+
+_Gain of Butterworth low-pass filters of order N = 1, 2, 4 and 8 with cutoff fc = 1000 Hz (each curve 81 frequencies computed by the package, 0.1 fc to 10 fc on a log axis); every order is 3 dB down at fc and falls by 20N dB per decade. Marked: f = 2000 Hz, N = 4, gain = −24.0993 dB._
+
+**A designed digital filter: impulse and step response**
+
+![A designed digital filter: impulse and step response — computed by signal-processing-ai999x](https://huggingface.co/AI999X/signal-processing-ai999x/resolve/main/figures/butterworth-design-stems.svg)
+
+_Impulse response (stems) and step response (line) of the order-4 Butterworth low-pass filter designed by the package for fc = 1000 Hz at fs = 8000 Hz (b = [0.01021, 0.04084, 0.06126, 0.04084, 0.01021], a = [1, -1.968, 1.736, -0.7245, 0.1204]), 30 samples each computed by the package; the step response settles at the DC gain 1 after overshooting to 1.11966. Marked: the largest impulse sample h[4] = 0.289522._
+
+**Poles and zeros of a digital low-pass filter**
+
+![Poles and zeros of a digital low-pass filter — computed by signal-processing-ai999x](https://huggingface.co/AI999X/signal-processing-ai999x/resolve/main/figures/poles-zeros-poles.svg)
+
+_Poles and zeros returned by the package for the order-4 Butterworth low-pass filter (fc = 1000 Hz, fs = 8000 Hz) designed by it: 4 poles, largest radius 0.757669 (inside the unit circle: stable), and 4 zeros clustered at z = −1 (each within 0.000351186 of it)._
+
+**Filtering a signal: input and FIR low-pass output**
+
+![Filtering a signal: input and FIR low-pass output — computed by signal-processing-ai999x](https://huggingface.co/AI999X/signal-processing-ai999x/resolve/main/figures/fir-filter-output-signal.svg)
+
+_A sampled signal (fs = 8000 Hz; a 166.7 Hz tone plus a 3000 Hz tone of amplitude 0.4) and the output of the 21-tap Hamming-window FIR low-pass filter (fc = 1000 Hz) designed by the package, the output computed by it sample by sample: the 3000 Hz component is removed and the slow tone passes, delayed by 10 samples (1.25 ms)._
 
 ## Capabilities
 
@@ -95,10 +216,10 @@ Capabilities are certified before they ship: each must reproduce hand-worked ref
 ## Citation
 
 ```bibtex
-@software{signal_processing_ai999x_1_0_0,
+@software{signal_processing_ai999x_1_0_1,
   title  = {signal-processing-ai999x: an offline, verified signal processing solver},
   author = {Farabi, Ibnul Jaif}, organization = {AI999X},
-  year   = {2026}, version = {1.0.0},
+  year   = {2026}, version = {1.0.1},
   url    = {https://huggingface.co/AI999X/signal-processing-ai999x}
 }
 ```
