@@ -4,7 +4,7 @@
 
 **[Install](https://pypi.org/project/signal-processing-ai999x/)** · **[Capability guide](https://huggingface.co/AI999X/signal-processing-ai999x/tree/main/docs)** · **[Evaluation](https://huggingface.co/AI999X/signal-processing-ai999x/tree/main/evaluation)** · **[AI999X on Hugging Face](https://huggingface.co/AI999X)** · **[Website](https://ai999x.com)** · **[Support: Buy Me a Coffee](https://buymeacoffee.com/ibnuljaiffarabi)**
 
-License: Apache-2.0 · Author: Ibnul Jaif Farabi (creator and engineer) · Organization: AI999X · Version 1.0.2
+License: Apache-2.0 · Author: Ibnul Jaif Farabi (creator and engineer) · Organization: AI999X · Version 1.0.3
 
 Field: **Engineering** · Tasks: Question Answering, Token Classification, Text Classification, Sentence Similarity, Feature Extraction
 
@@ -27,7 +27,7 @@ signal-processing-ai999x is an offline, deterministic Python solver that answers
 
 | Property | Value |
 |---|---|
-| Package | `signal-processing-ai999x` 1.0.2 (import `signal_processing_ai999x`) |
+| Package | `signal-processing-ai999x` 1.0.3 (import `signal_processing_ai999x`) |
 | Type | Deterministic neuro-symbolic signal processing engine (rule-based reading + certified symbolic capabilities) |
 | Capabilities | 74 certified procedures |
 | Knowledge pack | version 1.0.0 |
@@ -61,7 +61,7 @@ signal_processing.ask("Who created you?").message
 # -> signal-processing-ai999x was created and engineered by Ibnul Jaif Farabi at AI999X.
 ```
 
-Command line: `signal-processing-ai999x "<question>"`, `signal-processing-ai999x --capabilities`. The outputs above were produced by running this exact code on signal-processing-ai999x 1.0.2.
+Command line: `signal-processing-ai999x "<question>"`, `signal-processing-ai999x --capabilities`. The outputs above were produced by running this exact code on signal-processing-ai999x 1.0.3.
 
 ## Find the right capability, and draw it
 
@@ -216,10 +216,10 @@ _A sampled signal (fs = 8000 Hz; a 166.7 Hz tone plus a 3000 Hz tone of amplitud
 ## Citation
 
 ```bibtex
-@software{signal_processing_ai999x_1_0_2,
+@software{signal_processing_ai999x_1_0_3,
   title  = {signal-processing-ai999x: an offline, verified signal processing solver},
   author = {Farabi, Ibnul Jaif}, organization = {AI999X},
-  year   = {2026}, version = {1.0.2},
+  year   = {2026}, version = {1.0.3},
   url    = {https://huggingface.co/AI999X/signal-processing-ai999x}
 }
 ```

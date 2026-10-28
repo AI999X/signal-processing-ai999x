@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "signal-processing-ai999x"
-version = "1.0.2"
+version = "1.0.3"
 description = "Offline signal processing solver: sampling, Fourier series and transforms, the DFT and FFT, filters, convolution, z-transforms, modulation, communication links, RF transmission lines and radar, with steps, LaTeX and honest refusals"
 readme = "README.md"
 requires-python = ">=3.10"
