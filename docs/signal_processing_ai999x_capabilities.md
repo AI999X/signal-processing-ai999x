@@ -152,7 +152,7 @@ Call `solve("<id>", **inputs)` with plain numbers; the result's `values` holds e
 
 <a id="period_from_frequency"></a>
 
-### Period and angular frequency from frequency — `period_from_frequency`
+### Period and angular frequency from frequency, `period_from_frequency`
 
 The period $T = 1/f$ and the angular frequency $\omega = 2 pi f$ of a periodic signal of frequency f.
 
@@ -198,7 +198,7 @@ signal_processing_ai999x.solve('period_from_frequency', f=2000.0)
 
 <a id="frequency_from_period"></a>
 
-### Frequency and angular frequency from period — `frequency_from_period`
+### Frequency and angular frequency from period, `frequency_from_period`
 
 The frequency $f = 1/T$ and the angular frequency $\omega = 2 pi/T$ of a periodic signal of period T.
 
@@ -243,7 +243,7 @@ signal_processing_ai999x.solve('frequency_from_period', T=2e-05)
 
 <a id="nyquist_rate"></a>
 
-### Nyquist rate — `nyquist_rate`
+### Nyquist rate: `nyquist_rate`
 
 The minimum sampling rate 2*f_max that avoids aliasing of a baseband signal whose highest frequency is f_max.
 
@@ -288,7 +288,7 @@ signal_processing_ai999x.solve('nyquist_rate', fmax=20000.0)
 
 <a id="alias_frequency"></a>
 
-### Alias (apparent) frequency after sampling — `alias_frequency`
+### Alias (apparent) frequency after sampling: `alias_frequency`
 
 The frequency in [0, $fs/2$] at which a sinusoid of frequency f appears after sampling at rate fs.
 
@@ -338,7 +338,7 @@ signal_processing_ai999x.solve('alias_frequency', f=300.0, fs=1000.0)
 
 <a id="power_ratio_to_db"></a>
 
-### Power ratio to decibels — `power_ratio_to_db`
+### Power ratio to decibels: `power_ratio_to_db`
 
 A power ratio expressed in decibels, $10 log10$(P2/P1).
 
@@ -383,7 +383,7 @@ signal_processing_ai999x.solve('power_ratio_to_db', ratio=1000)
 
 <a id="db_to_power_ratio"></a>
 
-### Decibels to power ratio — `db_to_power_ratio`
+### Decibels to power ratio: `db_to_power_ratio`
 
 The power ratio $P_{2}/P_{1} = 10^{L/10}$ that a level of L dB represents.
 
@@ -433,7 +433,7 @@ signal_processing_ai999x.solve('db_to_power_ratio', dB=-3)
 
 <a id="amplitude_ratio_to_db"></a>
 
-### Amplitude (voltage) ratio to decibels — `amplitude_ratio_to_db`
+### Amplitude (voltage) ratio to decibels: `amplitude_ratio_to_db`
 
 A voltage, current or field amplitude ratio in decibels, $20 log10$(V2/V1).
 
@@ -477,7 +477,7 @@ signal_processing_ai999x.solve('amplitude_ratio_to_db', ratio=100)
 
 <a id="db_to_amplitude_ratio"></a>
 
-### Decibels to amplitude (voltage) ratio — `db_to_amplitude_ratio`
+### Decibels to amplitude (voltage) ratio: `db_to_amplitude_ratio`
 
 The amplitude ratio $V_{2}/V_{1} = 10^{L/20}$ that a level of L dB represents.
 
@@ -521,7 +521,7 @@ signal_processing_ai999x.solve('db_to_amplitude_ratio', dB=40)
 
 <a id="watts_to_dbm"></a>
 
-### Power in watts to dBm and dBW — `watts_to_dbm`
+### Power in watts to dBm and dBW: `watts_to_dbm`
 
 A power expressed as a level relative to 1 mW (dBm) and to 1 W (dBW).
 
@@ -571,7 +571,7 @@ signal_processing_ai999x.solve('watts_to_dbm', P=0.001)
 
 <a id="dbm_to_watts"></a>
 
-### Power level in dBm to watts — `dbm_to_watts`
+### Power level in dBm to watts: `dbm_to_watts`
 
 The power in watts of a level given in dBm (and the same level in dBW).
 
@@ -616,7 +616,7 @@ signal_processing_ai999x.solve('dbm_to_watts', dBm=-20)
 
 <a id="snr_from_powers"></a>
 
-### Signal-to-noise ratio from signal and noise powers — `snr_from_powers`
+### Signal-to-noise ratio from signal and noise powers, `snr_from_powers`
 
 The signal-to-noise ratio Ps/Pn, as a ratio and in dB.
 
@@ -661,7 +661,7 @@ signal_processing_ai999x.solve('snr_from_powers', Ps=0.002, Pn=1e-05)
 
 <a id="signal_statistics"></a>
 
-### Mean, RMS, energy and average power of a sampled signal — `signal_statistics`
+### Mean, RMS, energy and average power of a sampled signal, `signal_statistics`
 
 For samples x[$0..N-1$]: the mean, the RMS value, the energy sum |x|^2 and the average power (energy / N).
 
@@ -709,7 +709,7 @@ signal_processing_ai999x.solve('signal_statistics', x=[2, -2, 2, -2])
 
 <a id="sine_rms"></a>
 
-### RMS, peak-to-peak and rectified average of a sine wave — `sine_rms`
+### RMS, peak-to-peak and rectified average of a sine wave, `sine_rms`
 
 For a sinusoid of peak amplitude Vp: the RMS value Vp/sqrt(2), the peak-to-peak value $2 Vp$ and the average of its absolute value $2 Vp/pi.$
 
@@ -750,7 +750,7 @@ signal_processing_ai999x.solve('sine_rms', Vp=10.0)
 
 <a id="quantization_snr"></a>
 
-### Signal-to-quantization-noise ratio of an ideal ADC — `quantization_snr`
+### Signal-to-quantization-noise ratio of an ideal ADC, `quantization_snr`
 
 The SQNR of an ideal N-bit uniform quantizer driven by a full-scale sine wave (about 6.02 $N + 1.76$ dB).
 
@@ -795,7 +795,7 @@ signal_processing_ai999x.solve('quantization_snr', bits=16)
 
 <a id="dbm_power_sum"></a>
 
-### Total power of several signals given in dBm — `dbm_power_sum`
+### Total power of several signals given in dBm, `dbm_power_sum`
 
 The combined power of uncorrelated signals whose levels are given in dBm (powers add, levels do not).
 
@@ -816,9 +816,9 @@ $$
 - **Assumes:** uncorrelated signals (their powers add)
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Adding incoherent powers given in dBm: three sources of 10, 7, 3 dBm (chosen input), shown in watts (from the package's dBm-to-watts capability: 0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/dbm-power-sum-bars)
+![Adding incoherent powers given in dBm: the worked example's 2 sources of 10, 10 dBm, shown in watts (from the package's dBm-to-watts capability: 0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/dbm-power-sum-bars)
 
-*Adding incoherent powers given in dBm: three sources of 10, 7, 3 dBm (chosen input), shown in watts (from the package's dBm-to-watts capability: 0.01, 0.00501187, 0.00199526 W). The package returns their total 0.0170071 W = 12.3063 dBm — the levels add in watts, not in dB.*
+*Adding incoherent powers given in dBm: the worked example's 2 sources of 10, 10 dBm, shown in watts (from the package's dBm-to-watts capability: 0.01, 0.01 W). The package returns their total 0.02 W = 13.0103 dBm, the levels add in watts, not in dB.*
 
 ```python
 signal_processing_ai999x.solve('dbm_power_sum', levels='10, 10')
@@ -839,7 +839,7 @@ signal_processing_ai999x.solve('dbm_power_sum', levels=[0, 0, 0, 0])
 
 <a id="frequency_resolution"></a>
 
-### Frequency resolution of an N-point DFT — `frequency_resolution`
+### Frequency resolution of an N-point DFT: `frequency_resolution`
 
 The bin spacing fs/N of an N-point DFT or FFT and the record length N/fs it covers.
 
@@ -884,7 +884,7 @@ signal_processing_ai999x.solve('frequency_resolution', fs=48000.0, N=1024)
 
 <a id="bin_frequency"></a>
 
-### Frequency of a DFT bin — `bin_frequency`
+### Frequency of a DFT bin: `bin_frequency`
 
 The frequency $k fs/N$ that bin k of an N-point DFT represents $(0  \leq  k  \leq  N/2)$.
 
@@ -924,7 +924,7 @@ signal_processing_ai999x.solve('bin_frequency', k=100, fs=48000.0, N=1024)
 
 <a id="dft_bin"></a>
 
-### One bin of the discrete Fourier transform — `dft_bin`
+### One bin of the discrete Fourier transform: `dft_bin`
 
 X[k] = sum_n x[n] exp(-j 2 pi k n / N) for one bin k: real and imaginary parts, magnitude and phase.
 
@@ -978,7 +978,7 @@ signal_processing_ai999x.solve('dft_bin', x=[1, 0, -1, 0, 1, 0, -1, 0], k=2)
 
 <a id="dft_spectrum"></a>
 
-### DFT spectrum of a sequence (FFT) — `dft_spectrum`
+### DFT spectrum of a sequence (FFT): `dft_spectrum`
 
 The whole N-point DFT of a real sequence: magnitude, phase, real and imaginary parts of every bin, and the strongest bin up to $N/2.$
 
@@ -1036,7 +1036,7 @@ signal_processing_ai999x.solve('dft_spectrum', x=[1, 1, 1])
 
 <a id="inverse_dft"></a>
 
-### Inverse discrete Fourier transform — `inverse_dft`
+### Inverse discrete Fourier transform: `inverse_dft`
 
 x[n] = $(1/N)$ sum_k X[k] exp(+j 2 pi k n / N), from the real and imaginary parts of X[k].
 
@@ -1058,9 +1058,9 @@ $$
 - **Assumes:** both lists have the same length
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The inverse DFT of the spectrum Re = [10, -2, -2, -2], Im = [0, 2, 0, -2] (inputs): the package returns x = [1, 2, 3, 4] with imaginary parts [0, 0, 0, 0] — a real signal, because the spectrum is conjugate-symmetric](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/inverse-dft-stems)
+![The inverse DFT of the spectrum Re = [10, -2, -2, -2], Im = [0, 2, 0, -2] (inputs): the package returns x = [1, 2, 3, 4] with imaginary parts [0, 0, 0, 0], a real signal, because the spectrum is conjugate-symmetric](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/inverse-dft-stems)
 
-*The inverse DFT of the spectrum Re = [10, -2, -2, -2], Im = [0, 2, 0, -2] (inputs): the package returns x = [1, 2, 3, 4] with imaginary parts [0, 0, 0, 0] — a real signal, because the spectrum is conjugate-symmetric.*
+*The inverse DFT of the spectrum Re = [10, -2, -2, -2], Im = [0, 2, 0, -2] (inputs): the package returns x = [1, 2, 3, 4] with imaginary parts [0, 0, 0, 0], a real signal, because the spectrum is conjugate-symmetric.*
 
 ```python
 signal_processing_ai999x.solve('inverse_dft', re_='10, -2, -2, -2', im='0, 2, 0, -2')
@@ -1082,7 +1082,7 @@ signal_processing_ai999x.solve('inverse_dft', re_=[4, 0, 0, 0])
 
 <a id="linear_convolution"></a>
 
-### Linear convolution of two sequences — `linear_convolution`
+### Linear convolution of two sequences: `linear_convolution`
 
 y[n] = sum_k x[k] h[n-k], the full linear convolution (length Nx + Nh - 1).
 
@@ -1128,7 +1128,7 @@ signal_processing_ai999x.solve('linear_convolution', x=[1, 1, 1], h=[1, 2])
 
 <a id="circular_convolution"></a>
 
-### Circular (cyclic) convolution — `circular_convolution`
+### Circular (cyclic) convolution: `circular_convolution`
 
 The N-point circular convolution y[n] = sum_k x[k] h[(n-k) mod N] of two sequences of length N.
 
@@ -1172,7 +1172,7 @@ signal_processing_ai999x.solve('circular_convolution', x=[1, 2, 3], h=[0, 1, 0])
 
 <a id="cross_correlation"></a>
 
-### Cross-correlation and the lag of its peak — `cross_correlation`
+### Cross-correlation and the lag of its peak: `cross_correlation`
 
 r_xy[l] = sum_n x[n+l] y[n] for every lag l, and the lag at which it is largest (the delay of x relative to y).
 
@@ -1196,9 +1196,9 @@ $$
 - **Assumes:** finite sequences starting at $n = 0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Cross-correlation of x = [0, 0, 1, 2, 1] with y = [1, 2, 1]: the package returns r at lags -2 … 4, peaking at lag 2 with r = 6 — the shift at which y best lines up with x](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/cross-correlation-stems)
+![Cross-correlation of x = [0, 0, 1, 2, 1] with y = [1, 2, 1]: the package returns r at lags -2 … 4, peaking at lag 2 with r = 6, the shift at which y best lines up with x](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/cross-correlation-stems)
 
-*Cross-correlation of x = [0, 0, 1, 2, 1] with y = [1, 2, 1]: the package returns r at lags -2 … 4, peaking at lag 2 with r = 6 — the shift at which y best lines up with x.*
+*Cross-correlation of x = [0, 0, 1, 2, 1] with y = [1, 2, 1]: the package returns r at lags -2 … 4, peaking at lag 2 with r = 6, the shift at which y best lines up with x.*
 
 ```python
 signal_processing_ai999x.solve('cross_correlation', x='0, 0, 1, 2, 1', y='1, 2, 1')
@@ -1219,7 +1219,7 @@ signal_processing_ai999x.solve('cross_correlation', x=[1, 2, 3], y=[1, 1])
 
 <a id="moving_average"></a>
 
-### Moving-average filter output — `moving_average`
+### Moving-average filter output: `moving_average`
 
 The causal M-point moving average y[n] = $(1/M)$ sum_{$i=0$}^{$M-1$} x[n-i], with x[n] = 0 before the first sample.
 
@@ -1264,7 +1264,7 @@ signal_processing_ai999x.solve('moving_average', x=[2, 4], M=2)
 
 <a id="fir_filter_output"></a>
 
-### FIR filter output — `fir_filter_output`
+### FIR filter output: `fir_filter_output`
 
 The output y[n] = sum_k b[k] x[n-k] of an FIR filter with coefficients b (zero initial conditions, same length as x).
 
@@ -1313,7 +1313,7 @@ signal_processing_ai999x.solve('fir_filter_output', b=[1, -1], x=[1, 4, 9, 16])
 
 <a id="iir_filter_output"></a>
 
-### IIR filter output (difference equation) — `iir_filter_output`
+### IIR filter output (difference equation): `iir_filter_output`
 
 The output of the recursive filter a[0] y[n] = sum_k b[k] x[n-k] - sum_{$k \geq 1$} a[k] y[n-k] (zero initial conditions).
 
@@ -1359,7 +1359,7 @@ signal_processing_ai999x.solve('iir_filter_output', b=[1, 1], a=[2, -1], x=[2, 2
 
 <a id="impulse_response"></a>
 
-### Impulse response of a digital filter — `impulse_response`
+### Impulse response of a digital filter: `impulse_response`
 
 The first n samples of the impulse response h[n] of the filter with coefficients b and a.
 
@@ -1404,7 +1404,7 @@ signal_processing_ai999x.solve('impulse_response', b=[1, 1], a=[1, -1, 0.5], n=4
 
 <a id="step_response"></a>
 
-### Step response of a digital filter — `step_response`
+### Step response of a digital filter: `step_response`
 
 The first n samples of the response s[n] of the filter (b, a) to a unit step.
 
@@ -1443,7 +1443,7 @@ signal_processing_ai999x.solve('step_response', b='1', a='1, -0.5', n=4)
 
 <a id="frequency_response"></a>
 
-### Frequency response of a digital filter at one frequency — `frequency_response`
+### Frequency response of a digital filter at one frequency, `frequency_response`
 
 H(e^{jw}) = B(e^{jw}) / A(e^{jw}) at $w = 2$ pi f / fs: magnitude, magnitude in dB and phase.
 
@@ -1498,7 +1498,7 @@ signal_processing_ai999x.solve('frequency_response', b=[1, 1], f=4000.0, fs=8000
 
 <a id="group_delay"></a>
 
-### Group delay of a digital filter — `group_delay`
+### Group delay of a digital filter: `group_delay`
 
 The group delay -d(phase)/dw of H(z) = B(z)/A(z) at frequency f, in samples and in seconds.
 
@@ -1545,7 +1545,7 @@ signal_processing_ai999x.solve('group_delay', b=[1], a=[1, -0.5], f=0.0, fs=1000
 
 <a id="dc_gain"></a>
 
-### DC gain of a digital filter — `dc_gain`
+### DC gain of a digital filter: `dc_gain`
 
 The gain H(1) = sum b / sum a of the filter at zero frequency, and its level in dB.
 
@@ -1590,7 +1590,7 @@ signal_processing_ai999x.solve('dc_gain', b=[0.25, 0.25, 0.25, 0.25])
 
 <a id="butterworth_magnitude"></a>
 
-### Magnitude of an analog Butterworth low-pass response — `butterworth_magnitude`
+### Magnitude of an analog Butterworth low-pass response, `butterworth_magnitude`
 
 |H(f)| = $1/sqrt$($1 + (f/fc)^{2N}$) of an N-th order Butterworth low-pass filter, and the attenuation in dB.
 
@@ -1646,7 +1646,7 @@ signal_processing_ai999x.solve('butterworth_magnitude', N=5, fc=1000.0, f=1000.0
 
 <a id="butterworth_order_analog"></a>
 
-### Minimum order of a analog Butterworth filter — `butterworth_order_analog`
+### Minimum order of a analog Butterworth filter, `butterworth_order_analog`
 
 The smallest order meeting a passband edge with at most Rp dB attenuation and a stopband edge with at least As dB.
 
@@ -1674,9 +1674,9 @@ $$
 
 *The smallest Butterworth order meeting a passband edge fp = 1000 Hz with at most Rp = 1 dB ripple and a stopband attenuation As at fstop, for fstop from 1100 to 5000 Hz (79 runs of the package per curve, drawn as steps): a sharper transition or more attenuation needs a higher order. Marked: the worked example fstop = 2000.0 Hz, As = 40.0 dB, N = 8 (lowpass).*
 
-![lowpass (fp < fstop) or highpass (fp > fstop) (type) over fp (passband edge frequency) from 100 Hz to 10000 Hz and fstop (stopband edge frequency) from 200 Hz to 20000 Hz (logarithmic axes): each of the 31 × 21 cells is one run of signal-processing-ai999x, coloured by the verdict it returned — highpass: 234 cells, lowpass: 417 cells](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/butterworth-order-analog-decision)
+![lowpass (fp < fstop) or highpass (fp > fstop) (type) over fp (passband edge frequency) from 100 Hz to 10000 Hz and fstop (stopband edge frequency) from 200 Hz to 20000 Hz (logarithmic axes): each of the 31 × 21 cells is one run of signal-processing-ai999x, coloured by the verdict it returned, highpass: 234 cells, lowpass: 417 cells](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/butterworth-order-analog-decision)
 
-*lowpass (fp < fstop) or highpass (fp > fstop) (type) over fp (passband edge frequency) from 100 Hz to 10000 Hz and fstop (stopband edge frequency) from 200 Hz to 20000 Hz (logarithmic axes): each of the 31 × 21 cells is one run of signal-processing-ai999x, coloured by the verdict it returned — highpass: 234 cells, lowpass: 417 cells. Other inputs as in the worked example: Rp = 1.0, As = 40.0. Marked: the worked example, fp = 1000 Hz, fstop = 2000 Hz → lowpass.*
+*lowpass (fp < fstop) or highpass (fp > fstop) (type) over fp (passband edge frequency) from 100 Hz to 10000 Hz and fstop (stopband edge frequency) from 200 Hz to 20000 Hz (logarithmic axes): each of the 31 × 21 cells is one run of signal-processing-ai999x, coloured by the verdict it returned, highpass: 234 cells, lowpass: 417 cells. Other inputs as in the worked example: Rp = 1.0, As = 40.0. Marked: the worked example, fp = 1000 Hz, fstop = 2000 Hz → lowpass.*
 
 ```python
 signal_processing_ai999x.solve('butterworth_order_analog', fp=1000.0, fstop=2000.0, Rp=1.0, As=40.0)
@@ -1692,7 +1692,7 @@ signal_processing_ai999x.solve('butterworth_order_analog', fp=1000.0, fstop=2000
 
 <a id="butterworth_order_digital"></a>
 
-### Minimum order of a digital (bilinear) Butterworth filter — `butterworth_order_digital`
+### Minimum order of a digital (bilinear) Butterworth filter, `butterworth_order_digital`
 
 The smallest order meeting a passband edge with at most Rp dB attenuation and a stopband edge with at least As dB (digital design by the bilinear transform: edges pre-warped with tan(pi f / fs)).
 
@@ -1719,11 +1719,11 @@ $$
 
 ![The smallest Butterworth order for fp = 1000 Hz, Rp = 1](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/butterworth-order-digital-order)
 
-*The smallest Butterworth order for fp = 1000 Hz, Rp = 1.0 dB, As = 40.0 dB as the stopband edge moves toward fs/2 = 5000 Hz: the digital design (bilinear transform at fs = 10000 Hz) against the analog one, 80 runs of the package each — frequency warping near fs/2 lets the digital filter use a lower order. Marked: fstop = 2000.0 Hz, N = 7.*
+*The smallest Butterworth order for fp = 1000 Hz, Rp = 1.0 dB, As = 40.0 dB as the stopband edge moves toward fs/2 = 5000 Hz: the digital design (bilinear transform at fs = 10000 Hz) against the analog one, 80 runs of the package each, frequency warping near fs/2 lets the digital filter use a lower order. Marked: fstop = 2000.0 Hz, N = 7.*
 
-![lowpass (fp < fstop) or highpass (fp > fstop) (type) over fp (passband edge frequency) from 100 Hz to 10000 Hz and fstop (stopband edge frequency) from 200 Hz to 20000 Hz (logarithmic axes): each of the 31 × 21 cells is one run of signal-processing-ai999x, coloured by the verdict it returned — highpass: 154 cells, lowpass: 210 cells; blank cells: inputs the capability refuses](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/butterworth-order-digital-decision)
+![lowpass (fp < fstop) or highpass (fp > fstop) (type) over fp (passband edge frequency) from 100 Hz to 10000 Hz and fstop (stopband edge frequency) from 200 Hz to 20000 Hz (logarithmic axes): each of the 31 × 21 cells is one run of signal-processing-ai999x, coloured by the verdict it returned, highpass: 154 cells, lowpass: 210 cells; blank cells: inputs the capability refuses](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/butterworth-order-digital-decision)
 
-*lowpass (fp < fstop) or highpass (fp > fstop) (type) over fp (passband edge frequency) from 100 Hz to 10000 Hz and fstop (stopband edge frequency) from 200 Hz to 20000 Hz (logarithmic axes): each of the 31 × 21 cells is one run of signal-processing-ai999x, coloured by the verdict it returned — highpass: 154 cells, lowpass: 210 cells; blank cells: inputs the capability refuses. Other inputs as in the worked example: fs = 10000.0 Hz, Rp = 1.0, As = 40.0. Marked: the worked example, fp = 1000 Hz, fstop = 2000 Hz → lowpass.*
+*lowpass (fp < fstop) or highpass (fp > fstop) (type) over fp (passband edge frequency) from 100 Hz to 10000 Hz and fstop (stopband edge frequency) from 200 Hz to 20000 Hz (logarithmic axes): each of the 31 × 21 cells is one run of signal-processing-ai999x, coloured by the verdict it returned, highpass: 154 cells, lowpass: 210 cells; blank cells: inputs the capability refuses. Other inputs as in the worked example: fs = 10000.0 Hz, Rp = 1.0, As = 40.0. Marked: the worked example, fp = 1000 Hz, fstop = 2000 Hz → lowpass.*
 
 ```python
 signal_processing_ai999x.solve('butterworth_order_digital', fp=1000.0, fstop=2000.0, Rp=1.0, As=40.0, fs=10000.0)
@@ -1739,7 +1739,7 @@ signal_processing_ai999x.solve('butterworth_order_digital', fp=1000.0, fstop=200
 
 <a id="chebyshev1_order_analog"></a>
 
-### Minimum order of a analog Chebyshev type I filter — `chebyshev1_order_analog`
+### Minimum order of a analog Chebyshev type I filter, `chebyshev1_order_analog`
 
 The smallest order meeting a passband edge with at most Rp dB attenuation and a stopband edge with at least As dB.
 
@@ -1765,11 +1765,11 @@ $$
 
 ![The smallest analog filter order for passband edge fp = 1000](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/chebyshev1-order-analog-order)
 
-*The smallest analog filter order for passband edge fp = 1000.0 Hz (ripple Rp = 1.0 dB) and stopband edge fstop = 2000.0 Hz, as the stopband attenuation As grows from 10 to 90 dB: Chebyshev type I against Butterworth, 81 runs of the package each, drawn as steps — the equiripple passband buys a lower order. Marked: As = 40.0 dB, Chebyshev N = 5.*
+*The smallest analog filter order for passband edge fp = 1000.0 Hz (ripple Rp = 1.0 dB) and stopband edge fstop = 2000.0 Hz, as the stopband attenuation As grows from 10 to 90 dB: Chebyshev type I against Butterworth, 81 runs of the package each, drawn as steps, the equiripple passband buys a lower order. Marked: As = 40.0 dB, Chebyshev N = 5.*
 
-![lowpass (fp < fstop) or highpass (fp > fstop) (type) over fp (passband edge frequency) from 100 Hz to 10000 Hz and fstop (stopband edge frequency) from 200 Hz to 20000 Hz (logarithmic axes): each of the 31 × 21 cells is one run of signal-processing-ai999x, coloured by the verdict it returned — highpass: 234 cells, lowpass: 417 cells](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/chebyshev1-order-analog-decision)
+![lowpass (fp < fstop) or highpass (fp > fstop) (type) over fp (passband edge frequency) from 100 Hz to 10000 Hz and fstop (stopband edge frequency) from 200 Hz to 20000 Hz (logarithmic axes): each of the 31 × 21 cells is one run of signal-processing-ai999x, coloured by the verdict it returned, highpass: 234 cells, lowpass: 417 cells](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/chebyshev1-order-analog-decision)
 
-*lowpass (fp < fstop) or highpass (fp > fstop) (type) over fp (passband edge frequency) from 100 Hz to 10000 Hz and fstop (stopband edge frequency) from 200 Hz to 20000 Hz (logarithmic axes): each of the 31 × 21 cells is one run of signal-processing-ai999x, coloured by the verdict it returned — highpass: 234 cells, lowpass: 417 cells. Other inputs as in the worked example: Rp = 1.0, As = 40.0. Marked: the worked example, fp = 1000 Hz, fstop = 2000 Hz → lowpass.*
+*lowpass (fp < fstop) or highpass (fp > fstop) (type) over fp (passband edge frequency) from 100 Hz to 10000 Hz and fstop (stopband edge frequency) from 200 Hz to 20000 Hz (logarithmic axes): each of the 31 × 21 cells is one run of signal-processing-ai999x, coloured by the verdict it returned, highpass: 234 cells, lowpass: 417 cells. Other inputs as in the worked example: Rp = 1.0, As = 40.0. Marked: the worked example, fp = 1000 Hz, fstop = 2000 Hz → lowpass.*
 
 ```python
 signal_processing_ai999x.solve('chebyshev1_order_analog', fp=1000.0, fstop=2000.0, Rp=1.0, As=40.0)
@@ -1785,7 +1785,7 @@ signal_processing_ai999x.solve('chebyshev1_order_analog', fp=1000.0, fstop=2000.
 
 <a id="second_order_poles"></a>
 
-### Poles and stability of a second-order all-pole system — `second_order_poles`
+### Poles and stability of a second-order all-pole system, `second_order_poles`
 
 The poles of H($z) = 1/(1 + a_{1}$ $z^{-1} + a_{2}$ z^-2) (roots of $z^{2} + a_{1}$ z + a2), their largest radius and whether the causal system is stable.
 
@@ -1815,7 +1815,7 @@ $$
 
 ![stable if every pole lies inside the unit circle (stability) over a1 (coefficient of z^-1 in the denominator) from -1](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/second-order-poles-decision)
 
-*stable if every pole lies inside the unit circle (stability) over a1 (coefficient of z^-1 in the denominator) from -1.8 to -0.6 and a2 (coefficient of z^-2 in the denominator) from 0.02 to 0.98: each of the 31 × 21 cells is one run of signal-processing-ai999x, coloured by the verdict it returned — stable: 474 cells, unstable: 177 cells. Marked: the worked example, a1 = -1.2, a2 = 0.5 → stable.*
+*stable if every pole lies inside the unit circle (stability) over a1 (coefficient of z^-1 in the denominator) from -1.8 to -0.6 and a2 (coefficient of z^-2 in the denominator) from 0.02 to 0.98: each of the 31 × 21 cells is one run of signal-processing-ai999x, coloured by the verdict it returned, stable: 474 cells, unstable: 177 cells. Marked: the worked example, a1 = -1.2, a2 = 0.5 → stable.*
 
 ```python
 signal_processing_ai999x.solve('second_order_poles', a1=-1.2, a2=0.5)
@@ -1838,7 +1838,7 @@ signal_processing_ai999x.solve('second_order_poles', a1=-2.5, a2=1.0)
 
 <a id="poles_zeros"></a>
 
-### Poles, zeros and stability of a digital filter — `poles_zeros`
+### Poles, zeros and stability of a digital filter, `poles_zeros`
 
 The zeros and poles of H(z) = sum b_k z^-k / sum a_k $z^{-k}$ (up to 4th order), the largest pole radius and whether the causal filter is stable.
 
@@ -1895,7 +1895,7 @@ signal_processing_ai999x.solve('poles_zeros', b=[1], a=[1, -1.5, 0.5])
 
 <a id="bilinear_rc_lowpass"></a>
 
-### Bilinear transform of a first-order low-pass filter — `bilinear_rc_lowpass`
+### Bilinear transform of a first-order low-pass filter, `bilinear_rc_lowpass`
 
 The digital filter H($z) = (b_{0} + b_{1}$ $z^{-1})/(1 + a_{1}$ z^-1) obtained from H(s) = wc/(s + wc) by the bilinear transform $s = 2$ fs $(1 - z^{-1})/(1 + z^{-1})$, without pre-warping.
 
@@ -1940,7 +1940,7 @@ signal_processing_ai999x.solve('bilinear_rc_lowpass', fc=1000.0, fs=8000.0)
 
 <a id="window_mainlobe_width"></a>
 
-### Main-lobe width of a spectral window — `window_mainlobe_width`
+### Main-lobe width of a spectral window: `window_mainlobe_width`
 
 The null-to-null main-lobe width of the rectangular, Hann, Hamming or Blackman window (DFT-even form), in bins and, with fs, in hertz.
 
@@ -1994,7 +1994,7 @@ signal_processing_ai999x.solve('window_mainlobe_width', window='blackman', N=100
 
 <a id="window_coefficients"></a>
 
-### Coefficients of a window function — `window_coefficients`
+### Coefficients of a window function: `window_coefficients`
 
 The samples w[$0..N-1$] of a rectangular, Hann, Hamming or Blackman window (symmetric for filter design, periodic for spectral analysis) and its coherent gain.
 
@@ -2046,7 +2046,7 @@ signal_processing_ai999x.solve('window_coefficients', window='hamming', N=3)
 
 <a id="fourier_series_harmonic"></a>
 
-### Harmonic amplitude of a square, triangle or sawtooth wave — `fourier_series_harmonic`
+### Harmonic amplitude of a square, triangle or sawtooth wave, `fourier_series_harmonic`
 
 The amplitude of the n-th harmonic in the Fourier series of a zero-mean square, triangle or sawtooth wave of peak amplitude A, relative to the fundamental, and its RMS value.
 
@@ -2109,7 +2109,7 @@ signal_processing_ai999x.solve('fourier_series_harmonic', waveform='sawtooth', A
 
 <a id="rect_pulse_spectrum"></a>
 
-### Fourier transform of a rectangular pulse — `rect_pulse_spectrum`
+### Fourier transform of a rectangular pulse: `rect_pulse_spectrum`
 
 X(f) = A tau sinc(f tau) of a rectangular pulse of amplitude A and width tau centred at $t = 0$, its magnitude, and the first spectral null $1/\tau.$
 
@@ -2162,7 +2162,7 @@ signal_processing_ai999x.solve('rect_pulse_spectrum', A=1, tau=0.001, f=1000.0)
 
 <a id="exponential_pulse_spectrum"></a>
 
-### Fourier transform of a decaying exponential — `exponential_pulse_spectrum`
+### Fourier transform of a decaying exponential, `exponential_pulse_spectrum`
 
 X(f) = A tau / (1 + j 2 pi f tau) of x(t) = A exp(-t/tau) for $t  \geq  0$: magnitude, phase, real and imaginary parts.
 
@@ -2211,7 +2211,7 @@ signal_processing_ai999x.solve('exponential_pulse_spectrum', A=2, tau=0.5, f=0.0
 
 <a id="thd"></a>
 
-### Total harmonic distortion — `thd`
+### Total harmonic distortion: `thd`
 
 THD = sqrt(V2^2 + V3^2 + ...)/V1 from the amplitudes of the fundamental and its harmonics, as a ratio, in percent and in dB.
 
@@ -2257,7 +2257,7 @@ signal_processing_ai999x.solve('thd', V=[1, 0.3, 0.4])
 
 <a id="analytic_envelope"></a>
 
-### Analytic signal, Hilbert transform and envelope — `analytic_envelope`
+### Analytic signal, Hilbert transform and envelope, `analytic_envelope`
 
 The discrete Hilbert transform of a real sequence and its envelope |x + j H{x}|, computed through the DFT (negative frequencies removed, positive ones doubled).
 
@@ -2296,7 +2296,7 @@ signal_processing_ai999x.solve('analytic_envelope', x='1, 0, -1, 0')
 
 <a id="periodogram"></a>
 
-### Periodogram (power spectral density estimate) — `periodogram`
+### Periodogram (power spectral density estimate), `periodogram`
 
 The one-sided periodogram PSD estimate (rectangular window, mean removed) of a sequence sampled at fs, its frequency grid and the frequency of its peak.
 
@@ -2319,9 +2319,9 @@ $$
 - **Assumes:** mean removed first; rectangular window; one-sided density scaling
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The periodogram returned by the package for 32 samples at fs = 8 Hz of the chosen signal x[n] = sin(2π·1·n/fs) + 0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/periodogram-spectrum)
+![The worked example's 8 samples at fs = 8 Hz (top) and the periodogram the package returns for them (bottom): 5 frequencies 0 … fs/2 in steps of fs/8 = 1 Hz](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/periodogram-spectrum)
 
-*The periodogram returned by the package for 32 samples at fs = 8 Hz of the chosen signal x[n] = sin(2π·1·n/fs) + 0.5 sin(2π·2.5·n/fs): 17 frequencies 0 … fs/2 in steps of fs/32 = 0.25 Hz; the two tones appear at 1 Hz and 2.5 Hz, the second a quarter of the first's power. Marked: the returned peak frequency 1 Hz.*
+*The worked example's 8 samples at fs = 8 Hz (top) and the periodogram the package returns for them (bottom): 5 frequencies 0 … fs/2 in steps of fs/8 = 1 Hz. Marked: the returned peak frequency 2 Hz.*
 
 ```python
 signal_processing_ai999x.solve('periodogram', x='1, 0, -1, 0, 1, 0, -1, 0', fs=8.0)
@@ -2337,7 +2337,7 @@ signal_processing_ai999x.solve('periodogram', x='1, 0, -1, 0, 1, 0, -1, 0', fs=8
 
 <a id="am_power"></a>
 
-### Power in an AM (DSB full-carrier) signal — `am_power`
+### Power in an AM (DSB full-carrier) signal: `am_power`
 
 Total power Pc $(1 + m^{2}/2)$, sideband power, power per sideband and transmission efficiency of an AM signal with carrier power Pc and modulation index m (sinusoidal message).
 
@@ -2390,7 +2390,7 @@ signal_processing_ai999x.solve('am_power', Pc=50.0, m=1.0)
 
 <a id="am_modulation_index"></a>
 
-### AM modulation index from the envelope — `am_modulation_index`
+### AM modulation index from the envelope: `am_modulation_index`
 
 The modulation index m = (Vmax - Vmin)/(Vmax + Vmin) of an AM wave from the maximum and minimum of its envelope, and the carrier amplitude.
 
@@ -2434,7 +2434,7 @@ signal_processing_ai999x.solve('am_modulation_index', Vmax=10.0, Vmin=2.0)
 
 <a id="fm_spectrum"></a>
 
-### FM spectrum: Carson bandwidth and Bessel sideband amplitudes — `fm_spectrum`
+### FM spectrum: Carson bandwidth and Bessel sideband amplitudes, `fm_spectrum`
 
 For sinusoidal FM with peak deviation df and modulating frequency fm: the index $\beta = df/fm$, Carson's bandwidth 2(df + fm), the carrier and n-th sideband amplitudes J0(beta), Jn(beta) (relative to the unmodulated carrier) and the power fraction inside Carson's bandwidth.
 
@@ -2489,7 +2489,7 @@ signal_processing_ai999x.solve('fm_spectrum', df=2405.0, fm=1000.0, n=1)
 
 <a id="shannon_capacity"></a>
 
-### Shannon capacity of an AWGN channel — `shannon_capacity`
+### Shannon capacity of an AWGN channel: `shannon_capacity`
 
 The channel capacity $C = B$ log2(1 + SNR) of a band-limited additive white Gaussian noise channel and the spectral efficiency C/B.
 
@@ -2540,7 +2540,7 @@ signal_processing_ai999x.solve('shannon_capacity', B=1000000.0, snr_db=0.0)
 
 <a id="shannon_min_snr"></a>
 
-### Minimum SNR for a data rate (Shannon limit) — `shannon_min_snr`
+### Minimum SNR for a data rate (Shannon limit), `shannon_min_snr`
 
 The smallest SNR = 2^(C/B) - 1 that lets an AWGN channel of bandwidth B carry C bit/s, and the corresponding minimum $Eb/N_{0}.$
 
@@ -2586,7 +2586,7 @@ signal_processing_ai999x.solve('shannon_min_snr', C=1000000.0, B=1000000.0)
 
 <a id="bpsk_ber"></a>
 
-### Bit error rate of BPSK (and coherent BFSK) in AWGN — `bpsk_ber`
+### Bit error rate of BPSK (and coherent BFSK) in AWGN, `bpsk_ber`
 
 The bit error probability of coherent BPSK, Q(sqrt(2 Eb/N0)), and of coherent orthogonal BFSK, Q(sqrt(Eb/N0)), in additive white Gaussian noise.
 
@@ -2630,7 +2630,7 @@ signal_processing_ai999x.solve('bpsk_ber', ebn0_db=0.0)
 
 <a id="qpsk_error_rates"></a>
 
-### Bit and symbol error rates of QPSK in AWGN — `qpsk_error_rates`
+### Bit and symbol error rates of QPSK in AWGN, `qpsk_error_rates`
 
 Gray-coded coherent QPSK: bit error rate Q(sqrt(2 Eb/N0)) and symbol error rate $2Q - Q^{2.}$
 
@@ -2668,7 +2668,7 @@ signal_processing_ai999x.solve('qpsk_error_rates', ebn0_db=6.0)
 
 <a id="noncoherent_ber"></a>
 
-### Bit error rates of DPSK and noncoherent BFSK — `noncoherent_ber`
+### Bit error rates of DPSK and noncoherent BFSK, `noncoherent_ber`
 
 The bit error rates of differentially coherent BPSK (DPSK), exp(-Eb/N0)/2, and of noncoherent orthogonal BFSK, exp(-Eb/2N0)/2, in AWGN.
 
@@ -2707,7 +2707,7 @@ signal_processing_ai999x.solve('noncoherent_ber', ebn0_db=3.010299956639812)
 
 <a id="mqam_symbol_error"></a>
 
-### Symbol error rate of square M-QAM in AWGN — `mqam_symbol_error`
+### Symbol error rate of square M-QAM in AWGN: `mqam_symbol_error`
 
 The exact symbol error rate of coherent square M-QAM (4 to 1024 points) at a given $Eb/N_{0}$, and the Gray-coded bit error rate approximation SER/log2 M.
 
@@ -2753,7 +2753,7 @@ signal_processing_ai999x.solve('mqam_symbol_error', M='4', ebn0_db=6.0)
 
 <a id="mpsk_symbol_error"></a>
 
-### Symbol error rate of M-PSK in AWGN — `mpsk_symbol_error`
+### Symbol error rate of M-PSK in AWGN: `mpsk_symbol_error`
 
 The exact symbol error rate of coherent M-PSK (M = 2 to 64) at a given $Eb/N_{0}$ (Craig's integral), and the Gray-coded bit error rate approximation.
 
@@ -2803,7 +2803,7 @@ signal_processing_ai999x.solve('mpsk_symbol_error', M='8', ebn0_db=10.0)
 
 <a id="noise_figure_cascade"></a>
 
-### Noise figure of cascaded stages (Friis formula) — `noise_figure_cascade`
+### Noise figure of cascaded stages (Friis formula), `noise_figure_cascade`
 
 The overall noise figure, noise factor, equivalent noise temperature and gain of a chain of matched stages with given noise figures and gains.
 
@@ -2827,9 +2827,9 @@ $$
 - **Assumes:** impedance-matched stages; noise figures referred to $T_{0} = 290$ K; one gain per stage
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Friis noise cascade of 3 stages with noise figures [2, 6, 10] dB and gains [15, 20, 10] dB (inputs): the cascade figure after each stage, each a run of the package on the first stages — 2, 2](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/noise-figure-cascade-bars)
+![Friis noise cascade of 3 stages with noise figures [2, 6, 10] dB and gains [15, 20, 10] dB (inputs): the cascade figure after each stage, each a run of the package on the first stages, 2, 2](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/noise-figure-cascade-bars)
 
-*Friis noise cascade of 3 stages with noise figures [2, 6, 10] dB and gains [15, 20, 10] dB (inputs): the cascade figure after each stage, each a run of the package on the first stages — 2, 2.25093, 2.25828 dB. The first stage dominates; later noisy stages add little because the gain in front divides their contribution. Whole chain: F = 1.68201, Te = 197.783 K, gain 45 dB.*
+*Friis noise cascade of 3 stages with noise figures [2, 6, 10] dB and gains [15, 20, 10] dB (inputs): the cascade figure after each stage, each a run of the package on the first stages, 2, 2.25093, 2.25828 dB. The first stage dominates; later noisy stages add little because the gain in front divides their contribution. Whole chain: F = 1.68201, Te = 197.783 K, gain 45 dB.*
 
 ```python
 signal_processing_ai999x.solve('noise_figure_cascade', nf_db='2, 6, 10', gain_db='15, 20, 10')
@@ -2850,7 +2850,7 @@ signal_processing_ai999x.solve('noise_figure_cascade', nf_db=[3, 3], gain_db=[10
 
 <a id="free_space_path_loss"></a>
 
-### Free-space path loss — `free_space_path_loss`
+### Free-space path loss: `free_space_path_loss`
 
 The loss (4 pi d f / c)^2 between isotropic antennas a distance d apart at frequency f, in dB and as a ratio.
 
@@ -2896,7 +2896,7 @@ signal_processing_ai999x.solve('free_space_path_loss', d=100.0, f=2400000000.0)
 
 <a id="friis_received_power"></a>
 
-### Received power of a radio link (Friis transmission equation) — `friis_received_power`
+### Received power of a radio link (Friis transmission equation), `friis_received_power`
 
 The power received over a free-space link: $Pr = Pt$ Gt Gr (lambda / 4 pi d)^2, in dBm and watts.
 
@@ -2944,7 +2944,7 @@ signal_processing_ai999x.solve('friis_received_power', Pt=1.0, Gt_db=10.0, Gr_db
 
 <a id="dish_antenna_gain"></a>
 
-### Gain of a parabolic dish (aperture) antenna — `dish_antenna_gain`
+### Gain of a parabolic dish (aperture) antenna, `dish_antenna_gain`
 
 The gain eta (pi D / lambda)^2 of a circular aperture antenna of diameter D and aperture efficiency eta, in dBi, and its effective aperture.
 
@@ -2986,7 +2986,7 @@ signal_processing_ai999x.solve('dish_antenna_gain', D=3.0, f=10000000000.0, eta=
 
 <a id="radar_received_power"></a>
 
-### Received echo power (radar range equation) — `radar_received_power`
+### Received echo power (radar range equation), `radar_received_power`
 
 The echo power $Pr = Pt$ $G^{2}$ $\lambda^{2}$ sigma / ((4 pi)^3 R^4) of a monostatic radar from a target of cross-section sigma at range R.
 
@@ -3029,7 +3029,7 @@ signal_processing_ai999x.solve('radar_received_power', Pt=1000000.0, G_db=40.0, 
 
 <a id="radar_max_range"></a>
 
-### Maximum detection range of a radar — `radar_max_range`
+### Maximum detection range of a radar: `radar_max_range`
 
 The largest range R = (Pt $G^{2}$ $\lambda^{2}$ sigma / ((4 pi)^3 Smin))^$(1/4)$ at which the echo still reaches the minimum detectable signal.
 
@@ -3070,7 +3070,7 @@ signal_processing_ai999x.solve('radar_max_range', Pt=1000000.0, G_db=40.0, f=300
 
 <a id="radar_doppler"></a>
 
-### Doppler shift of a radar echo — `radar_doppler`
+### Doppler shift of a radar echo: `radar_doppler`
 
 The two-way Doppler shift of the echo from a target closing at radial velocity v (negative when receding): $fd = 2$ v f / (c - v), essentially 2 v / lambda.
 
@@ -3114,7 +3114,7 @@ signal_processing_ai999x.solve('radar_doppler', v=30.0, f=10000000000.0)
 
 <a id="reflection_coefficient"></a>
 
-### Reflection coefficient, VSWR and return loss of a load — `reflection_coefficient`
+### Reflection coefficient, VSWR and return loss of a load, `reflection_coefficient`
 
 For a load ZL = RL + jXL on a line of characteristic impedance Z0: the reflection coefficient (magnitude, angle, parts), VSWR, return loss and mismatch loss.
 
@@ -3166,7 +3166,7 @@ signal_processing_ai999x.solve('reflection_coefficient', RL=100.0, Z0=50.0)
 
 <a id="vswr_from_reflection"></a>
 
-### VSWR and return loss from the reflection coefficient — `vswr_from_reflection`
+### VSWR and return loss from the reflection coefficient, `vswr_from_reflection`
 
 The VSWR (1 + |Gamma|)/(1 - |Gamma|), the return loss -20 log10 |Gamma| and the mismatch loss from the magnitude of the reflection coefficient.
 
@@ -3206,7 +3206,7 @@ signal_processing_ai999x.solve('vswr_from_reflection', gamma=0.2)
 
 <a id="reflection_from_vswr"></a>
 
-### Reflection coefficient and return loss from the VSWR — `reflection_from_vswr`
+### Reflection coefficient and return loss from the VSWR, `reflection_from_vswr`
 
 The reflection coefficient magnitude (VSWR - 1)/(VSWR + 1), the return loss and the mismatch loss for a given VSWR.
 
@@ -3246,7 +3246,7 @@ signal_processing_ai999x.solve('reflection_from_vswr', vswr=2.0)
 
 <a id="input_impedance"></a>
 
-### Input impedance of a terminated lossless line — `input_impedance`
+### Input impedance of a terminated lossless line, `input_impedance`
 
 The impedance seen at the input of a lossless line of characteristic impedance Z0 and electrical length l (in wavelengths) terminated in ZL = RL + jXL.
 
@@ -3295,7 +3295,7 @@ signal_processing_ai999x.solve('input_impedance', RL=100.0, Z0=50.0, length=0.12
 
 <a id="quarter_wave_transformer"></a>
 
-### Quarter-wave impedance transformer — `quarter_wave_transformer`
+### Quarter-wave impedance transformer: `quarter_wave_transformer`
 
 The characteristic impedance sqrt(RL Z0) of the quarter-wave section that matches a resistive load RL to a line Z0, and its physical length at frequency f.
 
@@ -3343,7 +3343,7 @@ signal_processing_ai999x.solve('quarter_wave_transformer', RL=300.0, Z0=75.0, f=
 
 <a id="coax_impedance"></a>
 
-### Characteristic impedance of a coaxial line — `coax_impedance`
+### Characteristic impedance of a coaxial line, `coax_impedance`
 
 The characteristic impedance (eta0 / (2 pi sqrt(er))) ln(D/d) of a lossless coaxial line and its velocity factor $1/sqrt$(er).
 
@@ -3388,7 +3388,7 @@ signal_processing_ai999x.solve('coax_impedance', D=0.0035, d=0.001, er=2.25)
 
 <a id="butterworth_design"></a>
 
-### Digital Butterworth filter design (bilinear transform) — `butterworth_design`
+### Digital Butterworth filter design (bilinear transform), `butterworth_design`
 
 The coefficients b and a of an N-th order digital Butterworth low-pass or high-pass filter with cutoff fc at sampling rate fs (bilinear transform with pre-warping).
 
@@ -3440,7 +3440,7 @@ signal_processing_ai999x.solve('butterworth_design', N=1, fc=2000.0, fs=8000.0, 
 
 <a id="fir_window_design"></a>
 
-### FIR low-pass filter design by the window method — `fir_window_design`
+### FIR low-pass filter design by the window method, `fir_window_design`
 
 The N taps of a linear-phase FIR low-pass filter with cutoff fc: an ideal (sinc) impulse response shifted by $(N-1)/2$, multiplied by a rectangular, Hann, Hamming or Blackman window and scaled to unit DC gain.
 
@@ -3490,7 +3490,7 @@ signal_processing_ai999x.solve('fir_window_design', N=3, fc=2000.0, fs=8000.0, w
 
 <a id="notch_filter_design"></a>
 
-### Second-order IIR notch filter design — `notch_filter_design`
+### Second-order IIR notch filter design: `notch_filter_design`
 
 The coefficients of a second-order IIR notch filter removing frequency f0 with quality factor Q (bandwidth $f_{0}/Q$ $at -3$ dB) at sampling rate fs.
 
@@ -3535,7 +3535,7 @@ signal_processing_ai999x.solve('notch_filter_design', f0=60.0, Q=30.0, fs=1000.0
 
 <a id="haar_dwt"></a>
 
-### Haar discrete wavelet transform — `haar_dwt`
+### Haar discrete wavelet transform: `haar_dwt`
 
 The multi-level orthonormal Haar wavelet transform of a sequence whose length is a power of two: the final approximation and the detail coefficients of every level (coarsest first).
 
@@ -3580,7 +3580,7 @@ signal_processing_ai999x.solve('haar_dwt', x=[1, 3])
 
 <a id="haar_idwt"></a>
 
-### Inverse Haar wavelet transform (one level) — `haar_idwt`
+### Inverse Haar wavelet transform (one level), `haar_idwt`
 
 The sequence reconstructed from one level of Haar approximation and detail coefficients.
 

@@ -1,4 +1,4 @@
-<!doctype html><html><head><meta charset="utf-8"><title>signal-processing — user guide (Rust build)</title>
+<!doctype html><html><head><meta charset="utf-8"><title>signal-processing: user guide (Rust build)</title>
 <script>window.MathJax={tex:{inlineMath:[['$','$']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'}};</script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js"></script>
 <style>
@@ -20,43 +20,43 @@ figure{margin:10px 0;text-align:center;page-break-inside:avoid}figure img{max-wi
 figcaption{font-size:9pt;color:#555}
 .pb{page-break-after:always}
 </style></head><body>
-<h1>signal-processing: the Signal Processing program — user guide</h1>
+<h1>signal-processing: the Signal Processing program, user guide</h1>
 <p><strong>signal-processing-ai999x 1.1.0</strong>, Rust build: command line, desktop app and browser. <strong>Creator / engineer:</strong> Ibnul Jaif Farabi · <strong>Company:</strong> AI999X · support@ai999x.com</p>
 <p>Signal Processing covers sampling, Fourier series and transforms, the DFT and FFT, filters, convolution, z-transforms, modulation, communication links, RF transmission lines and radar. This guide is about <code>signal-processing</code>, the model as a self-contained program for Windows and Linux: 74 capabilities in 18 topics, answered on your own computer with no network, no Python and nothing else to install. The same compiled model runs in the AI999X desktop app and in the browser on the model&#x27;s page (https://www.ai999x.com/models/signal-processing-ai999x/); the Python package (<code>pip install signal-processing-ai999x</code>) has its own guide. Every command output printed here is what the program printed.</p>
 <h2>Contents</h2>
 <ul><li>1. Get it: desktop app, command line, browser, Python</li><li>2. Quick start</li><li>3. Writing inputs</li><li>4. Outcomes and exit codes</li><li>5. Scripts and agents: batch and JSON</li><li>6. Figures</li><li>7. In a web page or Node.js: WebAssembly</li><li>8. Every capability</li></ul>
 <h2>1. Get it</h2>
-<p>Version 1.4.0 of the AI999X desktop app and of the command-line bundle. Checksums for every file: https://downloads.ai999x.com/desktop/1.4.0/SHA256SUMS; the newest version is always under https://downloads.ai999x.com/desktop/latest/. Full instructions: https://www.ai999x.com/desktop-cli/</p>
-<table><thead><tr><th>what</th><th>system</th><th>download</th></tr></thead><tbody><tr><td>Desktop app: Signal Processing</td><td>Windows x86-64</td><td>https://downloads.ai999x.com/desktop/1.4.0/ai999x-signal-processing-1.4.0-windows-x86_64.zip</td></tr><tr><td>Desktop app: Signal Processing</td><td>Linux x86-64</td><td>https://downloads.ai999x.com/desktop/1.4.0/ai999x-signal-processing-1.4.0-linux-x86_64.tar.gz</td></tr><tr><td>Desktop app: all models</td><td>Windows x86-64</td><td>https://downloads.ai999x.com/desktop/1.4.0/ai999x-1.4.0-windows-x86_64.zip</td></tr><tr><td>Desktop app: all models</td><td>Linux x86-64</td><td>https://downloads.ai999x.com/desktop/1.4.0/ai999x-1.4.0-linux-x86_64.tar.gz</td></tr><tr><td>Command line</td><td>Windows x86-64</td><td>https://downloads.ai999x.com/desktop/1.4.0/ai999x-cli-1.4.0-windows-x86_64.zip</td></tr><tr><td>Command line</td><td>Linux x86-64</td><td>https://downloads.ai999x.com/desktop/1.4.0/ai999x-cli-1.4.0-linux-x86_64.tar.gz</td></tr></tbody></table>
+<p>Version 1.5.0 of the AI999X desktop app and of the command-line bundle. Checksums for every file: https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS; the newest version is always under https://downloads.ai999x.com/desktop/latest/. Full instructions: https://www.ai999x.com/desktop-cli/</p>
+<table><thead><tr><th>what</th><th>system</th><th>download</th></tr></thead><tbody><tr><td>Desktop app: Signal Processing</td><td>Windows x86-64</td><td>https://downloads.ai999x.com/desktop/1.5.0/ai999x-signal-processing-1.5.0-windows-x86_64.zip</td></tr><tr><td>Desktop app: Signal Processing</td><td>Linux x86-64</td><td>https://downloads.ai999x.com/desktop/1.5.0/ai999x-signal-processing-1.5.0-linux-x86_64.tar.gz</td></tr><tr><td>Desktop app: all models</td><td>Windows x86-64</td><td>https://downloads.ai999x.com/desktop/1.5.0/ai999x-1.5.0-windows-x86_64.zip</td></tr><tr><td>Desktop app: all models</td><td>Linux x86-64</td><td>https://downloads.ai999x.com/desktop/1.5.0/ai999x-1.5.0-linux-x86_64.tar.gz</td></tr><tr><td>Command line</td><td>Windows x86-64</td><td>https://downloads.ai999x.com/desktop/1.5.0/ai999x-cli-1.5.0-windows-x86_64.zip</td></tr><tr><td>Command line</td><td>Linux x86-64</td><td>https://downloads.ai999x.com/desktop/1.5.0/ai999x-cli-1.5.0-linux-x86_64.tar.gz</td></tr></tbody></table>
 <h3>Desktop app</h3>
-<p>Signal Processing in its own app: search, questions in words, input forms, live figures and explanations. Windows: Download ai999x-signal-processing-1.4.0-windows-x86_64.zip, right-click it → Extract All, then open the folder and start ai999x-signal-processing.exe. If Windows SmartScreen asks, choose More info → Run anyway. Linux:</p>
-<pre><code class="shell">curl -LO https://downloads.ai999x.com/desktop/1.4.0/ai999x-signal-processing-1.4.0-linux-x86_64.tar.gz
-curl -LO https://downloads.ai999x.com/desktop/1.4.0/SHA256SUMS
+<p>Signal Processing in its own app: search, questions in words, input forms, live figures and explanations. Windows: Download ai999x-signal-processing-1.5.0-windows-x86_64.zip, right-click it → Extract All, then open the folder and start ai999x-signal-processing.exe. If Windows SmartScreen asks, choose More info → Run anyway. Linux:</p>
+<pre><code class="shell">curl -LO https://downloads.ai999x.com/desktop/1.5.0/ai999x-signal-processing-1.5.0-linux-x86_64.tar.gz
+curl -LO https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS
 sha256sum -c --ignore-missing SHA256SUMS
-tar xzf ai999x-signal-processing-1.4.0-linux-x86_64.tar.gz
-./ai999x-signal-processing-1.4.0-linux-x86_64/ai999x-signal-processing</code></pre>
-<p>It opens on this model: type a question or pick a capability, fill in the form and press Compute. The AI999X desktop app with every model works the same way (choose the model first). Windows: Download ai999x-1.4.0-windows-x86_64.zip, right-click it → Extract All, then open the folder and start ai999x.exe. If Windows SmartScreen asks, choose More info → Run anyway. Linux:</p>
-<pre><code class="shell">curl -LO https://downloads.ai999x.com/desktop/1.4.0/ai999x-1.4.0-linux-x86_64.tar.gz
-curl -LO https://downloads.ai999x.com/desktop/1.4.0/SHA256SUMS
+tar xzf ai999x-signal-processing-1.5.0-linux-x86_64.tar.gz
+./ai999x-signal-processing-1.5.0-linux-x86_64/ai999x-signal-processing</code></pre>
+<p>It opens on this model: type a question or pick a capability, fill in the form and press Compute. The AI999X desktop app with every model works the same way (choose the model first). Windows: Download ai999x-1.5.0-windows-x86_64.zip, right-click it → Extract All, then open the folder and start ai999x.exe. If Windows SmartScreen asks, choose More info → Run anyway. Linux:</p>
+<pre><code class="shell">curl -LO https://downloads.ai999x.com/desktop/1.5.0/ai999x-1.5.0-linux-x86_64.tar.gz
+curl -LO https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS
 sha256sum -c --ignore-missing SHA256SUMS
-tar xzf ai999x-1.4.0-linux-x86_64.tar.gz
-./ai999x-1.4.0-linux-x86_64/ai999x</code></pre>
-<h3>Command line — Linux</h3>
+tar xzf ai999x-1.5.0-linux-x86_64.tar.gz
+./ai999x-1.5.0-linux-x86_64/ai999x</code></pre>
+<h3>Command line, Linux</h3>
 <p>The bundle holds one program per model; <code>signal-processing</code> is this one. The checksum line should print OK.</p>
-<pre><code class="shell">curl -LO https://downloads.ai999x.com/desktop/1.4.0/ai999x-cli-1.4.0-linux-x86_64.tar.gz
-curl -LO https://downloads.ai999x.com/desktop/1.4.0/SHA256SUMS
+<pre><code class="shell">curl -LO https://downloads.ai999x.com/desktop/1.5.0/ai999x-cli-1.5.0-linux-x86_64.tar.gz
+curl -LO https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS
 sha256sum -c --ignore-missing SHA256SUMS
-mkdir -p ~/.local/share &amp;&amp; tar xzf ai999x-cli-1.4.0-linux-x86_64.tar.gz -C ~/.local/share
-echo &#x27;export PATH=&quot;$HOME/.local/share/ai999x-cli-1.4.0-linux-x86_64:$PATH&quot;&#x27; &gt;&gt; ~/.bashrc &amp;&amp; source ~/.bashrc
+mkdir -p ~/.local/share &amp;&amp; tar xzf ai999x-cli-1.5.0-linux-x86_64.tar.gz -C ~/.local/share
+echo &#x27;export PATH=&quot;$HOME/.local/share/ai999x-cli-1.5.0-linux-x86_64:$PATH&quot;&#x27; &gt;&gt; ~/.bashrc &amp;&amp; source ~/.bashrc
 signal-processing --version</code></pre>
-<h3>Command line — Windows (PowerShell)</h3>
+<h3>Command line, Windows (PowerShell)</h3>
 <p>The fourth line should print True.</p>
-<pre><code class="powershell">$F = &quot;ai999x-cli-1.4.0-windows-x86_64.zip&quot;
-Invoke-WebRequest &quot;https://downloads.ai999x.com/desktop/1.4.0/$F&quot; -OutFile $F
-Invoke-WebRequest &quot;https://downloads.ai999x.com/desktop/1.4.0/SHA256SUMS&quot; -OutFile SHA256SUMS
+<pre><code class="powershell">$F = &quot;ai999x-cli-1.5.0-windows-x86_64.zip&quot;
+Invoke-WebRequest &quot;https://downloads.ai999x.com/desktop/1.5.0/$F&quot; -OutFile $F
+Invoke-WebRequest &quot;https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS&quot; -OutFile SHA256SUMS
 (Get-FileHash $F -Algorithm SHA256).Hash.ToLower() -eq ((Select-String -SimpleMatch $F SHA256SUMS).Line -split &#x27; &#x27;)[0]
 Expand-Archive $F -DestinationPath &quot;$env:LOCALAPPDATA\AI999X&quot; -Force
-$D = &quot;$env:LOCALAPPDATA\AI999X\ai999x-cli-1.4.0-windows-x86_64&quot;; $env:Path += &quot;;$D&quot;
+$D = &quot;$env:LOCALAPPDATA\AI999X\ai999x-cli-1.5.0-windows-x86_64&quot;; $env:Path += &quot;;$D&quot;
 [Environment]::SetEnvironmentVariable(&quot;Path&quot;, [Environment]::GetEnvironmentVariable(&quot;Path&quot;, &quot;User&quot;) + &quot;;$D&quot;, &quot;User&quot;)
 signal-processing --version</code></pre>
 <h3>In your browser</h3>
@@ -67,7 +67,7 @@ signal-processing --version</code></pre>
 <h3>2.1 Check the install</h3>
 <p>Prints the model, its version and that this is the Rust build.</p>
 <pre><code class="shell">$ signal-processing --version
-signal-processing-ai999x 1.0.3 (Rust build, ax-engine 0.1.0)</code></pre>
+signal-processing-ai999x 1.5.0 (Rust build, ax-engine 1.5.0)</code></pre>
 <h3>2.2 Ask in words</h3>
 <p>Write the question as you would say it: the program reads the quantities and their units, picks the capability and answers.</p>
 <pre><code class="shell">$ signal-processing ask &quot;What is the Nyquist rate for a signal with a maximum frequency of 4 kHz?&quot;
@@ -139,18 +139,7 @@ mismatch_loss_db = 0.3476210626
 <p>No number is guessed: the answer names what is missing, shows a complete call, and the program exits with status 1.</p>
 <pre><code class="shell">$ signal-processing solve reflection_coefficient &quot;RL=75 ohm&quot; &quot;XL=25 ohm&quot;
 NEEDS_INPUT: reflection_coefficient needs Z0 (characteristic impedance of the line). Example: solve(&#x27;reflection_coefficient&#x27;, RL=&#x27;75 ohm&#x27;, XL=&#x27;25 ohm&#x27;, Z0=&#x27;50 ohm&#x27;).</code></pre>
-<h3>2.9 Draw the figures</h3>
-<p>The live figures for your own inputs, written as SVG files into the folder given with --out (here the current folder); open them in any browser. Without --out the SVG text comes back as JSON.</p>
-<pre><code class="shell">$ signal-processing figures nyquist_rate &quot;fmax=4 kHz&quot; --out .
-[
-  {
-    &quot;slug&quot;: &quot;nyquist-rate-live-1&quot;,
-    &quot;title&quot;: &quot;Nyquist rate (minimum sampling rate) as highest frequency in the signal varies&quot;,
-    &quot;caption&quot;: &quot;Nyquist rate (minimum sampling rate) as fmax runs from 1 to 7 kHz, every other input as you entered it (41 solutions). Marked: your fmax = 4 kHz gives fs_min = 8000. Your inputs: fmax = 4 kHz.&quot;,
-    &quot;file&quot;: &quot;.\\nyquist-rate-live-1.svg&quot;
-  }
-]</code></pre>
-<h3>2.10 Many questions at once</h3>
+<h3>2.9 Many questions at once</h3>
 <p>One JSON request per line in, one JSON answer per line out, in order: for scripts, notebooks and agents (the program starts once). In PowerShell: Get-Content cases.jsonl | signal-processing batch</p>
 <p><code>cases.jsonl</code>:</p>
 <pre><code class="json">{&quot;key&quot;: &quot;reflection_coefficient&quot;, &quot;inputs&quot;: {&quot;RL&quot;: &quot;75 ohm&quot;, &quot;XL&quot;: &quot;25 ohm&quot;, &quot;Z0&quot;: &quot;50 ohm&quot;}}
@@ -176,15 +165,6 @@ out = subprocess.run([&quot;signal-processing&quot;, &quot;batch&quot;], input=&
 answers = [json.loads(line) for line in out.splitlines()]</code></pre>
 <h2>6. Figures</h2>
 <p><code>signal-processing figures &lt;capability&gt; name=value ... --out DIR</code> draws the live figures for those inputs and writes each as an SVG file into DIR (an existing folder); without <code>--out</code> the SVG text comes back as JSON. The desktop app and the model page draw the same figures as soon as you press Compute.</p>
-<pre><code class="shell">$ signal-processing figures nyquist_rate &quot;fmax=4 kHz&quot; --out .
-[
-  {
-    &quot;slug&quot;: &quot;nyquist-rate-live-1&quot;,
-    &quot;title&quot;: &quot;Nyquist rate (minimum sampling rate) as highest frequency in the signal varies&quot;,
-    &quot;caption&quot;: &quot;Nyquist rate (minimum sampling rate) as fmax runs from 1 to 7 kHz, every other input as you entered it (41 solutions). Marked: your fmax = 4 kHz gives fs_min = 8000. Your inputs: fmax = 4 kHz.&quot;,
-    &quot;file&quot;: &quot;.\\nyquist-rate-live-1.svg&quot;
-  }
-]</code></pre>
 <h2>7. In a web page or Node.js: WebAssembly</h2>
 <p>The same model is a WebAssembly module, <code>signal_processing_ai999x.wasm</code> (https://www.ai999x.com/compute/rust/signal_processing_ai999x.wasm), with a small loader, <code>ax-wasm.js</code> (https://www.ai999x.com/compute/rust/ax-wasm.js). It runs in a browser, a Web Worker or Node.js, with no server.</p>
 <pre><code class="html">&lt;script src=&quot;ax-wasm.js&quot;&gt;&lt;/script&gt;
@@ -198,10 +178,10 @@ answers = [json.loads(line) for line in out.splitlines()]</code></pre>
 <h2>8. Every capability</h2>
 <p>By topic. For each: what it does, what it needs and gives, when it applies, and a command with what the program printed for it. <code>signal-processing info &lt;id&gt;</code> shows the same inputs and outputs in the terminal.</p>
 <h3>Analog filters (3)</h3>
-<h4 id="butterworth_magnitude">Magnitude of an analog Butterworth low-pass response — <code>butterworth_magnitude</code></h4>
+<h4 id="butterworth_magnitude">Magnitude of an analog Butterworth low-pass response, <code>butterworth_magnitude</code></h4>
 <p>|H(f)| = 1/sqrt(1 + (f/fc)^(2N)) of an N-th order Butterworth low-pass filter, and the attenuation in dB.</p>
 <div class="math">\[|H(f)| = \frac{1}{\sqrt{1 + (f/f_c)^{2N}}}\]</div>
-<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>N</code></td><td>in</td><td>filter order</td><td>—</td></tr><tr><td><code>fc</code></td><td>in</td><td>cutoff (-3 dB) frequency</td><td>Hz</td></tr><tr><td><code>f</code></td><td>in</td><td>frequency</td><td>Hz</td></tr><tr><td><code>magnitude</code></td><td>out</td><td>|H(f)|</td><td>—</td></tr><tr><td><code>attenuation_db</code></td><td>out</td><td>attenuation in dB (positive)</td><td>—</td></tr></tbody></table>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>N</code></td><td>in</td><td>filter order</td><td>, </td></tr><tr><td><code>fc</code></td><td>in</td><td>cutoff (-3 dB) frequency</td><td>Hz</td></tr><tr><td><code>f</code></td><td>in</td><td>frequency</td><td>Hz</td></tr><tr><td><code>magnitude</code></td><td>out</td><td>|H(f)|</td><td>, </td></tr><tr><td><code>attenuation_db</code></td><td>out</td><td>attenuation in dB (positive)</td><td>, </td></tr></tbody></table>
 <p><strong>Applies when:</strong> N &gt;= 1; fc &gt; 0; f &gt;= 0.</p>
 <pre><code class="shell">$ signal-processing solve butterworth_magnitude N=4 &quot;fc=1 kHz&quot; &quot;f=2 kHz&quot;
 magnitude = 0.06237828616
@@ -211,10 +191,10 @@ attenuation_db = 24.09933123
   f = 2000 Hz
   assumes: N &gt;= 1; fc &gt; 0; f &gt;= 0</code></pre>
 <p><strong>What the worked example means:</strong> This calculation determines the magnitude response of an analog Butterworth low-pass filter. Using the filter order 4, the cutoff frequency 1 kHz, and the specific input frequency 2 kHz, the model computes the normalized gain 0.0623783. This value represents the ratio of output amplitude to input amplitude at that frequency. The corresponding attenuation in decibels, 24.0993, indicates how much signal strength is lost relative to the passband. A lower magnitude signifies greater attenuation, which is typical for frequencies above the cutoff point.</p>
-<h4 id="butterworth_order_analog">Minimum order of a analog Butterworth filter — <code>butterworth_order_analog</code></h4>
+<h4 id="butterworth_order_analog">Minimum order of a analog Butterworth filter, <code>butterworth_order_analog</code></h4>
 <p>The smallest order meeting a passband edge with at most Rp dB attenuation and a stopband edge with at least As dB.</p>
 <div class="math">\[N \ge \frac{\log_{10}\frac{10^{A_s/10}-1}{10^{R_p/10}-1}}{2\log_{10}(\omega_s/\omega_p)}\]</div>
-<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>fp</code></td><td>in</td><td>passband edge frequency</td><td>Hz</td></tr><tr><td><code>fstop</code></td><td>in</td><td>stopband edge frequency</td><td>Hz</td></tr><tr><td><code>Rp</code></td><td>in</td><td>maximum passband attenuation (ripple) in dB</td><td>—</td></tr><tr><td><code>As</code></td><td>in</td><td>minimum stopband attenuation in dB</td><td>—</td></tr><tr><td><code>order</code></td><td>out</td><td>minimum filter order</td><td>—</td></tr><tr><td><code>type</code></td><td>out</td><td>lowpass (fp &lt; fstop) or highpass (fp &gt; fstop)</td><td>—</td></tr></tbody></table>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>fp</code></td><td>in</td><td>passband edge frequency</td><td>Hz</td></tr><tr><td><code>fstop</code></td><td>in</td><td>stopband edge frequency</td><td>Hz</td></tr><tr><td><code>Rp</code></td><td>in</td><td>maximum passband attenuation (ripple) in dB</td><td>, </td></tr><tr><td><code>As</code></td><td>in</td><td>minimum stopband attenuation in dB</td><td>, </td></tr><tr><td><code>order</code></td><td>out</td><td>minimum filter order</td><td>, </td></tr><tr><td><code>type</code></td><td>out</td><td>lowpass (fp &lt; fstop) or highpass (fp &gt; fstop)</td><td>, </td></tr></tbody></table>
 <p><strong>Applies when:</strong> 0 &lt; Rp &lt; As; fp != fstop.</p>
 <pre><code class="shell">$ signal-processing solve butterworth_order_analog &quot;fp=1 kHz&quot; &quot;fstop=2 kHz&quot; Rp=1 As=40
 order = 8
@@ -226,10 +206,10 @@ type = lowpass
   As = 40
   assumes: 0 &lt; Rp &lt; As; fp != fstop</code></pre>
 <p><strong>What the worked example means:</strong> This calculation determines the smallest integer order N required for an analog Butterworth filter to meet specific passband and stopband attenuation constraints. Given a maximum passband ripple of 1 dB at the passband edge frequency 1 kHz Hz and a minimum stopband attenuation of 40 dB at the stopband edge frequency 2 kHz Hz, the resulting minimum filter order is 8. This ensures the filter provides a maximally flat magnitude response in the passband while achieving the necessary signal rejection in the stopband.</p>
-<h4 id="chebyshev1_order_analog">Minimum order of a analog Chebyshev type I filter — <code>chebyshev1_order_analog</code></h4>
+<h4 id="chebyshev1_order_analog">Minimum order of a analog Chebyshev type I filter, <code>chebyshev1_order_analog</code></h4>
 <p>The smallest order meeting a passband edge with at most Rp dB attenuation and a stopband edge with at least As dB.</p>
 <div class="math">\[N \ge \frac{\cosh^{-1}\sqrt{\frac{10^{A_s/10}-1}{10^{R_p/10}-1}}}{\cosh^{-1}(\omega_s/\omega_p)}\]</div>
-<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>fp</code></td><td>in</td><td>passband edge frequency</td><td>Hz</td></tr><tr><td><code>fstop</code></td><td>in</td><td>stopband edge frequency</td><td>Hz</td></tr><tr><td><code>Rp</code></td><td>in</td><td>maximum passband attenuation (ripple) in dB</td><td>—</td></tr><tr><td><code>As</code></td><td>in</td><td>minimum stopband attenuation in dB</td><td>—</td></tr><tr><td><code>order</code></td><td>out</td><td>minimum filter order</td><td>—</td></tr><tr><td><code>type</code></td><td>out</td><td>lowpass (fp &lt; fstop) or highpass (fp &gt; fstop)</td><td>—</td></tr></tbody></table>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>fp</code></td><td>in</td><td>passband edge frequency</td><td>Hz</td></tr><tr><td><code>fstop</code></td><td>in</td><td>stopband edge frequency</td><td>Hz</td></tr><tr><td><code>Rp</code></td><td>in</td><td>maximum passband attenuation (ripple) in dB</td><td>, </td></tr><tr><td><code>As</code></td><td>in</td><td>minimum stopband attenuation in dB</td><td>, </td></tr><tr><td><code>order</code></td><td>out</td><td>minimum filter order</td><td>, </td></tr><tr><td><code>type</code></td><td>out</td><td>lowpass (fp &lt; fstop) or highpass (fp &gt; fstop)</td><td>, </td></tr></tbody></table>
 <p><strong>Applies when:</strong> 0 &lt; Rp &lt; As; fp != fstop.</p>
 <pre><code class="shell">$ signal-processing solve chebyshev1_order_analog &quot;fp=1 kHz&quot; &quot;fstop=2 kHz&quot; Rp=1 As=40
 order = 5
@@ -242,10 +222,10 @@ type = lowpass
   assumes: 0 &lt; Rp &lt; As; fp != fstop</code></pre>
 <p><strong>What the worked example means:</strong> This calculation determines the smallest integer order required for an analog Chebyshev Type I filter to meet specific attenuation constraints. By analyzing the passband edge frequency of 1 kHz, the stopband edge frequency of 2 kHz, the maximum passband ripple of 1, and the minimum stopband attenuation of 40, the algorithm computes that a filter of order 5 is necessary. This result indicates the complexity needed to achieve the desired transition band sharpness while maintaining the specified ripple characteristics, identifying the filter type as lowpass.</p>
 <h3>Antennas (1)</h3>
-<h4 id="dish_antenna_gain">Gain of a parabolic dish (aperture) antenna — <code>dish_antenna_gain</code></h4>
+<h4 id="dish_antenna_gain">Gain of a parabolic dish (aperture) antenna, <code>dish_antenna_gain</code></h4>
 <p>The gain eta (pi D / lambda)^2 of a circular aperture antenna of diameter D and aperture efficiency eta, in dBi, and its effective aperture.</p>
 <div class="math">\[G = \eta\left(\frac{\pi D}{\lambda}\right)^2\]</div>
-<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>D</code></td><td>in</td><td>dish diameter</td><td>m</td></tr><tr><td><code>f</code></td><td>in</td><td>frequency</td><td>Hz</td></tr><tr><td><code>eta</code></td><td>in</td><td>aperture efficiency (0 &lt; eta &lt;= 1)</td><td>—</td></tr><tr><td><code>G_dbi</code></td><td>out</td><td>gain in dBi</td><td>—</td></tr><tr><td><code>G</code></td><td>out</td><td>gain as a ratio</td><td>—</td></tr><tr><td><code>Ae</code></td><td>out</td><td>effective aperture</td><td>m^2</td></tr></tbody></table>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>D</code></td><td>in</td><td>dish diameter</td><td>m</td></tr><tr><td><code>f</code></td><td>in</td><td>frequency</td><td>Hz</td></tr><tr><td><code>eta</code></td><td>in</td><td>aperture efficiency (0 &lt; eta &lt;= 1)</td><td>, </td></tr><tr><td><code>G_dbi</code></td><td>out</td><td>gain in dBi</td><td>, </td></tr><tr><td><code>G</code></td><td>out</td><td>gain as a ratio</td><td>, </td></tr><tr><td><code>Ae</code></td><td>out</td><td>effective aperture</td><td>m^2</td></tr></tbody></table>
 <p><strong>Applies when:</strong> 0 &lt; eta &lt;= 1; D &gt;= one wavelength.</p>
 <pre><code class="shell">$ signal-processing solve dish_antenna_gain &quot;D=3 m&quot; &quot;f=10 GHz&quot; eta=0.55
 G_dbi = 47.35263538
@@ -258,10 +238,10 @@ Ae = 3.887720909 m^2
   assumes: 0 &lt; eta &lt;= 1; D &gt;= one wavelength</code></pre>
 <p><strong>What the worked example means:</strong> This calculation determines the directional gain of a parabolic dish antenna using its diameter and operating frequency. Given a dish diameter of 3 m and a frequency of 10 GHz, combined with an aperture efficiency of 0.55, the resulting gain expressed as a ratio is 54358. This translates to 47.3526 in decibels relative to an isotropic source. The effective aperture, which represents the area that captures power from the incoming wave, is calculated as 3.88772 m^2. Higher gain values indicate a narrower beamwidth and greater ability to focus energy in a specific direction.</p>
 <h3>Communication links (2)</h3>
-<h4 id="shannon_min_snr">Minimum SNR for a data rate (Shannon limit) — <code>shannon_min_snr</code></h4>
+<h4 id="shannon_min_snr">Minimum SNR for a data rate (Shannon limit), <code>shannon_min_snr</code></h4>
 <p>The smallest SNR = 2^(C/B) - 1 that lets an AWGN channel of bandwidth B carry C bit/s, and the corresponding minimum Eb/N0.</p>
 <div class="math">\[\mathrm{SNR}_{\min} = 2^{C/B} - 1,\quad \left(\tfrac{E_b}{N_0}\right)_{\min} = \frac{2^{C/B}-1}{C/B}\]</div>
-<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>C</code></td><td>in</td><td>data rate in bit/s</td><td>—</td></tr><tr><td><code>B</code></td><td>in</td><td>bandwidth</td><td>Hz</td></tr><tr><td><code>snr_db</code></td><td>out</td><td>minimum SNR in dB</td><td>—</td></tr><tr><td><code>snr</code></td><td>out</td><td>minimum SNR (linear)</td><td>—</td></tr><tr><td><code>ebn0_min_db</code></td><td>out</td><td>minimum Eb/N0 in dB</td><td>—</td></tr></tbody></table>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>C</code></td><td>in</td><td>data rate in bit/s</td><td>, </td></tr><tr><td><code>B</code></td><td>in</td><td>bandwidth</td><td>Hz</td></tr><tr><td><code>snr_db</code></td><td>out</td><td>minimum SNR in dB</td><td>, </td></tr><tr><td><code>snr</code></td><td>out</td><td>minimum SNR (linear)</td><td>, </td></tr><tr><td><code>ebn0_min_db</code></td><td>out</td><td>minimum Eb/N0 in dB</td><td>, </td></tr></tbody></table>
 <p><strong>Applies when:</strong> additive white Gaussian noise; C/B &lt;= 200.</p>
 <pre><code class="shell">$ signal-processing solve shannon_min_snr &quot;B=2 MHz&quot; C=10000000
 snr_db = 14.91361694
@@ -272,10 +252,10 @@ ebn0_min_db = 7.923916895
   C = 10000000
   assumes: additive white Gaussian noise; C/B &lt;= 200</code></pre>
 <p><strong>What the worked example means:</strong> This calculation determines the theoretical limit for reliable data transmission over a noisy channel. Given a data rate of 1e+07 and a bandwidth of 2 MHz, it computes the smallest linear signal-to-noise ratio of 31 needed to achieve that throughput without error. The result also provides the equivalent minimum energy per bit relative to noise density as 7.92392 decibels, which helps engineers assess if their link budget meets these fundamental physical constraints.</p>
-<h4 id="shannon_capacity">Shannon capacity of an AWGN channel — <code>shannon_capacity</code></h4>
+<h4 id="shannon_capacity">Shannon capacity of an AWGN channel, <code>shannon_capacity</code></h4>
 <p>The channel capacity C = B log2(1 + SNR) of a band-limited additive white Gaussian noise channel and the spectral efficiency C/B.</p>
 <div class="math">\[C = B\log_2(1 + \mathrm{SNR})\]</div>
-<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>B</code></td><td>in</td><td>bandwidth</td><td>Hz</td></tr><tr><td><code>snr_db</code></td><td>in</td><td>signal-to-noise ratio in dB</td><td>—</td></tr><tr><td><code>C</code></td><td>out</td><td>capacity in bit/s</td><td>—</td></tr><tr><td><code>efficiency</code></td><td>out</td><td>spectral efficiency in bit/s per Hz</td><td>—</td></tr></tbody></table>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>B</code></td><td>in</td><td>bandwidth</td><td>Hz</td></tr><tr><td><code>snr_db</code></td><td>in</td><td>signal-to-noise ratio in dB</td><td>, </td></tr><tr><td><code>C</code></td><td>out</td><td>capacity in bit/s</td><td>, </td></tr><tr><td><code>efficiency</code></td><td>out</td><td>spectral efficiency in bit/s per Hz</td><td>, </td></tr></tbody></table>
 <p><strong>Applies when:</strong> additive white Gaussian noise; SNR stated in dB.</p>
 <pre><code class="shell">$ signal-processing solve shannon_capacity &quot;B=3 kHz&quot; snr_db=30
 C = 29901.67878
@@ -286,20 +266,20 @@ efficiency = 9.967226259
   assumes: additive white Gaussian noise; SNR stated in dB</code></pre>
 <p><strong>What the worked example means:</strong> This calculation determines the maximum theoretical data rate for a band-limited additive white Gaussian noise channel using the Shannon-Hartley theorem. Given a bandwidth of 3 kHz and a signal-to-noise ratio of 30, the resulting channel capacity is 29901.7. The corresponding spectral efficiency, which represents the bits per second transmitted per Hertz of bandwidth, is 9.96723. This value sets the fundamental upper limit on reliable communication speed for these specific channel conditions.</p>
 <h3>Convolution and correlation (3)</h3>
-<h4 id="circular_convolution">Circular (cyclic) convolution — <code>circular_convolution</code></h4>
+<h4 id="circular_convolution">Circular (cyclic) convolution, <code>circular_convolution</code></h4>
 <p>The N-point circular convolution y[n] = sum_k x[k] h[(n-k) mod N] of two sequences of length N.</p>
 <div class="math">\[y[n] = \sum_{k=0}^{N-1} x[k]\,h[(n-k)\bmod N]\]</div>
-<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>x</code></td><td>in</td><td>first sequence (length N)</td><td>—</td></tr><tr><td><code>h</code></td><td>in</td><td>second sequence (length N)</td><td>—</td></tr><tr><td><code>y</code></td><td>out</td><td>circular convolution y[0..N-1]</td><td>—</td></tr></tbody></table>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>x</code></td><td>in</td><td>first sequence (length N)</td><td>, </td></tr><tr><td><code>h</code></td><td>in</td><td>second sequence (length N)</td><td>, </td></tr><tr><td><code>y</code></td><td>out</td><td>circular convolution y[0..N-1]</td><td>, </td></tr></tbody></table>
 <p><strong>Applies when:</strong> both sequences have length N.</p>
 <pre><code class="shell">$ signal-processing solve circular_convolution &quot;x=[1, 2, 3, 4]&quot; &quot;h=[1, 0, 0, 1]&quot;
 y = [3.0,5.0,7.0,5.0]
   by: Circular (cyclic) convolution  (direct cyclic sum (indices modulo N))
   assumes: both sequences have length N</code></pre>
 <p><strong>What the worked example means:</strong> This calculation determines the N-point circular convolution of two sequences. Summing the product of the first sequence [1, 2, 3, 4] and the second sequence [1, 0, 0, 1] with indices wrapped modulo N gives the output sequence [3, 5, 7, 5]. This operation effectively models the interaction of periodic signals or systems where boundary conditions require index wrapping rather than zero padding.</p>
-<h4 id="cross_correlation">Cross-correlation and the lag of its peak — <code>cross_correlation</code></h4>
+<h4 id="cross_correlation">Cross-correlation and the lag of its peak, <code>cross_correlation</code></h4>
 <p>r_xy[l] = sum_n x[n+l] y[n] for every lag l, and the lag at which it is largest (the delay of x relative to y).</p>
 <div class="math">\[r_{xy}[\ell] = \sum_n x[n+\ell]\,y[n]\]</div>
-<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>x</code></td><td>in</td><td>first sequence x[n]</td><td>—</td></tr><tr><td><code>y</code></td><td>in</td><td>second (reference) sequence y[n]</td><td>—</td></tr><tr><td><code>peak_lag</code></td><td>out</td><td>lag of the largest correlation (positive: x lags y)</td><td>—</td></tr><tr><td><code>peak_value</code></td><td>out</td><td>largest correlation value</td><td>—</td></tr><tr><td><code>r</code></td><td>out</td><td>correlation at every lag</td><td>—</td></tr><tr><td><code>lags</code></td><td>out</td><td>the lags, -(Ny-1) .. Nx-1</td><td>—</td></tr></tbody></table>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>x</code></td><td>in</td><td>first sequence x[n]</td><td>, </td></tr><tr><td><code>y</code></td><td>in</td><td>second (reference) sequence y[n]</td><td>, </td></tr><tr><td><code>peak_lag</code></td><td>out</td><td>lag of the largest correlation (positive: x lags y)</td><td>, </td></tr><tr><td><code>peak_value</code></td><td>out</td><td>largest correlation value</td><td>, </td></tr><tr><td><code>r</code></td><td>out</td><td>correlation at every lag</td><td>, </td></tr><tr><td><code>lags</code></td><td>out</td><td>the lags, -(Ny-1) .. Nx-1</td><td>, </td></tr></tbody></table>
 <p><strong>Applies when:</strong> finite sequences starting at n = 0.</p>
 <pre><code class="shell">$ signal-processing solve cross_correlation &quot;x=[0, 0, 1, 2, 1]&quot; &quot;y=[1, 2, 1]&quot;
 peak_lag = 2
@@ -309,10 +289,10 @@ lags = [-2,-1,0,1,2,3,4]
   by: Cross-correlation and the lag of its peak  (direct correlation sum over every lag (first lag on ties))
   assumes: finite sequences starting at n = 0</code></pre>
 <p><strong>What the worked example means:</strong> This calculation determines the similarity between two sequences by computing the sum of products for every possible displacement. The result identifies the specific shift, or lag, where this alignment is strongest. For these inputs, the highest correlation value is 6, which appears at the lag index 2. This lag represents the time delay of the first sequence relative to the second reference sequence.</p>
-<h4 id="linear_convolution">Linear convolution of two sequences — <code>linear_convolution</code></h4>
+<h4 id="linear_convolution">Linear convolution of two sequences, <code>linear_convolution</code></h4>
 <p>y[n] = sum_k x[k] h[n-k], the full linear convolution (length Nx + Nh - 1).</p>
 <div class="math">\[y[n] = \sum_k x[k]\,h[n-k]\]</div>
-<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>x</code></td><td>in</td><td>first sequence x[n]</td><td>—</td></tr><tr><td><code>h</code></td><td>in</td><td>second sequence h[n]</td><td>—</td></tr><tr><td><code>y</code></td><td>out</td><td>convolution y[n], n = 0 .. Nx+Nh-2</td><td>—</td></tr><tr><td><code>length</code></td><td>out</td><td>number of output samples</td><td>—</td></tr></tbody></table>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>x</code></td><td>in</td><td>first sequence x[n]</td><td>, </td></tr><tr><td><code>h</code></td><td>in</td><td>second sequence h[n]</td><td>, </td></tr><tr><td><code>y</code></td><td>out</td><td>convolution y[n], n = 0 .. Nx+Nh-2</td><td>, </td></tr><tr><td><code>length</code></td><td>out</td><td>number of output samples</td><td>, </td></tr></tbody></table>
 <p><strong>Applies when:</strong> finite sequences starting at n = 0.</p>
 <pre><code class="shell">$ signal-processing solve linear_convolution &quot;x=[1, 2, 3]&quot; &quot;h=[1, -1]&quot;
 y = [1.0,1.0,1.0,-3.0]
@@ -321,10 +301,10 @@ length = 4
   assumes: finite sequences starting at n = 0</code></pre>
 <p><strong>What the worked example means:</strong> This calculation determines the complete response of a linear time-invariant system by convolving the input signal [1, 2, 3] with the impulse response [1, -1]. The resulting sequence [1, 1, 1, -3] represents how the filter modifies the input over time, extending beyond the duration of either original sequence. The total number of samples in this output is recorded as 4, which reflects the combined temporal support of both inputs.</p>
 <h3>DFT and FFT (5)</h3>
-<h4 id="dft_spectrum">DFT spectrum of a sequence (FFT) — <code>dft_spectrum</code></h4>
+<h4 id="dft_spectrum">DFT spectrum of a sequence (FFT), <code>dft_spectrum</code></h4>
 <p>The whole N-point DFT of a real sequence: magnitude, phase, real and imaginary parts of every bin, and the strongest bin up to N/2.</p>
 <div class="math">\[X[k] = \sum_{n=0}^{N-1} x[n]\,e^{-j2\pi kn/N},\ k = 0,\dots,N-1\]</div>
-<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>x</code></td><td>in</td><td>samples x[0..N-1]</td><td>—</td></tr><tr><td><code>peak_magnitude</code></td><td>out</td><td>largest |X[k]| for 0 &lt;= k &lt;= N/2</td><td>—</td></tr><tr><td><code>peak_bin</code></td><td>out</td><td>bin of the largest magnitude</td><td>—</td></tr><tr><td><code>magnitude</code></td><td>out</td><td>|X[k]| for every bin</td><td>—</td></tr><tr><td><code>phase</code></td><td>out</td><td>phase of X[k] in radians for every bin</td><td>—</td></tr><tr><td><code>real</code></td><td>out</td><td>real parts</td><td>—</td></tr><tr><td><code>imag</code></td><td>out</td><td>imaginary parts</td><td>—</td></tr></tbody></table>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>x</code></td><td>in</td><td>samples x[0..N-1]</td><td>, </td></tr><tr><td><code>peak_magnitude</code></td><td>out</td><td>largest |X[k]| for 0 &lt;= k &lt;= N/2</td><td>, </td></tr><tr><td><code>peak_bin</code></td><td>out</td><td>bin of the largest magnitude</td><td>, </td></tr><tr><td><code>magnitude</code></td><td>out</td><td>|X[k]| for every bin</td><td>, </td></tr><tr><td><code>phase</code></td><td>out</td><td>phase of X[k] in radians for every bin</td><td>, </td></tr><tr><td><code>real</code></td><td>out</td><td>real parts</td><td>, </td></tr><tr><td><code>imag</code></td><td>out</td><td>imaginary parts</td><td>, </td></tr></tbody></table>
 <p><strong>Applies when:</strong> real samples.</p>
 <pre><code class="shell">$ signal-processing solve dft_spectrum &quot;x=[1, 2, 3, 4]&quot;
 peak_magnitude = 10
@@ -336,10 +316,10 @@ imag = [0.0,2.0,0.0,-2.0]
   by: DFT spectrum of a sequence (FFT)  (radix-2 decimation-in-time FFT (N a power of two) or the direct DFT sum)
   assumes: real samples</code></pre>
 <p><strong>What the worked example means:</strong> This calculation transforms the time-domain samples [1, 2, 3, 4] into the frequency domain to reveal their spectral content. The result identifies the dominant frequency as bin 0, which has a magnitude of 10. Additionally, it provides the complete set of magnitude, phase, real, and imaginary values for every frequency bin, allowing for a detailed analysis of the signal&#x27;s composition across the spectrum.</p>
-<h4 id="bin_frequency">Frequency of a DFT bin — <code>bin_frequency</code></h4>
+<h4 id="bin_frequency">Frequency of a DFT bin, <code>bin_frequency</code></h4>
 <p>The frequency k*fs/N that bin k of an N-point DFT represents (0 &lt;= k &lt;= N/2).</p>
 <div class="math">\[f_k = \frac{k\,f_s}{N}\]</div>
-<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>k</code></td><td>in</td><td>bin index</td><td>—</td></tr><tr><td><code>fs</code></td><td>in</td><td>sampling rate</td><td>Hz</td></tr><tr><td><code>N</code></td><td>in</td><td>number of DFT points</td><td>—</td></tr><tr><td><code>f_k</code></td><td>out</td><td>frequency of bin k</td><td>Hz</td></tr></tbody></table>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>k</code></td><td>in</td><td>bin index</td><td>, </td></tr><tr><td><code>fs</code></td><td>in</td><td>sampling rate</td><td>Hz</td></tr><tr><td><code>N</code></td><td>in</td><td>number of DFT points</td><td>, </td></tr><tr><td><code>f_k</code></td><td>out</td><td>frequency of bin k</td><td>Hz</td></tr></tbody></table>
 <p><strong>Applies when:</strong> 0 &lt;= k &lt;= N/2; fs &gt; 0.</p>
 <pre><code class="shell">$ signal-processing solve bin_frequency &quot;fs=48 kHz&quot; N=1024 k=100
 f_k = 4687.5 Hz
@@ -347,10 +327,10 @@ f_k = 4687.5 Hz
   fs = 48000 Hz
   assumes: 0 &lt;= k &lt;= N/2; fs &gt; 0</code></pre>
 <p><strong>What the worked example means:</strong> This calculation determines the physical frequency represented by a specific index in the Discrete Fourier Transform. By using the sampling rate 48 kHz and the total number of points 1024, it maps the abstract bin index 100 to a concrete value of 4687.5 Hz. This result allows practitioners to interpret spectral peaks in terms of real-world cycles per second rather than just numerical indices.</p>
-<h4 id="frequency_resolution">Frequency resolution of an N-point DFT — <code>frequency_resolution</code></h4>
+<h4 id="frequency_resolution">Frequency resolution of an N-point DFT, <code>frequency_resolution</code></h4>
 <p>The bin spacing fs/N of an N-point DFT or FFT and the record length N/fs it covers.</p>
 <div class="math">\[\Delta f = \frac{f_s}{N}\]</div>
-<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>fs</code></td><td>in</td><td>sampling rate</td><td>Hz</td></tr><tr><td><code>N</code></td><td>in</td><td>number of DFT points</td><td>—</td></tr><tr><td><code>df</code></td><td>out</td><td>frequency resolution (bin spacing)</td><td>Hz</td></tr><tr><td><code>duration</code></td><td>out</td><td>record length N/fs</td><td>s</td></tr></tbody></table>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>fs</code></td><td>in</td><td>sampling rate</td><td>Hz</td></tr><tr><td><code>N</code></td><td>in</td><td>number of DFT points</td><td>, </td></tr><tr><td><code>df</code></td><td>out</td><td>frequency resolution (bin spacing)</td><td>Hz</td></tr><tr><td><code>duration</code></td><td>out</td><td>record length N/fs</td><td>s</td></tr></tbody></table>
 <p><strong>Applies when:</strong> fs &gt; 0; N &gt;= 2.</p>
 <pre><code class="shell">$ signal-processing solve frequency_resolution &quot;fs=48 kHz&quot; N=1024
 df = 46.875 Hz
@@ -359,10 +339,10 @@ duration = 0.02133333333 s
   fs = 48000 Hz
   assumes: fs &gt; 0; N &gt;= 2</code></pre>
 <p><strong>What the worked example means:</strong> This calculation determines the spacing between adjacent frequency bins, which is 46.875 Hz, based on a sampling rate of 48 kHz and 1024 points. It also computes the total time duration covered by these samples, resulting in a record length of 0.0213333 s. These values define how finely frequencies can be distinguished and the window of time analyzed.</p>
-<h4 id="inverse_dft">Inverse discrete Fourier transform — <code>inverse_dft</code></h4>
+<h4 id="inverse_dft">Inverse discrete Fourier transform, <code>inverse_dft</code></h4>
 <p>x[n] = (1/N) sum_k X[k] exp(+j 2 pi k n / N), from the real and imaginary parts of X[k].</p>
 <div class="math">\[x[n] = \frac{1}{N}\sum_{k=0}^{N-1} X[k]\,e^{j2\pi kn/N}\]</div>
-<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>re_</code></td><td>in</td><td>real parts of X[0..N-1]</td><td>—</td></tr><tr><td><code>im</code></td><td>in</td><td>imaginary parts of X[0..N-1] (zeros if not given) (optional)</td><td>—</td></tr><tr><td><code>real</code></td><td>out</td><td>real parts of x[n]</td><td>—</td></tr><tr><td><code>imag</code></td><td>out</td><td>imaginary parts of x[n]</td><td>—</td></tr></tbody></table>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>re_</code></td><td>in</td><td>real parts of X[0..N-1]</td><td>, </td></tr><tr><td><code>im</code></td><td>in</td><td>imaginary parts of X[0..N-1] (zeros if not given) (optional)</td><td>, </td></tr><tr><td><code>real</code></td><td>out</td><td>real parts of x[n]</td><td>, </td></tr><tr><td><code>imag</code></td><td>out</td><td>imaginary parts of x[n]</td><td>, </td></tr></tbody></table>
 <p><strong>Applies when:</strong> both lists have the same length.</p>
 <pre><code class="shell">$ signal-processing solve inverse_dft &quot;re_=[10, -2, -2, -2]&quot; &quot;im=[0, 2, 0, -2]&quot;
 real = [1.0,2.0,3.0,4.0]
@@ -370,10 +350,10 @@ imag = [0.0,0.0,0.0,0.0]
   by: Inverse discrete Fourier transform  (inverse FFT (conjugate twiddles) divided by N)
   assumes: both lists have the same length</code></pre>
 <p><strong>What the worked example means:</strong> This calculation applies the inverse discrete Fourier transform to reconstruct the original time-domain signal from its frequency-domain representation. It takes the real parts [10, -2, -2, -2] and imaginary parts [0, 2, 0, -2] of the spectrum X[k] and computes the corresponding samples of x[n]. The result consists of the real component [1, 2, 3, 4] and the imaginary component [0, 0, 0, 0], which together describe the amplitude and phase characteristics of the signal in the time domain.</p>
-<h4 id="dft_bin">One bin of the discrete Fourier transform — <code>dft_bin</code></h4>
+<h4 id="dft_bin">One bin of the discrete Fourier transform, <code>dft_bin</code></h4>
 <p>X[k] = sum_n x[n] exp(-j 2 pi k n / N) for one bin k: real and imaginary parts, magnitude and phase.</p>
 <div class="math">\[X[k] = \sum_{n=0}^{N-1} x[n]\,e^{-j2\pi kn/N}\]</div>
-<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>x</code></td><td>in</td><td>samples x[0..N-1]</td><td>—</td></tr><tr><td><code>k</code></td><td>in</td><td>bin index (0 &lt;= k &lt; N)</td><td>—</td></tr><tr><td><code>magnitude</code></td><td>out</td><td>|X[k]|</td><td>—</td></tr><tr><td><code>phase</code></td><td>out</td><td>phase of X[k] in radians (-pi, pi]</td><td>rad</td></tr><tr><td><code>re</code></td><td>out</td><td>real part of X[k]</td><td>—</td></tr><tr><td><code>im</code></td><td>out</td><td>imaginary part of X[k]</td><td>—</td></tr></tbody></table>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>x</code></td><td>in</td><td>samples x[0..N-1]</td><td>, </td></tr><tr><td><code>k</code></td><td>in</td><td>bin index (0 &lt;= k &lt; N)</td><td>, </td></tr><tr><td><code>magnitude</code></td><td>out</td><td>|X[k]|</td><td>, </td></tr><tr><td><code>phase</code></td><td>out</td><td>phase of X[k] in radians (-pi, pi]</td><td>rad</td></tr><tr><td><code>re</code></td><td>out</td><td>real part of X[k]</td><td>, </td></tr><tr><td><code>im</code></td><td>out</td><td>imaginary part of X[k]</td><td>, </td></tr></tbody></table>
 <p><strong>Applies when:</strong> 0 &lt;= k &lt; N.</p>
 <pre><code class="shell">$ signal-processing solve dft_bin &quot;x=[1, 2, 3, 4]&quot; k=1
 magnitude = 2.828427125
@@ -384,10 +364,10 @@ im = 2
   assumes: 0 &lt;= k &lt; N</code></pre>
 <p><strong>What the worked example means:</strong> This calculation determines the complex value for a single frequency component, specifically bin 1, within the discrete Fourier transform of the input sequence. By summing the products of each sample in [1, 2, 3, 4] with its corresponding exponential term, the algorithm isolates the contribution at this specific index. The result provides both the real part -2 and imaginary part 2, which together define the signal&#x27;s strength as 2.82843 and its angular position as 2.35619 rad. This narrowband analysis allows for precise examination of one frequency without computing the entire spectrum.</p>
 <h3>Decibels and levels (8)</h3>
-<h4 id="amplitude_ratio_to_db">Amplitude (voltage) ratio to decibels — <code>amplitude_ratio_to_db</code></h4>
+<h4 id="amplitude_ratio_to_db">Amplitude (voltage) ratio to decibels, <code>amplitude_ratio_to_db</code></h4>
 <p>A voltage, current or field amplitude ratio in decibels, 20*log10(V2/V1).</p>
 <div class="math">\[L = 20\log_{10}\frac{V_2}{V_1}\ \mathrm{dB}\]</div>
-<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>ratio</code></td><td>in</td><td>amplitude ratio V2/V1 (a positive number)</td><td>—</td></tr><tr><td><code>dB</code></td><td>out</td><td>level in decibels (dB)</td><td>—</td></tr></tbody></table>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>ratio</code></td><td>in</td><td>amplitude ratio V2/V1 (a positive number)</td><td>, </td></tr><tr><td><code>dB</code></td><td>out</td><td>level in decibels (dB)</td><td>, </td></tr></tbody></table>
 <p><strong>Applies when:</strong> ratio &gt; 0; both amplitudes across equal impedances.</p>
 <pre><code class="shell">$ signal-processing solve amplitude_ratio_to_db ratio=50
 dB = 33.97940009
@@ -395,10 +375,10 @@ dB = 33.97940009
   ratio = 50
   assumes: ratio &gt; 0; both amplitudes across equal impedances</code></pre>
 <p><strong>What the worked example means:</strong> This calculation determines the decibel level for a given voltage or current amplitude ratio. Applying the formula twenty times the base ten logarithm of the input converts the linear ratio 50 into the logarithmic value 33.9794. This representation is useful because it compresses large ranges of signal strength into manageable numbers and aligns with human perception of loudness or intensity.</p>
-<h4 id="db_to_amplitude_ratio">Decibels to amplitude (voltage) ratio — <code>db_to_amplitude_ratio</code></h4>
+<h4 id="db_to_amplitude_ratio">Decibels to amplitude (voltage) ratio, <code>db_to_amplitude_ratio</code></h4>
 <p>The amplitude ratio V2/V1 = 10^(L/20) that a level of L dB represents.</p>
 <div class="math">\[\frac{V_2}{V_1} = 10^{L/20}\]</div>
-<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>dB</code></td><td>in</td><td>level in decibels</td><td>—</td></tr><tr><td><code>ratio</code></td><td>out</td><td>amplitude ratio V2/V1</td><td>—</td></tr></tbody></table>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>dB</code></td><td>in</td><td>level in decibels</td><td>, </td></tr><tr><td><code>ratio</code></td><td>out</td><td>amplitude ratio V2/V1</td><td>, </td></tr></tbody></table>
 <p><strong>Applies when:</strong> finite level.</p>
 <pre><code class="shell">$ signal-processing solve db_to_amplitude_ratio dB=6
 ratio = 1.995262315
@@ -406,10 +386,10 @@ ratio = 1.995262315
   dB = 6
   assumes: finite level</code></pre>
 <p><strong>What the worked example means:</strong> This calculation determines the linear amplitude ratio V2 over V1 from a given decibel level. Applying the formula ten raised to the power of the level divided by twenty shows that a level of 6 results in an amplitude ratio of 1.99526. This value indicates how much larger or smaller the voltage signal is compared to the reference.</p>
-<h4 id="db_to_power_ratio">Decibels to power ratio — <code>db_to_power_ratio</code></h4>
+<h4 id="db_to_power_ratio">Decibels to power ratio, <code>db_to_power_ratio</code></h4>
 <p>The power ratio P2/P1 = 10^(L/10) that a level of L dB represents.</p>
 <div class="math">\[\frac{P_2}{P_1} = 10^{L/10}\]</div>
-<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>dB</code></td><td>in</td><td>level in decibels</td><td>—</td></tr><tr><td><code>ratio</code></td><td>out</td><td>power ratio P2/P1</td><td>—</td></tr></tbody></table>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>dB</code></td><td>in</td><td>level in decibels</td><td>, </td></tr><tr><td><code>ratio</code></td><td>out</td><td>power ratio P2/P1</td><td>, </td></tr></tbody></table>
 <p><strong>Applies when:</strong> finite level.</p>
 <pre><code class="shell">$ signal-processing solve db_to_power_ratio dB=23
 ratio = 199.5262315
@@ -417,10 +397,10 @@ ratio = 199.5262315
   dB = 23
   assumes: finite level</code></pre>
 <p><strong>What the worked example means:</strong> This calculation determines the linear power ratio P2 over P1 from a given decibel level. Applying the method ten raised to the power of the input divided by ten converts the logarithmic scale back to a linear multiplier. The result shows that an input of 23 represents a power ratio of 199.526, indicating how many times greater or smaller the output power is compared to the reference.</p>
-<h4 id="watts_to_dbm">Power in watts to dBm and dBW — <code>watts_to_dbm</code></h4>
+<h4 id="watts_to_dbm">Power in watts to dBm and dBW, <code>watts_to_dbm</code></h4>
 <p>A power expressed as a level relative to 1 mW (dBm) and to 1 W (dBW).</p>
 <div class="math">\[P_{\mathrm{dBm}} = 10\log_{10}\frac{P}{1\,\mathrm{mW}}\]</div>
-<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>P</code></td><td>in</td><td>power</td><td>W</td></tr><tr><td><code>dBm</code></td><td>out</td><td>power level in dBm</td><td>—</td></tr><tr><td><code>dBW</code></td><td>out</td><td>power level in dBW</td><td>—</td></tr></tbody></table>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>P</code></td><td>in</td><td>power</td><td>W</td></tr><tr><td><code>dBm</code></td><td>out</td><td>power level in dBm</td><td>, </td></tr><tr><td><code>dBW</code></td><td>out</td><td>power level in dBW</td><td>, </td></tr></tbody></table>
 <p><strong>Applies when:</strong> P &gt; 0.</p>
 <pre><code class="shell">$ signal-processing solve watts_to_dbm &quot;P=2 W&quot;
 dBm = 33.01029996
@@ -429,10 +409,10 @@ dBW = 3.010299957
   P = 2 W
   assumes: P &gt; 0</code></pre>
 <p><strong>What the worked example means:</strong> This calculation converts the input power value, 2 W, into logarithmic decibel units. The result is expressed as 33.0103, which indicates the signal strength relative to a reference of one milliwatt, and as 3.0103, which uses one watt as the reference. These logarithmic scales are widely used in radio frequency and audio engineering to manage the vast dynamic range of signal powers encountered in practical systems, making it easier to compare strengths without dealing with unwieldy large or small numbers.</p>
-<h4 id="dbm_to_watts">Power level in dBm to watts — <code>dbm_to_watts</code></h4>
+<h4 id="dbm_to_watts">Power level in dBm to watts, <code>dbm_to_watts</code></h4>
 <p>The power in watts of a level given in dBm (and the same level in dBW).</p>
 <div class="math">\[P = 1\,\mathrm{mW}\cdot 10^{P_{\mathrm{dBm}}/10}\]</div>
-<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>dBm</code></td><td>in</td><td>power level in dBm</td><td>—</td></tr><tr><td><code>P</code></td><td>out</td><td>power</td><td>W</td></tr><tr><td><code>dBW</code></td><td>out</td><td>power level in dBW</td><td>—</td></tr></tbody></table>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>dBm</code></td><td>in</td><td>power level in dBm</td><td>, </td></tr><tr><td><code>P</code></td><td>out</td><td>power</td><td>W</td></tr><tr><td><code>dBW</code></td><td>out</td><td>power level in dBW</td><td>, </td></tr></tbody></table>
 <p><strong>Applies when:</strong> finite level.</p>
 <pre><code class="shell">$ signal-processing solve dbm_to_watts dBm=30
 P = 1 W
@@ -441,10 +421,10 @@ dBW = 0
   dBm = 30
   assumes: finite level</code></pre>
 <p><strong>What the worked example means:</strong> This calculation converts a signal power level given in decibels relative to one milliwatt into its equivalent linear value in watts. Applying the formula that raises ten to the power of the input divided by ten and multiplying by one milliwatt gives the actual physical power delivered. For an input of 30, the resulting power is 1 W, which also translates to a level of 0 when referenced against one watt.</p>
-<h4 id="power_ratio_to_db">Power ratio to decibels — <code>power_ratio_to_db</code></h4>
+<h4 id="power_ratio_to_db">Power ratio to decibels, <code>power_ratio_to_db</code></h4>
 <p>A power ratio expressed in decibels, 10*log10(P2/P1).</p>
 <div class="math">\[L = 10\log_{10}\frac{P_2}{P_1}\ \mathrm{dB}\]</div>
-<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>ratio</code></td><td>in</td><td>power ratio P2/P1 (a positive number)</td><td>—</td></tr><tr><td><code>dB</code></td><td>out</td><td>level in decibels (dB)</td><td>—</td></tr></tbody></table>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>ratio</code></td><td>in</td><td>power ratio P2/P1 (a positive number)</td><td>, </td></tr><tr><td><code>dB</code></td><td>out</td><td>level in decibels (dB)</td><td>, </td></tr></tbody></table>
 <p><strong>Applies when:</strong> ratio &gt; 0.</p>
 <pre><code class="shell">$ signal-processing solve power_ratio_to_db ratio=200
 dB = 23.01029996
@@ -452,10 +432,10 @@ dB = 23.01029996
   ratio = 200
   assumes: ratio &gt; 0</code></pre>
 <p><strong>What the worked example means:</strong> This calculation converts the power ratio 200 into decibels using the formula ten times the base-ten logarithm of the ratio. The resulting value is 23.0103, which represents the relative power level in a compact logarithmic scale suitable for signal processing applications.</p>
-<h4 id="snr_from_powers">Signal-to-noise ratio from signal and noise powers — <code>snr_from_powers</code></h4>
+<h4 id="snr_from_powers">Signal-to-noise ratio from signal and noise powers, <code>snr_from_powers</code></h4>
 <p>The signal-to-noise ratio Ps/Pn, as a ratio and in dB.</p>
 <div class="math">\[\mathrm{SNR}_{\mathrm{dB}} = 10\log_{10}\frac{P_s}{P_n}\]</div>
-<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>Ps</code></td><td>in</td><td>signal power</td><td>W</td></tr><tr><td><code>Pn</code></td><td>in</td><td>noise power</td><td>W</td></tr><tr><td><code>snr_db</code></td><td>out</td><td>signal-to-noise ratio in dB</td><td>—</td></tr><tr><td><code>snr</code></td><td>out</td><td>signal-to-noise ratio (linear)</td><td>—</td></tr></tbody></table>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>Ps</code></td><td>in</td><td>signal power</td><td>W</td></tr><tr><td><code>Pn</code></td><td>in</td><td>noise power</td><td>W</td></tr><tr><td><code>snr_db</code></td><td>out</td><td>signal-to-noise ratio in dB</td><td>, </td></tr><tr><td><code>snr</code></td><td>out</td><td>signal-to-noise ratio (linear)</td><td>, </td></tr></tbody></table>
 <p><strong>Applies when:</strong> Ps &gt; 0; Pn &gt; 0.</p>
 <pre><code class="shell">$ signal-processing solve snr_from_powers &quot;Ps=2 mW&quot; &quot;Pn=10 uW&quot;
 snr = 200
@@ -465,10 +445,10 @@ snr_db = 23.01029996
   Pn = 1e-05 W
   assumes: Ps &gt; 0; Pn &gt; 0</code></pre>
 <p><strong>What the worked example means:</strong> This calculation determines the quality of a signal by comparing its power against the background noise power. Using the provided signal power of 2 mW and noise power of 10 uW gives the linear ratio 200. This value is then converted to decibels to yield 23.0103, offering a standard logarithmic measure of link clarity where higher values indicate a stronger signal relative to noise.</p>
-<h4 id="dbm_power_sum">Total power of several signals given in dBm — <code>dbm_power_sum</code></h4>
+<h4 id="dbm_power_sum">Total power of several signals given in dBm, <code>dbm_power_sum</code></h4>
 <p>The combined power of uncorrelated signals whose levels are given in dBm (powers add, levels do not).</p>
 <div class="math">\[P_{\mathrm{tot}} = 10\log_{10}\sum_i 10^{P_i/10}\ \mathrm{dBm}\]</div>
-<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>levels</code></td><td>in</td><td>power levels in dBm</td><td>—</td></tr><tr><td><code>total_dBm</code></td><td>out</td><td>total power level in dBm</td><td>—</td></tr><tr><td><code>total_W</code></td><td>out</td><td>total power</td><td>W</td></tr></tbody></table>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>levels</code></td><td>in</td><td>power levels in dBm</td><td>, </td></tr><tr><td><code>total_dBm</code></td><td>out</td><td>total power level in dBm</td><td>, </td></tr><tr><td><code>total_W</code></td><td>out</td><td>total power</td><td>W</td></tr></tbody></table>
 <p><strong>Applies when:</strong> uncorrelated signals (their powers add).</p>
 <pre><code class="shell">$ signal-processing solve dbm_power_sum &quot;levels=[10, 10]&quot;
 total_dBm = 13.01029996
@@ -477,10 +457,10 @@ total_W = 0.02 W
   assumes: uncorrelated signals (their powers add)</code></pre>
 <p><strong>What the worked example means:</strong> This calculation determines the combined power level of multiple uncorrelated signals by first converting their individual levels from decibels relative to one milliwatt into linear power values in milliwatts. These linear powers are then summed together before being converted back into a single logarithmic value. The resulting total level is 13.0103, representing a physical power of 0.02 W. This approach is necessary because logarithmic units cannot be added directly; only the underlying linear power quantities are additive for independent sources.</p>
 <h3>Digital communication (5)</h3>
-<h4 id="qpsk_error_rates">Bit and symbol error rates of QPSK in AWGN — <code>qpsk_error_rates</code></h4>
+<h4 id="qpsk_error_rates">Bit and symbol error rates of QPSK in AWGN, <code>qpsk_error_rates</code></h4>
 <p>Gray-coded coherent QPSK: bit error rate Q(sqrt(2 Eb/N0)) and symbol error rate 2Q - Q^2.</p>
 <div class="math">\[P_b = Q\!\left(\sqrt{2E_b/N_0}\right),\quad P_s = 2Q - Q^2\]</div>
-<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>ebn0_db</code></td><td>in</td><td>Eb/N0 in dB</td><td>—</td></tr><tr><td><code>ber</code></td><td>out</td><td>bit error rate (Gray coding)</td><td>—</td></tr><tr><td><code>ser</code></td><td>out</td><td>symbol error rate</td><td>—</td></tr></tbody></table>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>ebn0_db</code></td><td>in</td><td>Eb/N0 in dB</td><td>, </td></tr><tr><td><code>ber</code></td><td>out</td><td>bit error rate (Gray coding)</td><td>, </td></tr><tr><td><code>ser</code></td><td>out</td><td>symbol error rate</td><td>, </td></tr></tbody></table>
 <p><strong>Applies when:</strong> coherent detection; Gray coding; AWGN channel.</p>
 <pre><code class="shell">$ signal-processing solve qpsk_error_rates ebn0_db=6
 ber = 0.002388290781
@@ -489,10 +469,10 @@ ser = 0.004770877629
   ebn0_db = 6
   assumes: coherent detection; Gray coding; AWGN channel</code></pre>
 <p><strong>What the worked example means:</strong> This calculation determines the performance of Gray-coded coherent Quadrature Phase Shift Keying in an Additive White Gaussian Noise channel. By treating the signal as two independent Binary Phase Shift Keying streams, it derives the bit error rate from the input energy per bit to noise power spectral density ratio of 6. The resulting bit error rate is 0.00238829, while the probability that any given symbol is received incorrectly is 0.00477088. These metrics indicate how reliably data can be transmitted under these specific conditions.</p>
-<h4 id="bpsk_ber">Bit error rate of BPSK (and coherent BFSK) in AWGN — <code>bpsk_ber</code></h4>
+<h4 id="bpsk_ber">Bit error rate of BPSK (and coherent BFSK) in AWGN, <code>bpsk_ber</code></h4>
 <p>The bit error probability of coherent BPSK, Q(sqrt(2 Eb/N0)), and of coherent orthogonal BFSK, Q(sqrt(Eb/N0)), in additive white Gaussian noise.</p>
 <div class="math">\[P_b = Q\!\left(\sqrt{2E_b/N_0}\right) = \tfrac12\,\mathrm{erfc}\sqrt{E_b/N_0}\]</div>
-<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>ebn0_db</code></td><td>in</td><td>Eb/N0 in dB</td><td>—</td></tr><tr><td><code>ber</code></td><td>out</td><td>BPSK bit error rate</td><td>—</td></tr><tr><td><code>ber_bfsk</code></td><td>out</td><td>coherent BFSK bit error rate</td><td>—</td></tr></tbody></table>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>ebn0_db</code></td><td>in</td><td>Eb/N0 in dB</td><td>, </td></tr><tr><td><code>ber</code></td><td>out</td><td>BPSK bit error rate</td><td>, </td></tr><tr><td><code>ber_bfsk</code></td><td>out</td><td>coherent BFSK bit error rate</td><td>, </td></tr></tbody></table>
 <p><strong>Applies when:</strong> coherent detection; AWGN channel; Eb/N0 stated in dB.</p>
 <pre><code class="shell">$ signal-processing solve bpsk_ber ebn0_db=8
 ber = 0.0001909077741
@@ -501,10 +481,10 @@ ber_bfsk = 0.0060043864
   ebn0_db = 8
   assumes: coherent detection; AWGN channel; Eb/N0 stated in dB</code></pre>
 <p><strong>What the worked example means:</strong> This calculation determines the probability of a bit being received incorrectly for Binary Phase Shift Keying and coherent Binary Frequency Shift Keying. It uses the energy per bit to noise power spectral density ratio, given as 8, to compute these values under additive white Gaussian noise conditions. The resulting BPSK bit error rate of 0.000190908 indicates that phase shift keying is more robust against noise than frequency shift keying, which has a higher error rate of 0.00600439 for the same signal strength.</p>
-<h4 id="noncoherent_ber">Bit error rates of DPSK and noncoherent BFSK — <code>noncoherent_ber</code></h4>
+<h4 id="noncoherent_ber">Bit error rates of DPSK and noncoherent BFSK, <code>noncoherent_ber</code></h4>
 <p>The bit error rates of differentially coherent BPSK (DPSK), exp(-Eb/N0)/2, and of noncoherent orthogonal BFSK, exp(-Eb/2N0)/2, in AWGN.</p>
 <div class="math">\[P_b^{\mathrm{DPSK}} = \tfrac12 e^{-E_b/N_0},\quad P_b^{\mathrm{NCFSK}} = \tfrac12 e^{-E_b/2N_0}\]</div>
-<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>ebn0_db</code></td><td>in</td><td>Eb/N0 in dB</td><td>—</td></tr><tr><td><code>ber_dpsk</code></td><td>out</td><td>DPSK bit error rate</td><td>—</td></tr><tr><td><code>ber_ncfsk</code></td><td>out</td><td>noncoherent BFSK bit error rate</td><td>—</td></tr></tbody></table>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>ebn0_db</code></td><td>in</td><td>Eb/N0 in dB</td><td>, </td></tr><tr><td><code>ber_dpsk</code></td><td>out</td><td>DPSK bit error rate</td><td>, </td></tr><tr><td><code>ber_ncfsk</code></td><td>out</td><td>noncoherent BFSK bit error rate</td><td>, </td></tr></tbody></table>
 <p><strong>Applies when:</strong> AWGN channel; slow phase variation (DPSK); orthogonal tones (FSK).</p>
 <pre><code class="shell">$ signal-processing solve noncoherent_ber ebn0_db=8
 ber_dpsk = 0.0009094044481
@@ -513,10 +493,10 @@ ber_ncfsk = 0.02132374789
   ebn0_db = 8
   assumes: AWGN channel; slow phase variation (DPSK); orthogonal tones (FSK)</code></pre>
 <p><strong>What the worked example means:</strong> This calculation determines the probability of bit errors for Differential Phase Shift Keying and noncoherent Binary Frequency Shift Keying systems operating in additive white Gaussian noise. Given a signal-to-noise ratio per bit of 8 decibels, the resulting error rates are 0.000909404 for DPSK and 0.0213237 for noncoherent BFSK. These values indicate how often bits will be incorrectly detected without requiring phase synchronization at the receiver.</p>
-<h4 id="mpsk_symbol_error">Symbol error rate of M-PSK in AWGN — <code>mpsk_symbol_error</code></h4>
+<h4 id="mpsk_symbol_error">Symbol error rate of M-PSK in AWGN, <code>mpsk_symbol_error</code></h4>
 <p>The exact symbol error rate of coherent M-PSK (M = 2 to 64) at a given Eb/N0 (Craig&#x27;s integral), and the Gray-coded bit error rate approximation.</p>
 <div class="math">\[P_s = \frac{1}{\pi}\int_0^{(M-1)\pi/M} \exp\!\left(-\frac{E_s}{N_0}\frac{\sin^2(\pi/M)}{\sin^2\theta}\right)d\theta\]</div>
-<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>M</code></td><td>in</td><td>number of phases</td><td>—</td></tr><tr><td><code>ebn0_db</code></td><td>in</td><td>Eb/N0 in dB</td><td>—</td></tr><tr><td><code>ser</code></td><td>out</td><td>symbol error rate</td><td>—</td></tr><tr><td><code>ber_approx</code></td><td>out</td><td>bit error rate approximation SER/log2 M</td><td>—</td></tr></tbody></table>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>M</code></td><td>in</td><td>number of phases</td><td>, </td></tr><tr><td><code>ebn0_db</code></td><td>in</td><td>Eb/N0 in dB</td><td>, </td></tr><tr><td><code>ser</code></td><td>out</td><td>symbol error rate</td><td>, </td></tr><tr><td><code>ber_approx</code></td><td>out</td><td>bit error rate approximation SER/log2 M</td><td>, </td></tr></tbody></table>
 <p><strong>Applies when:</strong> coherent detection; AWGN channel.</p>
 <pre><code class="shell">$ signal-processing solve mpsk_symbol_error M=8 ebn0_db=10
 ser = 0.003034185962
@@ -526,10 +506,10 @@ ber_approx = 0.001011395321
   M = 8
   assumes: coherent detection; AWGN channel</code></pre>
 <p><strong>What the worked example means:</strong> This calculation determines the exact symbol error rate for coherent M-PSK modulation over an additive white Gaussian noise channel using Craig&#x27;s integral. Given a constellation size of 8 and an energy per bit to noise power spectral density ratio of 10, the resulting symbol error rate is 0.00303419. The corresponding bit error rate, approximated by dividing the symbol error rate by the number of bits per symbol, is 0.0010114. These values indicate the probability of detecting the wrong phase or bit under ideal coherent detection conditions.</p>
-<h4 id="mqam_symbol_error">Symbol error rate of square M-QAM in AWGN — <code>mqam_symbol_error</code></h4>
+<h4 id="mqam_symbol_error">Symbol error rate of square M-QAM in AWGN, <code>mqam_symbol_error</code></h4>
 <p>The exact symbol error rate of coherent square M-QAM (4 to 1024 points) at a given Eb/N0, and the Gray-coded bit error rate approximation SER/log2 M.</p>
 <div class="math">\[P_s = 1 - \left[1 - 2\left(1 - \tfrac{1}{\sqrt M}\right)Q\!\left(\sqrt{\tfrac{3E_s}{(M-1)N_0}}\right)\right]^2\]</div>
-<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>M</code></td><td>in</td><td>constellation size</td><td>—</td></tr><tr><td><code>ebn0_db</code></td><td>in</td><td>Eb/N0 in dB</td><td>—</td></tr><tr><td><code>ser</code></td><td>out</td><td>symbol error rate</td><td>—</td></tr><tr><td><code>ber_approx</code></td><td>out</td><td>bit error rate approximation (Gray coding)</td><td>—</td></tr></tbody></table>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>M</code></td><td>in</td><td>constellation size</td><td>, </td></tr><tr><td><code>ebn0_db</code></td><td>in</td><td>Eb/N0 in dB</td><td>, </td></tr><tr><td><code>ser</code></td><td>out</td><td>symbol error rate</td><td>, </td></tr><tr><td><code>ber_approx</code></td><td>out</td><td>bit error rate approximation (Gray coding)</td><td>, </td></tr></tbody></table>
 <p><strong>Applies when:</strong> square constellation; coherent detection; AWGN channel.</p>
 <pre><code class="shell">$ signal-processing solve mqam_symbol_error M=16 ebn0_db=10
 ser = 0.007004294294
@@ -540,10 +520,10 @@ ber_approx = 0.001751073574
   assumes: square constellation; coherent detection; AWGN channel</code></pre>
 <p><strong>What the worked example means:</strong> This calculation determines the exact symbol error rate for a square M-QAM constellation operating over an additive white Gaussian noise channel. Using the specified constellation size of 16 and an energy per bit to noise power spectral density ratio of 10, the model computes a symbol error rate of 0.00700429. It also provides a bit error rate approximation of 0.00175107, which assumes Gray coding maps adjacent symbols to bit strings differing by only one bit.</p>
 <h3>Digital filters (10)</h3>
-<h4 id="bilinear_rc_lowpass">Bilinear transform of a first-order low-pass filter — <code>bilinear_rc_lowpass</code></h4>
+<h4 id="bilinear_rc_lowpass">Bilinear transform of a first-order low-pass filter, <code>bilinear_rc_lowpass</code></h4>
 <p>The digital filter H(z) = (b0 + b1 z^-1)/(1 + a1 z^-1) obtained from H(s) = wc/(s + wc) by the bilinear transform s = 2 fs (1 - z^-1)/(1 + z^-1), without pre-warping.</p>
 <div class="math">\[H(z) = \frac{\omega_c (1 + z^{-1})}{(\omega_c + 2f_s) + (\omega_c - 2f_s) z^{-1}}\]</div>
-<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>fc</code></td><td>in</td><td>analog cutoff frequency</td><td>Hz</td></tr><tr><td><code>fs</code></td><td>in</td><td>sampling rate</td><td>Hz</td></tr><tr><td><code>b0</code></td><td>out</td><td>numerator coefficient b0</td><td>—</td></tr><tr><td><code>b1</code></td><td>out</td><td>numerator coefficient b1</td><td>—</td></tr><tr><td><code>a1</code></td><td>out</td><td>denominator coefficient a1 (a0 = 1)</td><td>—</td></tr></tbody></table>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>fc</code></td><td>in</td><td>analog cutoff frequency</td><td>Hz</td></tr><tr><td><code>fs</code></td><td>in</td><td>sampling rate</td><td>Hz</td></tr><tr><td><code>b0</code></td><td>out</td><td>numerator coefficient b0</td><td>, </td></tr><tr><td><code>b1</code></td><td>out</td><td>numerator coefficient b1</td><td>, </td></tr><tr><td><code>a1</code></td><td>out</td><td>denominator coefficient a1 (a0 = 1)</td><td>, </td></tr></tbody></table>
 <p><strong>Applies when:</strong> fc &gt; 0; fs &gt; 0; no frequency pre-warping.</p>
 <pre><code class="shell">$ signal-processing solve bilinear_rc_lowpass &quot;fs=8 kHz&quot; &quot;fc=1 kHz&quot;
 b0 = 0.2819698001
@@ -554,10 +534,10 @@ a1 = -0.4360603998
   fc = 1000 Hz
   assumes: fc &gt; 0; fs &gt; 0; no frequency pre-warping</code></pre>
 <p><strong>What the worked example means:</strong> This calculation determines the numerator and denominator coefficients for a first-order digital low-pass filter derived from an analog prototype using the bilinear transform. Substituting the sampling relationship into the continuous transfer function gives the specific discrete-time values b0 = 0.28197, b1 = 0.28197, and a1 = -0.43606 based on the cutoff frequency of 1 kHz and the sampling rate of 8 kHz. These coefficients define how past input and output samples are weighted to produce the current filtered signal.</p>
-<h4 id="dc_gain">DC gain of a digital filter — <code>dc_gain</code></h4>
+<h4 id="dc_gain">DC gain of a digital filter, <code>dc_gain</code></h4>
 <p>The gain H(1) = sum b / sum a of the filter at zero frequency, and its level in dB.</p>
 <div class="math">\[H(1) = \frac{\sum_k b_k}{\sum_k a_k}\]</div>
-<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>b</code></td><td>in</td><td>numerator coefficients b</td><td>—</td></tr><tr><td><code>a</code></td><td>in</td><td>denominator coefficients a (1 if not given) (optional)</td><td>—</td></tr><tr><td><code>gain</code></td><td>out</td><td>DC gain H(z = 1) (signed)</td><td>—</td></tr><tr><td><code>gain_db</code></td><td>out</td><td>20 log10 |H(1)| in dB</td><td>—</td></tr></tbody></table>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>b</code></td><td>in</td><td>numerator coefficients b</td><td>, </td></tr><tr><td><code>a</code></td><td>in</td><td>denominator coefficients a (1 if not given) (optional)</td><td>, </td></tr><tr><td><code>gain</code></td><td>out</td><td>DC gain H(z = 1) (signed)</td><td>, </td></tr><tr><td><code>gain_db</code></td><td>out</td><td>20 log10 |H(1)| in dB</td><td>, </td></tr></tbody></table>
 <p><strong>Applies when:</strong> sum of a != 0 (no pole at z = 1).</p>
 <pre><code class="shell">$ signal-processing solve dc_gain &quot;b=[1, 2, 1]&quot; &quot;a=[1, -0.5, 0.25]&quot;
 gain = 5.333333333
@@ -565,20 +545,20 @@ gain_db = 14.53997456
   by: DC gain of a digital filter  (H(1) = sum b_k / sum a_k)
   assumes: sum of a != 0 (no pole at z = 1)</code></pre>
 <p><strong>What the worked example means:</strong> This calculation determines the steady-state amplification or attenuation of a constant input signal by evaluating the filter&#x27;s transfer function at zero frequency. The result, 5.33333, represents the ratio of the sum of numerator coefficients to the sum of denominator coefficients. This value indicates how much a direct current component is scaled by the system, while 14.54 expresses this scaling factor on a logarithmic decibel scale for easier interpretation of dynamic range.</p>
-<h4 id="fir_filter_output">FIR filter output — <code>fir_filter_output</code></h4>
+<h4 id="fir_filter_output">FIR filter output, <code>fir_filter_output</code></h4>
 <p>The output y[n] = sum_k b[k] x[n-k] of an FIR filter with coefficients b (zero initial conditions, same length as x).</p>
 <div class="math">\[y[n] = \sum_{k=0}^{M} b_k\,x[n-k]\]</div>
-<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>b</code></td><td>in</td><td>filter coefficients (taps) b[0..M]</td><td>—</td></tr><tr><td><code>x</code></td><td>in</td><td>input samples</td><td>—</td></tr><tr><td><code>y</code></td><td>out</td><td>output samples</td><td>—</td></tr></tbody></table>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>b</code></td><td>in</td><td>filter coefficients (taps) b[0..M]</td><td>, </td></tr><tr><td><code>x</code></td><td>in</td><td>input samples</td><td>, </td></tr><tr><td><code>y</code></td><td>out</td><td>output samples</td><td>, </td></tr></tbody></table>
 <p><strong>Applies when:</strong> zero initial conditions.</p>
 <pre><code class="shell">$ signal-processing solve fir_filter_output &quot;b=[0.5, 0.5]&quot; &quot;x=[1, 2, 3, 4]&quot;
 y = [0.5,1.5,2.5,3.5]
   by: FIR filter output  (direct-form FIR difference equation)
   assumes: zero initial conditions</code></pre>
 <p><strong>What the worked example means:</strong> This calculation determines the time-domain response of a finite impulse response filter. It computes each output sample [0.5, 1.5, 2.5, 3.5] by summing the products of filter coefficients [0.5, 0.5] and corresponding delayed input samples [1, 2, 3, 4]. This process shapes the signal spectrum without using feedback, ensuring inherent stability and allowing for precise control over frequency characteristics.</p>
-<h4 id="frequency_response">Frequency response of a digital filter at one frequency — <code>frequency_response</code></h4>
+<h4 id="frequency_response">Frequency response of a digital filter at one frequency, <code>frequency_response</code></h4>
 <p>H(e^{jw}) = B(e^{jw}) / A(e^{jw}) at w = 2 pi f / fs: magnitude, magnitude in dB and phase.</p>
 <div class="math">\[H(e^{j\omega}) = \frac{\sum_k b_k e^{-j\omega k}}{\sum_k a_k e^{-j\omega k}},\ \omega = 2\pi f/f_s\]</div>
-<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>b</code></td><td>in</td><td>numerator coefficients b</td><td>—</td></tr><tr><td><code>f</code></td><td>in</td><td>frequency</td><td>Hz</td></tr><tr><td><code>fs</code></td><td>in</td><td>sampling rate</td><td>Hz</td></tr><tr><td><code>a</code></td><td>in</td><td>denominator coefficients a (1 if not given) (optional)</td><td>—</td></tr><tr><td><code>magnitude</code></td><td>out</td><td>|H|</td><td>—</td></tr><tr><td><code>magnitude_db</code></td><td>out</td><td>20 log10 |H| in dB</td><td>—</td></tr><tr><td><code>phase</code></td><td>out</td><td>phase of H in radians</td><td>rad</td></tr></tbody></table>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>b</code></td><td>in</td><td>numerator coefficients b</td><td>, </td></tr><tr><td><code>f</code></td><td>in</td><td>frequency</td><td>Hz</td></tr><tr><td><code>fs</code></td><td>in</td><td>sampling rate</td><td>Hz</td></tr><tr><td><code>a</code></td><td>in</td><td>denominator coefficients a (1 if not given) (optional)</td><td>, </td></tr><tr><td><code>magnitude</code></td><td>out</td><td>|H|</td><td>, </td></tr><tr><td><code>magnitude_db</code></td><td>out</td><td>20 log10 |H| in dB</td><td>, </td></tr><tr><td><code>phase</code></td><td>out</td><td>phase of H in radians</td><td>rad</td></tr></tbody></table>
 <p><strong>Applies when:</strong> 0 &lt;= f &lt;= fs/2; no pole on the unit circle at f.</p>
 <pre><code class="shell">$ signal-processing solve frequency_response &quot;b=[1, 1]&quot; &quot;fs=8 kHz&quot; &quot;f=1 kHz&quot;
 magnitude = 1.847759065
@@ -589,10 +569,10 @@ phase = -0.3926990817 rad
   f = 1000 Hz
   assumes: 0 &lt;= f &lt;= fs/2; no pole on the unit circle at f</code></pre>
 <p><strong>What the worked example means:</strong> The capability evaluates the digital filter&#x27;s transfer function at the specified frequency by substituting complex exponentials for delay operators. Using the numerator and denominator coefficients, it computes the resulting response. At input frequency 1 kHz with sampling rate 8 kHz, the output shows a linear magnitude of 1.84776, which corresponds to 5.33291 in decibels, and a phase shift of -0.392699 rad radians.</p>
-<h4 id="group_delay">Group delay of a digital filter — <code>group_delay</code></h4>
+<h4 id="group_delay">Group delay of a digital filter, <code>group_delay</code></h4>
 <p>The group delay -d(phase)/dw of H(z) = B(z)/A(z) at frequency f, in samples and in seconds.</p>
 <div class="math">\[\tau_g(\omega) = -\frac{d\angle H(e^{j\omega})}{d\omega} = \mathrm{Re}\frac{\sum k b_k e^{-j\omega k}}{\sum b_k e^{-j\omega k}} - \mathrm{Re}\frac{\sum k a_k e^{-j\omega k}}{\sum a_k e^{-j\omega k}}\]</div>
-<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>b</code></td><td>in</td><td>numerator coefficients b</td><td>—</td></tr><tr><td><code>f</code></td><td>in</td><td>frequency</td><td>Hz</td></tr><tr><td><code>fs</code></td><td>in</td><td>sampling rate</td><td>Hz</td></tr><tr><td><code>a</code></td><td>in</td><td>denominator coefficients a (1 if not given) (optional)</td><td>—</td></tr><tr><td><code>samples</code></td><td>out</td><td>group delay in samples</td><td>—</td></tr><tr><td><code>seconds</code></td><td>out</td><td>group delay in seconds</td><td>s</td></tr></tbody></table>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>b</code></td><td>in</td><td>numerator coefficients b</td><td>, </td></tr><tr><td><code>f</code></td><td>in</td><td>frequency</td><td>Hz</td></tr><tr><td><code>fs</code></td><td>in</td><td>sampling rate</td><td>Hz</td></tr><tr><td><code>a</code></td><td>in</td><td>denominator coefficients a (1 if not given) (optional)</td><td>, </td></tr><tr><td><code>samples</code></td><td>out</td><td>group delay in samples</td><td>, </td></tr><tr><td><code>seconds</code></td><td>out</td><td>group delay in seconds</td><td>s</td></tr></tbody></table>
 <p><strong>Applies when:</strong> 0 &lt;= f &lt;= fs/2; no zero or pole of H on the unit circle at f.</p>
 <pre><code class="shell">$ signal-processing solve group_delay &quot;b=[1, 2, 3, 2, 1]&quot; &quot;fs=8 kHz&quot; &quot;f=500 Hz&quot;
 samples = 2
@@ -602,30 +582,30 @@ seconds = 0.00025 s
   f = 500 Hz
   assumes: 0 &lt;= f &lt;= fs/2; no zero or pole of H on the unit circle at f</code></pre>
 <p><strong>What the worked example means:</strong> This calculation determines the group delay of a digital filter at the specified frequency. Evaluating the real part of the ratio of coefficient-weighted sums on the unit circle shows that the signal experiences a delay of 2 samples. When converted using the sampling rate 8 kHz, this corresponds to a time delay of 0.00025 s seconds, representing how much the envelope of the signal component at 500 Hz is shifted in time.</p>
-<h4 id="iir_filter_output">IIR filter output (difference equation) — <code>iir_filter_output</code></h4>
+<h4 id="iir_filter_output">IIR filter output (difference equation), <code>iir_filter_output</code></h4>
 <p>The output of the recursive filter a[0] y[n] = sum_k b[k] x[n-k] - sum_{k&gt;=1} a[k] y[n-k] (zero initial conditions).</p>
 <div class="math">\[a_0 y[n] = \sum_k b_k x[n-k] - \sum_{k\ge 1} a_k y[n-k]\]</div>
-<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>b</code></td><td>in</td><td>feed-forward coefficients b</td><td>—</td></tr><tr><td><code>a</code></td><td>in</td><td>feedback coefficients a (a[0] != 0)</td><td>—</td></tr><tr><td><code>x</code></td><td>in</td><td>input samples</td><td>—</td></tr><tr><td><code>y</code></td><td>out</td><td>output samples</td><td>—</td></tr></tbody></table>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>b</code></td><td>in</td><td>feed-forward coefficients b</td><td>, </td></tr><tr><td><code>a</code></td><td>in</td><td>feedback coefficients a (a[0] != 0)</td><td>, </td></tr><tr><td><code>x</code></td><td>in</td><td>input samples</td><td>, </td></tr><tr><td><code>y</code></td><td>out</td><td>output samples</td><td>, </td></tr></tbody></table>
 <p><strong>Applies when:</strong> a[0] != 0; zero initial conditions.</p>
 <pre><code class="shell">$ signal-processing solve iir_filter_output &quot;b=[1]&quot; &quot;a=[1, -0.5]&quot; &quot;x=[1, 0, 0, 0]&quot;
 y = [1.0,0.5,0.25,0.125]
   by: IIR filter output (difference equation)  (direct-form I difference equation)
   assumes: a[0] != 0; zero initial conditions</code></pre>
 <p><strong>What the worked example means:</strong> This calculation determines the time-domain response of an infinite impulse response filter using the direct-form difference equation. The process combines current and past input samples weighted by feed-forward coefficients with past output samples weighted by feedback coefficients to produce the final sequence. For the given inputs, the resulting output values are [1, 0.5, 0.25, 0.125], representing the filtered signal under zero initial conditions.</p>
-<h4 id="impulse_response">Impulse response of a digital filter — <code>impulse_response</code></h4>
+<h4 id="impulse_response">Impulse response of a digital filter, <code>impulse_response</code></h4>
 <p>The first n samples of the impulse response h[n] of the filter with coefficients b and a.</p>
 <div class="math">\[h[n] = \mathcal{Z}^{-1}\{B(z)/A(z)\}\]</div>
-<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>b</code></td><td>in</td><td>numerator coefficients b</td><td>—</td></tr><tr><td><code>a</code></td><td>in</td><td>denominator coefficients a (a[0] != 0)</td><td>—</td></tr><tr><td><code>n</code></td><td>in</td><td>number of samples</td><td>—</td></tr><tr><td><code>h</code></td><td>out</td><td>impulse response h[0..n-1]</td><td>—</td></tr></tbody></table>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>b</code></td><td>in</td><td>numerator coefficients b</td><td>, </td></tr><tr><td><code>a</code></td><td>in</td><td>denominator coefficients a (a[0] != 0)</td><td>, </td></tr><tr><td><code>n</code></td><td>in</td><td>number of samples</td><td>, </td></tr><tr><td><code>h</code></td><td>out</td><td>impulse response h[0..n-1]</td><td>, </td></tr></tbody></table>
 <p><strong>Applies when:</strong> a[0] != 0.</p>
 <pre><code class="shell">$ signal-processing solve impulse_response &quot;b=[1]&quot; &quot;a=[1, -0.5]&quot; n=5
 h = [1.0,0.5,0.25,0.125,0.0625]
   by: Impulse response of a digital filter  (the difference equation driven by a unit impulse)
   assumes: a[0] != 0</code></pre>
 <p><strong>What the worked example means:</strong> This calculation determines the impulse response h of a digital filter defined by numerator coefficients b and denominator coefficients a. Driving the difference equation with a unit impulse gives the first n samples of the system&#x27;s characteristic signature. The result, [1, 0.5, 0.25, 0.125, 0.0625], represents how the filter reacts to an instantaneous spike at time zero, which is fundamental for predicting its behavior on any arbitrary input through convolution.</p>
-<h4 id="butterworth_order_digital">Minimum order of a digital (bilinear) Butterworth filter — <code>butterworth_order_digital</code></h4>
+<h4 id="butterworth_order_digital">Minimum order of a digital (bilinear) Butterworth filter, <code>butterworth_order_digital</code></h4>
 <p>The smallest order meeting a passband edge with at most Rp dB attenuation and a stopband edge with at least As dB (digital design by the bilinear transform: edges pre-warped with tan(pi f / fs)).</p>
 <div class="math">\[N \ge \frac{\log_{10}\frac{10^{A_s/10}-1}{10^{R_p/10}-1}}{2\log_{10}(\omega_s/\omega_p)}\]</div>
-<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>fp</code></td><td>in</td><td>passband edge frequency</td><td>Hz</td></tr><tr><td><code>fstop</code></td><td>in</td><td>stopband edge frequency</td><td>Hz</td></tr><tr><td><code>fs</code></td><td>in</td><td>sampling rate</td><td>Hz</td></tr><tr><td><code>Rp</code></td><td>in</td><td>maximum passband attenuation (ripple) in dB</td><td>—</td></tr><tr><td><code>As</code></td><td>in</td><td>minimum stopband attenuation in dB</td><td>—</td></tr><tr><td><code>order</code></td><td>out</td><td>minimum filter order</td><td>—</td></tr><tr><td><code>type</code></td><td>out</td><td>lowpass (fp &lt; fstop) or highpass (fp &gt; fstop)</td><td>—</td></tr></tbody></table>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>fp</code></td><td>in</td><td>passband edge frequency</td><td>Hz</td></tr><tr><td><code>fstop</code></td><td>in</td><td>stopband edge frequency</td><td>Hz</td></tr><tr><td><code>fs</code></td><td>in</td><td>sampling rate</td><td>Hz</td></tr><tr><td><code>Rp</code></td><td>in</td><td>maximum passband attenuation (ripple) in dB</td><td>, </td></tr><tr><td><code>As</code></td><td>in</td><td>minimum stopband attenuation in dB</td><td>, </td></tr><tr><td><code>order</code></td><td>out</td><td>minimum filter order</td><td>, </td></tr><tr><td><code>type</code></td><td>out</td><td>lowpass (fp &lt; fstop) or highpass (fp &gt; fstop)</td><td>, </td></tr></tbody></table>
 <p><strong>Applies when:</strong> 0 &lt; Rp &lt; As; fp != fstop; both edges below fs/2.</p>
 <pre><code class="shell">$ signal-processing solve butterworth_order_digital &quot;fp=1 kHz&quot; &quot;fstop=2 kHz&quot; &quot;fs=10 kHz&quot; Rp=1 As=40
 order = 7
@@ -638,20 +618,20 @@ type = lowpass
   As = 40
   assumes: 0 &lt; Rp &lt; As; fp != fstop; both edges below fs/2</code></pre>
 <p><strong>What the worked example means:</strong> This calculation determines the smallest integer order required for a digital Butterworth filter to meet specific attenuation constraints. Using the bilinear transform method, the passband edge frequency of 1 kHz and stopband edge frequency of 2 kHz are pre-warped relative to the sampling rate of 10 kHz. The resulting minimum order is 7, ensuring that the filter provides at most 1 dB attenuation in the passband and at least 40 dB attenuation in the stopband.</p>
-<h4 id="moving_average">Moving-average filter output — <code>moving_average</code></h4>
+<h4 id="moving_average">Moving-average filter output, <code>moving_average</code></h4>
 <p>The causal M-point moving average y[n] = (1/M) sum_{i=0}^{M-1} x[n-i], with x[n] = 0 before the first sample.</p>
 <div class="math">\[y[n] = \frac{1}{M}\sum_{i=0}^{M-1} x[n-i]\]</div>
-<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>x</code></td><td>in</td><td>input samples</td><td>—</td></tr><tr><td><code>M</code></td><td>in</td><td>window length (points averaged)</td><td>—</td></tr><tr><td><code>y</code></td><td>out</td><td>output samples (same length as x)</td><td>—</td></tr></tbody></table>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>x</code></td><td>in</td><td>input samples</td><td>, </td></tr><tr><td><code>M</code></td><td>in</td><td>window length (points averaged)</td><td>, </td></tr><tr><td><code>y</code></td><td>out</td><td>output samples (same length as x)</td><td>, </td></tr></tbody></table>
 <p><strong>Applies when:</strong> M &gt;= 1; zero initial conditions.</p>
 <pre><code class="shell">$ signal-processing solve moving_average M=3 &quot;x=[3, 6, 9, 12]&quot;
 y = [1.0,3.0,6.0,9.0]
   by: Moving-average filter output  (direct sum of the last M samples divided by M)
   assumes: M &gt;= 1; zero initial conditions</code></pre>
 <p><strong>What the worked example means:</strong> This calculation produces a smoothed signal by averaging a fixed window of recent data points. The result [1, 3, 6, 9] represents the local mean of the input sequence [3, 6, 9, 12] over the specified window length M. This operation effectively reduces high-frequency noise while preserving the general trend of the underlying signal, acting as a simple low-pass filter.</p>
-<h4 id="step_response">Step response of a digital filter — <code>step_response</code></h4>
+<h4 id="step_response">Step response of a digital filter, <code>step_response</code></h4>
 <p>The first n samples of the response s[n] of the filter (b, a) to a unit step.</p>
 <div class="math">\[s[n] = \sum_{m=0}^{n} h[m]\]</div>
-<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>b</code></td><td>in</td><td>numerator coefficients b</td><td>—</td></tr><tr><td><code>a</code></td><td>in</td><td>denominator coefficients a (a[0] != 0)</td><td>—</td></tr><tr><td><code>n</code></td><td>in</td><td>number of samples</td><td>—</td></tr><tr><td><code>s</code></td><td>out</td><td>step response s[0..n-1]</td><td>—</td></tr></tbody></table>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>b</code></td><td>in</td><td>numerator coefficients b</td><td>, </td></tr><tr><td><code>a</code></td><td>in</td><td>denominator coefficients a (a[0] != 0)</td><td>, </td></tr><tr><td><code>n</code></td><td>in</td><td>number of samples</td><td>, </td></tr><tr><td><code>s</code></td><td>out</td><td>step response s[0..n-1]</td><td>, </td></tr></tbody></table>
 <p><strong>Applies when:</strong> a[0] != 0.</p>
 <pre><code class="shell">$ signal-processing solve step_response &quot;b=[1]&quot; &quot;a=[1, -0.5]&quot; n=4
 s = [1.0,1.5,1.75,1.875]
@@ -659,10 +639,10 @@ s = [1.0,1.5,1.75,1.875]
   assumes: a[0] != 0</code></pre>
 <p><strong>What the worked example means:</strong> This calculation determines the time-domain behavior of a digital filter when subjected to an abrupt change in input level. Applying a unit step signal to the system characterized by numerator coefficients [1] and denominator coefficients [1, -0.5] gives the output sequence [1, 1.5, 1.75, 1.875] spanning 4 samples. The resulting values represent how the filter transitions from rest to its steady state, revealing critical characteristics such as rise time, overshoot, and settling speed which are essential for evaluating transient performance in control and communication applications.</p>
 <h3>Filter design (3)</h3>
-<h4 id="butterworth_design">Digital Butterworth filter design (bilinear transform) — <code>butterworth_design</code></h4>
+<h4 id="butterworth_design">Digital Butterworth filter design (bilinear transform), <code>butterworth_design</code></h4>
 <p>The coefficients b and a of an N-th order digital Butterworth low-pass or high-pass filter with cutoff fc at sampling rate fs (bilinear transform with pre-warping).</p>
 <div class="math">\[s = 2f_s\frac{1 - z^{-1}}{1 + z^{-1}},\quad \omega_c = 2f_s\tan\frac{\pi f_c}{f_s}\]</div>
-<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>N</code></td><td>in</td><td>filter order (1..8)</td><td>—</td></tr><tr><td><code>fc</code></td><td>in</td><td>cutoff (-3 dB) frequency</td><td>Hz</td></tr><tr><td><code>fs</code></td><td>in</td><td>sampling rate</td><td>Hz</td></tr><tr><td><code>btype</code></td><td>in</td><td>lowpass or highpass</td><td>—</td></tr><tr><td><code>b</code></td><td>out</td><td>numerator coefficients b[0..N]</td><td>—</td></tr><tr><td><code>a</code></td><td>out</td><td>denominator coefficients a[0..N] (a[0] = 1)</td><td>—</td></tr></tbody></table>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>N</code></td><td>in</td><td>filter order (1..8)</td><td>, </td></tr><tr><td><code>fc</code></td><td>in</td><td>cutoff (-3 dB) frequency</td><td>Hz</td></tr><tr><td><code>fs</code></td><td>in</td><td>sampling rate</td><td>Hz</td></tr><tr><td><code>btype</code></td><td>in</td><td>lowpass or highpass</td><td>, </td></tr><tr><td><code>b</code></td><td>out</td><td>numerator coefficients b[0..N]</td><td>, </td></tr><tr><td><code>a</code></td><td>out</td><td>denominator coefficients a[0..N] (a[0] = 1)</td><td>, </td></tr></tbody></table>
 <p><strong>Applies when:</strong> 0 &lt; fc &lt; fs/2; 1 &lt;= N &lt;= 8.</p>
 <pre><code class="shell">$ signal-processing solve butterworth_design btype=lowpass N=2 &quot;fs=8 kHz&quot; &quot;fc=1 kHz&quot;
 b = [0.0976310729378,0.195262145876,0.0976310729378]
@@ -673,10 +653,10 @@ a = [1.0,-0.942809041582,0.333333333333]
   btype = lowpass
   assumes: 0 &lt; fc &lt; fs/2; 1 &lt;= N &lt;= 8</code></pre>
 <p><strong>What the worked example means:</strong> This calculation determines the digital filter coefficients by mapping an analog prototype to the discrete domain using the bilinear transform. The process begins with pre-warping the cutoff frequency 1 kHz based on the sampling rate 8 kHz, resulting in a warped angular frequency. Analog poles are then calculated for the specified order 2 and type lowpass. These poles are transformed into the z-plane, and the resulting system function is expanded into polynomial form. The final output provides the numerator coefficients [0.0976311, 0.195262, 0.0976311] and denominator coefficients [1, -0.942809, 0.333333], which define the difference equation for implementation. This ensures a maximally flat passband response while maintaining stability within the digital framework.</p>
-<h4 id="fir_window_design">FIR low-pass filter design by the window method — <code>fir_window_design</code></h4>
+<h4 id="fir_window_design">FIR low-pass filter design by the window method, <code>fir_window_design</code></h4>
 <p>The N taps of a linear-phase FIR low-pass filter with cutoff fc: an ideal (sinc) impulse response shifted by (N-1)/2, multiplied by a rectangular, Hann, Hamming or Blackman window and scaled to unit DC gain.</p>
 <div class="math">\[h[n] \propto \frac{2f_c}{f_s}\,\mathrm{sinc}\!\left(\frac{2f_c}{f_s}\left(n - \tfrac{N-1}{2}\right)\right) w[n]\]</div>
-<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>N</code></td><td>in</td><td>number of taps</td><td>—</td></tr><tr><td><code>fc</code></td><td>in</td><td>cutoff frequency</td><td>Hz</td></tr><tr><td><code>fs</code></td><td>in</td><td>sampling rate</td><td>Hz</td></tr><tr><td><code>window</code></td><td>in</td><td>window type</td><td>—</td></tr><tr><td><code>h</code></td><td>out</td><td>filter taps h[0..N-1]</td><td>—</td></tr></tbody></table>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>N</code></td><td>in</td><td>number of taps</td><td>, </td></tr><tr><td><code>fc</code></td><td>in</td><td>cutoff frequency</td><td>Hz</td></tr><tr><td><code>fs</code></td><td>in</td><td>sampling rate</td><td>Hz</td></tr><tr><td><code>window</code></td><td>in</td><td>window type</td><td>, </td></tr><tr><td><code>h</code></td><td>out</td><td>filter taps h[0..N-1]</td><td>, </td></tr></tbody></table>
 <p><strong>Applies when:</strong> 0 &lt; fc &lt; fs/2; symmetric window; taps scaled so that the DC gain is 1.</p>
 <pre><code class="shell">$ signal-processing solve fir_window_design window=hamming N=5 &quot;fs=8 kHz&quot; &quot;fc=1 kHz&quot;
 h = [0.024553834015,0.234389464238,0.482113403494,0.234389464238,0.024553834015]
@@ -686,10 +666,10 @@ h = [0.024553834015,0.234389464238,0.482113403494,0.234389464238,0.024553834015]
   window = hamming
   assumes: 0 &lt; fc &lt; fs/2; symmetric window; taps scaled so that the DC gain is 1</code></pre>
 <p><strong>What the worked example means:</strong> This calculation produces the impulse response coefficients for a linear-phase finite impulse response low-pass filter. The process starts with an ideal sinc function defined by the cutoff frequency 1 kHz and sampling rate 8 kHz, which is then multiplied by a symmetric window to reduce side lobes. The resulting taps, denoted as [0.0245538, 0.234389, 0.482113, 0.234389, 0.0245538], are normalized so that the filter passes direct current signals without attenuation while rejecting frequencies above the specified cutoff.</p>
-<h4 id="notch_filter_design">Second-order IIR notch filter design — <code>notch_filter_design</code></h4>
+<h4 id="notch_filter_design">Second-order IIR notch filter design, <code>notch_filter_design</code></h4>
 <p>The coefficients of a second-order IIR notch filter removing frequency f0 with quality factor Q (bandwidth f0/Q at -3 dB) at sampling rate fs.</p>
 <div class="math">\[H(z) = g\,\frac{1 - 2\cos\omega_0 z^{-1} + z^{-2}}{1 - 2g\cos\omega_0 z^{-1} + (2g - 1)z^{-2}},\ g = \frac{1}{1 + \tan(\omega_0/2Q)}\]</div>
-<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>f0</code></td><td>in</td><td>frequency to remove</td><td>Hz</td></tr><tr><td><code>Q</code></td><td>in</td><td>quality factor f0 / bandwidth</td><td>—</td></tr><tr><td><code>fs</code></td><td>in</td><td>sampling rate</td><td>Hz</td></tr><tr><td><code>b</code></td><td>out</td><td>numerator coefficients b0, b1, b2</td><td>—</td></tr><tr><td><code>a</code></td><td>out</td><td>denominator coefficients 1, a1, a2</td><td>—</td></tr></tbody></table>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>f0</code></td><td>in</td><td>frequency to remove</td><td>Hz</td></tr><tr><td><code>Q</code></td><td>in</td><td>quality factor f0 / bandwidth</td><td>, </td></tr><tr><td><code>fs</code></td><td>in</td><td>sampling rate</td><td>Hz</td></tr><tr><td><code>b</code></td><td>out</td><td>numerator coefficients b0, b1, b2</td><td>, </td></tr><tr><td><code>a</code></td><td>out</td><td>denominator coefficients 1, a1, a2</td><td>, </td></tr></tbody></table>
 <p><strong>Applies when:</strong> 0 &lt; f0 &lt; fs/2; Q &gt; 0.</p>
 <pre><code class="shell">$ signal-processing solve notch_filter_design &quot;fs=1 kHz&quot; &quot;f0=60 Hz&quot; Q=30
 b = [0.9937559649536571,-1.8479418578501994,0.9937559649536571]
@@ -701,10 +681,10 @@ a = [1.0,-1.8479418578501994,0.9875119299073143]
   assumes: 0 &lt; f0 &lt; fs/2; Q &gt; 0</code></pre>
 <p><strong>What the worked example means:</strong> This calculation determines the numerator and denominator coefficients for a second-order IIR notch filter. Using the target frequency 60 Hz, quality factor 30, and sampling rate 1 kHz, it computes the gain parameter g to place zeros on the unit circle at the desired notch location while setting pole radii to control bandwidth. The resulting output coefficients [0.993756, -1.84794, 0.993756] and [1, -1.84794, 0.987512] define the difference equation that attenuates signals near 60 Hz by approximately three decibels within the specified bandwidth.</p>
 <h3>Fourier series and transforms (5)</h3>
-<h4 id="analytic_envelope">Analytic signal, Hilbert transform and envelope — <code>analytic_envelope</code></h4>
+<h4 id="analytic_envelope">Analytic signal, Hilbert transform and envelope, <code>analytic_envelope</code></h4>
 <p>The discrete Hilbert transform of a real sequence and its envelope |x + j H{x}|, computed through the DFT (negative frequencies removed, positive ones doubled).</p>
 <div class="math">\[x_a[n] = \mathrm{IDFT}\{X[k]\,h[k]\},\quad \text{envelope} = |x_a[n]|\]</div>
-<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>x</code></td><td>in</td><td>real samples</td><td>—</td></tr><tr><td><code>envelope</code></td><td>out</td><td>envelope |x_a[n]|</td><td>—</td></tr><tr><td><code>hilbert</code></td><td>out</td><td>Hilbert transform (imaginary part of the analytic signal)</td><td>—</td></tr></tbody></table>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>x</code></td><td>in</td><td>real samples</td><td>, </td></tr><tr><td><code>envelope</code></td><td>out</td><td>envelope |x_a[n]|</td><td>, </td></tr><tr><td><code>hilbert</code></td><td>out</td><td>Hilbert transform (imaginary part of the analytic signal)</td><td>, </td></tr></tbody></table>
 <p><strong>Applies when:</strong> the sequence treated as one period (DFT-based transform).</p>
 <pre><code class="shell">$ signal-processing solve analytic_envelope &quot;x=[1, 0, -1, 0]&quot;
 envelope = [1.0,1.0,1.0,1.0]
@@ -712,10 +692,10 @@ hilbert = [0.0,1.0,0.0,-1.0]
   by: Analytic signal, Hilbert transform and envelope  (FFT, multiply by h[k] = 1, 2, ..., 2, (1), 0, ..., 0, inverse FFT)
   assumes: the sequence treated as one period (DFT-based transform)</code></pre>
 <p><strong>What the worked example means:</strong> This calculation derives the analytic signal from the real input samples [1, 0, -1, 0] by applying a discrete Hilbert transform via frequency domain manipulation. The resulting envelope, representing the instantaneous amplitude, is [1, 1, 1, 1], while the imaginary part corresponding to the Hilbert transform is [0, 1, 0, -1]. This process effectively removes negative frequencies and doubles positive ones to create a complex representation suitable for modulation analysis.</p>
-<h4 id="exponential_pulse_spectrum">Fourier transform of a decaying exponential — <code>exponential_pulse_spectrum</code></h4>
+<h4 id="exponential_pulse_spectrum">Fourier transform of a decaying exponential, <code>exponential_pulse_spectrum</code></h4>
 <p>X(f) = A tau / (1 + j 2 pi f tau) of x(t) = A exp(-t/tau) for t &gt;= 0: magnitude, phase, real and imaginary parts.</p>
 <div class="math">\[X(f) = \frac{A\tau}{1 + j2\pi f\tau}\]</div>
-<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>A</code></td><td>in</td><td>initial amplitude</td><td>—</td></tr><tr><td><code>tau</code></td><td>in</td><td>time constant</td><td>s</td></tr><tr><td><code>f</code></td><td>in</td><td>frequency</td><td>Hz</td></tr><tr><td><code>magnitude</code></td><td>out</td><td>|X(f)|</td><td>—</td></tr><tr><td><code>phase</code></td><td>out</td><td>phase of X(f) in radians</td><td>rad</td></tr><tr><td><code>re</code></td><td>out</td><td>real part</td><td>—</td></tr><tr><td><code>im</code></td><td>out</td><td>imaginary part</td><td>—</td></tr></tbody></table>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>A</code></td><td>in</td><td>initial amplitude</td><td>, </td></tr><tr><td><code>tau</code></td><td>in</td><td>time constant</td><td>s</td></tr><tr><td><code>f</code></td><td>in</td><td>frequency</td><td>Hz</td></tr><tr><td><code>magnitude</code></td><td>out</td><td>|X(f)|</td><td>, </td></tr><tr><td><code>phase</code></td><td>out</td><td>phase of X(f) in radians</td><td>rad</td></tr><tr><td><code>re</code></td><td>out</td><td>real part</td><td>, </td></tr><tr><td><code>im</code></td><td>out</td><td>imaginary part</td><td>, </td></tr></tbody></table>
 <p><strong>Applies when:</strong> A &gt; 0; tau &gt; 0; x(t) = 0 for t &lt; 0.</p>
 <pre><code class="shell">$ signal-processing solve exponential_pulse_spectrum &quot;tau=0.5 s&quot; &quot;f=0 Hz&quot; A=2
 magnitude = 1
@@ -728,10 +708,10 @@ im = 0
   A = 2
   assumes: A &gt; 0; tau &gt; 0; x(t) = 0 for t &lt; 0</code></pre>
 <p><strong>What the worked example means:</strong> This calculation determines the frequency-domain representation of a causal signal defined by an initial amplitude 2 and time constant 0.5 s at frequency 0 Hz. The resulting complex spectrum has a real part of 1, an imaginary part of 0, a total magnitude of 1, and a phase angle of 0 rad. These values describe how the signal&#x27;s energy is distributed across frequencies, revealing its low-pass filtering characteristics.</p>
-<h4 id="rect_pulse_spectrum">Fourier transform of a rectangular pulse — <code>rect_pulse_spectrum</code></h4>
+<h4 id="rect_pulse_spectrum">Fourier transform of a rectangular pulse, <code>rect_pulse_spectrum</code></h4>
 <p>X(f) = A tau sinc(f tau) of a rectangular pulse of amplitude A and width tau centred at t = 0, its magnitude, and the first spectral null 1/tau.</p>
 <div class="math">\[X(f) = A\tau\,\mathrm{sinc}(f\tau) = A\tau\frac{\sin(\pi f\tau)}{\pi f\tau}\]</div>
-<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>A</code></td><td>in</td><td>pulse amplitude</td><td>—</td></tr><tr><td><code>tau</code></td><td>in</td><td>pulse width</td><td>s</td></tr><tr><td><code>f</code></td><td>in</td><td>frequency</td><td>Hz</td></tr><tr><td><code>X</code></td><td>out</td><td>X(f) (real, in amplitude-seconds)</td><td>—</td></tr><tr><td><code>magnitude</code></td><td>out</td><td>|X(f)|</td><td>—</td></tr><tr><td><code>first_null</code></td><td>out</td><td>first zero of the spectrum, 1/tau</td><td>Hz</td></tr></tbody></table>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>A</code></td><td>in</td><td>pulse amplitude</td><td>, </td></tr><tr><td><code>tau</code></td><td>in</td><td>pulse width</td><td>s</td></tr><tr><td><code>f</code></td><td>in</td><td>frequency</td><td>Hz</td></tr><tr><td><code>X</code></td><td>out</td><td>X(f) (real, in amplitude-seconds)</td><td>, </td></tr><tr><td><code>magnitude</code></td><td>out</td><td>|X(f)|</td><td>, </td></tr><tr><td><code>first_null</code></td><td>out</td><td>first zero of the spectrum, 1/tau</td><td>Hz</td></tr></tbody></table>
 <p><strong>Applies when:</strong> A != 0; tau &gt; 0; the pulse centred at t = 0.</p>
 <pre><code class="shell">$ signal-processing solve rect_pulse_spectrum &quot;tau=1 ms&quot; &quot;f=250 Hz&quot; A=2
 X = 0.001800632632
@@ -743,10 +723,10 @@ first_null = 1000 Hz
   A = 2
   assumes: A != 0; tau &gt; 0; the pulse centred at t = 0</code></pre>
 <p><strong>What the worked example means:</strong> This calculation determines the continuous-time Fourier transform of a rectangular pulse defined by amplitude 2 and width 1 ms. The resulting spectrum, evaluated at frequency 250 Hz, is 0.00180063, which represents the signal&#x27;s component in the frequency domain. The absolute strength of this component is given by the magnitude 0.00180063. Additionally, the analysis identifies the first frequency where the spectrum drops to zero as 1000 Hz, illustrating the inverse relationship between the pulse duration in time and its bandwidth.</p>
-<h4 id="fourier_series_harmonic">Harmonic amplitude of a square, triangle or sawtooth wave — <code>fourier_series_harmonic</code></h4>
+<h4 id="fourier_series_harmonic">Harmonic amplitude of a square, triangle or sawtooth wave, <code>fourier_series_harmonic</code></h4>
 <p>The amplitude of the n-th harmonic in the Fourier series of a zero-mean square, triangle or sawtooth wave of peak amplitude A, relative to the fundamental, and its RMS value.</p>
 <div class="math">\[c_n^{\mathrm{sq}} = \frac{4A}{n\pi},\ c_n^{\mathrm{tri}} = \frac{8A}{\pi^2 n^2}\ (n\ \text{odd}),\quad c_n^{\mathrm{saw}} = \frac{2A}{n\pi}\]</div>
-<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>waveform</code></td><td>in</td><td>waveform</td><td>—</td></tr><tr><td><code>A</code></td><td>in</td><td>peak amplitude of the wave</td><td>—</td></tr><tr><td><code>n</code></td><td>in</td><td>harmonic number (1 = fundamental)</td><td>—</td></tr><tr><td><code>amplitude</code></td><td>out</td><td>amplitude of the n-th harmonic</td><td>—</td></tr><tr><td><code>relative</code></td><td>out</td><td>amplitude relative to the fundamental</td><td>—</td></tr><tr><td><code>rms</code></td><td>out</td><td>RMS value of the n-th harmonic</td><td>—</td></tr></tbody></table>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>waveform</code></td><td>in</td><td>waveform</td><td>, </td></tr><tr><td><code>A</code></td><td>in</td><td>peak amplitude of the wave</td><td>, </td></tr><tr><td><code>n</code></td><td>in</td><td>harmonic number (1 = fundamental)</td><td>, </td></tr><tr><td><code>amplitude</code></td><td>out</td><td>amplitude of the n-th harmonic</td><td>, </td></tr><tr><td><code>relative</code></td><td>out</td><td>amplitude relative to the fundamental</td><td>, </td></tr><tr><td><code>rms</code></td><td>out</td><td>RMS value of the n-th harmonic</td><td>, </td></tr></tbody></table>
 <p><strong>Applies when:</strong> zero-mean waveform with peak A; 50 % duty square wave; symmetric triangle; linear sawtooth.</p>
 <pre><code class="shell">$ signal-processing solve fourier_series_harmonic waveform=square n=3 A=2
 amplitude = 0.8488263632
@@ -757,10 +737,10 @@ rms = 0.6002108774
   waveform = square
   assumes: zero-mean waveform with peak A; 50 % duty square wave; symmetric triangle; linear sawtooth</code></pre>
 <p><strong>What the worked example means:</strong> This calculation determines the spectral content of a periodic waveform by finding the amplitude of its specific harmonics. For a zero-mean square, triangle, or sawtooth wave with peak amplitude 2, the amplitude of the 3-th harmonic is computed as 0.848826. This result allows engineers to quantify how much energy resides at that frequency relative to the fundamental component, yielding a ratio of 0.333333 and an effective RMS value of 0.600211, which are critical for assessing signal distortion and filter requirements.</p>
-<h4 id="thd">Total harmonic distortion — <code>thd</code></h4>
+<h4 id="thd">Total harmonic distortion, <code>thd</code></h4>
 <p>THD = sqrt(V2^2 + V3^2 + ...)/V1 from the amplitudes of the fundamental and its harmonics, as a ratio, in percent and in dB.</p>
 <div class="math">\[\mathrm{THD} = \frac{\sqrt{\sum_{n\ge 2} V_n^2}}{V_1}\]</div>
-<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>V</code></td><td>in</td><td>amplitudes [V1, V2, V3, ...] of the fundamental and harmonics</td><td>—</td></tr><tr><td><code>thd</code></td><td>out</td><td>THD as a ratio</td><td>—</td></tr><tr><td><code>percent</code></td><td>out</td><td>THD in percent</td><td>—</td></tr><tr><td><code>db</code></td><td>out</td><td>THD in dB</td><td>—</td></tr></tbody></table>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>V</code></td><td>in</td><td>amplitudes [V1, V2, V3, ...] of the fundamental and harmonics</td><td>, </td></tr><tr><td><code>thd</code></td><td>out</td><td>THD as a ratio</td><td>, </td></tr><tr><td><code>percent</code></td><td>out</td><td>THD in percent</td><td>, </td></tr><tr><td><code>db</code></td><td>out</td><td>THD in dB</td><td>, </td></tr></tbody></table>
 <p><strong>Applies when:</strong> V1 &gt; 0; amplitudes &gt;= 0 (RMS or peak, all alike).</p>
 <pre><code class="shell">$ signal-processing solve thd &quot;V=[10, 0.5, 0.3, 0.1]&quot;
 thd = 0.05916079783
@@ -770,10 +750,10 @@ db = -24.55931956
   assumes: V1 &gt; 0; amplitudes &gt;= 0 (RMS or peak, all alike)</code></pre>
 <p><strong>What the worked example means:</strong> This calculation determines the total harmonic distortion by taking the root-sum-square of all harmonic amplitudes and dividing that value by the fundamental amplitude. The result, expressed as a ratio 0.0591608, indicates the relative strength of unwanted harmonics compared to the primary signal frequency. This metric is also presented in percentage form as 5.91608 and in logarithmic decibel units as -24.5593 for easier interpretation across different dynamic ranges.</p>
 <h3>Modulation (3)</h3>
-<h4 id="am_modulation_index">AM modulation index from the envelope — <code>am_modulation_index</code></h4>
+<h4 id="am_modulation_index">AM modulation index from the envelope, <code>am_modulation_index</code></h4>
 <p>The modulation index m = (Vmax - Vmin)/(Vmax + Vmin) of an AM wave from the maximum and minimum of its envelope, and the carrier amplitude.</p>
 <div class="math">\[m = \frac{V_{\max} - V_{\min}}{V_{\max} + V_{\min}}\]</div>
-<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>Vmax</code></td><td>in</td><td>maximum of the envelope</td><td>V</td></tr><tr><td><code>Vmin</code></td><td>in</td><td>minimum of the envelope</td><td>V</td></tr><tr><td><code>m</code></td><td>out</td><td>modulation index</td><td>—</td></tr><tr><td><code>Ac</code></td><td>out</td><td>carrier amplitude (Vmax + Vmin)/2</td><td>V</td></tr></tbody></table>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>Vmax</code></td><td>in</td><td>maximum of the envelope</td><td>V</td></tr><tr><td><code>Vmin</code></td><td>in</td><td>minimum of the envelope</td><td>V</td></tr><tr><td><code>m</code></td><td>out</td><td>modulation index</td><td>, </td></tr><tr><td><code>Ac</code></td><td>out</td><td>carrier amplitude (Vmax + Vmin)/2</td><td>V</td></tr></tbody></table>
 <p><strong>Applies when:</strong> 0 &lt;= Vmin &lt; Vmax; sinusoidal message.</p>
 <pre><code class="shell">$ signal-processing solve am_modulation_index &quot;Vmax=10 V&quot; &quot;Vmin=2 V&quot;
 m = 0.6666666667
@@ -783,10 +763,10 @@ Ac = 6 V
   Vmin = 2 V
   assumes: 0 &lt;= Vmin &lt; Vmax; sinusoidal message</code></pre>
 <p><strong>What the worked example means:</strong> This calculation determines the modulation depth of an amplitude modulated wave using the maximum and minimum values observed in its envelope. The modulation index, which indicates how much the carrier signal varies, is found to be 0.666667. Additionally, the carrier amplitude, representing the baseline strength of the unmodulated signal, is calculated as 6 V. These results help assess whether the transmission is properly modulated or if it suffers from under-modulation or over-modulation.</p>
-<h4 id="fm_spectrum">FM spectrum: Carson bandwidth and Bessel sideband amplitudes — <code>fm_spectrum</code></h4>
+<h4 id="fm_spectrum">FM spectrum: Carson bandwidth and Bessel sideband amplitudes, <code>fm_spectrum</code></h4>
 <p>For sinusoidal FM with peak deviation df and modulating frequency fm: the index beta = df/fm, Carson&#x27;s bandwidth 2(df + fm), the carrier and n-th sideband amplitudes J0(beta), Jn(beta) (relative to the unmodulated carrier) and the power fraction inside Carson&#x27;s bandwidth.</p>
 <div class="math">\[B_C = 2(\Delta f + f_m),\quad s(t) = A\sum_n J_n(\beta)\cos[2\pi(f_c + n f_m)t]\]</div>
-<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>df</code></td><td>in</td><td>peak frequency deviation</td><td>Hz</td></tr><tr><td><code>fm</code></td><td>in</td><td>modulating (message) frequency</td><td>Hz</td></tr><tr><td><code>n</code></td><td>in</td><td>sideband number (default 1) (optional)</td><td>—</td></tr><tr><td><code>carson_bandwidth</code></td><td>out</td><td>Carson&#x27;s rule bandwidth 2(df + fm)</td><td>Hz</td></tr><tr><td><code>beta</code></td><td>out</td><td>modulation index df/fm</td><td>—</td></tr><tr><td><code>carrier</code></td><td>out</td><td>carrier amplitude J0(beta)</td><td>—</td></tr><tr><td><code>Jn</code></td><td>out</td><td>amplitude of each n-th sideband Jn(beta)</td><td>—</td></tr><tr><td><code>pair_power</code></td><td>out</td><td>power fraction in the pair of n-th sidebands</td><td>—</td></tr><tr><td><code>power_in_carson</code></td><td>out</td><td>power fraction within Carson&#x27;s bandwidth</td><td>—</td></tr></tbody></table>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>df</code></td><td>in</td><td>peak frequency deviation</td><td>Hz</td></tr><tr><td><code>fm</code></td><td>in</td><td>modulating (message) frequency</td><td>Hz</td></tr><tr><td><code>n</code></td><td>in</td><td>sideband number (default 1) (optional)</td><td>, </td></tr><tr><td><code>carson_bandwidth</code></td><td>out</td><td>Carson&#x27;s rule bandwidth 2(df + fm)</td><td>Hz</td></tr><tr><td><code>beta</code></td><td>out</td><td>modulation index df/fm</td><td>, </td></tr><tr><td><code>carrier</code></td><td>out</td><td>carrier amplitude J0(beta)</td><td>, </td></tr><tr><td><code>Jn</code></td><td>out</td><td>amplitude of each n-th sideband Jn(beta)</td><td>, </td></tr><tr><td><code>pair_power</code></td><td>out</td><td>power fraction in the pair of n-th sidebands</td><td>, </td></tr><tr><td><code>power_in_carson</code></td><td>out</td><td>power fraction within Carson&#x27;s bandwidth</td><td>, </td></tr></tbody></table>
 <p><strong>Applies when:</strong> sinusoidal message; beta &lt;= 100.</p>
 <pre><code class="shell">$ signal-processing solve fm_spectrum &quot;df=75 kHz&quot; &quot;fm=15 kHz&quot;
 carson_bandwidth = 180000 Hz
@@ -800,10 +780,10 @@ power_in_carson = 0.9935588993
   fm = 15000 Hz
   assumes: sinusoidal message; beta &lt;= 100</code></pre>
 <p><strong>What the worked example means:</strong> For a peak deviation of 75 kHz Hz and modulating frequency of 15 kHz Hz, the modulation index is 5, Carson&#x27;s bandwidth is 180000 Hz Hz, and the carrier amplitude is -0.177597.</p>
-<h4 id="am_power">Power in an AM (DSB full-carrier) signal — <code>am_power</code></h4>
+<h4 id="am_power">Power in an AM (DSB full-carrier) signal, <code>am_power</code></h4>
 <p>Total power Pc (1 + m^2/2), sideband power, power per sideband and transmission efficiency of an AM signal with carrier power Pc and modulation index m (sinusoidal message).</p>
 <div class="math">\[P_t = P_c\left(1 + \frac{m^2}{2}\right)\]</div>
-<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>Pc</code></td><td>in</td><td>carrier power</td><td>W</td></tr><tr><td><code>m</code></td><td>in</td><td>modulation index (0 &lt; m &lt;= 1)</td><td>—</td></tr><tr><td><code>Pt</code></td><td>out</td><td>total transmitted power</td><td>W</td></tr><tr><td><code>Psb</code></td><td>out</td><td>power in both sidebands</td><td>W</td></tr><tr><td><code>Pusb</code></td><td>out</td><td>power in one sideband</td><td>W</td></tr><tr><td><code>efficiency</code></td><td>out</td><td>fraction of the power in the sidebands</td><td>—</td></tr></tbody></table>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>Pc</code></td><td>in</td><td>carrier power</td><td>W</td></tr><tr><td><code>m</code></td><td>in</td><td>modulation index (0 &lt; m &lt;= 1)</td><td>, </td></tr><tr><td><code>Pt</code></td><td>out</td><td>total transmitted power</td><td>W</td></tr><tr><td><code>Psb</code></td><td>out</td><td>power in both sidebands</td><td>W</td></tr><tr><td><code>Pusb</code></td><td>out</td><td>power in one sideband</td><td>W</td></tr><tr><td><code>efficiency</code></td><td>out</td><td>fraction of the power in the sidebands</td><td>, </td></tr></tbody></table>
 <p><strong>Applies when:</strong> 0 &lt; m &lt;= 1; a single sinusoidal message.</p>
 <pre><code class="shell">$ signal-processing solve am_power &quot;Pc=1000 W&quot; m=0.8
 Pt = 1320 W
@@ -816,10 +796,10 @@ efficiency = 0.2424242424
   assumes: 0 &lt; m &lt;= 1; a single sinusoidal message</code></pre>
 <p><strong>What the worked example means:</strong> This calculation determines the total transmitted power, sideband powers, and efficiency for an amplitude modulated signal with a full carrier. Given a carrier power of 1000 W and a modulation index of 0.8, the total power is found to be 1320 W. The combined power in both sidebands is 320 W, while the power in a single sideband is 160 W. The transmission efficiency, representing the fraction of power carrying information, is calculated as 0.242424. This result helps engineers assess how effectively the available power is used for transmitting the message rather than just the carrier.</p>
 <h3>Noise and link budgets (3)</h3>
-<h4 id="free_space_path_loss">Free-space path loss — <code>free_space_path_loss</code></h4>
+<h4 id="free_space_path_loss">Free-space path loss, <code>free_space_path_loss</code></h4>
 <p>The loss (4 pi d f / c)^2 between isotropic antennas a distance d apart at frequency f, in dB and as a ratio.</p>
 <div class="math">\[L_{\mathrm{fs}} = \left(\frac{4\pi d f}{c}\right)^2\]</div>
-<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>d</code></td><td>in</td><td>distance</td><td>m</td></tr><tr><td><code>f</code></td><td>in</td><td>frequency</td><td>Hz</td></tr><tr><td><code>loss_db</code></td><td>out</td><td>free-space path loss in dB</td><td>—</td></tr><tr><td><code>loss</code></td><td>out</td><td>path loss as a power ratio</td><td>—</td></tr><tr><td><code>wavelength</code></td><td>out</td><td>wavelength</td><td>m</td></tr></tbody></table>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>d</code></td><td>in</td><td>distance</td><td>m</td></tr><tr><td><code>f</code></td><td>in</td><td>frequency</td><td>Hz</td></tr><tr><td><code>loss_db</code></td><td>out</td><td>free-space path loss in dB</td><td>, </td></tr><tr><td><code>loss</code></td><td>out</td><td>path loss as a power ratio</td><td>, </td></tr><tr><td><code>wavelength</code></td><td>out</td><td>wavelength</td><td>m</td></tr></tbody></table>
 <p><strong>Applies when:</strong> free space, line of sight; far field (d &gt;= one wavelength); isotropic antennas.</p>
 <pre><code class="shell">$ signal-processing solve free_space_path_loss &quot;d=100 m&quot; &quot;f=2.4 GHz&quot;
 loss_db = 80.05200806
@@ -830,10 +810,10 @@ wavelength = 0.1249135242 m
   f = 2400000000 Hz
   assumes: free space, line of sight; far field (d &gt;= one wavelength); isotropic antennas</code></pre>
 <p><strong>What the worked example means:</strong> This calculation determines the attenuation of a radio signal traveling through empty space between two isotropic antennas. Using the distance 100 m and frequency 2.4 GHz, the resulting wavelength is 0.124914 m. The computed free-space path loss is 80.052 dB, which represents a power ratio of 1.01205e+08. This value indicates the minimum signal reduction due solely to geometric spreading in an ideal environment.</p>
-<h4 id="noise_figure_cascade">Noise figure of cascaded stages (Friis formula) — <code>noise_figure_cascade</code></h4>
+<h4 id="noise_figure_cascade">Noise figure of cascaded stages (Friis formula), <code>noise_figure_cascade</code></h4>
 <p>The overall noise figure, noise factor, equivalent noise temperature and gain of a chain of matched stages with given noise figures and gains.</p>
 <div class="math">\[F = F_1 + \frac{F_2 - 1}{G_1} + \frac{F_3 - 1}{G_1 G_2} + \cdots\]</div>
-<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>nf_db</code></td><td>in</td><td>noise figure of each stage in dB, input first</td><td>—</td></tr><tr><td><code>gain_db</code></td><td>in</td><td>available gain of each stage in dB</td><td>—</td></tr><tr><td><code>nf_db</code></td><td>out</td><td>overall noise figure in dB</td><td>—</td></tr><tr><td><code>F</code></td><td>out</td><td>overall noise factor</td><td>—</td></tr><tr><td><code>Te</code></td><td>out</td><td>equivalent input noise temperature</td><td>K</td></tr><tr><td><code>gain_db</code></td><td>out</td><td>overall gain in dB</td><td>—</td></tr></tbody></table>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>nf_db</code></td><td>in</td><td>noise figure of each stage in dB, input first</td><td>, </td></tr><tr><td><code>gain_db</code></td><td>in</td><td>available gain of each stage in dB</td><td>, </td></tr><tr><td><code>nf_db</code></td><td>out</td><td>overall noise figure in dB</td><td>, </td></tr><tr><td><code>F</code></td><td>out</td><td>overall noise factor</td><td>, </td></tr><tr><td><code>Te</code></td><td>out</td><td>equivalent input noise temperature</td><td>K</td></tr><tr><td><code>gain_db</code></td><td>out</td><td>overall gain in dB</td><td>, </td></tr></tbody></table>
 <p><strong>Applies when:</strong> impedance-matched stages; noise figures referred to T0 = 290 K; one gain per stage.</p>
 <pre><code class="shell">$ signal-processing solve noise_figure_cascade &quot;nf_db=[2, 6, 10]&quot; &quot;gain_db=[15, 20, 10]&quot;
 nf_db = 2.258283171
@@ -843,10 +823,10 @@ gain_db = 45
   by: Noise figure of cascaded stages (Friis formula)  (Friis: F = F1 + (F2 - 1)/G1 + (F3 - 1)/(G1 G2) + ...)
   assumes: impedance-matched stages; noise figures referred to T0 = 290 K; one gain per stage</code></pre>
 <p><strong>What the worked example means:</strong> This calculation determines the cumulative noise performance of a cascade of impedance-matched stages using the Friis formula. The result, an overall noise figure of 2.25828, reflects how the noise contributions of subsequent stages are attenuated by the gain of preceding stages. A higher gain in the first stage, indicated by [15, 20, 10], generally reduces the impact of later stages on the final noise figure.</p>
-<h4 id="friis_received_power">Received power of a radio link (Friis transmission equation) — <code>friis_received_power</code></h4>
+<h4 id="friis_received_power">Received power of a radio link (Friis transmission equation), <code>friis_received_power</code></h4>
 <p>The power received over a free-space link: Pr = Pt Gt Gr (lambda / 4 pi d)^2, in dBm and watts.</p>
 <div class="math">\[P_r = P_t G_t G_r \left(\frac{\lambda}{4\pi d}\right)^2\]</div>
-<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>Pt</code></td><td>in</td><td>transmit power</td><td>W</td></tr><tr><td><code>Gt_db</code></td><td>in</td><td>transmit antenna gain in dBi</td><td>—</td></tr><tr><td><code>Gr_db</code></td><td>in</td><td>receive antenna gain in dBi</td><td>—</td></tr><tr><td><code>f</code></td><td>in</td><td>frequency</td><td>Hz</td></tr><tr><td><code>d</code></td><td>in</td><td>distance</td><td>m</td></tr><tr><td><code>Pr_dbm</code></td><td>out</td><td>received power in dBm</td><td>—</td></tr><tr><td><code>Pr</code></td><td>out</td><td>received power</td><td>W</td></tr></tbody></table>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>Pt</code></td><td>in</td><td>transmit power</td><td>W</td></tr><tr><td><code>Gt_db</code></td><td>in</td><td>transmit antenna gain in dBi</td><td>, </td></tr><tr><td><code>Gr_db</code></td><td>in</td><td>receive antenna gain in dBi</td><td>, </td></tr><tr><td><code>f</code></td><td>in</td><td>frequency</td><td>Hz</td></tr><tr><td><code>d</code></td><td>in</td><td>distance</td><td>m</td></tr><tr><td><code>Pr_dbm</code></td><td>out</td><td>received power in dBm</td><td>, </td></tr><tr><td><code>Pr</code></td><td>out</td><td>received power</td><td>W</td></tr></tbody></table>
 <p><strong>Applies when:</strong> free space, line of sight; far field; matched, co-polarized antennas.</p>
 <pre><code class="shell">$ signal-processing solve friis_received_power &quot;Pt=1 W&quot; Gt_db=10 Gr_db=5 &quot;f=2.4 GHz&quot; &quot;d=1 km&quot;
 Pr_dbm = -55.05200806
@@ -860,7 +840,7 @@ Pr = 3.12463429e-09 W
   assumes: free space, line of sight; far field; matched, co-polarized antennas</code></pre>
 <p><strong>What the worked example means:</strong> This calculation determines the signal strength arriving at a receiver based on the Friis transmission equation. It uses the transmit power 1 W, transmit antenna gain 10, receive antenna gain 5, operating frequency 2.4 GHz, and link distance 1 km. The resulting received power is expressed as 3.12463e-09 W in watts and -55.052 in decibels relative to one milliwatt. This value indicates whether the communication link has sufficient signal strength for reliable operation under free space conditions.</p>
 <h3>Radar (3)</h3>
-<h4 id="radar_doppler">Doppler shift of a radar echo — <code>radar_doppler</code></h4>
+<h4 id="radar_doppler">Doppler shift of a radar echo, <code>radar_doppler</code></h4>
 <p>The two-way Doppler shift of the echo from a target closing at radial velocity v (negative when receding): fd = 2 v f / (c - v), essentially 2 v / lambda.</p>
 <div class="math">\[f_d = \frac{2vf}{c - v} \approx \frac{2v}{\lambda}\]</div>
 <table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>v</code></td><td>in</td><td>radial velocity, positive when approaching</td><td>m/s</td></tr><tr><td><code>f</code></td><td>in</td><td>transmitted frequency</td><td>Hz</td></tr><tr><td><code>fd</code></td><td>out</td><td>Doppler shift of the echo</td><td>Hz</td></tr><tr><td><code>wavelength</code></td><td>out</td><td>wavelength</td><td>m</td></tr></tbody></table>
@@ -873,10 +853,10 @@ wavelength = 0.0299792458 m
   f = 1e+10 Hz
   assumes: monostatic radar; |v| much smaller than c</code></pre>
 <p><strong>What the worked example means:</strong> This calculation determines the two-way Doppler frequency shift of a radar echo based on the target&#x27;s motion. Using a transmitted frequency of 10 GHz and a radial velocity of 30 m/s, the resulting Doppler shift is 2001.38 Hz. The corresponding wavelength of the signal is 0.0299792 m. This positive shift indicates that the target is approaching the radar, allowing for velocity measurement by comparing the returned frequency to the original.</p>
-<h4 id="radar_max_range">Maximum detection range of a radar — <code>radar_max_range</code></h4>
+<h4 id="radar_max_range">Maximum detection range of a radar, <code>radar_max_range</code></h4>
 <p>The largest range R = (Pt G^2 lambda^2 sigma / ((4 pi)^3 Smin))^(1/4) at which the echo still reaches the minimum detectable signal.</p>
 <div class="math">\[R_{\max} = \left(\frac{P_t G^2 \lambda^2 \sigma}{(4\pi)^3 S_{\min}}\right)^{1/4}\]</div>
-<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>Pt</code></td><td>in</td><td>peak transmit power</td><td>W</td></tr><tr><td><code>G_db</code></td><td>in</td><td>antenna gain in dBi</td><td>—</td></tr><tr><td><code>f</code></td><td>in</td><td>frequency</td><td>Hz</td></tr><tr><td><code>sigma</code></td><td>in</td><td>radar cross-section</td><td>m^2</td></tr><tr><td><code>Pmin</code></td><td>in</td><td>minimum detectable signal power</td><td>W</td></tr><tr><td><code>Rmax</code></td><td>out</td><td>maximum detection range</td><td>m</td></tr></tbody></table>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>Pt</code></td><td>in</td><td>peak transmit power</td><td>W</td></tr><tr><td><code>G_db</code></td><td>in</td><td>antenna gain in dBi</td><td>, </td></tr><tr><td><code>f</code></td><td>in</td><td>frequency</td><td>Hz</td></tr><tr><td><code>sigma</code></td><td>in</td><td>radar cross-section</td><td>m^2</td></tr><tr><td><code>Pmin</code></td><td>in</td><td>minimum detectable signal power</td><td>W</td></tr><tr><td><code>Rmax</code></td><td>out</td><td>maximum detection range</td><td>m</td></tr></tbody></table>
 <p><strong>Applies when:</strong> monostatic radar; free space, no losses.</p>
 <pre><code class="shell">$ signal-processing solve radar_max_range &quot;Pmin=1e-13 W&quot; &quot;Pt=1 MW&quot; &quot;sigma=1 m^2&quot; G_db=40 &quot;f=3 GHz&quot;
 Rmax = 266343.6371 m
@@ -888,10 +868,10 @@ Rmax = 266343.6371 m
   f = 3000000000 Hz
   assumes: monostatic radar; free space, no losses</code></pre>
 <p><strong>What the worked example means:</strong> This calculation determines the furthest distance at which a target can be detected, given the peak transmit power of 1 MW, antenna gain in dBi of 40, frequency of 3 GHz, radar cross-section of 1 m^2, and minimum detectable signal power of 1e-13 W. The resulting maximum range is 266344 m. This value represents the limit where the returned echo strength equals the system&#x27;s noise floor or sensitivity threshold.</p>
-<h4 id="radar_received_power">Received echo power (radar range equation) — <code>radar_received_power</code></h4>
+<h4 id="radar_received_power">Received echo power (radar range equation), <code>radar_received_power</code></h4>
 <p>The echo power Pr = Pt G^2 lambda^2 sigma / ((4 pi)^3 R^4) of a monostatic radar from a target of cross-section sigma at range R.</p>
 <div class="math">\[P_r = \frac{P_t G^2 \lambda^2 \sigma}{(4\pi)^3 R^4}\]</div>
-<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>Pt</code></td><td>in</td><td>peak transmit power</td><td>W</td></tr><tr><td><code>G_db</code></td><td>in</td><td>antenna gain in dBi (transmit and receive)</td><td>—</td></tr><tr><td><code>f</code></td><td>in</td><td>frequency</td><td>Hz</td></tr><tr><td><code>sigma</code></td><td>in</td><td>radar cross-section</td><td>m^2</td></tr><tr><td><code>R</code></td><td>in</td><td>range to the target</td><td>m</td></tr><tr><td><code>Pr</code></td><td>out</td><td>received echo power</td><td>W</td></tr><tr><td><code>Pr_dbm</code></td><td>out</td><td>received echo power in dBm</td><td>—</td></tr></tbody></table>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>Pt</code></td><td>in</td><td>peak transmit power</td><td>W</td></tr><tr><td><code>G_db</code></td><td>in</td><td>antenna gain in dBi (transmit and receive)</td><td>, </td></tr><tr><td><code>f</code></td><td>in</td><td>frequency</td><td>Hz</td></tr><tr><td><code>sigma</code></td><td>in</td><td>radar cross-section</td><td>m^2</td></tr><tr><td><code>R</code></td><td>in</td><td>range to the target</td><td>m</td></tr><tr><td><code>Pr</code></td><td>out</td><td>received echo power</td><td>W</td></tr><tr><td><code>Pr_dbm</code></td><td>out</td><td>received echo power in dBm</td><td>, </td></tr></tbody></table>
 <p><strong>Applies when:</strong> monostatic radar, one antenna; free space, no losses; far field.</p>
 <pre><code class="shell">$ signal-processing solve radar_received_power &quot;Pt=1 MW&quot; &quot;sigma=1 m^2&quot; G_db=40 &quot;f=3 GHz&quot; &quot;R=100 km&quot;
 Pr = 5.032332221e-12 W
@@ -905,7 +885,7 @@ Pr_dbm = -82.98230696
   assumes: monostatic radar, one antenna; free space, no losses; far field</code></pre>
 <p>In the worked example, Pt = 1 MW, sigma = 1 m^2, G_db = 40, f = 3 GHz, R = 100 km go through the equation above and give Pr = 5.032332221e-12 W, Pr_dbm = -82.98230696. It applies only when monostatic radar, one antenna; free space, no losses; far field: outside that it says what is wrong instead of returning a number.</p>
 <h3>Sampling and signal basics (7)</h3>
-<h4 id="alias_frequency">Alias (apparent) frequency after sampling — <code>alias_frequency</code></h4>
+<h4 id="alias_frequency">Alias (apparent) frequency after sampling, <code>alias_frequency</code></h4>
 <p>The frequency in [0, fs/2] at which a sinusoid of frequency f appears after sampling at rate fs.</p>
 <div class="math">\[f_a = \left| f - f_s\,\mathrm{round}(f/f_s) \right|\]</div>
 <table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>f</code></td><td>in</td><td>frequency of the sampled sinusoid</td><td>Hz</td></tr><tr><td><code>fs</code></td><td>in</td><td>sampling rate</td><td>Hz</td></tr><tr><td><code>f_alias</code></td><td>out</td><td>apparent (principal alias) frequency</td><td>Hz</td></tr></tbody></table>
@@ -917,7 +897,7 @@ f_alias = 3000 Hz
   f = 7000 Hz
   assumes: f &gt;= 0; fs &gt; 0</code></pre>
 <p><strong>What the worked example means:</strong> This calculation determines the principal alias frequency, which is the value in the range between zero and half the sampling rate at which a sinusoid appears after being sampled. Taking the absolute difference between the true signal frequency 7 kHz and the nearest integer multiple of the sampling rate 10 kHz shows that the observed frequency is 3000 Hz. This result explains why high-frequency components can masquerade as lower-frequency signals in digital systems, potentially leading to misinterpretation of spectral data if not accounted for during analysis.</p>
-<h4 id="frequency_from_period">Frequency and angular frequency from period — <code>frequency_from_period</code></h4>
+<h4 id="frequency_from_period">Frequency and angular frequency from period, <code>frequency_from_period</code></h4>
 <p>The frequency f = 1/T and the angular frequency omega = 2*pi/T of a periodic signal of period T.</p>
 <div class="math">\[f = \frac{1}{T},\quad \omega = \frac{2\pi}{T}\]</div>
 <table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>T</code></td><td>in</td><td>period of the signal</td><td>s</td></tr><tr><td><code>f</code></td><td>out</td><td>frequency</td><td>Hz</td></tr><tr><td><code>omega</code></td><td>out</td><td>angular frequency</td><td>rad/s</td></tr></tbody></table>
@@ -929,10 +909,10 @@ omega = 3141.592654 rad/s
   T = 0.002 s
   assumes: T &gt; 0</code></pre>
 <p><strong>What the worked example means:</strong> Given a period of 2 ms, the calculation determines the signal&#x27;s repetition rate in hertz and its rotational speed in radians per second. The resulting frequency of 500 Hz indicates how many cycles occur each second, while the angular frequency of 3141.59 rad/s describes the phase change per unit time.</p>
-<h4 id="signal_statistics">Mean, RMS, energy and average power of a sampled signal — <code>signal_statistics</code></h4>
+<h4 id="signal_statistics">Mean, RMS, energy and average power of a sampled signal, <code>signal_statistics</code></h4>
 <p>For samples x[0..N-1]: the mean, the RMS value, the energy sum |x|^2 and the average power (energy / N).</p>
 <div class="math">\[E = \sum_n |x[n]|^2,\quad P = \frac{E}{N},\quad x_{\mathrm{rms}} = \sqrt{P}\]</div>
-<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>x</code></td><td>in</td><td>samples of the signal</td><td>—</td></tr><tr><td><code>rms</code></td><td>out</td><td>root-mean-square value</td><td>—</td></tr><tr><td><code>mean</code></td><td>out</td><td>mean (DC) value</td><td>—</td></tr><tr><td><code>energy</code></td><td>out</td><td>energy: sum of x[n]^2</td><td>—</td></tr><tr><td><code>power</code></td><td>out</td><td>average power: energy / N</td><td>—</td></tr><tr><td><code>peak</code></td><td>out</td><td>peak absolute value</td><td>—</td></tr></tbody></table>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>x</code></td><td>in</td><td>samples of the signal</td><td>, </td></tr><tr><td><code>rms</code></td><td>out</td><td>root-mean-square value</td><td>, </td></tr><tr><td><code>mean</code></td><td>out</td><td>mean (DC) value</td><td>, </td></tr><tr><td><code>energy</code></td><td>out</td><td>energy: sum of x[n]^2</td><td>, </td></tr><tr><td><code>power</code></td><td>out</td><td>average power: energy / N</td><td>, </td></tr><tr><td><code>peak</code></td><td>out</td><td>peak absolute value</td><td>, </td></tr></tbody></table>
 <p><strong>Applies when:</strong> at least one sample.</p>
 <pre><code class="shell">$ signal-processing solve signal_statistics &quot;x=[1, -2, 3, 0]&quot;
 mean = 0.5
@@ -943,7 +923,7 @@ peak = 3
   by: Mean, RMS, energy and average power of a sampled signal  (direct sums (compensated))
   assumes: at least one sample</code></pre>
 <p><strong>What the worked example means:</strong> The fundamental statistical properties were computed for the provided samples. The total energy is the sum of the squared magnitudes of all samples, resulting in 14. Dividing this energy by the number of samples yields the average power, which is 3.5. The root-mean-square value, representing the effective magnitude of the signal, is calculated as the square root of the average power, giving 1.87083. Additionally, the arithmetic mean of the samples, indicating the DC offset, is 0.5, while the peak absolute value observed is 3.</p>
-<h4 id="nyquist_rate">Nyquist rate — <code>nyquist_rate</code></h4>
+<h4 id="nyquist_rate">Nyquist rate, <code>nyquist_rate</code></h4>
 <p>The minimum sampling rate 2*f_max that avoids aliasing of a baseband signal whose highest frequency is f_max.</p>
 <div class="math">\[f_{s,\min} = 2 f_{\max}\]</div>
 <table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>fmax</code></td><td>in</td><td>highest frequency in the signal</td><td>Hz</td></tr><tr><td><code>fs_min</code></td><td>out</td><td>Nyquist rate (minimum sampling rate)</td><td>Hz</td></tr><tr><td><code>Ts_max</code></td><td>out</td><td>longest sampling interval</td><td>s</td></tr></tbody></table>
@@ -955,7 +935,7 @@ Ts_max = 0.000125 s
   fmax = 4000 Hz
   assumes: fmax &gt; 0; a baseband (lowpass) signal</code></pre>
 <p><strong>What the worked example means:</strong> This calculation determines the Nyquist rate, defined as twice the maximum frequency present in a baseband signal. Given an input highest frequency of 4 kHz, the required minimum sampling rate is computed as 8000 Hz. This threshold ensures that the original analog signal can be perfectly reconstructed from its samples without spectral overlap or aliasing artifacts.</p>
-<h4 id="period_from_frequency">Period and angular frequency from frequency — <code>period_from_frequency</code></h4>
+<h4 id="period_from_frequency">Period and angular frequency from frequency, <code>period_from_frequency</code></h4>
 <p>The period T = 1/f and the angular frequency omega = 2*pi*f of a periodic signal of frequency f.</p>
 <div class="math">\[T = \frac{1}{f},\quad \omega = 2\pi f\]</div>
 <table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>f</code></td><td>in</td><td>frequency of the signal</td><td>Hz</td></tr><tr><td><code>T</code></td><td>out</td><td>period</td><td>s</td></tr><tr><td><code>omega</code></td><td>out</td><td>angular frequency</td><td>rad/s</td></tr></tbody></table>
@@ -967,7 +947,7 @@ omega = 314.1592654 rad/s
   f = 50 Hz
   assumes: f &gt; 0</code></pre>
 <p><strong>What the worked example means:</strong> This calculation determines the time required for one complete cycle of a signal, known as the period, and the rate of phase change, known as the angular frequency. Starting from the input frequency of 50 Hz, which represents the number of cycles per second, it follows that the period is 0.02 s seconds. This means it takes 0.02 s to complete one repetition. Simultaneously, the angular frequency is calculated as 314.159 rad/s radians per second, indicating how fast the signal&#x27;s phase rotates. These values translate the linear frequency into temporal and rotational domains, essential for analyzing oscillatory behavior.</p>
-<h4 id="sine_rms">RMS, peak-to-peak and rectified average of a sine wave — <code>sine_rms</code></h4>
+<h4 id="sine_rms">RMS, peak-to-peak and rectified average of a sine wave, <code>sine_rms</code></h4>
 <p>For a sinusoid of peak amplitude Vp: the RMS value Vp/sqrt(2), the peak-to-peak value 2*Vp and the average of its absolute value 2*Vp/pi.</p>
 <div class="math">\[V_{\mathrm{rms}} = \frac{V_p}{\sqrt{2}}\]</div>
 <table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>Vp</code></td><td>in</td><td>peak amplitude of the sinusoid</td><td>V</td></tr><tr><td><code>Vrms</code></td><td>out</td><td>RMS value</td><td>V</td></tr><tr><td><code>Vpp</code></td><td>out</td><td>peak-to-peak value</td><td>V</td></tr><tr><td><code>Vavg</code></td><td>out</td><td>average of the rectified wave</td><td>V</td></tr></tbody></table>
@@ -980,10 +960,10 @@ Vavg = 6.366197724 V
   Vp = 10 V
   assumes: Vp &gt; 0; a pure sinusoid with no DC offset</code></pre>
 <p><strong>What the worked example means:</strong> This calculation determines three key magnitude metrics for a pure sinusoidal signal based on its peak amplitude 10 V. The root mean square value, representing the equivalent DC power delivery, is computed as 7.07107 V. The total vertical excursion from minimum to maximum, known as the peak-to-peak value, is found to be 20 V. Additionally, the average of the absolute voltage over one cycle, which reflects the rectified signal strength, results in 6.3662 V. These values allow engineers to characterize the energy content and visual range of the waveform.</p>
-<h4 id="quantization_snr">Signal-to-quantization-noise ratio of an ideal ADC — <code>quantization_snr</code></h4>
+<h4 id="quantization_snr">Signal-to-quantization-noise ratio of an ideal ADC, <code>quantization_snr</code></h4>
 <p>The SQNR of an ideal N-bit uniform quantizer driven by a full-scale sine wave (about 6.02 N + 1.76 dB).</p>
 <div class="math">\[\mathrm{SQNR} = 10\log_{10}\!\left(\tfrac{3}{2}\,2^{2N}\right) \approx 6.02N + 1.76\ \mathrm{dB}\]</div>
-<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>bits</code></td><td>in</td><td>resolution in bits</td><td>—</td></tr><tr><td><code>sqnr_db</code></td><td>out</td><td>signal-to-quantization-noise ratio in dB</td><td>—</td></tr><tr><td><code>dynamic_range_db</code></td><td>out</td><td>ideal dynamic range 20 log10(2^N) in dB</td><td>—</td></tr></tbody></table>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>bits</code></td><td>in</td><td>resolution in bits</td><td>, </td></tr><tr><td><code>sqnr_db</code></td><td>out</td><td>signal-to-quantization-noise ratio in dB</td><td>, </td></tr><tr><td><code>dynamic_range_db</code></td><td>out</td><td>ideal dynamic range 20 log10(2^N) in dB</td><td>, </td></tr></tbody></table>
 <p><strong>Applies when:</strong> ideal uniform quantizer; full-scale sinusoidal input; noise uniformly distributed.</p>
 <pre><code class="shell">$ signal-processing solve quantization_snr bits=12
 sqnr_db = 74.00811155
@@ -992,10 +972,10 @@ dynamic_range_db = 72.24719896
   assumes: ideal uniform quantizer; full-scale sinusoidal input; noise uniformly distributed</code></pre>
 <p><strong>What the worked example means:</strong> This calculation determines the theoretical performance of an ideal analog-to-digital converter by comparing the power of a full-scale sine wave to the noise introduced by quantization. Using the input resolution of 12 bits, the model computes that the signal-to-quantization-noise ratio reaches 74.0081 dB. This value reflects the quality of the digital representation relative to the original continuous signal, while the associated dynamic range is calculated as 72.2472 dB, indicating the total span between the smallest and largest representable signal levels.</p>
 <h3>Transmission lines (6)</h3>
-<h4 id="coax_impedance">Characteristic impedance of a coaxial line — <code>coax_impedance</code></h4>
+<h4 id="coax_impedance">Characteristic impedance of a coaxial line, <code>coax_impedance</code></h4>
 <p>The characteristic impedance (eta0 / (2 pi sqrt(er))) ln(D/d) of a lossless coaxial line and its velocity factor 1/sqrt(er).</p>
 <div class="math">\[Z_0 = \frac{\eta_0}{2\pi\sqrt{\varepsilon_r}}\ln\frac{D}{d}\]</div>
-<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>D</code></td><td>in</td><td>inner diameter of the outer conductor</td><td>m</td></tr><tr><td><code>d</code></td><td>in</td><td>diameter of the inner conductor</td><td>m</td></tr><tr><td><code>er</code></td><td>in</td><td>relative permittivity of the dielectric (1 if not given) (optional)</td><td>—</td></tr><tr><td><code>Z0</code></td><td>out</td><td>characteristic impedance</td><td>ohm</td></tr><tr><td><code>vf</code></td><td>out</td><td>velocity factor</td><td>—</td></tr></tbody></table>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>D</code></td><td>in</td><td>inner diameter of the outer conductor</td><td>m</td></tr><tr><td><code>d</code></td><td>in</td><td>diameter of the inner conductor</td><td>m</td></tr><tr><td><code>er</code></td><td>in</td><td>relative permittivity of the dielectric (1 if not given) (optional)</td><td>, </td></tr><tr><td><code>Z0</code></td><td>out</td><td>characteristic impedance</td><td>ohm</td></tr><tr><td><code>vf</code></td><td>out</td><td>velocity factor</td><td>, </td></tr></tbody></table>
 <p><strong>Applies when:</strong> d &lt; D; er &gt;= 1; lossless conductors and dielectric.</p>
 <pre><code class="shell">$ signal-processing solve coax_impedance &quot;D=3.5 mm&quot; &quot;d=1 mm&quot; er=2.25
 Z0 = 50.07585194 ohm
@@ -1006,10 +986,10 @@ vf = 0.6666666667
   er = 2.25
   assumes: d &lt; D; er &gt;= 1; lossless conductors and dielectric</code></pre>
 <p><strong>What the worked example means:</strong> This calculation determines the characteristic impedance of a coaxial line using its physical dimensions and dielectric properties. Given an outer conductor inner diameter of 3.5 mm, an inner conductor diameter of 1 mm, and a relative permittivity of 2.25, the resulting characteristic impedance is 50.0759 ohm. The velocity factor, which indicates how fast signals travel compared to the speed of light in a vacuum, is calculated as 0.666667. These values are critical for matching transmission lines to prevent signal reflections.</p>
-<h4 id="input_impedance">Input impedance of a terminated lossless line — <code>input_impedance</code></h4>
+<h4 id="input_impedance">Input impedance of a terminated lossless line, <code>input_impedance</code></h4>
 <p>The impedance seen at the input of a lossless line of characteristic impedance Z0 and electrical length l (in wavelengths) terminated in ZL = RL + jXL.</p>
 <div class="math">\[Z_{in} = Z_0\frac{Z_L + jZ_0\tan\beta l}{Z_0 + jZ_L\tan\beta l}\]</div>
-<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>RL</code></td><td>in</td><td>load resistance</td><td>ohm</td></tr><tr><td><code>Z0</code></td><td>in</td><td>characteristic impedance</td><td>ohm</td></tr><tr><td><code>length</code></td><td>in</td><td>line length in wavelengths</td><td>—</td></tr><tr><td><code>XL</code></td><td>in</td><td>load reactance (0 if not given) (optional)</td><td>ohm</td></tr><tr><td><code>Rin</code></td><td>out</td><td>input resistance</td><td>ohm</td></tr><tr><td><code>Xin</code></td><td>out</td><td>input reactance</td><td>ohm</td></tr><tr><td><code>abs_zin</code></td><td>out</td><td>|Zin|</td><td>ohm</td></tr></tbody></table>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>RL</code></td><td>in</td><td>load resistance</td><td>ohm</td></tr><tr><td><code>Z0</code></td><td>in</td><td>characteristic impedance</td><td>ohm</td></tr><tr><td><code>length</code></td><td>in</td><td>line length in wavelengths</td><td>, </td></tr><tr><td><code>XL</code></td><td>in</td><td>load reactance (0 if not given) (optional)</td><td>ohm</td></tr><tr><td><code>Rin</code></td><td>out</td><td>input resistance</td><td>ohm</td></tr><tr><td><code>Xin</code></td><td>out</td><td>input reactance</td><td>ohm</td></tr><tr><td><code>abs_zin</code></td><td>out</td><td>|Zin|</td><td>ohm</td></tr></tbody></table>
 <p><strong>Applies when:</strong> lossless line; RL &gt; 0; length &gt;= 0 in wavelengths.</p>
 <pre><code class="shell">$ signal-processing solve input_impedance &quot;RL=100 ohm&quot; &quot;XL=0 ohm&quot; length=0.125 &quot;Z0=50 ohm&quot;
 Rin = 40 ohm
@@ -1022,10 +1002,10 @@ abs_zin = 50 ohm
   Z0 = 50 ohm
   assumes: lossless line; RL &gt; 0; length &gt;= 0 in wavelengths</code></pre>
 <p><strong>What the worked example means:</strong> This calculation determines the impedance seen at the start of a lossless transmission line. Using a characteristic impedance of 50 ohm and a length of 0.125 wavelengths, terminated by a load with resistance 100 ohm and reactance 0 ohm, the resulting input resistance is 40 ohm ohms and input reactance is -30 ohm ohms. The total magnitude of this transformed impedance is 50 ohm ohms.</p>
-<h4 id="quarter_wave_transformer">Quarter-wave impedance transformer — <code>quarter_wave_transformer</code></h4>
+<h4 id="quarter_wave_transformer">Quarter-wave impedance transformer, <code>quarter_wave_transformer</code></h4>
 <p>The characteristic impedance sqrt(RL Z0) of the quarter-wave section that matches a resistive load RL to a line Z0, and its physical length at frequency f.</p>
 <div class="math">\[Z_t = \sqrt{R_L Z_0},\quad \ell = \frac{v_f\,c}{4f}\]</div>
-<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>RL</code></td><td>in</td><td>load resistance</td><td>ohm</td></tr><tr><td><code>Z0</code></td><td>in</td><td>impedance to match to</td><td>ohm</td></tr><tr><td><code>f</code></td><td>in</td><td>design frequency (optional)</td><td>Hz</td></tr><tr><td><code>vf</code></td><td>in</td><td>velocity factor of the section (default 1) (optional)</td><td>—</td></tr><tr><td><code>Zt</code></td><td>out</td><td>characteristic impedance of the transformer</td><td>ohm</td></tr><tr><td><code>length</code></td><td>out</td><td>physical length of the section (f given)</td><td>m</td></tr></tbody></table>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>RL</code></td><td>in</td><td>load resistance</td><td>ohm</td></tr><tr><td><code>Z0</code></td><td>in</td><td>impedance to match to</td><td>ohm</td></tr><tr><td><code>f</code></td><td>in</td><td>design frequency (optional)</td><td>Hz</td></tr><tr><td><code>vf</code></td><td>in</td><td>velocity factor of the section (default 1) (optional)</td><td>, </td></tr><tr><td><code>Zt</code></td><td>out</td><td>characteristic impedance of the transformer</td><td>ohm</td></tr><tr><td><code>length</code></td><td>out</td><td>physical length of the section (f given)</td><td>m</td></tr></tbody></table>
 <p><strong>Applies when:</strong> resistive load; lossless lines; exact match at the design frequency only.</p>
 <pre><code class="shell">$ signal-processing solve quarter_wave_transformer &quot;RL=100 ohm&quot; &quot;Z0=50 ohm&quot; &quot;f=1 GHz&quot;
 Zt = 70.71067812 ohm
@@ -1036,10 +1016,10 @@ length = 0.0749481145 m
   f = 1000000000 Hz
   assumes: resistive load; lossless lines; exact match at the design frequency only</code></pre>
 <p><strong>What the worked example means:</strong> This calculation determines the characteristic impedance of a quarter-wave section needed to match a resistive load to a transmission line. The required impedance, 70.7107 ohm, is derived from the geometric mean of the load resistance and the system impedance. Additionally, the physical length of this section, 0.0749481 m, is computed based on the design frequency and the velocity factor of the medium.</p>
-<h4 id="reflection_from_vswr">Reflection coefficient and return loss from the VSWR — <code>reflection_from_vswr</code></h4>
+<h4 id="reflection_from_vswr">Reflection coefficient and return loss from the VSWR, <code>reflection_from_vswr</code></h4>
 <p>The reflection coefficient magnitude (VSWR - 1)/(VSWR + 1), the return loss and the mismatch loss for a given VSWR.</p>
 <div class="math">\[|\Gamma| = \frac{\mathrm{VSWR} - 1}{\mathrm{VSWR} + 1}\]</div>
-<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>vswr</code></td><td>in</td><td>voltage standing wave ratio (&gt;= 1)</td><td>—</td></tr><tr><td><code>gamma</code></td><td>out</td><td>|Gamma|</td><td>—</td></tr><tr><td><code>return_loss_db</code></td><td>out</td><td>return loss in dB</td><td>—</td></tr><tr><td><code>mismatch_loss_db</code></td><td>out</td><td>mismatch loss in dB</td><td>—</td></tr></tbody></table>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>vswr</code></td><td>in</td><td>voltage standing wave ratio (&gt;= 1)</td><td>, </td></tr><tr><td><code>gamma</code></td><td>out</td><td>|Gamma|</td><td>, </td></tr><tr><td><code>return_loss_db</code></td><td>out</td><td>return loss in dB</td><td>, </td></tr><tr><td><code>mismatch_loss_db</code></td><td>out</td><td>mismatch loss in dB</td><td>, </td></tr></tbody></table>
 <p><strong>Applies when:</strong> VSWR &gt;= 1.</p>
 <pre><code class="shell">$ signal-processing solve reflection_from_vswr vswr=2
 gamma = 0.3333333333
@@ -1049,10 +1029,10 @@ mismatch_loss_db = 0.5115252245
   vswr = 2
   assumes: VSWR &gt;= 1</code></pre>
 <p><strong>What the worked example means:</strong> This calculation determines the impedance match quality from the measured voltage standing wave ratio. Using the formula that relates these quantities shows that for an input VSWR of 2, the magnitude of the reflection coefficient is 0.333333. This corresponds to a return loss of 9.54243 and a mismatch loss of 0.511525. A lower return loss value indicates greater signal reflection at the interface.</p>
-<h4 id="reflection_coefficient">Reflection coefficient, VSWR and return loss of a load — <code>reflection_coefficient</code></h4>
+<h4 id="reflection_coefficient">Reflection coefficient, VSWR and return loss of a load, <code>reflection_coefficient</code></h4>
 <p>For a load ZL = RL + jXL on a line of characteristic impedance Z0: the reflection coefficient (magnitude, angle, parts), VSWR, return loss and mismatch loss.</p>
 <div class="math">\[\Gamma = \frac{Z_L - Z_0}{Z_L + Z_0},\quad \mathrm{VSWR} = \frac{1 + |\Gamma|}{1 - |\Gamma|}\]</div>
-<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>RL</code></td><td>in</td><td>load resistance</td><td>ohm</td></tr><tr><td><code>Z0</code></td><td>in</td><td>characteristic impedance of the line</td><td>ohm</td></tr><tr><td><code>XL</code></td><td>in</td><td>load reactance (0 if not given) (optional)</td><td>ohm</td></tr><tr><td><code>gamma_mag</code></td><td>out</td><td>|Gamma|</td><td>—</td></tr><tr><td><code>gamma_angle_deg</code></td><td>out</td><td>angle of Gamma in degrees</td><td>—</td></tr><tr><td><code>gamma_re</code></td><td>out</td><td>real part of Gamma</td><td>—</td></tr><tr><td><code>gamma_im</code></td><td>out</td><td>imaginary part of Gamma</td><td>—</td></tr><tr><td><code>vswr</code></td><td>out</td><td>voltage standing wave ratio</td><td>—</td></tr><tr><td><code>return_loss_db</code></td><td>out</td><td>return loss in dB</td><td>—</td></tr><tr><td><code>mismatch_loss_db</code></td><td>out</td><td>mismatch loss in dB</td><td>—</td></tr></tbody></table>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>RL</code></td><td>in</td><td>load resistance</td><td>ohm</td></tr><tr><td><code>Z0</code></td><td>in</td><td>characteristic impedance of the line</td><td>ohm</td></tr><tr><td><code>XL</code></td><td>in</td><td>load reactance (0 if not given) (optional)</td><td>ohm</td></tr><tr><td><code>gamma_mag</code></td><td>out</td><td>|Gamma|</td><td>, </td></tr><tr><td><code>gamma_angle_deg</code></td><td>out</td><td>angle of Gamma in degrees</td><td>, </td></tr><tr><td><code>gamma_re</code></td><td>out</td><td>real part of Gamma</td><td>, </td></tr><tr><td><code>gamma_im</code></td><td>out</td><td>imaginary part of Gamma</td><td>, </td></tr><tr><td><code>vswr</code></td><td>out</td><td>voltage standing wave ratio</td><td>, </td></tr><tr><td><code>return_loss_db</code></td><td>out</td><td>return loss in dB</td><td>, </td></tr><tr><td><code>mismatch_loss_db</code></td><td>out</td><td>mismatch loss in dB</td><td>, </td></tr></tbody></table>
 <p><strong>Applies when:</strong> RL &gt; 0; Z0 real (lossless line).</p>
 <pre><code class="shell">$ signal-processing solve reflection_coefficient &quot;RL=75 ohm&quot; &quot;XL=25 ohm&quot; &quot;Z0=50 ohm&quot;
 gamma_mag = 0.2773500981
@@ -1068,10 +1048,10 @@ mismatch_loss_db = 0.3476210626
   Z0 = 50 ohm
   assumes: RL &gt; 0; Z0 real (lossless line)</code></pre>
 <p><strong>What the worked example means:</strong> This calculation determines the impedance mismatch between a transmission line and its load. Given a load resistance of 75 ohm ohms and reactance of 25 ohm ohms connected to a line with a characteristic impedance of 50 ohm ohms, the reflection coefficient Gamma is computed as the ratio of the impedance difference to the sum. The resulting magnitude of Gamma is 0.27735, which directly translates to a Voltage Standing Wave Ratio (VSWR) of 1.76759. A lower VSWR indicates better power transfer efficiency, while higher values suggest significant signal reflection. The return loss, measured at 11.1394 dB, quantifies how much less reflected power there is compared to incident power.</p>
-<h4 id="vswr_from_reflection">VSWR and return loss from the reflection coefficient — <code>vswr_from_reflection</code></h4>
+<h4 id="vswr_from_reflection">VSWR and return loss from the reflection coefficient, <code>vswr_from_reflection</code></h4>
 <p>The VSWR (1 + |Gamma|)/(1 - |Gamma|), the return loss -20 log10 |Gamma| and the mismatch loss from the magnitude of the reflection coefficient.</p>
 <div class="math">\[\mathrm{VSWR} = \frac{1 + |\Gamma|}{1 - |\Gamma|}\]</div>
-<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>gamma</code></td><td>in</td><td>magnitude of the reflection coefficient (0 &lt;= |Gamma| &lt; 1)</td><td>—</td></tr><tr><td><code>vswr</code></td><td>out</td><td>voltage standing wave ratio</td><td>—</td></tr><tr><td><code>return_loss_db</code></td><td>out</td><td>return loss in dB</td><td>—</td></tr><tr><td><code>mismatch_loss_db</code></td><td>out</td><td>mismatch loss in dB</td><td>—</td></tr></tbody></table>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>gamma</code></td><td>in</td><td>magnitude of the reflection coefficient (0 &lt;= |Gamma| &lt; 1)</td><td>, </td></tr><tr><td><code>vswr</code></td><td>out</td><td>voltage standing wave ratio</td><td>, </td></tr><tr><td><code>return_loss_db</code></td><td>out</td><td>return loss in dB</td><td>, </td></tr><tr><td><code>mismatch_loss_db</code></td><td>out</td><td>mismatch loss in dB</td><td>, </td></tr></tbody></table>
 <p><strong>Applies when:</strong> 0 &lt;= |Gamma| &lt; 1.</p>
 <pre><code class="shell">$ signal-processing solve vswr_from_reflection gamma=0.2
 vswr = 1.5
@@ -1082,10 +1062,10 @@ mismatch_loss_db = 0.1772876696
   assumes: 0 &lt;= |Gamma| &lt; 1</code></pre>
 <p><strong>What the worked example means:</strong> This calculation determines the voltage standing wave ratio, return loss in decibels, and mismatch loss in decibels from the magnitude of the reflection coefficient. Given an input reflection coefficient magnitude of 0.2, the resulting voltage standing wave ratio is 1.5, indicating the degree of impedance mismatch. The return loss of 13.9794 quantifies the power reflected back toward the source, while the mismatch loss of 0.177288 represents the reduction in available power delivered to the load due to this reflection.</p>
 <h3>Wavelets (2)</h3>
-<h4 id="haar_dwt">Haar discrete wavelet transform — <code>haar_dwt</code></h4>
+<h4 id="haar_dwt">Haar discrete wavelet transform, <code>haar_dwt</code></h4>
 <p>The multi-level orthonormal Haar wavelet transform of a sequence whose length is a power of two: the final approximation and the detail coefficients of every level (coarsest first).</p>
 <div class="math">\[c_A[k] = \frac{x[2k] + x[2k+1]}{\sqrt 2},\quad c_D[k] = \frac{x[2k] - x[2k+1]}{\sqrt 2}\]</div>
-<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>x</code></td><td>in</td><td>samples (length a power of two)</td><td>—</td></tr><tr><td><code>levels</code></td><td>in</td><td>number of levels (default 1) (optional)</td><td>—</td></tr><tr><td><code>approximation</code></td><td>out</td><td>approximation coefficients after the last level</td><td>—</td></tr><tr><td><code>details</code></td><td>out</td><td>detail coefficients per level, coarsest first</td><td>—</td></tr></tbody></table>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>x</code></td><td>in</td><td>samples (length a power of two)</td><td>, </td></tr><tr><td><code>levels</code></td><td>in</td><td>number of levels (default 1) (optional)</td><td>, </td></tr><tr><td><code>approximation</code></td><td>out</td><td>approximation coefficients after the last level</td><td>, </td></tr><tr><td><code>details</code></td><td>out</td><td>detail coefficients per level, coarsest first</td><td>, </td></tr></tbody></table>
 <p><strong>Applies when:</strong> length a power of two; levels &lt;= log2 N.</p>
 <pre><code class="shell">$ signal-processing solve haar_dwt levels=2 &quot;x=[4, 6, 10, 12, 8, 6, 5, 5]&quot;
 approximation = [16.000000000000004,12.000000000000002]
@@ -1093,10 +1073,10 @@ details = [[-6.000000000000001,2.0],[-1.4142135623730951,-1.4142135623730951,1.4
   by: Haar discrete wavelet transform  (repeated pairwise (a + b)/sqrt 2 and (a - b)/sqrt 2)
   assumes: length a power of two; levels &lt;= log2 N</code></pre>
 <p><strong>What the worked example means:</strong> This calculation applies the multi-level orthonormal Haar discrete wavelet transform to the input sequence [4, 6, 10, 12, 8, 6, 5, 5], using 2 decomposition levels. The method repeatedly pairs adjacent samples to compute averages for the approximation coefficients and differences for the detail coefficients, scaled by one over the square root of two. The result provides a coarse trend representation in [16, 12] and scale-specific fluctuation data in [[-6, 2], [-1.41421, -1.41421, 1.41421, 0]], where details are ordered from the coarsest level first.</p>
-<h4 id="haar_idwt">Inverse Haar wavelet transform (one level) — <code>haar_idwt</code></h4>
+<h4 id="haar_idwt">Inverse Haar wavelet transform (one level), <code>haar_idwt</code></h4>
 <p>The sequence reconstructed from one level of Haar approximation and detail coefficients.</p>
 <div class="math">\[x[2k] = \frac{c_A[k] + c_D[k]}{\sqrt 2},\quad x[2k+1] = \frac{c_A[k] - c_D[k]}{\sqrt 2}\]</div>
-<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>cA</code></td><td>in</td><td>approximation coefficients</td><td>—</td></tr><tr><td><code>cD</code></td><td>in</td><td>detail coefficients</td><td>—</td></tr><tr><td><code>x</code></td><td>out</td><td>reconstructed samples</td><td>—</td></tr></tbody></table>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>cA</code></td><td>in</td><td>approximation coefficients</td><td>, </td></tr><tr><td><code>cD</code></td><td>in</td><td>detail coefficients</td><td>, </td></tr><tr><td><code>x</code></td><td>out</td><td>reconstructed samples</td><td>, </td></tr></tbody></table>
 <p><strong>Applies when:</strong> equal lengths.</p>
 <pre><code class="shell">$ signal-processing solve haar_idwt &quot;cA=[16, 12]&quot; &quot;cD=[-6, 2]&quot;
 x = [7.0710678118654755,15.556349186104047,9.899494936611665,7.0710678118654755]
@@ -1104,23 +1084,23 @@ x = [7.0710678118654755,15.556349186104047,9.899494936611665,7.0710678118654755]
   assumes: equal lengths</code></pre>
 <p><strong>What the worked example means:</strong> This calculation performs the inverse Haar wavelet transform on a single level to reconstruct the original time-domain samples. It combines the approximation coefficients [16, 12] with the detail coefficients [-6, 2] using specific linear operations to produce the reconstructed signal [7.07107, 15.5563, 9.89949, 7.07107]. The process effectively reverses the decomposition step, merging low-frequency trend information and high-frequency fluctuation data back into their original form.</p>
 <h3>Windows and spectral analysis (3)</h3>
-<h4 id="window_coefficients">Coefficients of a window function — <code>window_coefficients</code></h4>
+<h4 id="window_coefficients">Coefficients of a window function, <code>window_coefficients</code></h4>
 <p>The samples w[0..N-1] of a rectangular, Hann, Hamming or Blackman window (symmetric for filter design, periodic for spectral analysis) and its coherent gain.</p>
 <div class="math">\[w[n] = \sum_k (-1)^k a_k \cos\frac{2\pi k n}{M}\]</div>
-<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>window</code></td><td>in</td><td>window type</td><td>—</td></tr><tr><td><code>N</code></td><td>in</td><td>window length</td><td>—</td></tr><tr><td><code>form</code></td><td>in</td><td>symmetric (default) or periodic (optional)</td><td>—</td></tr><tr><td><code>w</code></td><td>out</td><td>window samples w[0..N-1]</td><td>—</td></tr><tr><td><code>coherent_gain</code></td><td>out</td><td>coherent gain: mean of w</td><td>—</td></tr></tbody></table>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>window</code></td><td>in</td><td>window type</td><td>, </td></tr><tr><td><code>N</code></td><td>in</td><td>window length</td><td>, </td></tr><tr><td><code>form</code></td><td>in</td><td>symmetric (default) or periodic (optional)</td><td>, </td></tr><tr><td><code>w</code></td><td>out</td><td>window samples w[0..N-1]</td><td>, </td></tr><tr><td><code>coherent_gain</code></td><td>out</td><td>coherent gain: mean of w</td><td>, </td></tr></tbody></table>
 <p><strong>Applies when:</strong> N &gt;= 2.</p>
 <pre><code class="shell">$ signal-processing solve window_coefficients window=hann form=periodic N=4
 w = [0.0,0.49999999999999994,1.0,0.5000000000000001]
 coherent_gain = 0.5
   by: Coefficients of a window function  (generalized cosine sums: w[n] = sum_k (-1)^k a_k cos(2 pi k n / M), M = N-1 (symmetric) or N (periodic))
-  form = periodic
   window = hann
+  form = periodic
   assumes: N &gt;= 2</code></pre>
 <p><strong>What the worked example means:</strong> This calculation produces the time-domain coefficients for the specified window type, such as Hann or Blackman, based on the length 4 and form periodic. The resulting samples, denoted as [0, 0.5, 1, 0.5], represent the amplitude weighting applied to signal segments. The coherent gain, shown as 0.5, indicates the average amplitude scaling factor introduced by this windowing process.</p>
-<h4 id="window_mainlobe_width">Main-lobe width of a spectral window — <code>window_mainlobe_width</code></h4>
+<h4 id="window_mainlobe_width">Main-lobe width of a spectral window, <code>window_mainlobe_width</code></h4>
 <p>The null-to-null main-lobe width of the rectangular, Hann, Hamming or Blackman window (DFT-even form), in bins and, with fs, in hertz.</p>
 <div class="math">\[\Delta f_{\mathrm{ML}} = k\,\frac{f_s}{N},\ k = 2\ (\text{rect}),\ 4\ (\text{Hann, Hamming}),\ 6\ (\text{Blackman})\]</div>
-<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>window</code></td><td>in</td><td>window type</td><td>—</td></tr><tr><td><code>N</code></td><td>in</td><td>window length</td><td>—</td></tr><tr><td><code>fs</code></td><td>in</td><td>sampling rate (for the width in Hz) (optional)</td><td>Hz</td></tr><tr><td><code>width_bins</code></td><td>out</td><td>null-to-null main-lobe width in DFT bins</td><td>—</td></tr><tr><td><code>first_null_bins</code></td><td>out</td><td>position of the first null in bins</td><td>—</td></tr><tr><td><code>width_hz</code></td><td>out</td><td>main-lobe width in Hz (fs given)</td><td>Hz</td></tr></tbody></table>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>window</code></td><td>in</td><td>window type</td><td>, </td></tr><tr><td><code>N</code></td><td>in</td><td>window length</td><td>, </td></tr><tr><td><code>fs</code></td><td>in</td><td>sampling rate (for the width in Hz) (optional)</td><td>Hz</td></tr><tr><td><code>width_bins</code></td><td>out</td><td>null-to-null main-lobe width in DFT bins</td><td>, </td></tr><tr><td><code>first_null_bins</code></td><td>out</td><td>position of the first null in bins</td><td>, </td></tr><tr><td><code>width_hz</code></td><td>out</td><td>main-lobe width in Hz (fs given)</td><td>Hz</td></tr></tbody></table>
 <p><strong>Applies when:</strong> N &gt;= 8; DFT-even (periodic) windows for spectral analysis.</p>
 <pre><code class="shell">$ signal-processing solve window_mainlobe_width window=hann N=256 &quot;fs=8 kHz&quot;
 width_bins = 4
@@ -1131,10 +1111,10 @@ width_hz = 125 Hz
   window = hann
   assumes: N &gt;= 8; DFT-even (periodic) windows for spectral analysis</code></pre>
 <p><strong>What the worked example means:</strong> This calculation determines the frequency resolution limit imposed by the chosen spectral window. The main-lobe width, defined as the distance between the first two zeros of the window&#x27;s transform, is 4 bins wide. When expressed in physical frequency units using the sampling rate, this width corresponds to 125 Hz hertz. A wider main lobe indicates lower ability to distinguish closely spaced sinusoidal components, while a narrower lobe suggests better resolution but potentially higher side-lobe levels depending on the specific window type selected.</p>
-<h4 id="periodogram">Periodogram (power spectral density estimate) — <code>periodogram</code></h4>
+<h4 id="periodogram">Periodogram (power spectral density estimate), <code>periodogram</code></h4>
 <p>The one-sided periodogram PSD estimate (rectangular window, mean removed) of a sequence sampled at fs, its frequency grid and the frequency of its peak.</p>
 <div class="math">\[P[k] = \frac{2\,|X[k]|^2}{f_s N}\ (0 &lt; k &lt; N/2)\]</div>
-<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>x</code></td><td>in</td><td>samples</td><td>—</td></tr><tr><td><code>fs</code></td><td>in</td><td>sampling rate</td><td>Hz</td></tr><tr><td><code>peak_frequency</code></td><td>out</td><td>frequency of the largest PSD value</td><td>Hz</td></tr><tr><td><code>freqs</code></td><td>out</td><td>frequencies k fs / N, k = 0 .. N/2</td><td>—</td></tr><tr><td><code>psd</code></td><td>out</td><td>one-sided power spectral density (power per hertz)</td><td>—</td></tr></tbody></table>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>x</code></td><td>in</td><td>samples</td><td>, </td></tr><tr><td><code>fs</code></td><td>in</td><td>sampling rate</td><td>Hz</td></tr><tr><td><code>peak_frequency</code></td><td>out</td><td>frequency of the largest PSD value</td><td>Hz</td></tr><tr><td><code>freqs</code></td><td>out</td><td>frequencies k fs / N, k = 0 .. N/2</td><td>, </td></tr><tr><td><code>psd</code></td><td>out</td><td>one-sided power spectral density (power per hertz)</td><td>, </td></tr></tbody></table>
 <p><strong>Applies when:</strong> mean removed first; rectangular window; one-sided density scaling.</p>
 <pre><code class="shell">$ signal-processing solve periodogram &quot;x=[1, 0, -1, 0, 1, 0, -1, 0]&quot; &quot;fs=8 Hz&quot;
 peak_frequency = 2 Hz
@@ -1145,10 +1125,10 @@ psd = [0.0,0.0,0.5,0.0,0.0]
   assumes: mean removed first; rectangular window; one-sided density scaling</code></pre>
 <p><strong>What the worked example means:</strong> This calculation estimates the one-sided power spectral density by applying a fast Fourier transform to the mean-removed input samples and scaling the squared magnitude. The resulting frequency grid spans up to half the sampling rate, with the highest energy concentration found at 2 Hz Hz. This provides a non-parametric view of how signal power is distributed across frequencies for the given sequence.</p>
 <h3>Z-transform and stability (2)</h3>
-<h4 id="second_order_poles">Poles and stability of a second-order all-pole system — <code>second_order_poles</code></h4>
+<h4 id="second_order_poles">Poles and stability of a second-order all-pole system, <code>second_order_poles</code></h4>
 <p>The poles of H(z) = 1/(1 + a1 z^-1 + a2 z^-2) (roots of z^2 + a1 z + a2), their largest radius and whether the causal system is stable.</p>
 <div class="math">\[z^2 + a_1 z + a_2 = 0,\quad \text{stable} \iff |p_i| &lt; 1\]</div>
-<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>a1</code></td><td>in</td><td>coefficient of z^-1 in the denominator</td><td>—</td></tr><tr><td><code>a2</code></td><td>in</td><td>coefficient of z^-2 in the denominator</td><td>—</td></tr><tr><td><code>radius</code></td><td>out</td><td>largest pole radius |p|</td><td>—</td></tr><tr><td><code>p1</code></td><td>out</td><td>first pole (smaller real, or positive imaginary part)</td><td>—</td></tr><tr><td><code>p2</code></td><td>out</td><td>second pole</td><td>—</td></tr><tr><td><code>stability</code></td><td>out</td><td>stable if every pole lies inside the unit circle</td><td>—</td></tr></tbody></table>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>a1</code></td><td>in</td><td>coefficient of z^-1 in the denominator</td><td>, </td></tr><tr><td><code>a2</code></td><td>in</td><td>coefficient of z^-2 in the denominator</td><td>, </td></tr><tr><td><code>radius</code></td><td>out</td><td>largest pole radius |p|</td><td>, </td></tr><tr><td><code>p1</code></td><td>out</td><td>first pole (smaller real, or positive imaginary part)</td><td>, </td></tr><tr><td><code>p2</code></td><td>out</td><td>second pole</td><td>, </td></tr><tr><td><code>stability</code></td><td>out</td><td>stable if every pole lies inside the unit circle</td><td>, </td></tr></tbody></table>
 <p><strong>Applies when:</strong> a2 != 0; a causal system (stable iff |p| &lt; 1 for every pole).</p>
 <pre><code class="shell">$ signal-processing solve second_order_poles a1=-1.2 a2=0.5
 radius = 0.7071067812
@@ -1160,10 +1140,10 @@ stability = stable
   a2 = 0.5
   assumes: a2 != 0; a causal system (stable iff |p| &lt; 1 for every pole)</code></pre>
 <p><strong>What the worked example means:</strong> This calculation determines the poles of a second-order all-pole filter by solving the characteristic equation. The resulting pole locations are 0.6 + 0.374166i and 0.6 - 0.374166i, with a maximum magnitude of 0.707107. Since stability requires every pole to lie strictly inside the unit circle, the system is classified as stable based on these values.</p>
-<h4 id="poles_zeros">Poles, zeros and stability of a digital filter — <code>poles_zeros</code></h4>
+<h4 id="poles_zeros">Poles, zeros and stability of a digital filter, <code>poles_zeros</code></h4>
 <p>The zeros and poles of H(z) = sum b_k z^-k / sum a_k z^-k (up to 4th order), the largest pole radius and whether the causal filter is stable.</p>
 <div class="math">\[H(z) = \frac{\sum_k b_k z^{-k}}{\sum_k a_k z^{-k}} = \frac{b_0\prod(1 - z_i z^{-1})}{a_0\prod(1 - p_i z^{-1})}\]</div>
-<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>b</code></td><td>in</td><td>numerator coefficients b (up to 5)</td><td>—</td></tr><tr><td><code>a</code></td><td>in</td><td>denominator coefficients a (up to 5, a[0] != 0)</td><td>—</td></tr><tr><td><code>max_pole_radius</code></td><td>out</td><td>largest pole radius</td><td>—</td></tr><tr><td><code>zeros</code></td><td>out</td><td>zeros (real ascending, then complex)</td><td>—</td></tr><tr><td><code>poles</code></td><td>out</td><td>poles (real ascending, then complex)</td><td>—</td></tr><tr><td><code>stability</code></td><td>out</td><td>stable if every pole lies inside the unit circle</td><td>—</td></tr></tbody></table>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>b</code></td><td>in</td><td>numerator coefficients b (up to 5)</td><td>, </td></tr><tr><td><code>a</code></td><td>in</td><td>denominator coefficients a (up to 5, a[0] != 0)</td><td>, </td></tr><tr><td><code>max_pole_radius</code></td><td>out</td><td>largest pole radius</td><td>, </td></tr><tr><td><code>zeros</code></td><td>out</td><td>zeros (real ascending, then complex)</td><td>, </td></tr><tr><td><code>poles</code></td><td>out</td><td>poles (real ascending, then complex)</td><td>, </td></tr><tr><td><code>stability</code></td><td>out</td><td>stable if every pole lies inside the unit circle</td><td>, </td></tr></tbody></table>
 <p><strong>Applies when:</strong> a[0] != 0; orders up to 4; both polynomials in powers of z^-1 (padded to equal length).</p>
 <pre><code class="shell">$ signal-processing solve poles_zeros &quot;b=[1, -1]&quot; &quot;a=[1, -0.9]&quot;
 max_pole_radius = 0.9
@@ -1173,4 +1153,4 @@ stability = stable
   by: Poles, zeros and stability of a digital filter  (polynomial roots (closed form up to degree 2; Durand-Kerner iteration with Newton polishing above))
   assumes: a[0] != 0; orders up to 4; both polynomials in powers of z^-1 (padded to equal length)</code></pre>
 <p><strong>What the worked example means:</strong> This analysis computes the zeros and poles from the numerator coefficients [1, -1] and denominator coefficients [1, -0.9]. The resulting poles are listed in [0.9] and zeros in [1]. Stability is determined by checking if every pole lies within the unit circle, which depends on the largest pole radius being less than one. The calculated maximum pole radius is 0.9, leading to the conclusion that the system is stable.</p>
-<p>Questions and reports: support@ai999x.com. AI999X — The Future Is Self-Improving.</p></body></html>
+<p>Questions and reports: support@ai999x.com. AI999X, The Future Is Self-Improving.</p></body></html>

@@ -1,4 +1,4 @@
-# signal-processing: the Signal Processing program — user guide
+# signal-processing: the Signal Processing program, user guide
 
 **signal-processing-ai999x 1.1.0**, Rust build: command line, desktop app and browser. **Creator / engineer:** Ibnul Jaif Farabi · **Company:** AI999X · support@ai999x.com
 
@@ -17,63 +17,63 @@ Signal Processing covers sampling, Fourier series and transforms, the DFT and FF
 
 ## 1. Get it
 
-Version 1.4.0 of the AI999X desktop app and of the command-line bundle. Checksums for every file: https://downloads.ai999x.com/desktop/1.4.0/SHA256SUMS; the newest version is always under https://downloads.ai999x.com/desktop/latest/. Full instructions: https://www.ai999x.com/desktop-cli/
+Version 1.5.0 of the AI999X desktop app and of the command-line bundle. Checksums for every file: https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS; the newest version is always under https://downloads.ai999x.com/desktop/latest/. Full instructions: https://www.ai999x.com/desktop-cli/
 
 | what | system | download |
 |---|---|---|
-| Desktop app: Signal Processing | Windows x86-64 | https://downloads.ai999x.com/desktop/1.4.0/ai999x-signal-processing-1.4.0-windows-x86_64.zip |
-| Desktop app: Signal Processing | Linux x86-64 | https://downloads.ai999x.com/desktop/1.4.0/ai999x-signal-processing-1.4.0-linux-x86_64.tar.gz |
-| Desktop app: all models | Windows x86-64 | https://downloads.ai999x.com/desktop/1.4.0/ai999x-1.4.0-windows-x86_64.zip |
-| Desktop app: all models | Linux x86-64 | https://downloads.ai999x.com/desktop/1.4.0/ai999x-1.4.0-linux-x86_64.tar.gz |
-| Command line | Windows x86-64 | https://downloads.ai999x.com/desktop/1.4.0/ai999x-cli-1.4.0-windows-x86_64.zip |
-| Command line | Linux x86-64 | https://downloads.ai999x.com/desktop/1.4.0/ai999x-cli-1.4.0-linux-x86_64.tar.gz |
+| Desktop app: Signal Processing | Windows x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-signal-processing-1.5.0-windows-x86_64.zip |
+| Desktop app: Signal Processing | Linux x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-signal-processing-1.5.0-linux-x86_64.tar.gz |
+| Desktop app: all models | Windows x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-1.5.0-windows-x86_64.zip |
+| Desktop app: all models | Linux x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-1.5.0-linux-x86_64.tar.gz |
+| Command line | Windows x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-cli-1.5.0-windows-x86_64.zip |
+| Command line | Linux x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-cli-1.5.0-linux-x86_64.tar.gz |
 
 ### Desktop app
 
-Signal Processing in its own app: search, questions in words, input forms, live figures and explanations. Windows: Download ai999x-signal-processing-1.4.0-windows-x86_64.zip, right-click it → Extract All, then open the folder and start ai999x-signal-processing.exe. If Windows SmartScreen asks, choose More info → Run anyway. Linux:
+Signal Processing in its own app: search, questions in words, input forms, live figures and explanations. Windows: Download ai999x-signal-processing-1.5.0-windows-x86_64.zip, right-click it → Extract All, then open the folder and start ai999x-signal-processing.exe. If Windows SmartScreen asks, choose More info → Run anyway. Linux:
 
 ```shell
-curl -LO https://downloads.ai999x.com/desktop/1.4.0/ai999x-signal-processing-1.4.0-linux-x86_64.tar.gz
-curl -LO https://downloads.ai999x.com/desktop/1.4.0/SHA256SUMS
+curl -LO https://downloads.ai999x.com/desktop/1.5.0/ai999x-signal-processing-1.5.0-linux-x86_64.tar.gz
+curl -LO https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS
 sha256sum -c --ignore-missing SHA256SUMS
-tar xzf ai999x-signal-processing-1.4.0-linux-x86_64.tar.gz
-./ai999x-signal-processing-1.4.0-linux-x86_64/ai999x-signal-processing
+tar xzf ai999x-signal-processing-1.5.0-linux-x86_64.tar.gz
+./ai999x-signal-processing-1.5.0-linux-x86_64/ai999x-signal-processing
 ```
 
-It opens on this model: type a question or pick a capability, fill in the form and press Compute. The AI999X desktop app with every model works the same way (choose the model first). Windows: Download ai999x-1.4.0-windows-x86_64.zip, right-click it → Extract All, then open the folder and start ai999x.exe. If Windows SmartScreen asks, choose More info → Run anyway. Linux:
+It opens on this model: type a question or pick a capability, fill in the form and press Compute. The AI999X desktop app with every model works the same way (choose the model first). Windows: Download ai999x-1.5.0-windows-x86_64.zip, right-click it → Extract All, then open the folder and start ai999x.exe. If Windows SmartScreen asks, choose More info → Run anyway. Linux:
 
 ```shell
-curl -LO https://downloads.ai999x.com/desktop/1.4.0/ai999x-1.4.0-linux-x86_64.tar.gz
-curl -LO https://downloads.ai999x.com/desktop/1.4.0/SHA256SUMS
+curl -LO https://downloads.ai999x.com/desktop/1.5.0/ai999x-1.5.0-linux-x86_64.tar.gz
+curl -LO https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS
 sha256sum -c --ignore-missing SHA256SUMS
-tar xzf ai999x-1.4.0-linux-x86_64.tar.gz
-./ai999x-1.4.0-linux-x86_64/ai999x
+tar xzf ai999x-1.5.0-linux-x86_64.tar.gz
+./ai999x-1.5.0-linux-x86_64/ai999x
 ```
 
-### Command line — Linux
+### Command line: Linux
 
 The bundle holds one program per model; `signal-processing` is this one. The checksum line should print OK.
 
 ```shell
-curl -LO https://downloads.ai999x.com/desktop/1.4.0/ai999x-cli-1.4.0-linux-x86_64.tar.gz
-curl -LO https://downloads.ai999x.com/desktop/1.4.0/SHA256SUMS
+curl -LO https://downloads.ai999x.com/desktop/1.5.0/ai999x-cli-1.5.0-linux-x86_64.tar.gz
+curl -LO https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS
 sha256sum -c --ignore-missing SHA256SUMS
-mkdir -p ~/.local/share && tar xzf ai999x-cli-1.4.0-linux-x86_64.tar.gz -C ~/.local/share
-echo 'export PATH="$HOME/.local/share/ai999x-cli-1.4.0-linux-x86_64:$PATH"' >> ~/.bashrc && source ~/.bashrc
+mkdir -p ~/.local/share && tar xzf ai999x-cli-1.5.0-linux-x86_64.tar.gz -C ~/.local/share
+echo 'export PATH="$HOME/.local/share/ai999x-cli-1.5.0-linux-x86_64:$PATH"' >> ~/.bashrc && source ~/.bashrc
 signal-processing --version
 ```
 
-### Command line — Windows (PowerShell)
+### Command line: Windows (PowerShell)
 
 The fourth line should print True.
 
 ```powershell
-$F = "ai999x-cli-1.4.0-windows-x86_64.zip"
-Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.4.0/$F" -OutFile $F
-Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.4.0/SHA256SUMS" -OutFile SHA256SUMS
+$F = "ai999x-cli-1.5.0-windows-x86_64.zip"
+Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.5.0/$F" -OutFile $F
+Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS" -OutFile SHA256SUMS
 (Get-FileHash $F -Algorithm SHA256).Hash.ToLower() -eq ((Select-String -SimpleMatch $F SHA256SUMS).Line -split ' ')[0]
 Expand-Archive $F -DestinationPath "$env:LOCALAPPDATA\AI999X" -Force
-$D = "$env:LOCALAPPDATA\AI999X\ai999x-cli-1.4.0-windows-x86_64"; $env:Path += ";$D"
+$D = "$env:LOCALAPPDATA\AI999X\ai999x-cli-1.5.0-windows-x86_64"; $env:Path += ";$D"
 [Environment]::SetEnvironmentVariable("Path", [Environment]::GetEnvironmentVariable("Path", "User") + ";$D", "User")
 signal-processing --version
 ```
@@ -96,7 +96,7 @@ Prints the model, its version and that this is the Rust build.
 
 ```shell
 $ signal-processing --version
-signal-processing-ai999x 1.0.3 (Rust build, ax-engine 0.1.0)
+signal-processing-ai999x 1.5.0 (Rust build, ax-engine 1.5.0)
 ```
 
 ### 2.2 Ask in words
@@ -205,23 +205,7 @@ $ signal-processing solve reflection_coefficient "RL=75 ohm" "XL=25 ohm"
 NEEDS_INPUT: reflection_coefficient needs Z0 (characteristic impedance of the line). Example: solve('reflection_coefficient', RL='75 ohm', XL='25 ohm', Z0='50 ohm').
 ```
 
-### 2.9 Draw the figures
-
-The live figures for your own inputs, written as SVG files into the folder given with --out (here the current folder); open them in any browser. Without --out the SVG text comes back as JSON.
-
-```shell
-$ signal-processing figures nyquist_rate "fmax=4 kHz" --out .
-[
-  {
-    "slug": "nyquist-rate-live-1",
-    "title": "Nyquist rate (minimum sampling rate) as highest frequency in the signal varies",
-    "caption": "Nyquist rate (minimum sampling rate) as fmax runs from 1 to 7 kHz, every other input as you entered it (41 solutions). Marked: your fmax = 4 kHz gives fs_min = 8000. Your inputs: fmax = 4 kHz.",
-    "file": ".\\nyquist-rate-live-1.svg"
-  }
-]
-```
-
-### 2.10 Many questions at once
+### 2.9 Many questions at once
 
 One JSON request per line in, one JSON answer per line out, in order: for scripts, notebooks and agents (the program starts once). In PowerShell: Get-Content cases.jsonl | signal-processing batch
 
@@ -294,18 +278,6 @@ answers = [json.loads(line) for line in out.splitlines()]
 
 `signal-processing figures <capability> name=value ... --out DIR` draws the live figures for those inputs and writes each as an SVG file into DIR (an existing folder); without `--out` the SVG text comes back as JSON. The desktop app and the model page draw the same figures as soon as you press Compute.
 
-```shell
-$ signal-processing figures nyquist_rate "fmax=4 kHz" --out .
-[
-  {
-    "slug": "nyquist-rate-live-1",
-    "title": "Nyquist rate (minimum sampling rate) as highest frequency in the signal varies",
-    "caption": "Nyquist rate (minimum sampling rate) as fmax runs from 1 to 7 kHz, every other input as you entered it (41 solutions). Marked: your fmax = 4 kHz gives fs_min = 8000. Your inputs: fmax = 4 kHz.",
-    "file": ".\\nyquist-rate-live-1.svg"
-  }
-]
-```
-
 ## 7. In a web page or Node.js: WebAssembly
 
 The same model is a WebAssembly module, `signal_processing_ai999x.wasm` (https://www.ai999x.com/compute/rust/signal_processing_ai999x.wasm), with a small loader, `ax-wasm.js` (https://www.ai999x.com/compute/rust/ax-wasm.js). It runs in a browser, a Web Worker or Node.js, with no server.
@@ -329,7 +301,7 @@ By topic. For each: what it does, what it needs and gives, when it applies, and 
 
 <a id="butterworth_magnitude"></a>
 
-#### Magnitude of an analog Butterworth low-pass response — `butterworth_magnitude`
+#### Magnitude of an analog Butterworth low-pass response, `butterworth_magnitude`
 
 |H(f)| = 1/sqrt(1 + (f/fc)^(2N)) of an N-th order Butterworth low-pass filter, and the attenuation in dB.
 
@@ -339,11 +311,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `N` | in | filter order | — |
+| `N` | in | filter order | - |
 | `fc` | in | cutoff (-3 dB) frequency | Hz |
 | `f` | in | frequency | Hz |
-| `magnitude` | out | \|H(f)\| | — |
-| `attenuation_db` | out | attenuation in dB (positive) | — |
+| `magnitude` | out | \|H(f)\| | - |
+| `attenuation_db` | out | attenuation in dB (positive) | - |
 
 **Applies when:** N >= 1; fc > 0; f >= 0.
 
@@ -361,7 +333,7 @@ attenuation_db = 24.09933123
 
 <a id="butterworth_order_analog"></a>
 
-#### Minimum order of a analog Butterworth filter — `butterworth_order_analog`
+#### Minimum order of a analog Butterworth filter, `butterworth_order_analog`
 
 The smallest order meeting a passband edge with at most Rp dB attenuation and a stopband edge with at least As dB.
 
@@ -373,10 +345,10 @@ $$
 |---|---|---|---|
 | `fp` | in | passband edge frequency | Hz |
 | `fstop` | in | stopband edge frequency | Hz |
-| `Rp` | in | maximum passband attenuation (ripple) in dB | — |
-| `As` | in | minimum stopband attenuation in dB | — |
-| `order` | out | minimum filter order | — |
-| `type` | out | lowpass (fp < fstop) or highpass (fp > fstop) | — |
+| `Rp` | in | maximum passband attenuation (ripple) in dB | - |
+| `As` | in | minimum stopband attenuation in dB | - |
+| `order` | out | minimum filter order | - |
+| `type` | out | lowpass (fp < fstop) or highpass (fp > fstop) | - |
 
 **Applies when:** 0 < Rp < As; fp != fstop.
 
@@ -396,7 +368,7 @@ type = lowpass
 
 <a id="chebyshev1_order_analog"></a>
 
-#### Minimum order of a analog Chebyshev type I filter — `chebyshev1_order_analog`
+#### Minimum order of a analog Chebyshev type I filter, `chebyshev1_order_analog`
 
 The smallest order meeting a passband edge with at most Rp dB attenuation and a stopband edge with at least As dB.
 
@@ -408,10 +380,10 @@ $$
 |---|---|---|---|
 | `fp` | in | passband edge frequency | Hz |
 | `fstop` | in | stopband edge frequency | Hz |
-| `Rp` | in | maximum passband attenuation (ripple) in dB | — |
-| `As` | in | minimum stopband attenuation in dB | — |
-| `order` | out | minimum filter order | — |
-| `type` | out | lowpass (fp < fstop) or highpass (fp > fstop) | — |
+| `Rp` | in | maximum passband attenuation (ripple) in dB | - |
+| `As` | in | minimum stopband attenuation in dB | - |
+| `order` | out | minimum filter order | - |
+| `type` | out | lowpass (fp < fstop) or highpass (fp > fstop) | - |
 
 **Applies when:** 0 < Rp < As; fp != fstop.
 
@@ -433,7 +405,7 @@ type = lowpass
 
 <a id="dish_antenna_gain"></a>
 
-#### Gain of a parabolic dish (aperture) antenna — `dish_antenna_gain`
+#### Gain of a parabolic dish (aperture) antenna, `dish_antenna_gain`
 
 The gain eta (pi D / lambda)^2 of a circular aperture antenna of diameter D and aperture efficiency eta, in dBi, and its effective aperture.
 
@@ -445,9 +417,9 @@ $$
 |---|---|---|---|
 | `D` | in | dish diameter | m |
 | `f` | in | frequency | Hz |
-| `eta` | in | aperture efficiency (0 < eta <= 1) | — |
-| `G_dbi` | out | gain in dBi | — |
-| `G` | out | gain as a ratio | — |
+| `eta` | in | aperture efficiency (0 < eta <= 1) | - |
+| `G_dbi` | out | gain in dBi | - |
+| `G` | out | gain as a ratio | - |
 | `Ae` | out | effective aperture | m^2 |
 
 **Applies when:** 0 < eta <= 1; D >= one wavelength.
@@ -470,7 +442,7 @@ Ae = 3.887720909 m^2
 
 <a id="shannon_min_snr"></a>
 
-#### Minimum SNR for a data rate (Shannon limit) — `shannon_min_snr`
+#### Minimum SNR for a data rate (Shannon limit), `shannon_min_snr`
 
 The smallest SNR = 2^(C/B) - 1 that lets an AWGN channel of bandwidth B carry C bit/s, and the corresponding minimum Eb/N0.
 
@@ -480,11 +452,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `C` | in | data rate in bit/s | — |
+| `C` | in | data rate in bit/s | - |
 | `B` | in | bandwidth | Hz |
-| `snr_db` | out | minimum SNR in dB | — |
-| `snr` | out | minimum SNR (linear) | — |
-| `ebn0_min_db` | out | minimum Eb/N0 in dB | — |
+| `snr_db` | out | minimum SNR in dB | - |
+| `snr` | out | minimum SNR (linear) | - |
+| `ebn0_min_db` | out | minimum Eb/N0 in dB | - |
 
 **Applies when:** additive white Gaussian noise; C/B <= 200.
 
@@ -503,7 +475,7 @@ ebn0_min_db = 7.923916895
 
 <a id="shannon_capacity"></a>
 
-#### Shannon capacity of an AWGN channel — `shannon_capacity`
+#### Shannon capacity of an AWGN channel: `shannon_capacity`
 
 The channel capacity C = B log2(1 + SNR) of a band-limited additive white Gaussian noise channel and the spectral efficiency C/B.
 
@@ -514,9 +486,9 @@ $$
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
 | `B` | in | bandwidth | Hz |
-| `snr_db` | in | signal-to-noise ratio in dB | — |
-| `C` | out | capacity in bit/s | — |
-| `efficiency` | out | spectral efficiency in bit/s per Hz | — |
+| `snr_db` | in | signal-to-noise ratio in dB | - |
+| `C` | out | capacity in bit/s | - |
+| `efficiency` | out | spectral efficiency in bit/s per Hz | - |
 
 **Applies when:** additive white Gaussian noise; SNR stated in dB.
 
@@ -536,7 +508,7 @@ efficiency = 9.967226259
 
 <a id="circular_convolution"></a>
 
-#### Circular (cyclic) convolution — `circular_convolution`
+#### Circular (cyclic) convolution: `circular_convolution`
 
 The N-point circular convolution y[n] = sum_k x[k] h[(n-k) mod N] of two sequences of length N.
 
@@ -546,9 +518,9 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `x` | in | first sequence (length N) | — |
-| `h` | in | second sequence (length N) | — |
-| `y` | out | circular convolution y[0..N-1] | — |
+| `x` | in | first sequence (length N) | - |
+| `h` | in | second sequence (length N) | - |
+| `y` | out | circular convolution y[0..N-1] | - |
 
 **Applies when:** both sequences have length N.
 
@@ -563,7 +535,7 @@ y = [3.0,5.0,7.0,5.0]
 
 <a id="cross_correlation"></a>
 
-#### Cross-correlation and the lag of its peak — `cross_correlation`
+#### Cross-correlation and the lag of its peak: `cross_correlation`
 
 r_xy[l] = sum_n x[n+l] y[n] for every lag l, and the lag at which it is largest (the delay of x relative to y).
 
@@ -573,12 +545,12 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `x` | in | first sequence x[n] | — |
-| `y` | in | second (reference) sequence y[n] | — |
-| `peak_lag` | out | lag of the largest correlation (positive: x lags y) | — |
-| `peak_value` | out | largest correlation value | — |
-| `r` | out | correlation at every lag | — |
-| `lags` | out | the lags, -(Ny-1) .. Nx-1 | — |
+| `x` | in | first sequence x[n] | - |
+| `y` | in | second (reference) sequence y[n] | - |
+| `peak_lag` | out | lag of the largest correlation (positive: x lags y) | - |
+| `peak_value` | out | largest correlation value | - |
+| `r` | out | correlation at every lag | - |
+| `lags` | out | the lags, -(Ny-1) .. Nx-1 | - |
 
 **Applies when:** finite sequences starting at n = 0.
 
@@ -596,7 +568,7 @@ lags = [-2,-1,0,1,2,3,4]
 
 <a id="linear_convolution"></a>
 
-#### Linear convolution of two sequences — `linear_convolution`
+#### Linear convolution of two sequences: `linear_convolution`
 
 y[n] = sum_k x[k] h[n-k], the full linear convolution (length Nx + Nh - 1).
 
@@ -606,10 +578,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `x` | in | first sequence x[n] | — |
-| `h` | in | second sequence h[n] | — |
-| `y` | out | convolution y[n], n = 0 .. Nx+Nh-2 | — |
-| `length` | out | number of output samples | — |
+| `x` | in | first sequence x[n] | - |
+| `h` | in | second sequence h[n] | - |
+| `y` | out | convolution y[n], n = 0 .. Nx+Nh-2 | - |
+| `length` | out | number of output samples | - |
 
 **Applies when:** finite sequences starting at n = 0.
 
@@ -627,7 +599,7 @@ length = 4
 
 <a id="dft_spectrum"></a>
 
-#### DFT spectrum of a sequence (FFT) — `dft_spectrum`
+#### DFT spectrum of a sequence (FFT): `dft_spectrum`
 
 The whole N-point DFT of a real sequence: magnitude, phase, real and imaginary parts of every bin, and the strongest bin up to N/2.
 
@@ -637,13 +609,13 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `x` | in | samples x[0..N-1] | — |
-| `peak_magnitude` | out | largest \|X[k]\| for 0 <= k <= N/2 | — |
-| `peak_bin` | out | bin of the largest magnitude | — |
-| `magnitude` | out | \|X[k]\| for every bin | — |
-| `phase` | out | phase of X[k] in radians for every bin | — |
-| `real` | out | real parts | — |
-| `imag` | out | imaginary parts | — |
+| `x` | in | samples x[0..N-1] | - |
+| `peak_magnitude` | out | largest \|X[k]\| for 0 <= k <= N/2 | - |
+| `peak_bin` | out | bin of the largest magnitude | - |
+| `magnitude` | out | \|X[k]\| for every bin | - |
+| `phase` | out | phase of X[k] in radians for every bin | - |
+| `real` | out | real parts | - |
+| `imag` | out | imaginary parts | - |
 
 **Applies when:** real samples.
 
@@ -663,7 +635,7 @@ imag = [0.0,2.0,0.0,-2.0]
 
 <a id="bin_frequency"></a>
 
-#### Frequency of a DFT bin — `bin_frequency`
+#### Frequency of a DFT bin: `bin_frequency`
 
 The frequency k*fs/N that bin k of an N-point DFT represents (0 <= k <= N/2).
 
@@ -673,9 +645,9 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `k` | in | bin index | — |
+| `k` | in | bin index | - |
 | `fs` | in | sampling rate | Hz |
-| `N` | in | number of DFT points | — |
+| `N` | in | number of DFT points | - |
 | `f_k` | out | frequency of bin k | Hz |
 
 **Applies when:** 0 <= k <= N/2; fs > 0.
@@ -692,7 +664,7 @@ f_k = 4687.5 Hz
 
 <a id="frequency_resolution"></a>
 
-#### Frequency resolution of an N-point DFT — `frequency_resolution`
+#### Frequency resolution of an N-point DFT: `frequency_resolution`
 
 The bin spacing fs/N of an N-point DFT or FFT and the record length N/fs it covers.
 
@@ -703,7 +675,7 @@ $$
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
 | `fs` | in | sampling rate | Hz |
-| `N` | in | number of DFT points | — |
+| `N` | in | number of DFT points | - |
 | `df` | out | frequency resolution (bin spacing) | Hz |
 | `duration` | out | record length N/fs | s |
 
@@ -722,7 +694,7 @@ duration = 0.02133333333 s
 
 <a id="inverse_dft"></a>
 
-#### Inverse discrete Fourier transform — `inverse_dft`
+#### Inverse discrete Fourier transform: `inverse_dft`
 
 x[n] = (1/N) sum_k X[k] exp(+j 2 pi k n / N), from the real and imaginary parts of X[k].
 
@@ -732,10 +704,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `re_` | in | real parts of X[0..N-1] | — |
-| `im` | in | imaginary parts of X[0..N-1] (zeros if not given) (optional) | — |
-| `real` | out | real parts of x[n] | — |
-| `imag` | out | imaginary parts of x[n] | — |
+| `re_` | in | real parts of X[0..N-1] | - |
+| `im` | in | imaginary parts of X[0..N-1] (zeros if not given) (optional) | - |
+| `real` | out | real parts of x[n] | - |
+| `imag` | out | imaginary parts of x[n] | - |
 
 **Applies when:** both lists have the same length.
 
@@ -751,7 +723,7 @@ imag = [0.0,0.0,0.0,0.0]
 
 <a id="dft_bin"></a>
 
-#### One bin of the discrete Fourier transform — `dft_bin`
+#### One bin of the discrete Fourier transform: `dft_bin`
 
 X[k] = sum_n x[n] exp(-j 2 pi k n / N) for one bin k: real and imaginary parts, magnitude and phase.
 
@@ -761,12 +733,12 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `x` | in | samples x[0..N-1] | — |
-| `k` | in | bin index (0 <= k < N) | — |
-| `magnitude` | out | \|X[k]\| | — |
+| `x` | in | samples x[0..N-1] | - |
+| `k` | in | bin index (0 <= k < N) | - |
+| `magnitude` | out | \|X[k]\| | - |
 | `phase` | out | phase of X[k] in radians (-pi, pi] | rad |
-| `re` | out | real part of X[k] | — |
-| `im` | out | imaginary part of X[k] | — |
+| `re` | out | real part of X[k] | - |
+| `im` | out | imaginary part of X[k] | - |
 
 **Applies when:** 0 <= k < N.
 
@@ -786,7 +758,7 @@ im = 2
 
 <a id="amplitude_ratio_to_db"></a>
 
-#### Amplitude (voltage) ratio to decibels — `amplitude_ratio_to_db`
+#### Amplitude (voltage) ratio to decibels: `amplitude_ratio_to_db`
 
 A voltage, current or field amplitude ratio in decibels, 20*log10(V2/V1).
 
@@ -796,8 +768,8 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `ratio` | in | amplitude ratio V2/V1 (a positive number) | — |
-| `dB` | out | level in decibels (dB) | — |
+| `ratio` | in | amplitude ratio V2/V1 (a positive number) | - |
+| `dB` | out | level in decibels (dB) | - |
 
 **Applies when:** ratio > 0; both amplitudes across equal impedances.
 
@@ -813,7 +785,7 @@ dB = 33.97940009
 
 <a id="db_to_amplitude_ratio"></a>
 
-#### Decibels to amplitude (voltage) ratio — `db_to_amplitude_ratio`
+#### Decibels to amplitude (voltage) ratio: `db_to_amplitude_ratio`
 
 The amplitude ratio V2/V1 = 10^(L/20) that a level of L dB represents.
 
@@ -823,8 +795,8 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `dB` | in | level in decibels | — |
-| `ratio` | out | amplitude ratio V2/V1 | — |
+| `dB` | in | level in decibels | - |
+| `ratio` | out | amplitude ratio V2/V1 | - |
 
 **Applies when:** finite level.
 
@@ -840,7 +812,7 @@ ratio = 1.995262315
 
 <a id="db_to_power_ratio"></a>
 
-#### Decibels to power ratio — `db_to_power_ratio`
+#### Decibels to power ratio: `db_to_power_ratio`
 
 The power ratio P2/P1 = 10^(L/10) that a level of L dB represents.
 
@@ -850,8 +822,8 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `dB` | in | level in decibels | — |
-| `ratio` | out | power ratio P2/P1 | — |
+| `dB` | in | level in decibels | - |
+| `ratio` | out | power ratio P2/P1 | - |
 
 **Applies when:** finite level.
 
@@ -867,7 +839,7 @@ ratio = 199.5262315
 
 <a id="watts_to_dbm"></a>
 
-#### Power in watts to dBm and dBW — `watts_to_dbm`
+#### Power in watts to dBm and dBW: `watts_to_dbm`
 
 A power expressed as a level relative to 1 mW (dBm) and to 1 W (dBW).
 
@@ -878,8 +850,8 @@ $$
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
 | `P` | in | power | W |
-| `dBm` | out | power level in dBm | — |
-| `dBW` | out | power level in dBW | — |
+| `dBm` | out | power level in dBm | - |
+| `dBW` | out | power level in dBW | - |
 
 **Applies when:** P > 0.
 
@@ -896,7 +868,7 @@ dBW = 3.010299957
 
 <a id="dbm_to_watts"></a>
 
-#### Power level in dBm to watts — `dbm_to_watts`
+#### Power level in dBm to watts: `dbm_to_watts`
 
 The power in watts of a level given in dBm (and the same level in dBW).
 
@@ -906,9 +878,9 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `dBm` | in | power level in dBm | — |
+| `dBm` | in | power level in dBm | - |
 | `P` | out | power | W |
-| `dBW` | out | power level in dBW | — |
+| `dBW` | out | power level in dBW | - |
 
 **Applies when:** finite level.
 
@@ -925,7 +897,7 @@ dBW = 0
 
 <a id="power_ratio_to_db"></a>
 
-#### Power ratio to decibels — `power_ratio_to_db`
+#### Power ratio to decibels: `power_ratio_to_db`
 
 A power ratio expressed in decibels, 10*log10(P2/P1).
 
@@ -935,8 +907,8 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `ratio` | in | power ratio P2/P1 (a positive number) | — |
-| `dB` | out | level in decibels (dB) | — |
+| `ratio` | in | power ratio P2/P1 (a positive number) | - |
+| `dB` | out | level in decibels (dB) | - |
 
 **Applies when:** ratio > 0.
 
@@ -952,7 +924,7 @@ dB = 23.01029996
 
 <a id="snr_from_powers"></a>
 
-#### Signal-to-noise ratio from signal and noise powers — `snr_from_powers`
+#### Signal-to-noise ratio from signal and noise powers, `snr_from_powers`
 
 The signal-to-noise ratio Ps/Pn, as a ratio and in dB.
 
@@ -964,8 +936,8 @@ $$
 |---|---|---|---|
 | `Ps` | in | signal power | W |
 | `Pn` | in | noise power | W |
-| `snr_db` | out | signal-to-noise ratio in dB | — |
-| `snr` | out | signal-to-noise ratio (linear) | — |
+| `snr_db` | out | signal-to-noise ratio in dB | - |
+| `snr` | out | signal-to-noise ratio (linear) | - |
 
 **Applies when:** Ps > 0; Pn > 0.
 
@@ -983,7 +955,7 @@ snr_db = 23.01029996
 
 <a id="dbm_power_sum"></a>
 
-#### Total power of several signals given in dBm — `dbm_power_sum`
+#### Total power of several signals given in dBm, `dbm_power_sum`
 
 The combined power of uncorrelated signals whose levels are given in dBm (powers add, levels do not).
 
@@ -993,8 +965,8 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `levels` | in | power levels in dBm | — |
-| `total_dBm` | out | total power level in dBm | — |
+| `levels` | in | power levels in dBm | - |
+| `total_dBm` | out | total power level in dBm | - |
 | `total_W` | out | total power | W |
 
 **Applies when:** uncorrelated signals (their powers add).
@@ -1013,7 +985,7 @@ total_W = 0.02 W
 
 <a id="qpsk_error_rates"></a>
 
-#### Bit and symbol error rates of QPSK in AWGN — `qpsk_error_rates`
+#### Bit and symbol error rates of QPSK in AWGN, `qpsk_error_rates`
 
 Gray-coded coherent QPSK: bit error rate Q(sqrt(2 Eb/N0)) and symbol error rate 2Q - Q^2.
 
@@ -1023,9 +995,9 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `ebn0_db` | in | Eb/N0 in dB | — |
-| `ber` | out | bit error rate (Gray coding) | — |
-| `ser` | out | symbol error rate | — |
+| `ebn0_db` | in | Eb/N0 in dB | - |
+| `ber` | out | bit error rate (Gray coding) | - |
+| `ser` | out | symbol error rate | - |
 
 **Applies when:** coherent detection; Gray coding; AWGN channel.
 
@@ -1042,7 +1014,7 @@ ser = 0.004770877629
 
 <a id="bpsk_ber"></a>
 
-#### Bit error rate of BPSK (and coherent BFSK) in AWGN — `bpsk_ber`
+#### Bit error rate of BPSK (and coherent BFSK) in AWGN, `bpsk_ber`
 
 The bit error probability of coherent BPSK, Q(sqrt(2 Eb/N0)), and of coherent orthogonal BFSK, Q(sqrt(Eb/N0)), in additive white Gaussian noise.
 
@@ -1052,9 +1024,9 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `ebn0_db` | in | Eb/N0 in dB | — |
-| `ber` | out | BPSK bit error rate | — |
-| `ber_bfsk` | out | coherent BFSK bit error rate | — |
+| `ebn0_db` | in | Eb/N0 in dB | - |
+| `ber` | out | BPSK bit error rate | - |
+| `ber_bfsk` | out | coherent BFSK bit error rate | - |
 
 **Applies when:** coherent detection; AWGN channel; Eb/N0 stated in dB.
 
@@ -1071,7 +1043,7 @@ ber_bfsk = 0.0060043864
 
 <a id="noncoherent_ber"></a>
 
-#### Bit error rates of DPSK and noncoherent BFSK — `noncoherent_ber`
+#### Bit error rates of DPSK and noncoherent BFSK, `noncoherent_ber`
 
 The bit error rates of differentially coherent BPSK (DPSK), exp(-Eb/N0)/2, and of noncoherent orthogonal BFSK, exp(-Eb/2N0)/2, in AWGN.
 
@@ -1081,9 +1053,9 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `ebn0_db` | in | Eb/N0 in dB | — |
-| `ber_dpsk` | out | DPSK bit error rate | — |
-| `ber_ncfsk` | out | noncoherent BFSK bit error rate | — |
+| `ebn0_db` | in | Eb/N0 in dB | - |
+| `ber_dpsk` | out | DPSK bit error rate | - |
+| `ber_ncfsk` | out | noncoherent BFSK bit error rate | - |
 
 **Applies when:** AWGN channel; slow phase variation (DPSK); orthogonal tones (FSK).
 
@@ -1100,7 +1072,7 @@ ber_ncfsk = 0.02132374789
 
 <a id="mpsk_symbol_error"></a>
 
-#### Symbol error rate of M-PSK in AWGN — `mpsk_symbol_error`
+#### Symbol error rate of M-PSK in AWGN: `mpsk_symbol_error`
 
 The exact symbol error rate of coherent M-PSK (M = 2 to 64) at a given Eb/N0 (Craig's integral), and the Gray-coded bit error rate approximation.
 
@@ -1110,10 +1082,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `M` | in | number of phases | — |
-| `ebn0_db` | in | Eb/N0 in dB | — |
-| `ser` | out | symbol error rate | — |
-| `ber_approx` | out | bit error rate approximation SER/log2 M | — |
+| `M` | in | number of phases | - |
+| `ebn0_db` | in | Eb/N0 in dB | - |
+| `ser` | out | symbol error rate | - |
+| `ber_approx` | out | bit error rate approximation SER/log2 M | - |
 
 **Applies when:** coherent detection; AWGN channel.
 
@@ -1131,7 +1103,7 @@ ber_approx = 0.001011395321
 
 <a id="mqam_symbol_error"></a>
 
-#### Symbol error rate of square M-QAM in AWGN — `mqam_symbol_error`
+#### Symbol error rate of square M-QAM in AWGN: `mqam_symbol_error`
 
 The exact symbol error rate of coherent square M-QAM (4 to 1024 points) at a given Eb/N0, and the Gray-coded bit error rate approximation SER/log2 M.
 
@@ -1141,10 +1113,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `M` | in | constellation size | — |
-| `ebn0_db` | in | Eb/N0 in dB | — |
-| `ser` | out | symbol error rate | — |
-| `ber_approx` | out | bit error rate approximation (Gray coding) | — |
+| `M` | in | constellation size | - |
+| `ebn0_db` | in | Eb/N0 in dB | - |
+| `ser` | out | symbol error rate | - |
+| `ber_approx` | out | bit error rate approximation (Gray coding) | - |
 
 **Applies when:** square constellation; coherent detection; AWGN channel.
 
@@ -1164,7 +1136,7 @@ ber_approx = 0.001751073574
 
 <a id="bilinear_rc_lowpass"></a>
 
-#### Bilinear transform of a first-order low-pass filter — `bilinear_rc_lowpass`
+#### Bilinear transform of a first-order low-pass filter, `bilinear_rc_lowpass`
 
 The digital filter H(z) = (b0 + b1 z^-1)/(1 + a1 z^-1) obtained from H(s) = wc/(s + wc) by the bilinear transform s = 2 fs (1 - z^-1)/(1 + z^-1), without pre-warping.
 
@@ -1176,9 +1148,9 @@ $$
 |---|---|---|---|
 | `fc` | in | analog cutoff frequency | Hz |
 | `fs` | in | sampling rate | Hz |
-| `b0` | out | numerator coefficient b0 | — |
-| `b1` | out | numerator coefficient b1 | — |
-| `a1` | out | denominator coefficient a1 (a0 = 1) | — |
+| `b0` | out | numerator coefficient b0 | - |
+| `b1` | out | numerator coefficient b1 | - |
+| `a1` | out | denominator coefficient a1 (a0 = 1) | - |
 
 **Applies when:** fc > 0; fs > 0; no frequency pre-warping.
 
@@ -1197,7 +1169,7 @@ a1 = -0.4360603998
 
 <a id="dc_gain"></a>
 
-#### DC gain of a digital filter — `dc_gain`
+#### DC gain of a digital filter: `dc_gain`
 
 The gain H(1) = sum b / sum a of the filter at zero frequency, and its level in dB.
 
@@ -1207,10 +1179,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `b` | in | numerator coefficients b | — |
-| `a` | in | denominator coefficients a (1 if not given) (optional) | — |
-| `gain` | out | DC gain H(z = 1) (signed) | — |
-| `gain_db` | out | 20 log10 \|H(1)\| in dB | — |
+| `b` | in | numerator coefficients b | - |
+| `a` | in | denominator coefficients a (1 if not given) (optional) | - |
+| `gain` | out | DC gain H(z = 1) (signed) | - |
+| `gain_db` | out | 20 log10 \|H(1)\| in dB | - |
 
 **Applies when:** sum of a != 0 (no pole at z = 1).
 
@@ -1226,7 +1198,7 @@ gain_db = 14.53997456
 
 <a id="fir_filter_output"></a>
 
-#### FIR filter output — `fir_filter_output`
+#### FIR filter output: `fir_filter_output`
 
 The output y[n] = sum_k b[k] x[n-k] of an FIR filter with coefficients b (zero initial conditions, same length as x).
 
@@ -1236,9 +1208,9 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `b` | in | filter coefficients (taps) b[0..M] | — |
-| `x` | in | input samples | — |
-| `y` | out | output samples | — |
+| `b` | in | filter coefficients (taps) b[0..M] | - |
+| `x` | in | input samples | - |
+| `y` | out | output samples | - |
 
 **Applies when:** zero initial conditions.
 
@@ -1253,7 +1225,7 @@ y = [0.5,1.5,2.5,3.5]
 
 <a id="frequency_response"></a>
 
-#### Frequency response of a digital filter at one frequency — `frequency_response`
+#### Frequency response of a digital filter at one frequency, `frequency_response`
 
 H(e^{jw}) = B(e^{jw}) / A(e^{jw}) at w = 2 pi f / fs: magnitude, magnitude in dB and phase.
 
@@ -1263,12 +1235,12 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `b` | in | numerator coefficients b | — |
+| `b` | in | numerator coefficients b | - |
 | `f` | in | frequency | Hz |
 | `fs` | in | sampling rate | Hz |
-| `a` | in | denominator coefficients a (1 if not given) (optional) | — |
-| `magnitude` | out | \|H\| | — |
-| `magnitude_db` | out | 20 log10 \|H\| in dB | — |
+| `a` | in | denominator coefficients a (1 if not given) (optional) | - |
+| `magnitude` | out | \|H\| | - |
+| `magnitude_db` | out | 20 log10 \|H\| in dB | - |
 | `phase` | out | phase of H in radians | rad |
 
 **Applies when:** 0 <= f <= fs/2; no pole on the unit circle at f.
@@ -1288,7 +1260,7 @@ phase = -0.3926990817 rad
 
 <a id="group_delay"></a>
 
-#### Group delay of a digital filter — `group_delay`
+#### Group delay of a digital filter: `group_delay`
 
 The group delay -d(phase)/dw of H(z) = B(z)/A(z) at frequency f, in samples and in seconds.
 
@@ -1298,11 +1270,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `b` | in | numerator coefficients b | — |
+| `b` | in | numerator coefficients b | - |
 | `f` | in | frequency | Hz |
 | `fs` | in | sampling rate | Hz |
-| `a` | in | denominator coefficients a (1 if not given) (optional) | — |
-| `samples` | out | group delay in samples | — |
+| `a` | in | denominator coefficients a (1 if not given) (optional) | - |
+| `samples` | out | group delay in samples | - |
 | `seconds` | out | group delay in seconds | s |
 
 **Applies when:** 0 <= f <= fs/2; no zero or pole of H on the unit circle at f.
@@ -1321,7 +1293,7 @@ seconds = 0.00025 s
 
 <a id="iir_filter_output"></a>
 
-#### IIR filter output (difference equation) — `iir_filter_output`
+#### IIR filter output (difference equation): `iir_filter_output`
 
 The output of the recursive filter a[0] y[n] = sum_k b[k] x[n-k] - sum_{k>=1} a[k] y[n-k] (zero initial conditions).
 
@@ -1331,10 +1303,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `b` | in | feed-forward coefficients b | — |
-| `a` | in | feedback coefficients a (a[0] != 0) | — |
-| `x` | in | input samples | — |
-| `y` | out | output samples | — |
+| `b` | in | feed-forward coefficients b | - |
+| `a` | in | feedback coefficients a (a[0] != 0) | - |
+| `x` | in | input samples | - |
+| `y` | out | output samples | - |
 
 **Applies when:** a[0] != 0; zero initial conditions.
 
@@ -1349,7 +1321,7 @@ y = [1.0,0.5,0.25,0.125]
 
 <a id="impulse_response"></a>
 
-#### Impulse response of a digital filter — `impulse_response`
+#### Impulse response of a digital filter: `impulse_response`
 
 The first n samples of the impulse response h[n] of the filter with coefficients b and a.
 
@@ -1359,10 +1331,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `b` | in | numerator coefficients b | — |
-| `a` | in | denominator coefficients a (a[0] != 0) | — |
-| `n` | in | number of samples | — |
-| `h` | out | impulse response h[0..n-1] | — |
+| `b` | in | numerator coefficients b | - |
+| `a` | in | denominator coefficients a (a[0] != 0) | - |
+| `n` | in | number of samples | - |
+| `h` | out | impulse response h[0..n-1] | - |
 
 **Applies when:** a[0] != 0.
 
@@ -1377,7 +1349,7 @@ h = [1.0,0.5,0.25,0.125,0.0625]
 
 <a id="butterworth_order_digital"></a>
 
-#### Minimum order of a digital (bilinear) Butterworth filter — `butterworth_order_digital`
+#### Minimum order of a digital (bilinear) Butterworth filter, `butterworth_order_digital`
 
 The smallest order meeting a passband edge with at most Rp dB attenuation and a stopband edge with at least As dB (digital design by the bilinear transform: edges pre-warped with tan(pi f / fs)).
 
@@ -1390,10 +1362,10 @@ $$
 | `fp` | in | passband edge frequency | Hz |
 | `fstop` | in | stopband edge frequency | Hz |
 | `fs` | in | sampling rate | Hz |
-| `Rp` | in | maximum passband attenuation (ripple) in dB | — |
-| `As` | in | minimum stopband attenuation in dB | — |
-| `order` | out | minimum filter order | — |
-| `type` | out | lowpass (fp < fstop) or highpass (fp > fstop) | — |
+| `Rp` | in | maximum passband attenuation (ripple) in dB | - |
+| `As` | in | minimum stopband attenuation in dB | - |
+| `order` | out | minimum filter order | - |
+| `type` | out | lowpass (fp < fstop) or highpass (fp > fstop) | - |
 
 **Applies when:** 0 < Rp < As; fp != fstop; both edges below fs/2.
 
@@ -1414,7 +1386,7 @@ type = lowpass
 
 <a id="moving_average"></a>
 
-#### Moving-average filter output — `moving_average`
+#### Moving-average filter output: `moving_average`
 
 The causal M-point moving average y[n] = (1/M) sum_{i=0}^{M-1} x[n-i], with x[n] = 0 before the first sample.
 
@@ -1424,9 +1396,9 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `x` | in | input samples | — |
-| `M` | in | window length (points averaged) | — |
-| `y` | out | output samples (same length as x) | — |
+| `x` | in | input samples | - |
+| `M` | in | window length (points averaged) | - |
+| `y` | out | output samples (same length as x) | - |
 
 **Applies when:** M >= 1; zero initial conditions.
 
@@ -1441,7 +1413,7 @@ y = [1.0,3.0,6.0,9.0]
 
 <a id="step_response"></a>
 
-#### Step response of a digital filter — `step_response`
+#### Step response of a digital filter: `step_response`
 
 The first n samples of the response s[n] of the filter (b, a) to a unit step.
 
@@ -1451,10 +1423,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `b` | in | numerator coefficients b | — |
-| `a` | in | denominator coefficients a (a[0] != 0) | — |
-| `n` | in | number of samples | — |
-| `s` | out | step response s[0..n-1] | — |
+| `b` | in | numerator coefficients b | - |
+| `a` | in | denominator coefficients a (a[0] != 0) | - |
+| `n` | in | number of samples | - |
+| `s` | out | step response s[0..n-1] | - |
 
 **Applies when:** a[0] != 0.
 
@@ -1471,7 +1443,7 @@ s = [1.0,1.5,1.75,1.875]
 
 <a id="butterworth_design"></a>
 
-#### Digital Butterworth filter design (bilinear transform) — `butterworth_design`
+#### Digital Butterworth filter design (bilinear transform), `butterworth_design`
 
 The coefficients b and a of an N-th order digital Butterworth low-pass or high-pass filter with cutoff fc at sampling rate fs (bilinear transform with pre-warping).
 
@@ -1481,12 +1453,12 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `N` | in | filter order (1..8) | — |
+| `N` | in | filter order (1..8) | - |
 | `fc` | in | cutoff (-3 dB) frequency | Hz |
 | `fs` | in | sampling rate | Hz |
-| `btype` | in | lowpass or highpass | — |
-| `b` | out | numerator coefficients b[0..N] | — |
-| `a` | out | denominator coefficients a[0..N] (a[0] = 1) | — |
+| `btype` | in | lowpass or highpass | - |
+| `b` | out | numerator coefficients b[0..N] | - |
+| `a` | out | denominator coefficients a[0..N] (a[0] = 1) | - |
 
 **Applies when:** 0 < fc < fs/2; 1 <= N <= 8.
 
@@ -1505,7 +1477,7 @@ a = [1.0,-0.942809041582,0.333333333333]
 
 <a id="fir_window_design"></a>
 
-#### FIR low-pass filter design by the window method — `fir_window_design`
+#### FIR low-pass filter design by the window method, `fir_window_design`
 
 The N taps of a linear-phase FIR low-pass filter with cutoff fc: an ideal (sinc) impulse response shifted by (N-1)/2, multiplied by a rectangular, Hann, Hamming or Blackman window and scaled to unit DC gain.
 
@@ -1515,11 +1487,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `N` | in | number of taps | — |
+| `N` | in | number of taps | - |
 | `fc` | in | cutoff frequency | Hz |
 | `fs` | in | sampling rate | Hz |
-| `window` | in | window type | — |
-| `h` | out | filter taps h[0..N-1] | — |
+| `window` | in | window type | - |
+| `h` | out | filter taps h[0..N-1] | - |
 
 **Applies when:** 0 < fc < fs/2; symmetric window; taps scaled so that the DC gain is 1.
 
@@ -1537,7 +1509,7 @@ h = [0.024553834015,0.234389464238,0.482113403494,0.234389464238,0.024553834015]
 
 <a id="notch_filter_design"></a>
 
-#### Second-order IIR notch filter design — `notch_filter_design`
+#### Second-order IIR notch filter design: `notch_filter_design`
 
 The coefficients of a second-order IIR notch filter removing frequency f0 with quality factor Q (bandwidth f0/Q at -3 dB) at sampling rate fs.
 
@@ -1548,10 +1520,10 @@ $$
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
 | `f0` | in | frequency to remove | Hz |
-| `Q` | in | quality factor f0 / bandwidth | — |
+| `Q` | in | quality factor f0 / bandwidth | - |
 | `fs` | in | sampling rate | Hz |
-| `b` | out | numerator coefficients b0, b1, b2 | — |
-| `a` | out | denominator coefficients 1, a1, a2 | — |
+| `b` | out | numerator coefficients b0, b1, b2 | - |
+| `a` | out | denominator coefficients 1, a1, a2 | - |
 
 **Applies when:** 0 < f0 < fs/2; Q > 0.
 
@@ -1572,7 +1544,7 @@ a = [1.0,-1.8479418578501994,0.9875119299073143]
 
 <a id="analytic_envelope"></a>
 
-#### Analytic signal, Hilbert transform and envelope — `analytic_envelope`
+#### Analytic signal, Hilbert transform and envelope, `analytic_envelope`
 
 The discrete Hilbert transform of a real sequence and its envelope |x + j H{x}|, computed through the DFT (negative frequencies removed, positive ones doubled).
 
@@ -1582,9 +1554,9 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `x` | in | real samples | — |
-| `envelope` | out | envelope \|x_a[n]\| | — |
-| `hilbert` | out | Hilbert transform (imaginary part of the analytic signal) | — |
+| `x` | in | real samples | - |
+| `envelope` | out | envelope \|x_a[n]\| | - |
+| `hilbert` | out | Hilbert transform (imaginary part of the analytic signal) | - |
 
 **Applies when:** the sequence treated as one period (DFT-based transform).
 
@@ -1600,7 +1572,7 @@ hilbert = [0.0,1.0,0.0,-1.0]
 
 <a id="exponential_pulse_spectrum"></a>
 
-#### Fourier transform of a decaying exponential — `exponential_pulse_spectrum`
+#### Fourier transform of a decaying exponential, `exponential_pulse_spectrum`
 
 X(f) = A tau / (1 + j 2 pi f tau) of x(t) = A exp(-t/tau) for t >= 0: magnitude, phase, real and imaginary parts.
 
@@ -1610,13 +1582,13 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `A` | in | initial amplitude | — |
+| `A` | in | initial amplitude | - |
 | `tau` | in | time constant | s |
 | `f` | in | frequency | Hz |
-| `magnitude` | out | \|X(f)\| | — |
+| `magnitude` | out | \|X(f)\| | - |
 | `phase` | out | phase of X(f) in radians | rad |
-| `re` | out | real part | — |
-| `im` | out | imaginary part | — |
+| `re` | out | real part | - |
+| `im` | out | imaginary part | - |
 
 **Applies when:** A > 0; tau > 0; x(t) = 0 for t < 0.
 
@@ -1637,7 +1609,7 @@ im = 0
 
 <a id="rect_pulse_spectrum"></a>
 
-#### Fourier transform of a rectangular pulse — `rect_pulse_spectrum`
+#### Fourier transform of a rectangular pulse: `rect_pulse_spectrum`
 
 X(f) = A tau sinc(f tau) of a rectangular pulse of amplitude A and width tau centred at t = 0, its magnitude, and the first spectral null 1/tau.
 
@@ -1647,11 +1619,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `A` | in | pulse amplitude | — |
+| `A` | in | pulse amplitude | - |
 | `tau` | in | pulse width | s |
 | `f` | in | frequency | Hz |
-| `X` | out | X(f) (real, in amplitude-seconds) | — |
-| `magnitude` | out | \|X(f)\| | — |
+| `X` | out | X(f) (real, in amplitude-seconds) | - |
+| `magnitude` | out | \|X(f)\| | - |
 | `first_null` | out | first zero of the spectrum, 1/tau | Hz |
 
 **Applies when:** A != 0; tau > 0; the pulse centred at t = 0.
@@ -1672,7 +1644,7 @@ first_null = 1000 Hz
 
 <a id="fourier_series_harmonic"></a>
 
-#### Harmonic amplitude of a square, triangle or sawtooth wave — `fourier_series_harmonic`
+#### Harmonic amplitude of a square, triangle or sawtooth wave, `fourier_series_harmonic`
 
 The amplitude of the n-th harmonic in the Fourier series of a zero-mean square, triangle or sawtooth wave of peak amplitude A, relative to the fundamental, and its RMS value.
 
@@ -1682,12 +1654,12 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `waveform` | in | waveform | — |
-| `A` | in | peak amplitude of the wave | — |
-| `n` | in | harmonic number (1 = fundamental) | — |
-| `amplitude` | out | amplitude of the n-th harmonic | — |
-| `relative` | out | amplitude relative to the fundamental | — |
-| `rms` | out | RMS value of the n-th harmonic | — |
+| `waveform` | in | waveform | - |
+| `A` | in | peak amplitude of the wave | - |
+| `n` | in | harmonic number (1 = fundamental) | - |
+| `amplitude` | out | amplitude of the n-th harmonic | - |
+| `relative` | out | amplitude relative to the fundamental | - |
+| `rms` | out | RMS value of the n-th harmonic | - |
 
 **Applies when:** zero-mean waveform with peak A; 50 % duty square wave; symmetric triangle; linear sawtooth.
 
@@ -1706,7 +1678,7 @@ rms = 0.6002108774
 
 <a id="thd"></a>
 
-#### Total harmonic distortion — `thd`
+#### Total harmonic distortion: `thd`
 
 THD = sqrt(V2^2 + V3^2 + ...)/V1 from the amplitudes of the fundamental and its harmonics, as a ratio, in percent and in dB.
 
@@ -1716,10 +1688,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `V` | in | amplitudes [V1, V2, V3, ...] of the fundamental and harmonics | — |
-| `thd` | out | THD as a ratio | — |
-| `percent` | out | THD in percent | — |
-| `db` | out | THD in dB | — |
+| `V` | in | amplitudes [V1, V2, V3, ...] of the fundamental and harmonics | - |
+| `thd` | out | THD as a ratio | - |
+| `percent` | out | THD in percent | - |
+| `db` | out | THD in dB | - |
 
 **Applies when:** V1 > 0; amplitudes >= 0 (RMS or peak, all alike).
 
@@ -1738,7 +1710,7 @@ db = -24.55931956
 
 <a id="am_modulation_index"></a>
 
-#### AM modulation index from the envelope — `am_modulation_index`
+#### AM modulation index from the envelope: `am_modulation_index`
 
 The modulation index m = (Vmax - Vmin)/(Vmax + Vmin) of an AM wave from the maximum and minimum of its envelope, and the carrier amplitude.
 
@@ -1750,7 +1722,7 @@ $$
 |---|---|---|---|
 | `Vmax` | in | maximum of the envelope | V |
 | `Vmin` | in | minimum of the envelope | V |
-| `m` | out | modulation index | — |
+| `m` | out | modulation index | - |
 | `Ac` | out | carrier amplitude (Vmax + Vmin)/2 | V |
 
 **Applies when:** 0 <= Vmin < Vmax; sinusoidal message.
@@ -1769,7 +1741,7 @@ Ac = 6 V
 
 <a id="fm_spectrum"></a>
 
-#### FM spectrum: Carson bandwidth and Bessel sideband amplitudes — `fm_spectrum`
+#### FM spectrum: Carson bandwidth and Bessel sideband amplitudes, `fm_spectrum`
 
 For sinusoidal FM with peak deviation df and modulating frequency fm: the index beta = df/fm, Carson's bandwidth 2(df + fm), the carrier and n-th sideband amplitudes J0(beta), Jn(beta) (relative to the unmodulated carrier) and the power fraction inside Carson's bandwidth.
 
@@ -1781,13 +1753,13 @@ $$
 |---|---|---|---|
 | `df` | in | peak frequency deviation | Hz |
 | `fm` | in | modulating (message) frequency | Hz |
-| `n` | in | sideband number (default 1) (optional) | — |
+| `n` | in | sideband number (default 1) (optional) | - |
 | `carson_bandwidth` | out | Carson's rule bandwidth 2(df + fm) | Hz |
-| `beta` | out | modulation index df/fm | — |
-| `carrier` | out | carrier amplitude J0(beta) | — |
-| `Jn` | out | amplitude of each n-th sideband Jn(beta) | — |
-| `pair_power` | out | power fraction in the pair of n-th sidebands | — |
-| `power_in_carson` | out | power fraction within Carson's bandwidth | — |
+| `beta` | out | modulation index df/fm | - |
+| `carrier` | out | carrier amplitude J0(beta) | - |
+| `Jn` | out | amplitude of each n-th sideband Jn(beta) | - |
+| `pair_power` | out | power fraction in the pair of n-th sidebands | - |
+| `power_in_carson` | out | power fraction within Carson's bandwidth | - |
 
 **Applies when:** sinusoidal message; beta <= 100.
 
@@ -1809,7 +1781,7 @@ power_in_carson = 0.9935588993
 
 <a id="am_power"></a>
 
-#### Power in an AM (DSB full-carrier) signal — `am_power`
+#### Power in an AM (DSB full-carrier) signal: `am_power`
 
 Total power Pc (1 + m^2/2), sideband power, power per sideband and transmission efficiency of an AM signal with carrier power Pc and modulation index m (sinusoidal message).
 
@@ -1820,11 +1792,11 @@ $$
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
 | `Pc` | in | carrier power | W |
-| `m` | in | modulation index (0 < m <= 1) | — |
+| `m` | in | modulation index (0 < m <= 1) | - |
 | `Pt` | out | total transmitted power | W |
 | `Psb` | out | power in both sidebands | W |
 | `Pusb` | out | power in one sideband | W |
-| `efficiency` | out | fraction of the power in the sidebands | — |
+| `efficiency` | out | fraction of the power in the sidebands | - |
 
 **Applies when:** 0 < m <= 1; a single sinusoidal message.
 
@@ -1846,7 +1818,7 @@ efficiency = 0.2424242424
 
 <a id="free_space_path_loss"></a>
 
-#### Free-space path loss — `free_space_path_loss`
+#### Free-space path loss: `free_space_path_loss`
 
 The loss (4 pi d f / c)^2 between isotropic antennas a distance d apart at frequency f, in dB and as a ratio.
 
@@ -1858,8 +1830,8 @@ $$
 |---|---|---|---|
 | `d` | in | distance | m |
 | `f` | in | frequency | Hz |
-| `loss_db` | out | free-space path loss in dB | — |
-| `loss` | out | path loss as a power ratio | — |
+| `loss_db` | out | free-space path loss in dB | - |
+| `loss` | out | path loss as a power ratio | - |
 | `wavelength` | out | wavelength | m |
 
 **Applies when:** free space, line of sight; far field (d >= one wavelength); isotropic antennas.
@@ -1879,7 +1851,7 @@ wavelength = 0.1249135242 m
 
 <a id="noise_figure_cascade"></a>
 
-#### Noise figure of cascaded stages (Friis formula) — `noise_figure_cascade`
+#### Noise figure of cascaded stages (Friis formula), `noise_figure_cascade`
 
 The overall noise figure, noise factor, equivalent noise temperature and gain of a chain of matched stages with given noise figures and gains.
 
@@ -1889,12 +1861,12 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `nf_db` | in | noise figure of each stage in dB, input first | — |
-| `gain_db` | in | available gain of each stage in dB | — |
-| `nf_db` | out | overall noise figure in dB | — |
-| `F` | out | overall noise factor | — |
+| `nf_db` | in | noise figure of each stage in dB, input first | - |
+| `gain_db` | in | available gain of each stage in dB | - |
+| `nf_db` | out | overall noise figure in dB | - |
+| `F` | out | overall noise factor | - |
 | `Te` | out | equivalent input noise temperature | K |
-| `gain_db` | out | overall gain in dB | — |
+| `gain_db` | out | overall gain in dB | - |
 
 **Applies when:** impedance-matched stages; noise figures referred to T0 = 290 K; one gain per stage.
 
@@ -1912,7 +1884,7 @@ gain_db = 45
 
 <a id="friis_received_power"></a>
 
-#### Received power of a radio link (Friis transmission equation) — `friis_received_power`
+#### Received power of a radio link (Friis transmission equation), `friis_received_power`
 
 The power received over a free-space link: Pr = Pt Gt Gr (lambda / 4 pi d)^2, in dBm and watts.
 
@@ -1923,11 +1895,11 @@ $$
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
 | `Pt` | in | transmit power | W |
-| `Gt_db` | in | transmit antenna gain in dBi | — |
-| `Gr_db` | in | receive antenna gain in dBi | — |
+| `Gt_db` | in | transmit antenna gain in dBi | - |
+| `Gr_db` | in | receive antenna gain in dBi | - |
 | `f` | in | frequency | Hz |
 | `d` | in | distance | m |
-| `Pr_dbm` | out | received power in dBm | — |
+| `Pr_dbm` | out | received power in dBm | - |
 | `Pr` | out | received power | W |
 
 **Applies when:** free space, line of sight; far field; matched, co-polarized antennas.
@@ -1951,7 +1923,7 @@ Pr = 3.12463429e-09 W
 
 <a id="radar_doppler"></a>
 
-#### Doppler shift of a radar echo — `radar_doppler`
+#### Doppler shift of a radar echo: `radar_doppler`
 
 The two-way Doppler shift of the echo from a target closing at radial velocity v (negative when receding): fd = 2 v f / (c - v), essentially 2 v / lambda.
 
@@ -1982,7 +1954,7 @@ wavelength = 0.0299792458 m
 
 <a id="radar_max_range"></a>
 
-#### Maximum detection range of a radar — `radar_max_range`
+#### Maximum detection range of a radar: `radar_max_range`
 
 The largest range R = (Pt G^2 lambda^2 sigma / ((4 pi)^3 Smin))^(1/4) at which the echo still reaches the minimum detectable signal.
 
@@ -1993,7 +1965,7 @@ $$
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
 | `Pt` | in | peak transmit power | W |
-| `G_db` | in | antenna gain in dBi | — |
+| `G_db` | in | antenna gain in dBi | - |
 | `f` | in | frequency | Hz |
 | `sigma` | in | radar cross-section | m^2 |
 | `Pmin` | in | minimum detectable signal power | W |
@@ -2017,7 +1989,7 @@ Rmax = 266343.6371 m
 
 <a id="radar_received_power"></a>
 
-#### Received echo power (radar range equation) — `radar_received_power`
+#### Received echo power (radar range equation), `radar_received_power`
 
 The echo power Pr = Pt G^2 lambda^2 sigma / ((4 pi)^3 R^4) of a monostatic radar from a target of cross-section sigma at range R.
 
@@ -2028,12 +2000,12 @@ $$
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
 | `Pt` | in | peak transmit power | W |
-| `G_db` | in | antenna gain in dBi (transmit and receive) | — |
+| `G_db` | in | antenna gain in dBi (transmit and receive) | - |
 | `f` | in | frequency | Hz |
 | `sigma` | in | radar cross-section | m^2 |
 | `R` | in | range to the target | m |
 | `Pr` | out | received echo power | W |
-| `Pr_dbm` | out | received echo power in dBm | — |
+| `Pr_dbm` | out | received echo power in dBm | - |
 
 **Applies when:** monostatic radar, one antenna; free space, no losses; far field.
 
@@ -2056,7 +2028,7 @@ In the worked example, Pt = 1 MW, sigma = 1 m^2, G_db = 40, f = 3 GHz, R = 100 k
 
 <a id="alias_frequency"></a>
 
-#### Alias (apparent) frequency after sampling — `alias_frequency`
+#### Alias (apparent) frequency after sampling: `alias_frequency`
 
 The frequency in [0, fs/2] at which a sinusoid of frequency f appears after sampling at rate fs.
 
@@ -2085,7 +2057,7 @@ f_alias = 3000 Hz
 
 <a id="frequency_from_period"></a>
 
-#### Frequency and angular frequency from period — `frequency_from_period`
+#### Frequency and angular frequency from period, `frequency_from_period`
 
 The frequency f = 1/T and the angular frequency omega = 2*pi/T of a periodic signal of period T.
 
@@ -2114,7 +2086,7 @@ omega = 3141.592654 rad/s
 
 <a id="signal_statistics"></a>
 
-#### Mean, RMS, energy and average power of a sampled signal — `signal_statistics`
+#### Mean, RMS, energy and average power of a sampled signal, `signal_statistics`
 
 For samples x[0..N-1]: the mean, the RMS value, the energy sum |x|^2 and the average power (energy / N).
 
@@ -2124,12 +2096,12 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `x` | in | samples of the signal | — |
-| `rms` | out | root-mean-square value | — |
-| `mean` | out | mean (DC) value | — |
-| `energy` | out | energy: sum of x[n]^2 | — |
-| `power` | out | average power: energy / N | — |
-| `peak` | out | peak absolute value | — |
+| `x` | in | samples of the signal | - |
+| `rms` | out | root-mean-square value | - |
+| `mean` | out | mean (DC) value | - |
+| `energy` | out | energy: sum of x[n]^2 | - |
+| `power` | out | average power: energy / N | - |
+| `peak` | out | peak absolute value | - |
 
 **Applies when:** at least one sample.
 
@@ -2148,7 +2120,7 @@ peak = 3
 
 <a id="nyquist_rate"></a>
 
-#### Nyquist rate — `nyquist_rate`
+#### Nyquist rate: `nyquist_rate`
 
 The minimum sampling rate 2*f_max that avoids aliasing of a baseband signal whose highest frequency is f_max.
 
@@ -2177,7 +2149,7 @@ Ts_max = 0.000125 s
 
 <a id="period_from_frequency"></a>
 
-#### Period and angular frequency from frequency — `period_from_frequency`
+#### Period and angular frequency from frequency, `period_from_frequency`
 
 The period T = 1/f and the angular frequency omega = 2*pi*f of a periodic signal of frequency f.
 
@@ -2206,7 +2178,7 @@ omega = 314.1592654 rad/s
 
 <a id="sine_rms"></a>
 
-#### RMS, peak-to-peak and rectified average of a sine wave — `sine_rms`
+#### RMS, peak-to-peak and rectified average of a sine wave, `sine_rms`
 
 For a sinusoid of peak amplitude Vp: the RMS value Vp/sqrt(2), the peak-to-peak value 2*Vp and the average of its absolute value 2*Vp/pi.
 
@@ -2237,7 +2209,7 @@ Vavg = 6.366197724 V
 
 <a id="quantization_snr"></a>
 
-#### Signal-to-quantization-noise ratio of an ideal ADC — `quantization_snr`
+#### Signal-to-quantization-noise ratio of an ideal ADC, `quantization_snr`
 
 The SQNR of an ideal N-bit uniform quantizer driven by a full-scale sine wave (about 6.02 N + 1.76 dB).
 
@@ -2247,9 +2219,9 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `bits` | in | resolution in bits | — |
-| `sqnr_db` | out | signal-to-quantization-noise ratio in dB | — |
-| `dynamic_range_db` | out | ideal dynamic range 20 log10(2^N) in dB | — |
+| `bits` | in | resolution in bits | - |
+| `sqnr_db` | out | signal-to-quantization-noise ratio in dB | - |
+| `dynamic_range_db` | out | ideal dynamic range 20 log10(2^N) in dB | - |
 
 **Applies when:** ideal uniform quantizer; full-scale sinusoidal input; noise uniformly distributed.
 
@@ -2267,7 +2239,7 @@ dynamic_range_db = 72.24719896
 
 <a id="coax_impedance"></a>
 
-#### Characteristic impedance of a coaxial line — `coax_impedance`
+#### Characteristic impedance of a coaxial line, `coax_impedance`
 
 The characteristic impedance (eta0 / (2 pi sqrt(er))) ln(D/d) of a lossless coaxial line and its velocity factor 1/sqrt(er).
 
@@ -2279,9 +2251,9 @@ $$
 |---|---|---|---|
 | `D` | in | inner diameter of the outer conductor | m |
 | `d` | in | diameter of the inner conductor | m |
-| `er` | in | relative permittivity of the dielectric (1 if not given) (optional) | — |
+| `er` | in | relative permittivity of the dielectric (1 if not given) (optional) | - |
 | `Z0` | out | characteristic impedance | ohm |
-| `vf` | out | velocity factor | — |
+| `vf` | out | velocity factor | - |
 
 **Applies when:** d < D; er >= 1; lossless conductors and dielectric.
 
@@ -2300,7 +2272,7 @@ vf = 0.6666666667
 
 <a id="input_impedance"></a>
 
-#### Input impedance of a terminated lossless line — `input_impedance`
+#### Input impedance of a terminated lossless line, `input_impedance`
 
 The impedance seen at the input of a lossless line of characteristic impedance Z0 and electrical length l (in wavelengths) terminated in ZL = RL + jXL.
 
@@ -2312,7 +2284,7 @@ $$
 |---|---|---|---|
 | `RL` | in | load resistance | ohm |
 | `Z0` | in | characteristic impedance | ohm |
-| `length` | in | line length in wavelengths | — |
+| `length` | in | line length in wavelengths | - |
 | `XL` | in | load reactance (0 if not given) (optional) | ohm |
 | `Rin` | out | input resistance | ohm |
 | `Xin` | out | input reactance | ohm |
@@ -2337,7 +2309,7 @@ abs_zin = 50 ohm
 
 <a id="quarter_wave_transformer"></a>
 
-#### Quarter-wave impedance transformer — `quarter_wave_transformer`
+#### Quarter-wave impedance transformer: `quarter_wave_transformer`
 
 The characteristic impedance sqrt(RL Z0) of the quarter-wave section that matches a resistive load RL to a line Z0, and its physical length at frequency f.
 
@@ -2350,7 +2322,7 @@ $$
 | `RL` | in | load resistance | ohm |
 | `Z0` | in | impedance to match to | ohm |
 | `f` | in | design frequency (optional) | Hz |
-| `vf` | in | velocity factor of the section (default 1) (optional) | — |
+| `vf` | in | velocity factor of the section (default 1) (optional) | - |
 | `Zt` | out | characteristic impedance of the transformer | ohm |
 | `length` | out | physical length of the section (f given) | m |
 
@@ -2371,7 +2343,7 @@ length = 0.0749481145 m
 
 <a id="reflection_from_vswr"></a>
 
-#### Reflection coefficient and return loss from the VSWR — `reflection_from_vswr`
+#### Reflection coefficient and return loss from the VSWR, `reflection_from_vswr`
 
 The reflection coefficient magnitude (VSWR - 1)/(VSWR + 1), the return loss and the mismatch loss for a given VSWR.
 
@@ -2381,10 +2353,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `vswr` | in | voltage standing wave ratio (>= 1) | — |
-| `gamma` | out | \|Gamma\| | — |
-| `return_loss_db` | out | return loss in dB | — |
-| `mismatch_loss_db` | out | mismatch loss in dB | — |
+| `vswr` | in | voltage standing wave ratio (>= 1) | - |
+| `gamma` | out | \|Gamma\| | - |
+| `return_loss_db` | out | return loss in dB | - |
+| `mismatch_loss_db` | out | mismatch loss in dB | - |
 
 **Applies when:** VSWR >= 1.
 
@@ -2402,7 +2374,7 @@ mismatch_loss_db = 0.5115252245
 
 <a id="reflection_coefficient"></a>
 
-#### Reflection coefficient, VSWR and return loss of a load — `reflection_coefficient`
+#### Reflection coefficient, VSWR and return loss of a load, `reflection_coefficient`
 
 For a load ZL = RL + jXL on a line of characteristic impedance Z0: the reflection coefficient (magnitude, angle, parts), VSWR, return loss and mismatch loss.
 
@@ -2415,13 +2387,13 @@ $$
 | `RL` | in | load resistance | ohm |
 | `Z0` | in | characteristic impedance of the line | ohm |
 | `XL` | in | load reactance (0 if not given) (optional) | ohm |
-| `gamma_mag` | out | \|Gamma\| | — |
-| `gamma_angle_deg` | out | angle of Gamma in degrees | — |
-| `gamma_re` | out | real part of Gamma | — |
-| `gamma_im` | out | imaginary part of Gamma | — |
-| `vswr` | out | voltage standing wave ratio | — |
-| `return_loss_db` | out | return loss in dB | — |
-| `mismatch_loss_db` | out | mismatch loss in dB | — |
+| `gamma_mag` | out | \|Gamma\| | - |
+| `gamma_angle_deg` | out | angle of Gamma in degrees | - |
+| `gamma_re` | out | real part of Gamma | - |
+| `gamma_im` | out | imaginary part of Gamma | - |
+| `vswr` | out | voltage standing wave ratio | - |
+| `return_loss_db` | out | return loss in dB | - |
+| `mismatch_loss_db` | out | mismatch loss in dB | - |
 
 **Applies when:** RL > 0; Z0 real (lossless line).
 
@@ -2445,7 +2417,7 @@ mismatch_loss_db = 0.3476210626
 
 <a id="vswr_from_reflection"></a>
 
-#### VSWR and return loss from the reflection coefficient — `vswr_from_reflection`
+#### VSWR and return loss from the reflection coefficient, `vswr_from_reflection`
 
 The VSWR (1 + |Gamma|)/(1 - |Gamma|), the return loss -20 log10 |Gamma| and the mismatch loss from the magnitude of the reflection coefficient.
 
@@ -2455,10 +2427,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `gamma` | in | magnitude of the reflection coefficient (0 <= \|Gamma\| < 1) | — |
-| `vswr` | out | voltage standing wave ratio | — |
-| `return_loss_db` | out | return loss in dB | — |
-| `mismatch_loss_db` | out | mismatch loss in dB | — |
+| `gamma` | in | magnitude of the reflection coefficient (0 <= \|Gamma\| < 1) | - |
+| `vswr` | out | voltage standing wave ratio | - |
+| `return_loss_db` | out | return loss in dB | - |
+| `mismatch_loss_db` | out | mismatch loss in dB | - |
 
 **Applies when:** 0 <= |Gamma| < 1.
 
@@ -2478,7 +2450,7 @@ mismatch_loss_db = 0.1772876696
 
 <a id="haar_dwt"></a>
 
-#### Haar discrete wavelet transform — `haar_dwt`
+#### Haar discrete wavelet transform: `haar_dwt`
 
 The multi-level orthonormal Haar wavelet transform of a sequence whose length is a power of two: the final approximation and the detail coefficients of every level (coarsest first).
 
@@ -2488,10 +2460,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `x` | in | samples (length a power of two) | — |
-| `levels` | in | number of levels (default 1) (optional) | — |
-| `approximation` | out | approximation coefficients after the last level | — |
-| `details` | out | detail coefficients per level, coarsest first | — |
+| `x` | in | samples (length a power of two) | - |
+| `levels` | in | number of levels (default 1) (optional) | - |
+| `approximation` | out | approximation coefficients after the last level | - |
+| `details` | out | detail coefficients per level, coarsest first | - |
 
 **Applies when:** length a power of two; levels <= log2 N.
 
@@ -2507,7 +2479,7 @@ details = [[-6.000000000000001,2.0],[-1.4142135623730951,-1.4142135623730951,1.4
 
 <a id="haar_idwt"></a>
 
-#### Inverse Haar wavelet transform (one level) — `haar_idwt`
+#### Inverse Haar wavelet transform (one level), `haar_idwt`
 
 The sequence reconstructed from one level of Haar approximation and detail coefficients.
 
@@ -2517,9 +2489,9 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `cA` | in | approximation coefficients | — |
-| `cD` | in | detail coefficients | — |
-| `x` | out | reconstructed samples | — |
+| `cA` | in | approximation coefficients | - |
+| `cD` | in | detail coefficients | - |
+| `x` | out | reconstructed samples | - |
 
 **Applies when:** equal lengths.
 
@@ -2536,7 +2508,7 @@ x = [7.0710678118654755,15.556349186104047,9.899494936611665,7.0710678118654755]
 
 <a id="window_coefficients"></a>
 
-#### Coefficients of a window function — `window_coefficients`
+#### Coefficients of a window function: `window_coefficients`
 
 The samples w[0..N-1] of a rectangular, Hann, Hamming or Blackman window (symmetric for filter design, periodic for spectral analysis) and its coherent gain.
 
@@ -2546,11 +2518,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `window` | in | window type | — |
-| `N` | in | window length | — |
-| `form` | in | symmetric (default) or periodic (optional) | — |
-| `w` | out | window samples w[0..N-1] | — |
-| `coherent_gain` | out | coherent gain: mean of w | — |
+| `window` | in | window type | - |
+| `N` | in | window length | - |
+| `form` | in | symmetric (default) or periodic (optional) | - |
+| `w` | out | window samples w[0..N-1] | - |
+| `coherent_gain` | out | coherent gain: mean of w | - |
 
 **Applies when:** N >= 2.
 
@@ -2559,8 +2531,8 @@ $ signal-processing solve window_coefficients window=hann form=periodic N=4
 w = [0.0,0.49999999999999994,1.0,0.5000000000000001]
 coherent_gain = 0.5
   by: Coefficients of a window function  (generalized cosine sums: w[n] = sum_k (-1)^k a_k cos(2 pi k n / M), M = N-1 (symmetric) or N (periodic))
-  form = periodic
   window = hann
+  form = periodic
   assumes: N >= 2
 ```
 
@@ -2568,7 +2540,7 @@ coherent_gain = 0.5
 
 <a id="window_mainlobe_width"></a>
 
-#### Main-lobe width of a spectral window — `window_mainlobe_width`
+#### Main-lobe width of a spectral window: `window_mainlobe_width`
 
 The null-to-null main-lobe width of the rectangular, Hann, Hamming or Blackman window (DFT-even form), in bins and, with fs, in hertz.
 
@@ -2578,11 +2550,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `window` | in | window type | — |
-| `N` | in | window length | — |
+| `window` | in | window type | - |
+| `N` | in | window length | - |
 | `fs` | in | sampling rate (for the width in Hz) (optional) | Hz |
-| `width_bins` | out | null-to-null main-lobe width in DFT bins | — |
-| `first_null_bins` | out | position of the first null in bins | — |
+| `width_bins` | out | null-to-null main-lobe width in DFT bins | - |
+| `first_null_bins` | out | position of the first null in bins | - |
 | `width_hz` | out | main-lobe width in Hz (fs given) | Hz |
 
 **Applies when:** N >= 8; DFT-even (periodic) windows for spectral analysis.
@@ -2602,7 +2574,7 @@ width_hz = 125 Hz
 
 <a id="periodogram"></a>
 
-#### Periodogram (power spectral density estimate) — `periodogram`
+#### Periodogram (power spectral density estimate), `periodogram`
 
 The one-sided periodogram PSD estimate (rectangular window, mean removed) of a sequence sampled at fs, its frequency grid and the frequency of its peak.
 
@@ -2612,11 +2584,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `x` | in | samples | — |
+| `x` | in | samples | - |
 | `fs` | in | sampling rate | Hz |
 | `peak_frequency` | out | frequency of the largest PSD value | Hz |
-| `freqs` | out | frequencies k fs / N, k = 0 .. N/2 | — |
-| `psd` | out | one-sided power spectral density (power per hertz) | — |
+| `freqs` | out | frequencies k fs / N, k = 0 .. N/2 | - |
+| `psd` | out | one-sided power spectral density (power per hertz) | - |
 
 **Applies when:** mean removed first; rectangular window; one-sided density scaling.
 
@@ -2636,7 +2608,7 @@ psd = [0.0,0.0,0.5,0.0,0.0]
 
 <a id="second_order_poles"></a>
 
-#### Poles and stability of a second-order all-pole system — `second_order_poles`
+#### Poles and stability of a second-order all-pole system, `second_order_poles`
 
 The poles of H(z) = 1/(1 + a1 z^-1 + a2 z^-2) (roots of z^2 + a1 z + a2), their largest radius and whether the causal system is stable.
 
@@ -2646,12 +2618,12 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `a1` | in | coefficient of z^-1 in the denominator | — |
-| `a2` | in | coefficient of z^-2 in the denominator | — |
-| `radius` | out | largest pole radius \|p\| | — |
-| `p1` | out | first pole (smaller real, or positive imaginary part) | — |
-| `p2` | out | second pole | — |
-| `stability` | out | stable if every pole lies inside the unit circle | — |
+| `a1` | in | coefficient of z^-1 in the denominator | - |
+| `a2` | in | coefficient of z^-2 in the denominator | - |
+| `radius` | out | largest pole radius \|p\| | - |
+| `p1` | out | first pole (smaller real, or positive imaginary part) | - |
+| `p2` | out | second pole | - |
+| `stability` | out | stable if every pole lies inside the unit circle | - |
 
 **Applies when:** a2 != 0; a causal system (stable iff |p| < 1 for every pole).
 
@@ -2671,7 +2643,7 @@ stability = stable
 
 <a id="poles_zeros"></a>
 
-#### Poles, zeros and stability of a digital filter — `poles_zeros`
+#### Poles, zeros and stability of a digital filter, `poles_zeros`
 
 The zeros and poles of H(z) = sum b_k z^-k / sum a_k z^-k (up to 4th order), the largest pole radius and whether the causal filter is stable.
 
@@ -2681,12 +2653,12 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `b` | in | numerator coefficients b (up to 5) | — |
-| `a` | in | denominator coefficients a (up to 5, a[0] != 0) | — |
-| `max_pole_radius` | out | largest pole radius | — |
-| `zeros` | out | zeros (real ascending, then complex) | — |
-| `poles` | out | poles (real ascending, then complex) | — |
-| `stability` | out | stable if every pole lies inside the unit circle | — |
+| `b` | in | numerator coefficients b (up to 5) | - |
+| `a` | in | denominator coefficients a (up to 5, a[0] != 0) | - |
+| `max_pole_radius` | out | largest pole radius | - |
+| `zeros` | out | zeros (real ascending, then complex) | - |
+| `poles` | out | poles (real ascending, then complex) | - |
+| `stability` | out | stable if every pole lies inside the unit circle | - |
 
 **Applies when:** a[0] != 0; orders up to 4; both polynomials in powers of z^-1 (padded to equal length).
 
@@ -2702,4 +2674,4 @@ stability = stable
 
 **What the worked example means:** This analysis computes the zeros and poles from the numerator coefficients [1, -1] and denominator coefficients [1, -0.9]. The resulting poles are listed in [0.9] and zeros in [1]. Stability is determined by checking if every pole lies within the unit circle, which depends on the largest pole radius being less than one. The calculated maximum pole radius is 0.9, leading to the conclusion that the system is stable.
 
-Questions and reports: support@ai999x.com. AI999X — The Future Is Self-Improving.
+Questions and reports: support@ai999x.com. AI999X, The Future Is Self-Improving.
