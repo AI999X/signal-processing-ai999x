@@ -1,6 +1,6 @@
 # signal-processing: the Signal Processing program — user guide
 
-**signal-processing-ai999x 1.0.3**, Rust build: command line, desktop app and browser. **Creator / engineer:** Ibnul Jaif Farabi · **Company:** AI999X · support@ai999x.com
+**signal-processing-ai999x 1.1.0**, Rust build: command line, desktop app and browser. **Creator / engineer:** Ibnul Jaif Farabi · **Company:** AI999X · support@ai999x.com
 
 Signal Processing covers sampling, Fourier series and transforms, the DFT and FFT, filters, convolution, z-transforms, modulation, communication links, RF transmission lines and radar. This guide is about `signal-processing`, the model as a self-contained program for Windows and Linux: 74 capabilities in 18 topics, answered on your own computer with no network, no Python and nothing else to install. The same compiled model runs in the AI999X desktop app and in the browser on the model's page (https://www.ai999x.com/models/signal-processing-ai999x/); the Python package (`pip install signal-processing-ai999x`) has its own guide. Every command output printed here is what the program printed.
 
