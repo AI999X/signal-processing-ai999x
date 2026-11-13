@@ -3712,11 +3712,11 @@ $$
 
 ![The plane vectors of the worked example as arrows from the origin: input a = (1, -0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/difference-equation-z-vectors)
 
-*The plane vectors of the worked example as arrows from the origin: input a = (1, -0.5); returned by signal-processing-ai999x: residues = (-0.5, 2), poles = (0.5, 1); also returned roc_radius = 1. Other inputs: b = 1, initial_conditions = 1, input_amplitude = 1, input_ratio = 1, n = 5. Marked: the tip of each returned vector.*
+*The plane vectors of the worked example as arrows from the origin: input a = (1, -0.5); returned by signal-processing-ai999x: residues = (-0.5, 2), poles = (0.5, 1); also returned roc_radius = 1. Other inputs: b = 1, initial_conditions = 1, input_amplitude = 1.0, input_ratio = 1.0, n = 5. Marked: the tip of each returned vector.*
 
 ![poles p_i of Y(z) (of the system and of the input) (poles) returned by signal-processing-ai999x for the worked example (a = 1, -0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/difference-equation-z-complex)
 
-*poles p_i of Y(z) (of the system and of the input) (poles) returned by signal-processing-ai999x for the worked example (a = 1, -0.5, b = 1, initial_conditions = 1, input_amplitude = 1, input_ratio = 1, n = 5), drawn in the complex plane: 0.5 + 0i, 1 + 0i.*
+*poles p_i of Y(z) (of the system and of the input) (poles) returned by signal-processing-ai999x for the worked example (a = 1, -0.5, b = 1, initial_conditions = 1, input_amplitude = 1.0, input_ratio = 1.0, n = 5), drawn in the complex plane: 0.5 + 0i, 1 + 0i.*
 
 ```python
 signal_processing_ai999x.solve('difference_equation_z', a='1, -0.5', b='1', initial_conditions='1', input_amplitude=1, input_ratio=1, n=5)
