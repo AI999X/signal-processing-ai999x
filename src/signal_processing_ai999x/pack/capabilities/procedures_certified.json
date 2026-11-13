@@ -73,9 +73,12 @@
   "fir_window_design",
   "notch_filter_design",
   "haar_dwt",
-  "haar_idwt"
+  "haar_idwt",
+  "inverse_z_transform",
+  "difference_equation_z",
+  "z_transform_sequence"
  ],
- "generated": "2026-10-23",
+ "generated": "2026-11-13",
  "tool": "tools/certify_procedures.py",
  "report": "release/procedure_certification.json"
 }

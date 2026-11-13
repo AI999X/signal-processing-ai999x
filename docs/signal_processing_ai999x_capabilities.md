@@ -35,7 +35,7 @@ result.show()
 | Transmission lines | [Reflection coefficient, VSWR and return loss of a load](#reflection_coefficient), [VSWR and return loss from the reflection coefficient](#vswr_from_reflection), [Reflection coefficient and return loss from the VSWR](#reflection_from_vswr), [Input impedance of a terminated lossless line](#input_impedance), [Quarter-wave impedance transformer](#quarter_wave_transformer), [Characteristic impedance of a coaxial line](#coax_impedance) |
 | Wavelets | [Haar discrete wavelet transform](#haar_dwt), [Inverse Haar wavelet transform (one level)](#haar_idwt) |
 | Windows and spectral analysis | [Main-lobe width of a spectral window](#window_mainlobe_width), [Coefficients of a window function](#window_coefficients), [Periodogram (power spectral density estimate)](#periodogram) |
-| Z-transform and stability | [Poles and stability of a second-order all-pole system](#second_order_poles), [Poles, zeros and stability of a digital filter](#poles_zeros) |
+| Z-transform and stability | [Poles and stability of a second-order all-pole system](#second_order_poles), [Poles, zeros and stability of a digital filter](#poles_zeros), [Inverse z-transform by partial fractions](#inverse_z_transform), [Linear difference equation solved by the z-transform](#difference_equation_z), [Z-transform of a sequence (table terms)](#z_transform_sequence) |
 
 ## Outcomes
 
@@ -149,6 +149,9 @@ Call `solve("<id>", **inputs)` with plain numbers; the result's `values` holds e
 | notch_filter_design | Second-order IIR notch filter design | f0, Q, fs | b, a |
 | haar_dwt | Haar discrete wavelet transform | x, levels | approximation, details |
 | haar_idwt | Inverse Haar wavelet transform (one level) | cA, cD | x |
+| inverse_z_transform | Inverse z-transform by partial fractions | b, a, n | residues, poles, direct_terms, samples, closed_form, roc_radius |
+| difference_equation_z | Linear difference equation solved by the z-transform | a, b, initial_conditions, input_amplitude, input_ratio, n | residues, poles, direct_terms, samples, closed_form, roc_radius |
+| z_transform_sequence | z-transform of a sequence (table terms) | coefficients, ratios, powers | b, a, roc_radius |
 
 <a id="period_from_frequency"></a>
 
@@ -1864,7 +1867,7 @@ $$
 
 ![Poles and zeros returned by the package for the order-4 Butterworth low-pass filter (fc = 1000 Hz, fs = 8000 Hz) designed by it: 4 poles, largest radius 0](https://huggingface.co/AI999X/signal-processing-ai999x/resolve/main/figures/poles-zeros-poles.svg)
 
-*Poles and zeros returned by the package for the order-4 Butterworth low-pass filter (fc = 1000 Hz, fs = 8000 Hz) designed by it: 4 poles, largest radius 0.757669 (inside the unit circle: stable), and 4 zeros clustered at z = −1 (each within 0.000351186 of it).*
+*Poles and zeros returned by the package for the order-4 Butterworth low-pass filter (fc = 1000 Hz, fs = 8000 Hz) designed by it: 4 poles, largest radius 0.757669 (inside the unit circle: stable), and 4 zeros clustered at z = −1 (each within 0.000861151 of it).*
 
 ![Poles and zeros returned by the package for a two-pole resonator b = [1, 0, -1], a = [1, -1](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/poles-zeros-poles-2)
 
@@ -3616,3 +3619,180 @@ signal_processing_ai999x.solve('haar_idwt', cA='16, 12', cD='-6, 2')
 |---|---|---|
 | Compute the inverse Haar transform with approximation coefficients [16, 12] and detail coefficients [-6, 2]. | SOLVED | x = [7.0710678118654755, 15.556349186104047, 9.899494936611665, 7.0710678118654755] |
 | Compute the inverse Haar transform with approximation coefficients [16, 12] and detail coefficients [-6]. | INVALID_INPUT | Inverse Haar wavelet transform (one level): the approximation and detail lists must have the same length. |
+
+<a id="inverse_z_transform"></a>
+
+### Inverse z-transform by partial fractions: `inverse_z_transform`
+
+The causal sequence x[n] of a rational X(z) = sum b_k z^-k / sum a_k $z^{-k}$ (ROC outside the outermost pole) in closed form: x[n] = sum_j k_j delta[n-j] + sum_i r_i $p_i^{n}$, with its poles, residues, direct terms and first samples.
+
+$$
+X(z) = \sum_j k_j z^{-j} + \sum_i \frac{r_i}{1 - p_i z^{-1}} \;\Rightarrow\; x[n] = \sum_j k_j\,\delta[n-j] + \sum_i r_i\,p_i^{\,n}\ (n \ge 0)
+$$
+
+| input | meaning | condition |
+|---|---|---|
+| `b` | numerator coefficients b (powers of $z^{-1}$, up to 7) |  |
+| `a` | denominator coefficients a (powers of $z^{-1}$, up to 7, a[0] != 0) |  |
+| `n` | number of samples to list (default 8) |  |
+
+| output | meaning |
+|---|---|
+| `residues` | residues r_i of the terms r_i / (1 - p_i z^-1), in pole order |
+| `poles` | poles p_i (real ascending, then complex) |
+| `direct_terms` | coefficients k_j of $z^{-j}$ (present when the numerator degree reaches the denominator's) |
+| `samples` | x[0], x[1], ... from the closed form |
+| `closed_form` | x[n] in closed form (6 significant digits) |
+| `roc_radius` | region of convergence \|z\| > this radius |
+
+- **Method:** polynomial division in $z^{-1}$ for the direct terms, poles as roots of the denominator, residues $r_i = R$(1/p_i) / prod_{$j  \neq  i$} $(1 - p_j/p_i)$
+- **Assumes:** a[0] != 0; numerator not identically zero; distinct poles (at least 0.001 apart); no pole cancelled by a zero; causal sequence: ROC |z| > largest pole radius
+- **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![poles p_i (real ascending, then complex) (poles) returned by signal-processing-ai999x for the worked example (b = 1, a = 1, -1](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/inverse-z-transform-complex)
+
+*poles p_i (real ascending, then complex) (poles) returned by signal-processing-ai999x for the worked example (b = 1, a = 1, -1.5, 0.5, n = 5), drawn in the complex plane: 0.5 + 0i, 1 + 0i.*
+
+```python
+signal_processing_ai999x.solve('inverse_z_transform', b='1', a='1, -1.5, 0.5', n=5)
+# -> residues = [-1.0, 2.0], poles = [0.5, 1.0], direct_terms = [], samples = [1.0, 1.5, 1.75, 1.875, 1.9375], closed_form = x[n] = -1*(0.5)^n + 2*(1)^n, n >= 0, roc_radius = 1   (SOLVED)
+```
+
+```python
+signal_processing_ai999x.solve('inverse_z_transform', b=[1, 2, 1], a=[1, -0.5], n=4)
+# -> residues = [9.0], poles = [0.5], direct_terms = [-8.0, -2.0], samples = [1.0, 2.5, 2.25, 1.125], closed_form = x[n] = -8*delta[n] - 2*delta[n-1] + 9*(0.5)^n, n >= 0, roc_radius = 0.5   (SOLVED)
+```
+
+```python
+signal_processing_ai999x.solve('inverse_z_transform', b=[1], a=[1, 0, 0.81], n=5)
+# -> residues = [0.5, 0.5], poles = [0.9j, -0.9j], direct_terms = [], samples = [1.0, 0.0, -0.81, 0.0, 0.6561], closed_form = x[n] = 1*(0.9)^n*cos(1.5708*n + 0), n >= 0, roc_radius = 0.9   (SOLVED)
+```
+
+**Questions in words (documented forms), as executed:**
+
+| question | outcome | result |
+|---|---|---|
+| Find the inverse z-transform of X(z) with b = [1] and a = [1, -1.5, 0.5]. | SOLVED | residues = [-1.0, 2.0], poles = [0.5, 1.0], direct_terms = [], samples = [1.0, 1.5, 1.75, 1.875, 1.9375, 1.96875, 1.984375, 1.9921875], closed_form = x[n] = -1*(0.5)^n + 2*(1)^n, n >= 0, roc_radius = 1 |
+| Find the first 4 samples of the inverse z-transform with numerator [1, 2, 1] and denominator [1, -0.5]. | SOLVED | residues = [9.0], poles = [0.5], direct_terms = [-8.0, -2.0], samples = [1.0, 2.5, 2.25, 1.125], closed_form = x[n] = -8*delta[n] - 2*delta[n-1] + 9*(0.5)^n, n >= 0, roc_radius = 0.5 |
+| Find the inverse z-transform of X(z) with b = [1] and a = [0, 1]. | INVALID_INPUT | Inverse z-transform by partial fractions: a[0] must not be 0. |
+| Find the inverse z-transform of X(z) with b = [1] and a = [1, -2, 1]. | INVALID_INPUT | Inverse z-transform by partial fractions: repeated (or nearly repeated) poles: this method needs distinct poles at least |
+| Find the inverse z-transform of X(z) with b = [1]. | NEEDS_INPUT | inverse_z_transform needs a (denominator coefficients a (powers of z^-1, up to 7, a[0] != 0)). Example: solve('inverse_z |
+
+<a id="difference_equation_z"></a>
+
+### Linear difference equation solved by the z-transform, `difference_equation_z`
+
+The closed-form solution y[n] $(n  \geq  0)$ of a0 y[n] + a1 y[$n-1$] + ... + aN y[n-N] = b0 x[n] + ... + bM x[n-M] with initial conditions y[-1], ..., y[-N] and a causal input x[n] = c $q^{n}$ (q = 1: a step, $q = 0$: an impulse, $c = 0$: no input), found by taking z-transforms with the shift theorem and expanding Y(z) in partial fractions.
+
+$$
+\sum_k a_k\Big(z^{-k}Y(z) + \sum_{m=1}^{k} y[-m]\,z^{-(k-m)}\Big) = B(z)\,\frac{c}{1 - q z^{-1}}\;\Rightarrow\; y[n] = \sum_j k_j\,\delta[n-j] + \sum_i r_i\,p_i^{\,n}
+$$
+
+| input | meaning | condition |
+|---|---|---|
+| `a` | output coefficients a0, a1, ..., aN of y[n], y[$n-1$], ... (a0 != 0, aN != 0) |  |
+| `b` | input coefficients b0, b1, ... of x[n], x[$n-1$], ... |  |
+| `initial_conditions` | y[-1], y[-2], ..., y[-N] (N values) |  |
+| `input_amplitude` | c in the input x[n] = c $q^{n}$ (0: no input) |  |
+| `input_ratio` | q in the input x[n] = c $q^{n}$ (1: step, 0: impulse) |  |
+| `n` | number of samples to list (default 8) |  |
+
+| output | meaning |
+|---|---|
+| `residues` | residues r_i of Y(z) = sum r_i / (1 - p_i z^-1) + direct terms, in pole order |
+| `poles` | poles p_i of Y(z) (of the system and of the input) |
+| `direct_terms` | coefficients k_j of $z^{-j}$ in Y(z) |
+| `samples` | y[0], y[1], ... from the closed form |
+| `closed_form` | y[n] in closed form (6 significant digits) |
+| `roc_radius` | region of convergence \|z\| > this radius |
+
+- **Method:** Y($z) = (c$ B($z) - (1 - q$ z^-1) I(z)) / (A(z) (1 - q z^-1)) with I(z) = sum_k a_k sum_{$m=1..k$} y[-m] z^-(k-m); then partial fractions and the inverse transform term by term
+- **Assumes:** $a_{0}  \neq  0$ and $aN  \neq  0$; N initial conditions for an equation of order N; the input ratio q is not a pole of the system (no resonance: repeated poles are refused); the input or an initial condition is non-zero; no pole cancelled by a zero
+- **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![The plane vectors of the worked example as arrows from the origin: input a = (1, -0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/difference-equation-z-vectors)
+
+*The plane vectors of the worked example as arrows from the origin: input a = (1, -0.5); returned by signal-processing-ai999x: residues = (-0.5, 2), poles = (0.5, 1); also returned roc_radius = 1. Other inputs: b = 1, initial_conditions = 1, input_amplitude = 1, input_ratio = 1, n = 5. Marked: the tip of each returned vector.*
+
+![poles p_i of Y(z) (of the system and of the input) (poles) returned by signal-processing-ai999x for the worked example (a = 1, -0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/difference-equation-z-complex)
+
+*poles p_i of Y(z) (of the system and of the input) (poles) returned by signal-processing-ai999x for the worked example (a = 1, -0.5, b = 1, initial_conditions = 1, input_amplitude = 1, input_ratio = 1, n = 5), drawn in the complex plane: 0.5 + 0i, 1 + 0i.*
+
+```python
+signal_processing_ai999x.solve('difference_equation_z', a='1, -0.5', b='1', initial_conditions='1', input_amplitude=1, input_ratio=1, n=5)
+# -> residues = [-0.5, 2.0], poles = [0.5, 1.0], direct_terms = [], samples = [1.5, 1.75, 1.875, 1.9375, 1.96875], closed_form = y[n] = -0.5*(0.5)^n + 2*(1)^n, n >= 0, roc_radius = 1   (SOLVED)
+```
+
+```python
+signal_processing_ai999x.solve('difference_equation_z', a=[1, 0, -0.25], b=[1], initial_conditions=[1, 0], input_amplitude=0, input_ratio=0, n=4)
+# -> residues = [-0.25, 0.25], poles = [-0.5, 0.5], direct_terms = [], samples = [0.0, 0.25, 0.0, 0.0625], closed_form = y[n] = -0.25*(-0.5)^n + 0.25*(0.5)^n, n >= 0, roc_radius = 0.5   (SOLVED)
+```
+
+```python
+signal_processing_ai999x.solve('difference_equation_z', a=[1, -0.5], b=[1], initial_conditions=[0], input_amplitude=2, input_ratio=0, n=4)
+# -> residues = [2.0], poles = [0.5], direct_terms = [], samples = [2.0, 1.0, 0.5, 0.25], closed_form = y[n] = 2*(0.5)^n, n >= 0, roc_radius = 0.5   (SOLVED)
+```
+
+**Questions in words (documented forms), as executed:**
+
+| question | outcome | result |
+|---|---|---|
+| Solve the difference equation with the z-transform: a = [1, -0.5], b = [1], initial conditions = [1], input amplitude = 1, input ratio = 1. | SOLVED | residues = [-0.5, 2.0], poles = [0.5, 1.0], direct_terms = [], samples = [1.5, 1.75, 1.875, 1.9375, 1.96875, 1.984375, 1.9921875, 1.99609375], closed_form = y[n] = -0.5*(0.5)^n + 2*(1)^n, n >= 0, roc_radius = 1 |
+| Use the z-transform to solve the recurrence with a = [1, 0, -0.25], b = [1], initial conditions = [1, 0], input amplitude = 0, input ratio = 0, n = 4. | SOLVED | residues = [-0.25, 0.25], poles = [-0.5, 0.5], direct_terms = [], samples = [0.0, 0.25, 0.0, 0.0625], closed_form = y[n] = -0.25*(-0.5)^n + 0.25*(0.5)^n, n >= 0, roc_radius = 0.5 |
+| Solve the difference equation with the z-transform: a = [1, -0.5], b = [1], initial conditions = [1, 2], input amplitude = 1, input ratio = 1. | INVALID_INPUT | Linear difference equation solved by the z-transform: the equation is of order 1: give 1 initial conditions y[-1], ...,  |
+| Solve the difference equation with the z-transform: a = [1, -0.5], b = [1], initial conditions = [1], input amplitude = 1, input ratio = 0.5. | INVALID_INPUT | Linear difference equation solved by the z-transform: repeated (or nearly repeated) poles: this method needs distinct po |
+| Solve the difference equation with the z-transform: a = [1, -0.5], b = [1], input amplitude = 1, input ratio = 1. | NEEDS_INPUT | difference_equation_z needs initial_conditions (y[-1], y[-2], ..., y[-N] (N values)). Example: solve('difference_equatio |
+
+<a id="z_transform_sequence"></a>
+
+### z-transform of a sequence (table terms), `z_transform_sequence`
+
+X(z) of the causal sequence x[n] = sum_i c_i $n^{k_i}$ $p_i^{n}$ (k_i = 0 or 1: geometric and n-times-geometric terms, which include the unit step $p = 1$ and the ramp n), as one rational function in $z^{-1}$ with its region of convergence.
+
+$$
+\mathcal{Z}\{p^n u[n]\} = \frac{1}{1 - p z^{-1}},\qquad \mathcal{Z}\{n\,p^n u[n]\} = \frac{p z^{-1}}{(1 - p z^{-1})^{2}},\qquad |z| > |p|
+$$
+
+| input | meaning | condition |
+|---|---|---|
+| `coefficients` | coefficients c_i of the terms |  |
+| `ratios` | ratios p_i of the terms (non-zero) |  |
+| `powers` | k_i: 0 for c $p^{n}$, 1 for c n $p^{n}$ (default: all 0) |  |
+
+| output | meaning |
+|---|---|
+| `b` | numerator coefficients of X(z) in powers of $z^{-1}$ |
+| `a` | denominator coefficients of X(z) in powers of $z^{-1}$ (a[0] = 1) |
+| `roc_radius` | region of convergence \|z\| > this radius |
+
+- **Method:** Z{$p^{n}$} = 1/(1 - p z^-1), Z{n $p^{n}$} = p z^-1/(1 - p z^-1)^2, summed over the common denominator prod (1 - p z^-1)^m (ratios ascending)
+- **Assumes:** coefficients and ratios non-zero; powers 0 or 1; no two terms with the same ratio and power; causal sequence (x[n] = 0 for n < 0)
+- **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![The worked example of z-transform of a sequence (table terms) as inputs and results: stated coefficients = 1, ratios = 0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/z-transform-sequence-io)
+
+*The worked example of z-transform of a sequence (table terms) as inputs and results: stated coefficients = 1, ratios = 0.5; returned by signal-processing-ai999x: b = [1.0], a = [1.0, -0.5], roc_radius = 0.5.*
+
+```python
+signal_processing_ai999x.solve('z_transform_sequence', coefficients='1', ratios='0.5')
+# -> b = [1.0], a = [1.0, -0.5], roc_radius = 0.5   (SOLVED)
+```
+
+```python
+signal_processing_ai999x.solve('z_transform_sequence', coefficients=[2, -1], ratios=[1, 0.5])
+# -> b = [1.0], a = [1.0, -1.5, 0.5], roc_radius = 1   (SOLVED)
+```
+
+```python
+signal_processing_ai999x.solve('z_transform_sequence', coefficients=[1], ratios=[1], powers=[1])
+# -> b = [0.0, 1.0], a = [1.0, -2.0, 1.0], roc_radius = 1   (SOLVED)
+```
+
+**Questions in words (documented forms), as executed:**
+
+| question | outcome | result |
+|---|---|---|
+| Find the z-transform of the sequence with coefficients = [2, -1] and ratios = [1, 0.5]. | SOLVED | b = [1.0], a = [1.0, -1.5, 0.5], roc_radius = 1 |
+| Find the z-transform of the sequence with coefficients = [1], ratios = [1] and powers = [1]. | SOLVED | b = [0.0, 1.0], a = [1.0, -2.0, 1.0], roc_radius = 1 |
+| Find the z-transform of the sequence with coefficients = [1, 2] and ratios = [0.5]. | INVALID_INPUT | z-transform of a sequence (table terms): coefficients, ratios and powers need the same number of entries. |
+| Find the z-transform of the sequence with coefficients = [1]. | NEEDS_INPUT | z_transform_sequence needs ratios (ratios p_i of the terms (non-zero)). Example: solve('z_transform_sequence', coefficie |

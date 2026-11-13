@@ -4,11 +4,11 @@
 
 **[Desktop app & command line](https://www.ai999x.com/desktop-cli/)** · **[Compute in your browser](https://www.ai999x.com/models/signal-processing-ai999x/#try)** · **[Install (Python)](https://pypi.org/project/signal-processing-ai999x/)** · **[Guides](https://huggingface.co/AI999X/signal-processing-ai999x/tree/main/docs)** · **[Evaluation](https://huggingface.co/AI999X/signal-processing-ai999x/tree/main/evaluation)** · **[AI999X on Hugging Face](https://huggingface.co/AI999X)** · **[Website](https://ai999x.com)** · **[Support: Buy Me a Coffee](https://buymeacoffee.com/ibnuljaiffarabi)**
 
-License: Apache-2.0 · Author: Ibnul Jaif Farabi (creator and engineer) · Organization: AI999X · Version 1.5.0
+License: Apache-2.0 · Author: Ibnul Jaif Farabi (creator and engineer) · Organization: AI999X · Version 1.6.0
 
 Field: **Engineering** · Tasks: Question Answering
 
-signal-processing-ai999x is an offline, deterministic signal processing solver written in Rust: a desktop app, a command-line program, a browser module and a Python package. It answers signal processing questions with verified results from 74 certified capabilities, gives 334 documented answers identically on Windows and Linux, and refuses rather than guesses when an answer cannot be verified.
+signal-processing-ai999x is an offline, deterministic signal processing solver written in Rust: a desktop app, a command-line program, a browser module and a Python package. It answers signal processing questions with verified results from 77 certified capabilities, gives 357 documented answers identically on Windows and Linux, and refuses rather than guesses when an answer cannot be verified.
 
 **signal-processing-ai999x** reads a question in plain English (or a typed call), picks a certified signal processing capability, computes the answer exactly, checks it, and returns the result with its steps, units, LaTeX and assumptions, or a refusal that says what is missing. It runs fully offline on any CPU, needs no GPU, no API key and no internet, and is built to give **zero wrong answers**: when it is not sure, it refuses instead of guessing.
 
@@ -20,13 +20,13 @@ signal-processing-ai999x is an offline, deterministic signal processing solver w
 
 | Way to run it | For | Get it |
 |---|---|---|
-| **AI999X Signal Processing desktop app** 1.5.0 | Windows, Linux. This model in its own app: search, ask in words, forms, live figures, explanations, offline | [Windows (x86-64)](https://downloads.ai999x.com/desktop/1.5.0/ai999x-signal-processing-1.5.0-windows-x86_64.zip) · [Linux (x86-64)](https://downloads.ai999x.com/desktop/1.5.0/ai999x-signal-processing-1.5.0-linux-x86_64.tar.gz) |
-| **AI999X desktop app** 1.5.0 | Windows, Linux. Every AI999X model in one app: search, ask in words, forms, live figures, explanations, offline | [Windows (x86-64)](https://downloads.ai999x.com/desktop/1.5.0/ai999x-1.5.0-windows-x86_64.zip) · [Linux (x86-64)](https://downloads.ai999x.com/desktop/1.5.0/ai999x-1.5.0-linux-x86_64.tar.gz) |
-| **Command line** (`signal-processing`) | Windows, Linux. One program per model, offline, no Python | [Windows (x86-64)](https://downloads.ai999x.com/desktop/1.5.0/ai999x-cli-1.5.0-windows-x86_64.zip) · [Linux (x86-64)](https://downloads.ai999x.com/desktop/1.5.0/ai999x-cli-1.5.0-linux-x86_64.tar.gz) |
+| **AI999X Signal Processing desktop app** 1.6.0 | Windows, Linux. This model in its own app: search, ask in words, forms, live figures, explanations, offline | [Windows (x86-64)](https://downloads.ai999x.com/desktop/1.6.0/ai999x-signal-processing-1.6.0-windows-x86_64.zip) · [Linux (x86-64)](https://downloads.ai999x.com/desktop/1.6.0/ai999x-signal-processing-1.6.0-linux-x86_64.tar.gz) |
+| **AI999X desktop app** 1.6.0 | Windows, Linux. Every AI999X model in one app: search, ask in words, forms, live figures, explanations, offline | [Windows (x86-64)](https://downloads.ai999x.com/desktop/1.6.0/ai999x-1.6.0-windows-x86_64.zip) · [Linux (x86-64)](https://downloads.ai999x.com/desktop/1.6.0/ai999x-1.6.0-linux-x86_64.tar.gz) |
+| **Command line** (`signal-processing`) | Windows, Linux. One program per model, offline, no Python | [Windows (x86-64)](https://downloads.ai999x.com/desktop/1.6.0/ai999x-cli-1.6.0-windows-x86_64.zip) · [Linux (x86-64)](https://downloads.ai999x.com/desktop/1.6.0/ai999x-cli-1.6.0-linux-x86_64.tar.gz) |
 | **In your browser** | any device. Nothing to install | [Compute on the model page](https://www.ai999x.com/models/signal-processing-ai999x/#try) |
 | **Python** | Python 3.10+ | `pip install signal-processing-ai999x` |
 
-Checksums: [SHA256SUMS](https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS) · every version: [https://downloads.ai999x.com/desktop/latest/](https://downloads.ai999x.com/desktop/latest/) · install guide: [desktop & command line](https://www.ai999x.com/desktop-cli/)
+Checksums: [SHA256SUMS](https://downloads.ai999x.com/desktop/1.6.0/SHA256SUMS) · every version: [https://downloads.ai999x.com/desktop/latest/](https://downloads.ai999x.com/desktop/latest/) · install guide: [desktop & command line](https://www.ai999x.com/desktop-cli/)
 
 ## Quick start
 
@@ -37,11 +37,11 @@ Download **AI999X Signal Processing** for your system (above), unpack it and sta
 Linux, from a terminal:
 
 ```bash
-curl -LO https://downloads.ai999x.com/desktop/1.5.0/ai999x-signal-processing-1.5.0-linux-x86_64.tar.gz
-curl -LO https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS
+curl -LO https://downloads.ai999x.com/desktop/1.6.0/ai999x-signal-processing-1.6.0-linux-x86_64.tar.gz
+curl -LO https://downloads.ai999x.com/desktop/1.6.0/SHA256SUMS
 sha256sum -c --ignore-missing SHA256SUMS
-tar xzf ai999x-signal-processing-1.5.0-linux-x86_64.tar.gz
-./ai999x-signal-processing-1.5.0-linux-x86_64/ai999x-signal-processing
+tar xzf ai999x-signal-processing-1.6.0-linux-x86_64.tar.gz
+./ai999x-signal-processing-1.6.0-linux-x86_64/ai999x-signal-processing
 ```
 
 ### Command line
@@ -49,23 +49,23 @@ tar xzf ai999x-signal-processing-1.5.0-linux-x86_64.tar.gz
 Linux:
 
 ```bash
-curl -LO https://downloads.ai999x.com/desktop/1.5.0/ai999x-cli-1.5.0-linux-x86_64.tar.gz
-curl -LO https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS
+curl -LO https://downloads.ai999x.com/desktop/1.6.0/ai999x-cli-1.6.0-linux-x86_64.tar.gz
+curl -LO https://downloads.ai999x.com/desktop/1.6.0/SHA256SUMS
 sha256sum -c --ignore-missing SHA256SUMS
-mkdir -p ~/.local/share && tar xzf ai999x-cli-1.5.0-linux-x86_64.tar.gz -C ~/.local/share
-echo 'export PATH="$HOME/.local/share/ai999x-cli-1.5.0-linux-x86_64:$PATH"' >> ~/.bashrc && source ~/.bashrc
+mkdir -p ~/.local/share && tar xzf ai999x-cli-1.6.0-linux-x86_64.tar.gz -C ~/.local/share
+echo 'export PATH="$HOME/.local/share/ai999x-cli-1.6.0-linux-x86_64:$PATH"' >> ~/.bashrc && source ~/.bashrc
 signal-processing --version
 ```
 
 Windows (PowerShell):
 
 ```powershell
-$F = "ai999x-cli-1.5.0-windows-x86_64.zip"
-Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.5.0/$F" -OutFile $F
-Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS" -OutFile SHA256SUMS
+$F = "ai999x-cli-1.6.0-windows-x86_64.zip"
+Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.6.0/$F" -OutFile $F
+Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.6.0/SHA256SUMS" -OutFile SHA256SUMS
 (Get-FileHash $F -Algorithm SHA256).Hash.ToLower() -eq ((Select-String -SimpleMatch $F SHA256SUMS).Line -split ' ')[0]
 Expand-Archive $F -DestinationPath "$env:LOCALAPPDATA\AI999X" -Force
-$D = "$env:LOCALAPPDATA\AI999X\ai999x-cli-1.5.0-windows-x86_64"; $env:Path += ";$D"
+$D = "$env:LOCALAPPDATA\AI999X\ai999x-cli-1.6.0-windows-x86_64"; $env:Path += ";$D"
 [Environment]::SetEnvironmentVariable("Path", [Environment]::GetEnvironmentVariable("Path", "User") + ";$D", "User")
 signal-processing --version
 ```
@@ -283,7 +283,7 @@ _What this means:_ This calculation determines the directional gain of a parabol
 ## Highlights
 
 - **Verified, not generated.** Every answer is computed by a certified signal processing capability and checked (substituted back, dimension-checked or compared with an independent computation) before it is returned.
-- **Zero wrong answers by design.** Seven explicit outcomes (SOLVED, NEEDS_INPUT, AMBIGUOUS, INVALID_INPUT, OUT_OF_SCOPE, UNRECOGNIZED_FORMAT, INTERNAL_ERROR), never a silent guess. Every one of its 334 documented answers is reproduced exactly on every tested platform.
+- **Zero wrong answers by design.** Seven explicit outcomes (SOLVED, NEEDS_INPUT, AMBIGUOUS, INVALID_INPUT, OUT_OF_SCOPE, UNRECOGNIZED_FORMAT, INTERNAL_ERROR), never a silent guess. Every one of its 357 documented answers is reproduced exactly on every tested platform.
 - **Plain-English questions and a guaranteed typed interface.** `ask()` reads documented question forms; `solve(capability_id, **inputs)` always solves a supported task with valid inputs.
 - **Explains itself.** Steps, formulas in LaTeX, units, assumptions and the model used, ready for notebooks, tutoring apps and homework checkers.
 - **Native and in the browser.** Every capability also computes natively in Rust: the desktop app and the `signal-processing` command line for Windows and Linux, and WebAssembly on the model page, no Python, no network.
@@ -294,11 +294,11 @@ _What this means:_ This calculation determines the directional gain of a parabol
 
 | Property | Value |
 |---|---|
-| Package | `signal-processing-ai999x` 1.5.0 (import `signal_processing_ai999x`) |
+| Package | `signal-processing-ai999x` 1.6.0 (import `signal_processing_ai999x`) |
 | Type | Deterministic neuro-symbolic signal processing engine (rule-based reading + certified symbolic capabilities) |
-| Capabilities | 74 certified procedures |
+| Capabilities | 77 certified procedures |
 | Knowledge pack | version 1.0.0 |
-| Golden answers | 334 documented answers, identical on every tested platform |
+| Golden answers | 357 documented answers, identical on every tested platform |
 | Platforms tested | Windows (Python 3.13), Linux x86-64 (Python 3.10, 3.11, 3.12, 3.13, 3.14) |
 | Runtime | CPU only, offline; no GPU, no network, no API key |
 | License | Apache-2.0 |
@@ -328,7 +328,7 @@ signal_processing.ask("Who created you?").message
 # -> signal-processing-ai999x was created and engineered by Ibnul Jaif Farabi at AI999X.
 ```
 
-The Python package also installs a Python command, `signal-processing-ai999x "<question>"`; for the native program use `signal-processing` (above). The outputs above were produced by running this exact code on signal-processing-ai999x 1.5.0.
+The Python package also installs a Python command, `signal-processing-ai999x "<question>"`; for the native program use `signal-processing` (above). The outputs above were produced by running this exact code on signal-processing-ai999x 1.6.0.
 
 ## How every answer is verified
 
@@ -441,7 +441,7 @@ _Impulse response (stems) and step response (line) of the order-4 Butterworth lo
 
 ![Poles and zeros of a digital low-pass filter, computed by signal-processing-ai999x](https://huggingface.co/AI999X/signal-processing-ai999x/resolve/main/figures/poles-zeros-poles.svg)
 
-_Poles and zeros returned by the package for the order-4 Butterworth low-pass filter (fc = 1000 Hz, fs = 8000 Hz) designed by it: 4 poles, largest radius 0.757669 (inside the unit circle: stable), and 4 zeros clustered at z = −1 (each within 0.000351186 of it)._
+_Poles and zeros returned by the package for the order-4 Butterworth low-pass filter (fc = 1000 Hz, fs = 8000 Hz) designed by it: 4 poles, largest radius 0.757669 (inside the unit circle: stable), and 4 zeros clustered at z = −1 (each within 0.000861151 of it)._
 
 **Filtering a signal: input and FIR low-pass output**
 
@@ -451,7 +451,7 @@ _A sampled signal (fs = 8000 Hz; a 166.7 Hz tone plus a 3000 Hz tone of amplitud
 
 ## Capabilities
 
-74 certified procedures. A few of them:
+77 certified procedures. A few of them:
 
 - **Procedures:** AM modulation index from the envelope; Alias (apparent) frequency after sampling; Amplitude (voltage) ratio to decibels; Analytic signal, Hilbert transform and envelope; Bilinear transform of a first-order low-pass filter; Bit and symbol error rates of QPSK in AWGN; Bit error rate of BPSK (and coherent BFSK) in AWGN; Bit error rates of DPSK and noncoherent BFSK; Characteristic impedance of a coaxial line; Circular (cyclic) convolution; Coefficients of a window function; Cross-correlation and the lag of its peak; DC gain of a digital filter; DFT spectrum of a sequence (FFT); Decibels to amplitude (voltage) ratio; Decibels to power ratio; Digital Butterworth filter design (bilinear transform); Doppler shift of a radar echo; FIR filter output; FIR low-pass filter design by the window method; FM spectrum: Carson bandwidth and Bessel sideband amplitudes; Fourier transform of a decaying exponential; Fourier transform of a rectangular pulse; Free-space path loss …
 
@@ -472,10 +472,10 @@ _A sampled signal (fs = 8000 Hz; a 166.7 Hz tone plus a 3000 Hz tone of amplitud
 ## Citation
 
 ```bibtex
-@software{signal_processing_ai999x_1_5_0,
+@software{signal_processing_ai999x_1_6_0,
   title  = {signal-processing-ai999x: an offline, verified signal processing solver},
   author = {Farabi, Ibnul Jaif}, organization = {AI999X},
-  year   = {2026}, version = {1.5.0},
+  year   = {2026}, version = {1.6.0},
   url    = {https://huggingface.co/AI999X/signal-processing-ai999x}
 }
 ```
@@ -492,7 +492,7 @@ Created and engineered by **Ibnul Jaif Farabi** · **[AI999X](https://huggingfac
 
 ## Source and releases
 
-This repository holds the installable source of each release, exactly as published on [PyPI](https://pypi.org/project/signal-processing-ai999x/) (`pip install .` builds it). Releases are tagged `v1.5.0`; the [GitHub release](https://github.com/AI999X/signal-processing-ai999x/releases/tag/v1.5.0) carries the wheel, the desktop app and the command-line program for Windows and Linux, and their checksums.
+This repository holds the installable source of each release, exactly as published on [PyPI](https://pypi.org/project/signal-processing-ai999x/) (`pip install .` builds it). Releases are tagged `v1.6.0`; the [GitHub release](https://github.com/AI999X/signal-processing-ai999x/releases/tag/v1.6.0) carries the wheel, the desktop app and the command-line program for Windows and Linux, and their checksums.
 
 ## Build the program from source
 

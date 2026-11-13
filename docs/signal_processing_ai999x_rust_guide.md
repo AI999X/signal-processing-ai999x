@@ -1,8 +1,8 @@
 # signal-processing: the Signal Processing program, user guide
 
-**signal-processing-ai999x 1.1.0**, Rust build: command line, desktop app and browser. **Creator / engineer:** Ibnul Jaif Farabi · **Company:** AI999X · support@ai999x.com
+**signal-processing-ai999x 1.6.0**, Rust build: command line, desktop app and browser. **Creator / engineer:** Ibnul Jaif Farabi · **Company:** AI999X · support@ai999x.com
 
-Signal Processing covers sampling, Fourier series and transforms, the DFT and FFT, filters, convolution, z-transforms, modulation, communication links, RF transmission lines and radar. This guide is about `signal-processing`, the model as a self-contained program for Windows and Linux: 74 capabilities in 18 topics, answered on your own computer with no network, no Python and nothing else to install. The same compiled model runs in the AI999X desktop app and in the browser on the model's page (https://www.ai999x.com/models/signal-processing-ai999x/); the Python package (`pip install signal-processing-ai999x`) has its own guide. Every command output printed here is what the program printed.
+Signal Processing covers sampling, Fourier series and transforms, the DFT and FFT, filters, convolution, z-transforms, modulation, communication links, RF transmission lines and radar. This guide is about `signal-processing`, the model as a self-contained program for Windows and Linux: 77 capabilities in 18 topics, answered on your own computer with no network, no Python and nothing else to install. The same compiled model runs in the AI999X desktop app and in the browser on the model's page (https://www.ai999x.com/models/signal-processing-ai999x/); the Python package (`pip install signal-processing-ai999x`) has its own guide. Every command output printed here is what the program printed.
 
 ## Contents
 
@@ -17,37 +17,37 @@ Signal Processing covers sampling, Fourier series and transforms, the DFT and FF
 
 ## 1. Get it
 
-Version 1.5.0 of the AI999X desktop app and of the command-line bundle. Checksums for every file: https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS; the newest version is always under https://downloads.ai999x.com/desktop/latest/. Full instructions: https://www.ai999x.com/desktop-cli/
+Version 1.6.0 of the AI999X desktop app and of the command-line bundle. Checksums for every file: https://downloads.ai999x.com/desktop/1.6.0/SHA256SUMS; the newest version is always under https://downloads.ai999x.com/desktop/latest/. Full instructions: https://www.ai999x.com/desktop-cli/
 
 | what | system | download |
 |---|---|---|
-| Desktop app: Signal Processing | Windows x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-signal-processing-1.5.0-windows-x86_64.zip |
-| Desktop app: Signal Processing | Linux x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-signal-processing-1.5.0-linux-x86_64.tar.gz |
-| Desktop app: all models | Windows x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-1.5.0-windows-x86_64.zip |
-| Desktop app: all models | Linux x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-1.5.0-linux-x86_64.tar.gz |
-| Command line | Windows x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-cli-1.5.0-windows-x86_64.zip |
-| Command line | Linux x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-cli-1.5.0-linux-x86_64.tar.gz |
+| Desktop app: Signal Processing | Windows x86-64 | https://downloads.ai999x.com/desktop/1.6.0/ai999x-signal-processing-1.6.0-windows-x86_64.zip |
+| Desktop app: Signal Processing | Linux x86-64 | https://downloads.ai999x.com/desktop/1.6.0/ai999x-signal-processing-1.6.0-linux-x86_64.tar.gz |
+| Desktop app: all models | Windows x86-64 | https://downloads.ai999x.com/desktop/1.6.0/ai999x-1.6.0-windows-x86_64.zip |
+| Desktop app: all models | Linux x86-64 | https://downloads.ai999x.com/desktop/1.6.0/ai999x-1.6.0-linux-x86_64.tar.gz |
+| Command line | Windows x86-64 | https://downloads.ai999x.com/desktop/1.6.0/ai999x-cli-1.6.0-windows-x86_64.zip |
+| Command line | Linux x86-64 | https://downloads.ai999x.com/desktop/1.6.0/ai999x-cli-1.6.0-linux-x86_64.tar.gz |
 
 ### Desktop app
 
-Signal Processing in its own app: search, questions in words, input forms, live figures and explanations. Windows: Download ai999x-signal-processing-1.5.0-windows-x86_64.zip, right-click it → Extract All, then open the folder and start ai999x-signal-processing.exe. If Windows SmartScreen asks, choose More info → Run anyway. Linux:
+Signal Processing in its own app: search, questions in words, input forms, live figures and explanations. Windows: Download ai999x-signal-processing-1.6.0-windows-x86_64.zip, right-click it → Extract All, then open the folder and start ai999x-signal-processing.exe. If Windows SmartScreen asks, choose More info → Run anyway. Linux:
 
 ```shell
-curl -LO https://downloads.ai999x.com/desktop/1.5.0/ai999x-signal-processing-1.5.0-linux-x86_64.tar.gz
-curl -LO https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS
+curl -LO https://downloads.ai999x.com/desktop/1.6.0/ai999x-signal-processing-1.6.0-linux-x86_64.tar.gz
+curl -LO https://downloads.ai999x.com/desktop/1.6.0/SHA256SUMS
 sha256sum -c --ignore-missing SHA256SUMS
-tar xzf ai999x-signal-processing-1.5.0-linux-x86_64.tar.gz
-./ai999x-signal-processing-1.5.0-linux-x86_64/ai999x-signal-processing
+tar xzf ai999x-signal-processing-1.6.0-linux-x86_64.tar.gz
+./ai999x-signal-processing-1.6.0-linux-x86_64/ai999x-signal-processing
 ```
 
-It opens on this model: type a question or pick a capability, fill in the form and press Compute. The AI999X desktop app with every model works the same way (choose the model first). Windows: Download ai999x-1.5.0-windows-x86_64.zip, right-click it → Extract All, then open the folder and start ai999x.exe. If Windows SmartScreen asks, choose More info → Run anyway. Linux:
+It opens on this model: type a question or pick a capability, fill in the form and press Compute. The AI999X desktop app with every model works the same way (choose the model first). Windows: Download ai999x-1.6.0-windows-x86_64.zip, right-click it → Extract All, then open the folder and start ai999x.exe. If Windows SmartScreen asks, choose More info → Run anyway. Linux:
 
 ```shell
-curl -LO https://downloads.ai999x.com/desktop/1.5.0/ai999x-1.5.0-linux-x86_64.tar.gz
-curl -LO https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS
+curl -LO https://downloads.ai999x.com/desktop/1.6.0/ai999x-1.6.0-linux-x86_64.tar.gz
+curl -LO https://downloads.ai999x.com/desktop/1.6.0/SHA256SUMS
 sha256sum -c --ignore-missing SHA256SUMS
-tar xzf ai999x-1.5.0-linux-x86_64.tar.gz
-./ai999x-1.5.0-linux-x86_64/ai999x
+tar xzf ai999x-1.6.0-linux-x86_64.tar.gz
+./ai999x-1.6.0-linux-x86_64/ai999x
 ```
 
 ### Command line: Linux
@@ -55,11 +55,11 @@ tar xzf ai999x-1.5.0-linux-x86_64.tar.gz
 The bundle holds one program per model; `signal-processing` is this one. The checksum line should print OK.
 
 ```shell
-curl -LO https://downloads.ai999x.com/desktop/1.5.0/ai999x-cli-1.5.0-linux-x86_64.tar.gz
-curl -LO https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS
+curl -LO https://downloads.ai999x.com/desktop/1.6.0/ai999x-cli-1.6.0-linux-x86_64.tar.gz
+curl -LO https://downloads.ai999x.com/desktop/1.6.0/SHA256SUMS
 sha256sum -c --ignore-missing SHA256SUMS
-mkdir -p ~/.local/share && tar xzf ai999x-cli-1.5.0-linux-x86_64.tar.gz -C ~/.local/share
-echo 'export PATH="$HOME/.local/share/ai999x-cli-1.5.0-linux-x86_64:$PATH"' >> ~/.bashrc && source ~/.bashrc
+mkdir -p ~/.local/share && tar xzf ai999x-cli-1.6.0-linux-x86_64.tar.gz -C ~/.local/share
+echo 'export PATH="$HOME/.local/share/ai999x-cli-1.6.0-linux-x86_64:$PATH"' >> ~/.bashrc && source ~/.bashrc
 signal-processing --version
 ```
 
@@ -68,12 +68,12 @@ signal-processing --version
 The fourth line should print True.
 
 ```powershell
-$F = "ai999x-cli-1.5.0-windows-x86_64.zip"
-Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.5.0/$F" -OutFile $F
-Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS" -OutFile SHA256SUMS
+$F = "ai999x-cli-1.6.0-windows-x86_64.zip"
+Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.6.0/$F" -OutFile $F
+Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.6.0/SHA256SUMS" -OutFile SHA256SUMS
 (Get-FileHash $F -Algorithm SHA256).Hash.ToLower() -eq ((Select-String -SimpleMatch $F SHA256SUMS).Line -split ' ')[0]
 Expand-Archive $F -DestinationPath "$env:LOCALAPPDATA\AI999X" -Force
-$D = "$env:LOCALAPPDATA\AI999X\ai999x-cli-1.5.0-windows-x86_64"; $env:Path += ";$D"
+$D = "$env:LOCALAPPDATA\AI999X\ai999x-cli-1.6.0-windows-x86_64"; $env:Path += ";$D"
 [Environment]::SetEnvironmentVariable("Path", [Environment]::GetEnvironmentVariable("Path", "User") + ";$D", "User")
 signal-processing --version
 ```
@@ -96,7 +96,7 @@ Prints the model, its version and that this is the Rust build.
 
 ```shell
 $ signal-processing --version
-signal-processing-ai999x 1.5.0 (Rust build, ax-engine 1.5.0)
+signal-processing-ai999x 1.6.0 (Rust build, ax-engine 1.6.0)
 ```
 
 ### 2.2 Ask in words
@@ -144,7 +144,7 @@ analytic_envelope                        Analytic signal, Hilbert transform and 
 bilinear_rc_lowpass                      Bilinear transform of a first-order low-pass filter
 bin_frequency                            Frequency of a DFT bin
 bpsk_ber                                 Bit error rate of BPSK (and coherent BFSK) in AWGN
-… 66 more
+… 69 more
 ```
 
 ### 2.5 What a capability needs
@@ -2604,7 +2604,88 @@ psd = [0.0,0.0,0.5,0.0,0.0]
 
 **What the worked example means:** This calculation estimates the one-sided power spectral density by applying a fast Fourier transform to the mean-removed input samples and scaling the squared magnitude. The resulting frequency grid spans up to half the sampling rate, with the highest energy concentration found at 2 Hz Hz. This provides a non-parametric view of how signal power is distributed across frequencies for the given sequence.
 
-### Z-transform and stability (2)
+### Z-transform and stability (5)
+
+<a id="inverse_z_transform"></a>
+
+#### Inverse z-transform by partial fractions: `inverse_z_transform`
+
+The causal sequence x[n] of a rational X(z) = sum b_k z^-k / sum a_k z^-k (ROC outside the outermost pole) in closed form: x[n] = sum_j k_j delta[n-j] + sum_i r_i p_i^n, with its poles, residues, direct terms and first samples.
+
+$$
+X(z) = \sum_j k_j z^{-j} + \sum_i \frac{r_i}{1 - p_i z^{-1}} \;\Rightarrow\; x[n] = \sum_j k_j\,\delta[n-j] + \sum_i r_i\,p_i^{\,n}\ (n \ge 0)
+$$
+
+| symbol |  | meaning | SI unit |
+|---|---|---|---|
+| `b` | in | numerator coefficients b (powers of z^-1, up to 7) | - |
+| `a` | in | denominator coefficients a (powers of z^-1, up to 7, a[0] != 0) | - |
+| `n` | in | number of samples to list (default 8) (optional) | - |
+| `residues` | out | residues r_i of the terms r_i / (1 - p_i z^-1), in pole order | - |
+| `poles` | out | poles p_i (real ascending, then complex) | - |
+| `direct_terms` | out | coefficients k_j of z^-j (present when the numerator degree reaches the denominator's) | - |
+| `samples` | out | x[0], x[1], ... from the closed form | - |
+| `closed_form` | out | x[n] in closed form (6 significant digits) | - |
+| `roc_radius` | out | region of convergence \|z\| > this radius | - |
+
+**Applies when:** a[0] != 0; numerator not identically zero; distinct poles (at least 0.001 apart); no pole cancelled by a zero; causal sequence: ROC |z| > largest pole radius.
+
+```shell
+$ signal-processing solve inverse_z_transform "b=[1]" "a=[1, -1.5, 0.5]"
+residues = [-1.0,2.0]
+poles = [0.5,1.0]
+direct_terms = []
+samples = [1.0,1.5,1.75,1.875,1.9375,1.96875,1.984375,1.9921875]
+closed_form = x[n] = -1*(0.5)^n + 2*(1)^n, n >= 0
+roc_radius = 1
+  by: Inverse z-transform by partial fractions  (polynomial division in z^-1 for the direct terms, poles as roots of the denominator, residues r_i = R(1/p_i) / prod_{j != i} (1 - p_j/p_i))
+  assumes: a[0] != 0; numerator not identically zero; distinct poles (at least 0.001 apart); no pole cancelled by a zero; causal sequence: ROC |z| > largest pole radius
+```
+
+In the worked example, b = [1], a = [1, -1.5, 0.5] go through the equation above and give residues = [-1, 2], poles = [0.5, 1], direct_terms = [], samples = [1, 1.5, 1.75, 1.875, 1.9375, 1.96875, 1.984375, 1.9921875]. It applies only when a[0] != 0; numerator not identically zero; distinct poles (at least 0.001 apart); no pole cancelled by a zero; causal sequence: ROC |z| > largest pole radius: outside that it says what is wrong instead of returning a number.
+
+<a id="difference_equation_z"></a>
+
+#### Linear difference equation solved by the z-transform, `difference_equation_z`
+
+The closed-form solution y[n] (n >= 0) of a0 y[n] + a1 y[n-1] + ... + aN y[n-N] = b0 x[n] + ... + bM x[n-M] with initial conditions y[-1], ..., y[-N] and a causal input x[n] = c q^n (q = 1: a step, q = 0: an impulse, c = 0: no input), found by taking z-transforms with the shift theorem and expanding Y(z) in partial fractions.
+
+$$
+\sum_k a_k\Big(z^{-k}Y(z) + \sum_{m=1}^{k} y[-m]\,z^{-(k-m)}\Big) = B(z)\,\frac{c}{1 - q z^{-1}}\;\Rightarrow\; y[n] = \sum_j k_j\,\delta[n-j] + \sum_i r_i\,p_i^{\,n}
+$$
+
+| symbol |  | meaning | SI unit |
+|---|---|---|---|
+| `a` | in | output coefficients a0, a1, ..., aN of y[n], y[n-1], ... (a0 != 0, aN != 0) | - |
+| `b` | in | input coefficients b0, b1, ... of x[n], x[n-1], ... | - |
+| `initial_conditions` | in | y[-1], y[-2], ..., y[-N] (N values) | - |
+| `input_amplitude` | in | c in the input x[n] = c q^n (0: no input) | - |
+| `input_ratio` | in | q in the input x[n] = c q^n (1: step, 0: impulse) | - |
+| `n` | in | number of samples to list (default 8) (optional) | - |
+| `residues` | out | residues r_i of Y(z) = sum r_i / (1 - p_i z^-1) + direct terms, in pole order | - |
+| `poles` | out | poles p_i of Y(z) (of the system and of the input) | - |
+| `direct_terms` | out | coefficients k_j of z^-j in Y(z) | - |
+| `samples` | out | y[0], y[1], ... from the closed form | - |
+| `closed_form` | out | y[n] in closed form (6 significant digits) | - |
+| `roc_radius` | out | region of convergence \|z\| > this radius | - |
+
+**Applies when:** a0 != 0 and aN != 0; N initial conditions for an equation of order N; the input ratio q is not a pole of the system (no resonance: repeated poles are refused); the input or an initial condition is non-zero; no pole cancelled by a zero.
+
+```shell
+$ signal-processing solve difference_equation_z "a=[1, -0.5]" "b=[1]" "initial_conditions=[1]" input_amplitude=1 input_ratio=1
+residues = [-0.5,2.0]
+poles = [0.5,1.0]
+direct_terms = []
+samples = [1.5,1.75,1.875,1.9375,1.96875,1.984375,1.9921875,1.99609375]
+closed_form = y[n] = -0.5*(0.5)^n + 2*(1)^n, n >= 0
+roc_radius = 1
+  by: Linear difference equation solved by the z-transform  (Y(z) = (c B(z) - (1 - q z^-1) I(z)) / (A(z) (1 - q z^-1)) with I(z) = sum_k a_k sum_{m=1..k} y[-m] z^-(k-m); then partial fractions and the inverse transform term by term)
+  input_amplitude = 1
+  input_ratio = 1
+  assumes: a0 != 0 and aN != 0; N initial conditions for an equation of order N; the input ratio q is not a pole of the system (no resonance: repeated poles are refused); the input or an initial condition is non-zero; no pole cancelled by a zero
+```
+
+In the worked example, a = [1, -0.5], b = [1], initial_conditions = [1], input_amplitude = 1, input_ratio = 1 go through the equation above and give residues = [-0.5, 2], poles = [0.5, 1], direct_terms = [], samples = [1.5, 1.75, 1.875, 1.9375, 1.96875, 1.984375, 1.9921875, 1.99609375]. It applies only when a0 != 0 and aN != 0; N initial conditions for an equation of order N; the input ratio q is not a pole of the system (no resonance: repeated poles are refused); the input or an initial condition is non-zero; no pole cancelled by a zero: outside that it says what is wrong instead of returning a number.
 
 <a id="second_order_poles"></a>
 
@@ -2673,5 +2754,37 @@ stability = stable
 ```
 
 **What the worked example means:** This analysis computes the zeros and poles from the numerator coefficients [1, -1] and denominator coefficients [1, -0.9]. The resulting poles are listed in [0.9] and zeros in [1]. Stability is determined by checking if every pole lies within the unit circle, which depends on the largest pole radius being less than one. The calculated maximum pole radius is 0.9, leading to the conclusion that the system is stable.
+
+<a id="z_transform_sequence"></a>
+
+#### z-transform of a sequence (table terms), `z_transform_sequence`
+
+X(z) of the causal sequence x[n] = sum_i c_i n^(k_i) p_i^n (k_i = 0 or 1: geometric and n-times-geometric terms, which include the unit step p = 1 and the ramp n), as one rational function in z^-1 with its region of convergence.
+
+$$
+\mathcal{Z}\{p^n u[n]\} = \frac{1}{1 - p z^{-1}},\qquad \mathcal{Z}\{n\,p^n u[n]\} = \frac{p z^{-1}}{(1 - p z^{-1})^{2}},\qquad |z| > |p|
+$$
+
+| symbol |  | meaning | SI unit |
+|---|---|---|---|
+| `coefficients` | in | coefficients c_i of the terms | - |
+| `ratios` | in | ratios p_i of the terms (non-zero) | - |
+| `powers` | in | k_i: 0 for c p^n, 1 for c n p^n (default: all 0) (optional) | - |
+| `b` | out | numerator coefficients of X(z) in powers of z^-1 | - |
+| `a` | out | denominator coefficients of X(z) in powers of z^-1 (a[0] = 1) | - |
+| `roc_radius` | out | region of convergence \|z\| > this radius | - |
+
+**Applies when:** coefficients and ratios non-zero; powers 0 or 1; no two terms with the same ratio and power; causal sequence (x[n] = 0 for n < 0).
+
+```shell
+$ signal-processing solve z_transform_sequence "coefficients=[2, -1]" "ratios=[1, 0.5]"
+b = [1.0]
+a = [1.0,-1.5,0.5]
+roc_radius = 1
+  by: z-transform of a sequence (table terms)  (Z{p^n} = 1/(1 - p z^-1), Z{n p^n} = p z^-1/(1 - p z^-1)^2, summed over the common denominator prod (1 - p z^-1)^m (ratios ascending))
+  assumes: coefficients and ratios non-zero; powers 0 or 1; no two terms with the same ratio and power; causal sequence (x[n] = 0 for n < 0)
+```
+
+In the worked example, coefficients = [2, -1], ratios = [1, 0.5] go through the equation above and give b = [1], a = [1, -1.5, 0.5], roc_radius = 1. It applies only when coefficients and ratios non-zero; powers 0 or 1; no two terms with the same ratio and power; causal sequence (x[n] = 0 for n < 0): outside that it says what is wrong instead of returning a number.
 
 Questions and reports: support@ai999x.com. AI999X, The Future Is Self-Improving.

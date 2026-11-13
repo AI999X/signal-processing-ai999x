@@ -3127,3 +3127,605 @@ _p("haar_idwt", name="Inverse Haar wavelet transform (one level)", topic="wavele
    examples=[{"inputs": {"cA": "16, 12", "cD": "-6, 2"}, "outputs": {"x": [10 * _S2, 22 * _S2, 14 * _S2, 10 * _S2]}}],
    questions=[{"q": "Compute the inverse Haar transform with approximation coefficients [16, 12] and detail coefficients [-6, 2].", "outputs": {"x": [10 * _S2, 22 * _S2, 14 * _S2, 10 * _S2]}},
               {"q": "Compute the inverse Haar transform with approximation coefficients [16, 12] and detail coefficients [-6].", "outcome": "INVALID_INPUT"}])
+
+
+# =================================================================================================== 7. z-transforms in closed form
+# Conventions: a polynomial in w = z^-1 is a list in ascending powers (b[0] + b[1] z^-1 + ...); every sequence is causal
+# (zero for n < 0) and every region of convergence is |z| > the largest pole radius. Partial fractions are written
+# X(z) = sum_j k_j z^-j + sum_i r_i / (1 - p_i z^-1), so x[n] = sum_j k_j delta[n-j] + sum_i r_i p_i^n for n >= 0.
+# Poles are listed real ascending, then complex by real part with the positive imaginary part first (residues in the
+# same order); poles closer than 0.001 (relative) are refused as repeated, and a pole cancelled by a zero is refused
+# (reduce the fraction first). Poles, residues and samples are rounded to 12 significant digits; a value below 1e-12 of
+# its scale is written as 0. The closed form prints 6 significant digits and writes a complex pair p, p* with residues
+# r, r* as 2|r| |p|^n cos(arg(p) n + arg(r)).
+def _zr12(x):
+    return float(f"{x:.12g}") + 0.0
+
+
+def _zc12(z, scale):
+    z = complex(z)
+    re_ = z.real if abs(z.real) > 1e-12 * scale else 0.0
+    im = z.imag if abs(z.imag) > 1e-12 * scale else 0.0
+    if im == 0.0:
+        return _zr12(re_)
+    return complex(_zr12(re_), _zr12(im))
+
+
+def _pmul(p, q):
+    out = [0.0] * (len(p) + len(q) - 1)
+    for i in range(len(p)):
+        for j in range(len(q)):
+            out[i + j] += p[i] * q[j]
+    return out
+
+
+def _trim0(c):
+    c = list(c)
+    while len(c) > 1 and c[-1] == 0:
+        c.pop()
+    return c
+
+
+def _pf_expand(num, den):
+    """Partial fractions of num(w)/den(w), w = z^-1: (poles, residues, direct terms) unrounded, then the same rounded."""
+    den, num = _trim0(den), _trim0(num)
+    if den[0] == 0:
+        raise ValueError("a[0] must not be 0")
+    if all(v == 0 for v in num):
+        raise ValueError("the numerator is identically zero")
+    d0 = den[0]
+    den = [v / d0 for v in den]
+    num = [v / d0 for v in num]
+    N = len(den) - 1
+    # direct terms: num = K den + R with deg R < N (division by the highest power of w)
+    rem = list(num) + [0.0] * max(0, N - len(num))
+    K = []
+    if len(num) > N:
+        K = [0.0] * (len(num) - N)
+        for i in range(len(num) - N - 1, -1, -1):
+            coef = rem[i + N] / den[N]
+            K[i] = coef
+            for j in range(N + 1):
+                rem[i + j] -= coef * den[j]
+    R = rem[:N]
+    kscale = max([abs(v) for v in num] + [abs(v) for v in K] + [1e-300])
+    K = [0.0 if abs(v) <= 1e-12 * kscale else v for v in K]
+    while len(K) > 0 and K[-1] == 0:
+        K.pop()
+    poles =_canon_roots(_roots(den)) if N > 0 else []
+    for i in range(len(poles)):
+        if poles[i] == 0:
+            raise ValueError("a pole at z = 0 cannot occur with a non-zero last coefficient of a")
+        for j in range(i + 1, len(poles)):
+            if abs(poles[i] - poles[j]) <= 1e-3 * max(1.0, abs(poles[i])):
+                raise ValueError("repeated (or nearly repeated) poles: this method needs distinct poles at least 0.001 apart")
+    res = []
+    for i in range(len(poles)):
+        p = poles[i]
+        w = 1 / p
+        top = 0.0
+        for k in range(len(R) - 1, -1, -1):
+            top = top * w + R[k]
+        bot = 1.0
+        for j in range(len(poles)):
+            if j != i:
+                bot *= 1 - poles[j] / p
+        res.append(top / bot)
+    big = max([abs(r) for r in res] + [0.0])
+    for r in res:
+        if abs(r) <= 1e-9 * big:
+            raise ValueError("a pole is cancelled by a zero: reduce the fraction (or the equation) first")
+    P = [_zc12(p, max(1.0, abs(p))) for p in poles]
+    Rr = [_zc12(r, max(abs(r), 1e-300)) for r in res]
+    Kr = [_zr12(v) for v in K]
+    return poles, res, K, P, Rr, Kr
+
+
+def _zsamples(poles, res, K, n):
+    out = []
+    for m in range(n):
+        acc = 0j
+        scale = 0.0
+        for i in range(len(poles)):
+            t = res[i] * poles[i] ** m
+            acc += t
+            scale += abs(t)
+        if m < len(K):
+            acc += K[m]
+            scale += abs(K[m])
+        v = acc.real
+        out.append(0.0 if abs(v) <= 1e-12 * scale else _zr12(v))
+    return out
+
+
+def _zfmt(v):
+    s = f"{_zr12(v):.6g}"
+    return "0" if s == "-0" else s
+
+
+def _zform(lhs, P, Rr, Kr):
+    terms = []
+    for j in range(len(Kr)):
+        if Kr[j] != 0:
+            terms.append(_zfmt(Kr[j]) + ("*delta[n]" if j == 0 else "*delta[n-" + str(j) + "]"))
+    for i in range(len(P)):
+        p, r = complex(P[i]), complex(Rr[i])
+        if p.imag == 0:
+            terms.append(_zfmt(r.real) + "*(" + _zfmt(p.real) + ")^n")
+        elif p.imag > 0:
+            amp = 2 * math.hypot(r.real, r.imag)
+            terms.append(_zfmt(amp) + "*(" + _zfmt(math.hypot(p.real, p.imag)) + ")^n*cos("
+                         + _zfmt(math.atan2(p.imag, p.real)) + "*n + " + _zfmt(math.atan2(r.imag, r.real)) + ")")
+    if not terms:
+        terms = ["0"]
+    return (lhs + " = " + " + ".join(terms) + ", n >= 0").replace("+ -", "- ")
+
+
+def _zroc(poles):
+    return _zr12(max([math.hypot(complex(p).real, complex(p).imag) for p in poles] + [0.0]))
+
+
+def _zdev(s, rec):
+    """Largest deviation of closed-form samples from the recursion, relative to the largest sample."""
+    if len(s) != len(rec):
+        return INF
+    scale = max([abs(v) for v in rec] + [1e-300])
+    worst = 0.0
+    for m in range(len(rec)):
+        worst = max(worst, abs(s[m] - rec[m]) / scale)
+    return worst
+
+
+def _canon_pairs(poles, res):
+    """(poles, residues) in the canonical pole order (for the references)."""
+    pairs = []
+    for p, r in zip(poles, res):
+        p = complex(p)
+        real = abs(p.imag) <= 1e-12 * max(1.0, abs(p))
+        r = complex(r)
+        rv = float(r.real) + 0.0 if abs(r.imag) <= 1e-9 * max(abs(r), 1e-300) else r
+        pairs.append(((0, float(p.real), 0.0) if real else (1, round(p.real, 9), -p.imag), float(p.real) if real else p, rv))
+    pairs.sort(key=lambda t: t[0])
+    return [t[1] for t in pairs], [t[2] for t in pairs]
+
+
+def _ref_zfit(num, den, n_out):
+    """Poles from numpy.roots, samples from scipy.signal.lfilter driven by an impulse, residues by solving the
+    Vandermonde system of the samples after the direct part, direct terms as what is left of the first samples."""
+    import numpy as np
+    from scipy import signal
+    num = [float(v) for v in num]
+    den = [float(v) for v in den]
+    while len(den) > 1 and den[-1] == 0:
+        den.pop()
+    while len(num) > 1 and num[-1] == 0:
+        num.pop()
+    N = len(den) - 1
+    L = max(len(num) - N, 0)
+    total = max(n_out, L + N) + 2
+    imp = np.zeros(total)
+    imp[0] = 1.0
+    x = signal.lfilter(num, den, imp)
+    if N == 0:
+        p, r = np.array([], dtype=complex), np.array([], dtype=complex)
+    else:
+        p = np.roots(den).astype(complex)
+        V = np.array([[pk ** m for pk in p] for m in range(L, L + N)], dtype=complex)
+        r = np.linalg.solve(V, x[L:L + N].astype(complex))
+    K = [float((x[m] - sum(r[i] * p[i] ** m for i in range(N))).real) for m in range(L)]
+    big = max([abs(v) for v in num] + [abs(v) for v in K] + [1e-300])
+    K = [0.0 if abs(v) <= 1e-9 * big else v for v in K]
+    while K and K[-1] == 0.0:
+        K.pop()
+    xs = [float(v) for v in x[:n_out]]
+    sc = max([abs(v) for v in xs] + [1e-300])
+    xs = [0.0 if abs(v) <= 1e-12 * sc else v for v in xs]
+    P, R = _canon_pairs(list(p), list(r))
+    roc = float(max([abs(v) for v in p] + [0.0]))
+    return {"poles": P, "residues": R, "direct_terms": K, "samples": xs, "roc_radius": roc}
+
+
+def _rand_z_poles(rng, order):
+    """Denominator coefficients (a[0] = 1) of distinct poles at least 0.1 apart, and the poles."""
+    poles = []
+    while len(poles) < order:
+        if order - len(poles) >= 2 and rng.random() < 0.4:
+            r, t = rng.uniform(0.3, 0.95), rng.uniform(0.4, 2.7)
+            cand = [cmath.rect(r, t), cmath.rect(r, -t)]
+        else:
+            cand = [complex(rng.choice([-1, 1]) * rng.uniform(0.1, 0.95), 0)]
+        if all(abs(u - v) > 0.1 for u in cand for v in poles):
+            poles += cand
+    c = [1 + 0j]
+    for p in poles:
+        c = [u - p * v for u, v in zip(c + [0j], [0j] + c)]
+    return [round(v.real, 10) for v in c], poles
+
+
+def _rand_coefs(rng, n):
+    return [rng.choice([-1, 1]) * round(rng.uniform(0.2, 3), 2) for _ in range(n)]
+
+
+# ---- inverse z-transform
+def inverse_z_transform(b, a, n=8):
+    b, a = _vec(b, "numerator b", 1, 7), _vec(a, "denominator a", 1, 7)
+    n = _int(n, "number of samples", 1, 200)
+    if a[0] == 0:
+        raise ValueError("a[0] must not be 0")
+    if all(v == 0 for v in b):
+        raise ValueError("the numerator is identically zero")
+    poles, res, K, P, Rr, Kr = _pf_expand(b, a)
+    return {"residues": Rr, "poles": P, "direct_terms": Kr, "samples": _zsamples(poles, res, K, n),
+            "closed_form": _zform("x[n]", P, Rr, Kr), "roc_radius": _zroc(poles)}
+
+
+def _verify_iz(inputs, outputs):
+    try:
+        n = inputs["n"] if "n" in inputs else 8
+        want = inverse_z_transform(inputs["b"], inputs["a"], n)
+        worst = _resid(outputs, want)
+        bb, aa = _vec(inputs["b"], "b", 1, 7), _vec(inputs["a"], "a", 1, 7)
+        rec = _lfilter(bb, aa, [1.0] + [0.0] * (int(n) - 1))
+        worst = max(worst, _zdev(outputs["samples"], rec))
+    except Exception:
+        return INF
+    return worst
+
+
+def ref_inverse_z_transform(b, a, n=8):
+    return _ref_zfit(b, a, int(n))
+
+
+def _wrong_inverse_z(b, a, n=8):
+    # partial fractions of X(z) instead of X(z)/z: every term delayed by one sample
+    o = inverse_z_transform(b, a, n)
+    return dict(o, samples=[0.0] + o["samples"][:-1], residues=[r / p for r, p in zip(o["residues"], o["poles"])])
+
+
+def _rand_inverse_z(rng):
+    order = rng.randint(1, 4)
+    a, _ = _rand_z_poles(rng, order)
+    return {"b": _rand_coefs(rng, rng.randint(1, order + 2)), "a": a, "n": rng.randint(3, 20)}
+
+
+_ZB = [("b", "vec", [r"\bb(?=\s*[=:])", "numerator"]), ("a", "vec", [r"\ba(?=\s*[=:])", "denominator"]),
+       ("n", "int", ["first", r"\bn(?=\s*=)"])]
+_p("inverse_z_transform", name="Inverse z-transform by partial fractions", topic="z-transform and stability",
+   purpose="The causal sequence x[n] of a rational X(z) = sum b_k z^-k / sum a_k z^-k (ROC outside the outermost pole) "
+           "in closed form: x[n] = sum_j k_j delta[n-j] + sum_i r_i p_i^n, with its poles, residues, direct terms and first samples.",
+   inputs=[_i("b", "numerator coefficients b (powers of z^-1, up to 7)", type="vector", min_length=1, max_length=7),
+           _i("a", "denominator coefficients a (powers of z^-1, up to 7, a[0] != 0)", type="vector", min_length=1, max_length=7),
+           _i("n", "number of samples to list (default 8)", type="integer", min=1, max=200, required=False)],
+   outputs=[_o("residues", "residues r_i of the terms r_i / (1 - p_i z^-1), in pole order"),
+            _o("poles", "poles p_i (real ascending, then complex)"),
+            _o("direct_terms", "coefficients k_j of z^-j (present when the numerator degree reaches the denominator's)"),
+            _o("samples", "x[0], x[1], ... from the closed form"),
+            _o("closed_form", "x[n] in closed form (6 significant digits)", kind="text"),
+            _o("roc_radius", "region of convergence |z| > this radius")],
+   primary="residues",
+   conditions=["a[0] != 0", "numerator not identically zero", "distinct poles (at least 0.001 apart)",
+               "no pole cancelled by a zero", "causal sequence: ROC |z| > largest pole radius"],
+   method="polynomial division in z^-1 for the direct terms, poles as roots of the denominator, residues "
+          "r_i = R(1/p_i) / prod_{j != i} (1 - p_j/p_i)",
+   latex=r"X(z) = \sum_j k_j z^{-j} + \sum_i \frac{r_i}{1 - p_i z^{-1}} \;\Rightarrow\; x[n] = \sum_j k_j\,\delta[n-j] + \sum_i r_i\,p_i^{\,n}\ (n \ge 0)",
+   run=inverse_z_transform, verify=_verify_iz, reference=ref_inverse_z_transform, wrong=_wrong_inverse_z,
+   random_inputs=_rand_inverse_z,
+   parse=lambda q: _parse(q, r"inverse\s+z[\s-]?transform", _ZB, exclude=r"difference equation|recurrence"),
+   templates=["Find the inverse z-transform of X(z) with b = [1] and a = [1, -1.5, 0.5].",
+              "Find the first 4 samples of the inverse z-transform with numerator [1, 2, 1] and denominator [1, -0.5]."],
+   examples=[{"inputs": {"b": "1", "a": "1, -1.5, 0.5", "n": 5},
+              "outputs": {"poles": [0.5, 1.0], "residues": [-1.0, 2.0], "direct_terms": [],
+                          "samples": [1.0, 1.5, 1.75, 1.875, 1.9375], "roc_radius": 1.0,
+                          "closed_form": "x[n] = -1*(0.5)^n + 2*(1)^n, n >= 0"}},
+             {"inputs": {"b": [1, 2, 1], "a": [1, -0.5], "n": 4},
+              "outputs": {"poles": [0.5], "residues": [9.0], "direct_terms": [-8.0, -2.0], "samples": [1.0, 2.5, 2.25, 1.125],
+                          "roc_radius": 0.5, "closed_form": "x[n] = -8*delta[n] - 2*delta[n-1] + 9*(0.5)^n, n >= 0"}},
+             {"inputs": {"b": [1], "a": [1, 0, 0.81], "n": 5},
+              "outputs": {"poles": [complex(0, 0.9), complex(0, -0.9)], "residues": [0.5, 0.5],
+                          "samples": [1.0, 0.0, -0.81, 0.0, 0.6561], "roc_radius": 0.9,
+                          "closed_form": "x[n] = 1*(0.9)^n*cos(1.5708*n + 0), n >= 0"}}],
+   questions=[{"q": "Find the inverse z-transform of X(z) with b = [1] and a = [1, -1.5, 0.5].",
+               "outputs": {"residues": [-1.0, 2.0], "closed_form": "x[n] = -1*(0.5)^n + 2*(1)^n, n >= 0"}},
+              {"q": "Find the first 4 samples of the inverse z-transform with numerator [1, 2, 1] and denominator [1, -0.5].",
+               "outputs": {"samples": [1.0, 2.5, 2.25, 1.125], "direct_terms": [-8.0, -2.0]}},
+              {"q": "Find the inverse z-transform of X(z) with b = [1] and a = [0, 1].", "outcome": "INVALID_INPUT"},
+              {"q": "Find the inverse z-transform of X(z) with b = [1] and a = [1, -2, 1].", "outcome": "INVALID_INPUT"},
+              {"q": "Find the inverse z-transform of X(z) with b = [1].", "outcome": "NEEDS_INPUT"}])
+
+
+# ---- a linear difference equation solved with the z-transform
+def _de_recursion(a, b, ic, c, q, n):
+    """The equation iterated directly: a0 y[n] = sum b_k x[n-k] - sum_{k>=1} a_k y[n-k], x[n] = c q^n (n >= 0)."""
+    y = []
+    for m in range(n):
+        acc = 0.0
+        for k in range(len(b)):
+            if m - k >= 0:
+                acc += b[k] * c * q ** (m - k)
+        for k in range(1, len(a)):
+            acc -= a[k] * (y[m - k] if m - k >= 0 else ic[k - m - 1])
+        y.append(acc / a[0])
+    return y
+
+
+def difference_equation_z(a, b, initial_conditions, input_amplitude, input_ratio, n=8):
+    a, b = _vec(a, "output coefficients a", 2, 7), _vec(b, "input coefficients b", 1, 7)
+    ic = _vec(initial_conditions, "initial conditions", 1, 6)
+    c, q = _fin(input_amplitude, "input amplitude"), _fin(input_ratio, "input ratio")
+    n = _int(n, "number of samples", 1, 200)
+    if a[0] == 0:
+        raise ValueError("a[0] (the coefficient of y[n]) must not be 0")
+    if a[-1] == 0:
+        raise ValueError("the last coefficient of a must not be 0 (it sets the order of the equation)")
+    N = len(a) - 1
+    if len(ic) != N:
+        raise ValueError(f"the equation is of order {N}: give {N} initial conditions y[-1], ..., y[-{N}]")
+    # Z{y[n-k]} = z^-k Y(z) + sum_{m=1..k} y[-m] z^-(k-m): the initial-condition polynomial
+    icp = [0.0] * N
+    for k in range(1, N + 1):
+        for m in range(1, k + 1):
+            icp[k - m] += a[k] * ic[m - 1]
+    if c == 0:
+        num, den = [-v for v in icp], list(a)
+    else:
+        # Y(z) = (c B(z) - (1 - q z^-1) IC(z)) / (A(z) (1 - q z^-1)),  X(z) = c / (1 - q z^-1)
+        num = [0.0] * max(len(b), N + 1)
+        for k in range(len(b)):
+            num[k] += c * b[k]
+        for k in range(N):
+            num[k] -= icp[k]
+            num[k + 1] += q * icp[k]
+        den = _pmul(a, [1.0, -q])
+    if all(v == 0 for v in num):
+        raise ValueError("the input and the initial conditions are all zero: y[n] = 0 for every n")
+    poles, res, K, P, Rr, Kr = _pf_expand(num, den)
+    return {"residues": Rr, "poles": P, "direct_terms": Kr, "samples": _zsamples(poles, res, K, n),
+            "closed_form": _zform("y[n]", P, Rr, Kr), "roc_radius": _zroc(poles)}
+
+
+def _verify_de(inputs, outputs):
+    try:
+        n = inputs["n"] if "n" in inputs else 8
+        want = difference_equation_z(inputs["a"], inputs["b"], inputs["initial_conditions"], inputs["input_amplitude"],
+                                     inputs["input_ratio"], n)
+        worst = _resid(outputs, want)
+        rec = _de_recursion(_vec(inputs["a"], "a", 2, 7), _vec(inputs["b"], "b", 1, 7),
+                            _vec(inputs["initial_conditions"], "initial conditions", 1, 6),
+                            float(inputs["input_amplitude"]), float(inputs["input_ratio"]), int(n))
+        worst = max(worst, _zdev(outputs["samples"], rec))
+    except Exception:
+        return INF
+    return worst
+
+
+def ref_difference_equation_z(a, b, initial_conditions, input_amplitude, input_ratio, n=8):
+    """scipy.signal.lfilter with the initial state from lfiltic gives the samples; the poles are the roots of A(z)
+    and of the input's (1 - q z^-1); residues and direct terms are fitted to those samples (Vandermonde solve)."""
+    import numpy as np
+    from scipy import signal
+    a = [float(v) for v in a]
+    b = [float(v) for v in b]
+    c, q, n = float(input_amplitude), float(input_ratio), int(n)
+    N = len(a) - 1
+    L0 = max(len(b) - 1, 0)
+    total = max(n, len(b) + N + 4) + 4
+    x = np.array([c * q ** m for m in range(total)])
+    zi = signal.lfiltic(b, a, y=[float(v) for v in initial_conditions])
+    y, _ = signal.lfilter(b, a, x, zi=zi)
+    roots = list(np.roots(a).astype(complex)) + ([complex(q, 0)] if c != 0 and q != 0 else [])
+    M = len(roots)
+    # direct terms: the numerator of Y(z) has degree <= max(len(b) - 1, N) (c != 0) or N - 1; beyond that the
+    # samples are a pure sum of r_i p_i^n
+    deg_num = max(L0, N) if c != 0 else N - 1
+    L = max(deg_num - M + 1, 0)
+    V = np.array([[pk ** m for pk in roots] for m in range(L, L + M)], dtype=complex)
+    r = np.linalg.solve(V, y[L:L + M].astype(complex))
+    K = [float((y[m] - sum(r[i] * roots[i] ** m for i in range(M))).real) for m in range(L)]
+    big = max([abs(v) for v in y[:L + M]] + [1e-300])
+    K = [0.0 if abs(v) <= 1e-9 * big else v for v in K]
+    while K and K[-1] == 0.0:
+        K.pop()
+    ys = [float(v) for v in y[:n]]
+    sc = max([abs(v) for v in ys] + [1e-300])
+    ys = [0.0 if abs(v) <= 1e-12 * sc else v for v in ys]
+    P, R = _canon_pairs(roots, list(r))
+    return {"poles": P, "residues": R, "direct_terms": K, "samples": ys, "roc_radius": float(max(abs(v) for v in roots))}
+
+
+def _wrong_de(a, b, initial_conditions, input_amplitude, input_ratio, n=8):
+    # the shift theorem with the wrong sign: Z{y[n-k]} = z^-k Y(z) - sum y[-m] z^-(k-m)
+    try:
+        return difference_equation_z(a, b, [-v for v in initial_conditions], input_amplitude, input_ratio, n)
+    except ValueError:
+        o = difference_equation_z(a, b, initial_conditions, input_amplitude, input_ratio, n)
+        return dict(o, samples=[v + 1.0 for v in o["samples"]])
+
+
+def _rand_de(rng):
+    order = rng.randint(1, 3)
+    a, poles = _rand_z_poles(rng, order)
+    c = rng.choice([0.0, rng.choice([-1, 1]) * round(rng.uniform(0.5, 3), 2)])
+    q = 0.0
+    if c != 0:
+        while True:
+            q = rng.choice([1.0, 0.0, -1.0, round(rng.uniform(-0.95, 0.95), 2)])
+            if all(abs(complex(q) - p) > 0.1 for p in poles):
+                break
+    return {"a": a, "b": _rand_coefs(rng, rng.randint(1, 3)), "initial_conditions": _rand_coefs(rng, order),
+            "input_amplitude": c, "input_ratio": q, "n": rng.randint(3, 15)}
+
+
+_p("difference_equation_z", name="Linear difference equation solved by the z-transform", topic="z-transform and stability",
+   purpose="The closed-form solution y[n] (n >= 0) of a0 y[n] + a1 y[n-1] + ... + aN y[n-N] = b0 x[n] + ... + bM x[n-M] "
+           "with initial conditions y[-1], ..., y[-N] and a causal input x[n] = c q^n (q = 1: a step, q = 0: an impulse, "
+           "c = 0: no input), found by taking z-transforms with the shift theorem and expanding Y(z) in partial fractions.",
+   inputs=[_i("a", "output coefficients a0, a1, ..., aN of y[n], y[n-1], ... (a0 != 0, aN != 0)", type="vector", min_length=2, max_length=7),
+           _i("b", "input coefficients b0, b1, ... of x[n], x[n-1], ...", type="vector", min_length=1, max_length=7),
+           _i("initial_conditions", "y[-1], y[-2], ..., y[-N] (N values)", type="vector", min_length=1, max_length=6),
+           _i("input_amplitude", "c in the input x[n] = c q^n (0: no input)"),
+           _i("input_ratio", "q in the input x[n] = c q^n (1: step, 0: impulse)"),
+           _i("n", "number of samples to list (default 8)", type="integer", min=1, max=200, required=False)],
+   outputs=[_o("residues", "residues r_i of Y(z) = sum r_i / (1 - p_i z^-1) + direct terms, in pole order"),
+            _o("poles", "poles p_i of Y(z) (of the system and of the input)"),
+            _o("direct_terms", "coefficients k_j of z^-j in Y(z)"),
+            _o("samples", "y[0], y[1], ... from the closed form"),
+            _o("closed_form", "y[n] in closed form (6 significant digits)", kind="text"),
+            _o("roc_radius", "region of convergence |z| > this radius")],
+   primary="residues",
+   conditions=["a0 != 0 and aN != 0", "N initial conditions for an equation of order N",
+               "the input ratio q is not a pole of the system (no resonance: repeated poles are refused)",
+               "the input or an initial condition is non-zero", "no pole cancelled by a zero"],
+   method="Y(z) = (c B(z) - (1 - q z^-1) I(z)) / (A(z) (1 - q z^-1)) with I(z) = sum_k a_k sum_{m=1..k} y[-m] z^-(k-m); "
+          "then partial fractions and the inverse transform term by term",
+   latex=r"\sum_k a_k\Big(z^{-k}Y(z) + \sum_{m=1}^{k} y[-m]\,z^{-(k-m)}\Big) = B(z)\,\frac{c}{1 - q z^{-1}}"
+         r"\;\Rightarrow\; y[n] = \sum_j k_j\,\delta[n-j] + \sum_i r_i\,p_i^{\,n}",
+   run=difference_equation_z, verify=_verify_de, reference=ref_difference_equation_z, wrong=_wrong_de,
+   random_inputs=_rand_de,
+   parse=lambda q: _parse(q, r"(?:difference equation|recurrence)[^.?]*z[\s-]?transform|z[\s-]?transform[^.?]*(?:difference equation|recurrence)",
+                          [("a", "vec", [r"\ba(?=\s*[=:])", "output coefficients"]), ("b", "vec", [r"\bb(?=\s*[=:])", "input coefficients"]),
+                           ("initial_conditions", "vec", ["initial conditions", "initial values"]),
+                           ("input_amplitude", "num", ["input amplitude"]), ("input_ratio", "num", ["input ratio"]),
+                           ("n", "int", ["first", r"\bn(?=\s*=)"])]),
+   templates=["Solve the difference equation with the z-transform: a = [1, -0.5], b = [1], initial conditions = [1], "
+              "input amplitude = 1, input ratio = 1."],
+   examples=[{"inputs": {"a": "1, -0.5", "b": "1", "initial_conditions": "1", "input_amplitude": 1, "input_ratio": 1, "n": 5},
+              "outputs": {"poles": [0.5, 1.0], "residues": [-0.5, 2.0], "direct_terms": [],
+                          "samples": [1.5, 1.75, 1.875, 1.9375, 1.96875], "roc_radius": 1.0,
+                          "closed_form": "y[n] = -0.5*(0.5)^n + 2*(1)^n, n >= 0"}},
+             {"inputs": {"a": [1, 0, -0.25], "b": [1], "initial_conditions": [1, 0], "input_amplitude": 0, "input_ratio": 0, "n": 4},
+              "outputs": {"poles": [-0.5, 0.5], "residues": [-0.25, 0.25], "samples": [0.0, 0.25, 0.0, 0.0625],
+                          "closed_form": "y[n] = -0.25*(-0.5)^n + 0.25*(0.5)^n, n >= 0"}},
+             {"inputs": {"a": [1, -0.5], "b": [1], "initial_conditions": [0], "input_amplitude": 2, "input_ratio": 0, "n": 4},
+              "outputs": {"poles": [0.5], "residues": [2.0], "direct_terms": [], "samples": [2.0, 1.0, 0.5, 0.25],
+                          "closed_form": "y[n] = 2*(0.5)^n, n >= 0"}}],
+   questions=[{"q": "Solve the difference equation with the z-transform: a = [1, -0.5], b = [1], initial conditions = [1], "
+                    "input amplitude = 1, input ratio = 1.",
+               "outputs": {"residues": [-0.5, 2.0], "closed_form": "y[n] = -0.5*(0.5)^n + 2*(1)^n, n >= 0"}},
+              {"q": "Use the z-transform to solve the recurrence with a = [1, 0, -0.25], b = [1], initial conditions = [1, 0], "
+                    "input amplitude = 0, input ratio = 0, n = 4.", "outputs": {"samples": [0.0, 0.25, 0.0, 0.0625]}},
+              {"q": "Solve the difference equation with the z-transform: a = [1, -0.5], b = [1], initial conditions = [1, 2], "
+                    "input amplitude = 1, input ratio = 1.", "outcome": "INVALID_INPUT"},
+              {"q": "Solve the difference equation with the z-transform: a = [1, -0.5], b = [1], initial conditions = [1], "
+                    "input amplitude = 1, input ratio = 0.5.", "outcome": "INVALID_INPUT"},
+              {"q": "Solve the difference equation with the z-transform: a = [1, -0.5], b = [1], input amplitude = 1, "
+                    "input ratio = 1.", "outcome": "NEEDS_INPUT"}])
+
+
+# ---- z-transform of a sequence made of geometric and n-times-geometric terms
+def z_transform_sequence(coefficients, ratios, powers=None):
+    c = _vec(coefficients, "coefficients", 1, 6)
+    p = _vec(ratios, "ratios", 1, 6)
+    k = [0.0] * len(c) if powers is None else _vec(powers, "powers", 1, 6)
+    if len(p) != len(c) or len(k) != len(c):
+        raise ValueError("coefficients, ratios and powers need the same number of entries")
+    for i in range(len(c)):
+        if c[i] == 0:
+            raise ValueError("every coefficient must be non-zero")
+        if p[i] == 0:
+            raise ValueError("every ratio must be non-zero")
+        if k[i] != 0 and k[i] != 1:
+            raise ValueError("each power is 0 (the term c p^n) or 1 (the term c n p^n)")
+        for j in range(i):
+            if p[j] == p[i] and k[j] == k[i]:
+                raise ValueError("two terms with the same ratio and power: add their coefficients")
+    ps = []
+    for v in p:
+        if v not in ps:
+            ps.append(v)
+    ps.sort()
+    mult = []
+    for v in ps:
+        m = 1
+        for i in range(len(p)):
+            if p[i] == v and k[i] == 1:
+                m = 2
+        mult.append(m)
+    den = [1.0]
+    for j in range(len(ps)):
+        for _ in range(mult[j]):
+            den = _pmul(den, [1.0, -ps[j]])
+    D = len(den) - 1
+    num, scale = [0.0] * D, [0.0] * D
+    for i in range(len(c)):
+        # Z{p^n} = 1/(1 - p z^-1);  Z{n p^n} = p z^-1/(1 - p z^-1)^2: each over the common denominator
+        part = [c[i]] if k[i] == 0 else [0.0, c[i] * p[i]]
+        for j in range(len(ps)):
+            e = mult[j] - ((1 if k[i] == 0 else 2) if ps[j] == p[i] else 0)
+            for _ in range(e):
+                part = _pmul(part, [1.0, -ps[j]])
+        for t in range(len(part)):
+            num[t] += part[t]
+            scale[t] += abs(part[t])
+    for t in range(D):
+        if abs(num[t]) <= 1e-12 * scale[t]:
+            num[t] = 0.0
+    return {"b": _trim0(num), "a": den, "roc_radius": max([abs(v) for v in ps])}
+
+
+def ref_z_transform_sequence(coefficients, ratios, powers=None):
+    """The denominator from numpy.poly of the poles (with multiplicity); the numerator from A(z) X(z) = B(z): the first
+    D coefficients of the convolution of a with the samples x[0..D-1] computed directly."""
+    import numpy as np
+    c = [float(v) for v in coefficients]
+    p = [float(v) for v in ratios]
+    k = [0] * len(c) if powers is None else [int(v) for v in powers]
+    roots = []
+    for v in sorted(set(p)):
+        roots += [v] * (2 if any(p[i] == v and k[i] == 1 for i in range(len(p))) else 1)
+    a = np.poly(roots)
+    D = len(roots)
+    x = np.array([sum(c[i] * (m ** k[i]) * p[i] ** m for i in range(len(c))) for m in range(D)])
+    bb = np.convolve(a, x)[:D]
+    big = max(abs(v) for v in bb)
+    bb = [0.0 if abs(v) <= 1e-9 * big else float(v) for v in bb]
+    while len(bb) > 1 and bb[-1] == 0.0:
+        bb.pop()
+    return {"b": bb, "a": [float(v) for v in a], "roc_radius": float(max(abs(v) for v in p))}
+
+
+def _rand_zseq(rng):
+    terms = []
+    for _ in range(100):
+        if len(terms) >= 3 or (terms and rng.random() < 0.4):
+            break
+        p = rng.choice([1.0, -1.0, 2.0, round(rng.uniform(-0.95, 0.95), 2)])
+        kk = rng.choice([0, 0, 1])
+        if p != 0 and (p, kk) not in terms and all(p == u or abs(p - u) > 0.05 for u, _ in terms):
+            terms.append((p, kk))
+    return {"coefficients": _rand_coefs(rng, len(terms)), "ratios": [t[0] for t in terms], "powers": [t[1] for t in terms]}
+
+
+_p("z_transform_sequence", name="z-transform of a sequence (table terms)", topic="z-transform and stability",
+   purpose="X(z) of the causal sequence x[n] = sum_i c_i n^(k_i) p_i^n (k_i = 0 or 1: geometric and n-times-geometric "
+           "terms, which include the unit step p = 1 and the ramp n), as one rational function in z^-1 with its "
+           "region of convergence.",
+   inputs=[_i("coefficients", "coefficients c_i of the terms", type="vector", min_length=1, max_length=6),
+           _i("ratios", "ratios p_i of the terms (non-zero)", type="vector", min_length=1, max_length=6),
+           _i("powers", "k_i: 0 for c p^n, 1 for c n p^n (default: all 0)", type="vector", min_length=1, max_length=6, required=False)],
+   outputs=[_o("b", "numerator coefficients of X(z) in powers of z^-1"),
+            _o("a", "denominator coefficients of X(z) in powers of z^-1 (a[0] = 1)"),
+            _o("roc_radius", "region of convergence |z| > this radius")],
+   primary="b",
+   conditions=["coefficients and ratios non-zero", "powers 0 or 1", "no two terms with the same ratio and power",
+               "causal sequence (x[n] = 0 for n < 0)"],
+   method="Z{p^n} = 1/(1 - p z^-1), Z{n p^n} = p z^-1/(1 - p z^-1)^2, summed over the common denominator "
+          "prod (1 - p z^-1)^m (ratios ascending)",
+   latex=r"\mathcal{Z}\{p^n u[n]\} = \frac{1}{1 - p z^{-1}},\qquad \mathcal{Z}\{n\,p^n u[n]\} = \frac{p z^{-1}}{(1 - p z^{-1})^{2}},\qquad |z| > |p|",
+   run=z_transform_sequence, reference=ref_z_transform_sequence,
+   wrong=lambda coefficients, ratios, powers=None: (lambda o: dict(o, b=[0.0] + o["b"]))(z_transform_sequence(coefficients, ratios, powers)),
+   random_inputs=_rand_zseq,
+   parse=lambda q: _parse(q, r"\bz[\s-]?transform", [("coefficients", "vec", ["coefficients", r"\bc(?=\s*[=:])"]),
+                                                    ("ratios", "vec", ["ratios", "bases", r"\bp(?=\s*[=:])"]),
+                                                    ("powers", "vec", ["powers", r"\bk(?=\s*[=:])"])],
+                          exclude=r"inverse|difference equation|recurrence"),
+   templates=["Find the z-transform of the sequence with coefficients = [2, -1] and ratios = [1, 0.5].",
+              "Find the z-transform of the sequence with coefficients = [1], ratios = [1] and powers = [1]."],
+   examples=[{"inputs": {"coefficients": "1", "ratios": "0.5"}, "outputs": {"b": [1.0], "a": [1.0, -0.5], "roc_radius": 0.5}},
+             {"inputs": {"coefficients": [2, -1], "ratios": [1, 0.5]}, "outputs": {"b": [1.0], "a": [1.0, -1.5, 0.5], "roc_radius": 1.0}},
+             {"inputs": {"coefficients": [1], "ratios": [1], "powers": [1]}, "outputs": {"b": [0.0, 1.0], "a": [1.0, -2.0, 1.0], "roc_radius": 1.0}}],
+   questions=[{"q": "Find the z-transform of the sequence with coefficients = [2, -1] and ratios = [1, 0.5].",
+               "outputs": {"b": [1.0], "a": [1.0, -1.5, 0.5]}},
+              {"q": "Find the z-transform of the sequence with coefficients = [1], ratios = [1] and powers = [1].",
+               "outputs": {"b": [0.0, 1.0], "a": [1.0, -2.0, 1.0]}},
+              {"q": "Find the z-transform of the sequence with coefficients = [1, 2] and ratios = [0.5].", "outcome": "INVALID_INPUT"},
+              {"q": "Find the z-transform of the sequence with coefficients = [1].", "outcome": "NEEDS_INPUT"}])

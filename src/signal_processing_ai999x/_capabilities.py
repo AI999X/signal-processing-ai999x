@@ -15,7 +15,7 @@ def _bind(product) -> None:
     _P = product
 
 
-CapabilityId = Literal["alias_frequency", "am_modulation_index", "am_power", "amplitude_ratio_to_db", "analytic_envelope", "bilinear_rc_lowpass", "bin_frequency", "bpsk_ber", "butterworth_design", "butterworth_magnitude", "butterworth_order_analog", "butterworth_order_digital", "chebyshev1_order_analog", "circular_convolution", "coax_impedance", "cross_correlation", "db_to_amplitude_ratio", "db_to_power_ratio", "dbm_power_sum", "dbm_to_watts", "dc_gain", "dft_bin", "dft_spectrum", "dish_antenna_gain", "exponential_pulse_spectrum", "fir_filter_output", "fir_window_design", "fm_spectrum", "fourier_series_harmonic", "free_space_path_loss", "frequency_from_period", "frequency_resolution", "frequency_response", "friis_received_power", "group_delay", "haar_dwt", "haar_idwt", "iir_filter_output", "impulse_response", "input_impedance", "inverse_dft", "linear_convolution", "moving_average", "mpsk_symbol_error", "mqam_symbol_error", "noise_figure_cascade", "noncoherent_ber", "notch_filter_design", "nyquist_rate", "period_from_frequency", "periodogram", "poles_zeros", "power_ratio_to_db", "qpsk_error_rates", "quantization_snr", "quarter_wave_transformer", "radar_doppler", "radar_max_range", "radar_received_power", "rect_pulse_spectrum", "reflection_coefficient", "reflection_from_vswr", "second_order_poles", "shannon_capacity", "shannon_min_snr", "signal_statistics", "sine_rms", "snr_from_powers", "step_response", "thd", "vswr_from_reflection", "watts_to_dbm", "window_coefficients", "window_mainlobe_width"]
+CapabilityId = Literal["alias_frequency", "am_modulation_index", "am_power", "amplitude_ratio_to_db", "analytic_envelope", "bilinear_rc_lowpass", "bin_frequency", "bpsk_ber", "butterworth_design", "butterworth_magnitude", "butterworth_order_analog", "butterworth_order_digital", "chebyshev1_order_analog", "circular_convolution", "coax_impedance", "cross_correlation", "db_to_amplitude_ratio", "db_to_power_ratio", "dbm_power_sum", "dbm_to_watts", "dc_gain", "dft_bin", "dft_spectrum", "difference_equation_z", "dish_antenna_gain", "exponential_pulse_spectrum", "fir_filter_output", "fir_window_design", "fm_spectrum", "fourier_series_harmonic", "free_space_path_loss", "frequency_from_period", "frequency_resolution", "frequency_response", "friis_received_power", "group_delay", "haar_dwt", "haar_idwt", "iir_filter_output", "impulse_response", "input_impedance", "inverse_dft", "inverse_z_transform", "linear_convolution", "moving_average", "mpsk_symbol_error", "mqam_symbol_error", "noise_figure_cascade", "noncoherent_ber", "notch_filter_design", "nyquist_rate", "period_from_frequency", "periodogram", "poles_zeros", "power_ratio_to_db", "qpsk_error_rates", "quantization_snr", "quarter_wave_transformer", "radar_doppler", "radar_max_range", "radar_received_power", "rect_pulse_spectrum", "reflection_coefficient", "reflection_from_vswr", "second_order_poles", "shannon_capacity", "shannon_min_snr", "signal_statistics", "sine_rms", "snr_from_powers", "step_response", "thd", "vswr_from_reflection", "watts_to_dbm", "window_coefficients", "window_mainlobe_width", "z_transform_sequence"]
 
 
 def solve(find: CapabilityId | str, given: dict | None = None, conditions=(), *, target: str | None = None, **inputs):
@@ -310,6 +310,22 @@ def dft_spectrum(x=None):
     given = {k: v for k, v in dict(x=x).items() if v is not None}
     return _P.solve("dft_spectrum", **given)
 
+def difference_equation_z(a=None, b=None, initial_conditions=None, input_amplitude=None, input_ratio=None, n=None):
+    """Linear difference equation solved by the z-transform. The closed-form solution y[n] (n >= 0) of a0 y[n] + a1 y[n-1] + ... + aN y[n-N] = b0 x[n] + ... + bM x[n-M] with initial conditions y[-1], ..., y[-N] and a causal input x[n] = c q^n (q = 1: a step, q = 0: an impulse, c = 0: no input), found by taking z-transforms with the shift theorem and expanding Y(z) in partial fractions.
+    Formula: \\sum_k a_k\\Big(z^{-k}Y(z) + \\sum_{m=1}^{k} y[-m]\\,z^{-(k-m)}\\Big) = B(z)\\,\\frac{c}{1 - q z^{-1}}\\;\\Rightarrow\\; y[n] = \\sum_j k_j\\,\\delta[n-j] + \\sum_i r_i\\,p_i^{\\,n}
+    Inputs:
+        a: output coefficients a0, a1, ..., aN of y[n], y[n-1], ... (a0 != 0, aN != 0)
+        b: input coefficients b0, b1, ... of x[n], x[n-1], ...
+        initial_conditions: y[-1], y[-2], ..., y[-N] (N values)
+        input_amplitude: c in the input x[n] = c q^n (0: no input)
+        input_ratio: q in the input x[n] = c q^n (1: step, 0: impulse)
+        n: number of samples to list (default 8) (optional)
+    Outputs: residues (residues r_i of Y(z) = sum r_i / (1 - p_i z^-1) + direct terms, in pole order), poles (poles p_i of Y(z) (of the system and of the input)), direct_terms (coefficients k_j of z^-j in Y(z)), samples (y[0], y[1], ... from the closed form), closed_form (y[n] in closed form (6 significant digits)), roc_radius (region of convergence |z| > this radius)
+    See also: help("difference_equation_z")
+    """
+    given = {k: v for k, v in dict(a=a, b=b, initial_conditions=initial_conditions, input_amplitude=input_amplitude, input_ratio=input_ratio, n=n).items() if v is not None}
+    return _P.solve("difference_equation_z", **given)
+
 def dish_antenna_gain(D=None, f=None, eta=None):
     """Gain of a parabolic dish (aperture) antenna. The gain eta (pi D / lambda)^2 of a circular aperture antenna of diameter D and aperture efficiency eta, in dBi, and its effective aperture.
     Formula: G = \\eta\\left(\\frac{\\pi D}{\\lambda}\\right)^2
@@ -541,6 +557,19 @@ def inverse_dft(re_=None, im=None):
     """
     given = {k: v for k, v in dict(re_=re_, im=im).items() if v is not None}
     return _P.solve("inverse_dft", **given)
+
+def inverse_z_transform(b=None, a=None, n=None):
+    """Inverse z-transform by partial fractions. The causal sequence x[n] of a rational X(z) = sum b_k z^-k / sum a_k z^-k (ROC outside the outermost pole) in closed form: x[n] = sum_j k_j delta[n-j] + sum_i r_i p_i^n, with its poles, residues, direct terms and first samples.
+    Formula: X(z) = \\sum_j k_j z^{-j} + \\sum_i \\frac{r_i}{1 - p_i z^{-1}} \\;\\Rightarrow\\; x[n] = \\sum_j k_j\\,\\delta[n-j] + \\sum_i r_i\\,p_i^{\\,n}\\ (n \\ge 0)
+    Inputs:
+        b: numerator coefficients b (powers of z^-1, up to 7)
+        a: denominator coefficients a (powers of z^-1, up to 7, a[0] != 0)
+        n: number of samples to list (default 8) (optional)
+    Outputs: residues (residues r_i of the terms r_i / (1 - p_i z^-1), in pole order), poles (poles p_i (real ascending, then complex)), direct_terms (coefficients k_j of z^-j (present when the numerator degree reaches the denominator's)), samples (x[0], x[1], ... from the closed form), closed_form (x[n] in closed form (6 significant digits)), roc_radius (region of convergence |z| > this radius)
+    See also: help("inverse_z_transform")
+    """
+    given = {k: v for k, v in dict(b=b, a=a, n=n).items() if v is not None}
+    return _P.solve("inverse_z_transform", **given)
 
 def linear_convolution(x=None, h=None):
     """Linear convolution of two sequences. y[n] = sum_k x[k] h[n-k], the full linear convolution (length Nx + Nh - 1).
@@ -940,5 +969,18 @@ def window_mainlobe_width(window=None, N=None, fs=None):
     given = {k: v for k, v in dict(window=window, N=N, fs=fs).items() if v is not None}
     return _P.solve("window_mainlobe_width", **given)
 
+def z_transform_sequence(coefficients=None, ratios=None, powers=None):
+    """z-transform of a sequence (table terms). X(z) of the causal sequence x[n] = sum_i c_i n^(k_i) p_i^n (k_i = 0 or 1: geometric and n-times-geometric terms, which include the unit step p = 1 and the ramp n), as one rational function in z^-1 with its region of convergence.
+    Formula: \\mathcal{Z}\\{p^n u[n]\\} = \\frac{1}{1 - p z^{-1}},\\qquad \\mathcal{Z}\\{n\\,p^n u[n]\\} = \\frac{p z^{-1}}{(1 - p z^{-1})^{2}},\\qquad |z| > |p|
+    Inputs:
+        coefficients: coefficients c_i of the terms
+        ratios: ratios p_i of the terms (non-zero)
+        powers: k_i: 0 for c p^n, 1 for c n p^n (default: all 0) (optional)
+    Outputs: b (numerator coefficients of X(z) in powers of z^-1), a (denominator coefficients of X(z) in powers of z^-1 (a[0] = 1)), roc_radius (region of convergence |z| > this radius)
+    See also: help("z_transform_sequence")
+    """
+    given = {k: v for k, v in dict(coefficients=coefficients, ratios=ratios, powers=powers).items() if v is not None}
+    return _P.solve("z_transform_sequence", **given)
 
-__all__ = ["CapabilityId", "solve", "help", "alias_frequency", "am_modulation_index", "am_power", "amplitude_ratio_to_db", "analytic_envelope", "bilinear_rc_lowpass", "bin_frequency", "bpsk_ber", "butterworth_design", "butterworth_magnitude", "butterworth_order_analog", "butterworth_order_digital", "chebyshev1_order_analog", "circular_convolution", "coax_impedance", "cross_correlation", "db_to_amplitude_ratio", "db_to_power_ratio", "dbm_power_sum", "dbm_to_watts", "dc_gain", "dft_bin", "dft_spectrum", "dish_antenna_gain", "exponential_pulse_spectrum", "fir_filter_output", "fir_window_design", "fm_spectrum", "fourier_series_harmonic", "free_space_path_loss", "frequency_from_period", "frequency_resolution", "frequency_response", "friis_received_power", "group_delay", "haar_dwt", "haar_idwt", "iir_filter_output", "impulse_response", "input_impedance", "inverse_dft", "linear_convolution", "moving_average", "mpsk_symbol_error", "mqam_symbol_error", "noise_figure_cascade", "noncoherent_ber", "notch_filter_design", "nyquist_rate", "period_from_frequency", "periodogram", "poles_zeros", "power_ratio_to_db", "qpsk_error_rates", "quantization_snr", "quarter_wave_transformer", "radar_doppler", "radar_max_range", "radar_received_power", "rect_pulse_spectrum", "reflection_coefficient", "reflection_from_vswr", "second_order_poles", "shannon_capacity", "shannon_min_snr", "signal_statistics", "sine_rms", "snr_from_powers", "step_response", "thd", "vswr_from_reflection", "watts_to_dbm", "window_coefficients", "window_mainlobe_width"]
+
+__all__ = ["CapabilityId", "solve", "help", "alias_frequency", "am_modulation_index", "am_power", "amplitude_ratio_to_db", "analytic_envelope", "bilinear_rc_lowpass", "bin_frequency", "bpsk_ber", "butterworth_design", "butterworth_magnitude", "butterworth_order_analog", "butterworth_order_digital", "chebyshev1_order_analog", "circular_convolution", "coax_impedance", "cross_correlation", "db_to_amplitude_ratio", "db_to_power_ratio", "dbm_power_sum", "dbm_to_watts", "dc_gain", "dft_bin", "dft_spectrum", "difference_equation_z", "dish_antenna_gain", "exponential_pulse_spectrum", "fir_filter_output", "fir_window_design", "fm_spectrum", "fourier_series_harmonic", "free_space_path_loss", "frequency_from_period", "frequency_resolution", "frequency_response", "friis_received_power", "group_delay", "haar_dwt", "haar_idwt", "iir_filter_output", "impulse_response", "input_impedance", "inverse_dft", "inverse_z_transform", "linear_convolution", "moving_average", "mpsk_symbol_error", "mqam_symbol_error", "noise_figure_cascade", "noncoherent_ber", "notch_filter_design", "nyquist_rate", "period_from_frequency", "periodogram", "poles_zeros", "power_ratio_to_db", "qpsk_error_rates", "quantization_snr", "quarter_wave_transformer", "radar_doppler", "radar_max_range", "radar_received_power", "rect_pulse_spectrum", "reflection_coefficient", "reflection_from_vswr", "second_order_poles", "shannon_capacity", "shannon_min_snr", "signal_statistics", "sine_rms", "snr_from_powers", "step_response", "thd", "vswr_from_reflection", "watts_to_dbm", "window_coefficients", "window_mainlobe_width", "z_transform_sequence"]

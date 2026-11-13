@@ -1,5 +1,5 @@
 {
- "package": "1.5.0",
+ "package": "1.6.0",
  "pack": "1.0.0",
  "knowledge_db": null,
  "files": {
@@ -7,8 +7,8 @@
   "dictionary/terms.json": "3781eac9e78cc74a52dfbb7f7c6ecd5f218e2a208be5aad6dabd1094f82ddc60",
   "knowledge/relations.json": "e16cbd17bfdf1590a379089787a1e58f7dfda1705415e99e55bbd0936524a6c0",
   "knowledge/reference_cases.json": "7414a14e2c4202a7fae8cdd14e1a2ef7267f35a9665b0633001349c698d4e4e7",
-  "capabilities/procedures.py": "b4c9ad7c82ef2709ea28d749d50033d873c006b0c3242a902633cb4b38c569b9",
-  "capabilities/procedures_certified.json": "dad36fbfe51108583b8fc8cc120d7febbf696b66c6821e1f8f4f85d389f1dcf6",
+  "capabilities/procedures.py": "d1cda5802dfa78c054ff06658b1768ba7a4f62f1e3510973dadf209432f09026",
+  "capabilities/procedures_certified.json": "bf46ec787e07bc625d9bc46ffd443e4dfca2799a069be5a21997538574e510aa",
   "signal_processing_knowledge_public.sqlite": "313a72b8f8bc21d7e572179df6649d36676eb7aa49a23eaf69340dae17ead4ba"
  },
  "engine": [
