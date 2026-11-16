@@ -408,7 +408,7 @@ $$
 
 ![The power ratio for levels from −20 to 40 dB (61 runs of the package, log axis), with the amplitude ratio dashed for comparison: 20 dB is a factor 10 in amplitude but 100 in power](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/db-to-power-ratio-curve)
 
-*The power ratio for levels from −20 to 40 dB (61 runs of the package, log axis), with the amplitude ratio dashed for comparison: 20 dB is a factor 10 in amplitude but 100 in power. Marked: 23 dB, ratio 199.526.*
+*The power ratio for levels from −20 to 40 dB (61 runs of the package, log axis), with the amplitude ratio dashed for comparison: 20 dB is a factor 10 in amplitude but 100 in power. Marked: 23.0 dB, ratio 199.526.*
 
 ```python
 signal_processing_ai999x.solve('db_to_power_ratio', dB=23)
@@ -502,7 +502,7 @@ $$
 
 ![The amplitude ratio for levels from −20 to 40 dB (61 runs of the package, log axis), with the power ratio dashed for comparison: 20 dB is a factor 10 in amplitude but 100 in power](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/db-to-amplitude-ratio-curve)
 
-*The amplitude ratio for levels from −20 to 40 dB (61 runs of the package, log axis), with the power ratio dashed for comparison: 20 dB is a factor 10 in amplitude but 100 in power. Marked: 6 dB, ratio 1.99526.*
+*The amplitude ratio for levels from −20 to 40 dB (61 runs of the package, log axis), with the power ratio dashed for comparison: 20 dB is a factor 10 in amplitude but 100 in power. Marked: 6.0 dB, ratio 1.99526.*
 
 ```python
 signal_processing_ai999x.solve('db_to_amplitude_ratio', dB=6)
@@ -597,7 +597,7 @@ $$
 
 ![Power in watts for levels from −30 to 60 dBm (91 runs of the package, log axis): every 10 dB is a factor 10, 0 dBm is 1 mW](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/dbm-to-watts-curve)
 
-*Power in watts for levels from −30 to 60 dBm (91 runs of the package, log axis): every 10 dB is a factor 10, 0 dBm is 1 mW. Marked: 30 dBm = 1 W.*
+*Power in watts for levels from −30 to 60 dBm (91 runs of the package, log axis): every 10 dB is a factor 10, 0 dBm is 1 mW. Marked: 30.0 dBm = 1 W.*
 
 ```python
 signal_processing_ai999x.solve('dbm_to_watts', dBm=30)
@@ -2190,9 +2190,9 @@ $$
 - **Assumes:** $A > 0$; $\tau > 0$; x(t) = 0 for $t < 0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Magnitude and phase of the spectrum of A·e^(−t/τ) for t ≥ 0 with A = 1, τ = 0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/exponential-pulse-spectrum-spectrum)
+![Magnitude and phase of the spectrum of A·e^(−t/τ) for t ≥ 0 with A = 2, τ = 0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/exponential-pulse-spectrum-spectrum)
 
-*Magnitude and phase of the spectrum of A·e^(−t/τ) for t ≥ 0 with A = 1, τ = 0.001 s, from 1/100 to 100 times f = 1/(2πτ) = 159.155 Hz (81 runs of the package, log axes): flat at Aτ below that frequency, falling 20 dB per decade above, the phase going from 0 to −π/2. Marked: the worked example f = 159.155 Hz, |X| = 0.000707107 (phase -0.785398 rad).*
+*Magnitude and phase of the spectrum of A·e^(−t/τ) for t ≥ 0 with A = 2, τ = 0.5 s, from 1/100 to 100 times f = 1/(2πτ) = 0.31831 Hz (81 runs of the package, log axes): flat at Aτ below that frequency, falling 20 dB per decade above, the phase going from 0 to −π/2. Marked: the worked example f = 0 Hz, |X| = 1 (phase 0 rad).*
 
 ```python
 signal_processing_ai999x.solve('exponential_pulse_spectrum', A=1, tau=0.001, f=159.15494309189535)
@@ -2694,7 +2694,7 @@ $$
 
 ![Bit error probability of DPSK and non-coherent binary FSK, with coherent BPSK for comparison](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/noncoherent-ber-ber)
 
-*Bit error probability of DPSK and non-coherent binary FSK, with coherent BPSK for comparison. Eb/N0 from 0 to 14 dB, one run of the package per 0.25 dB, logarithmic axis (values below 10⁻⁷ are off the axis). Marked: the worked example, Eb/N0 = 3.010299956639812 dB, ber_dpsk = 0.0676676.*
+*Bit error probability of DPSK and non-coherent binary FSK, with coherent BPSK for comparison. Eb/N0 from 0 to 14 dB, one run of the package per 0.25 dB, logarithmic axis (values below 10⁻⁷ are off the axis). Marked: the worked example, Eb/N0 = 8.0 dB, ber_dpsk = 0.000909404.*
 
 ```python
 signal_processing_ai999x.solve('noncoherent_ber', ebn0_db=3.010299956639812)
@@ -2780,7 +2780,7 @@ $$
 
 ![Symbol error probability of M-ary PSK for M = 2, 4, 8, 16 and 32: each doubling of M costs more Eb/N0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/mpsk-symbol-error-ber)
 
-*Symbol error probability of M-ary PSK for M = 2, 4, 8, 16 and 32: each doubling of M costs more Eb/N0. Eb/N0 from 0 to 14 dB, one run of the package per 0.25 dB, logarithmic axis (values below 10⁻⁷ are off the axis). Marked: the worked example, Eb/N0 = 4.0 dB, ser = 0.0125008.*
+*Symbol error probability of M-ary PSK for M = 2, 4, 8, 16 and 32: each doubling of M costs more Eb/N0. Eb/N0 from 0 to 14 dB, one run of the package per 0.25 dB, logarithmic axis (values below 10⁻⁷ are off the axis). Marked: the worked example, Eb/N0 = 10.0 dB, ser = 0.00303419.*
 
 ```python
 signal_processing_ai999x.solve('mpsk_symbol_error', M='2', ebn0_db=4.0)
@@ -3276,7 +3276,7 @@ $$
 
 ![Input impedance of a lossless line of characteristic impedance Z0 = 50 Ω terminated in RL = 100 Ω, for lengths 0 to half a wavelength (101 runs of the package): the impedance repeats every λ/2, and a quarter-wave line turns RL into Z0²/RL](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/input-impedance-curve)
 
-*Input impedance of a lossless line of characteristic impedance Z0 = 50 Ω terminated in RL = 100 Ω, for lengths 0 to half a wavelength (101 runs of the package): the impedance repeats every λ/2, and a quarter-wave line turns RL into Z0²/RL. Marked: the worked example length 0.25 λ, Rin = 25 Ω, Xin = 0 Ω.*
+*Input impedance of a lossless line of characteristic impedance Z0 = 50 Ω terminated in RL = 100 Ω, for lengths 0 to half a wavelength (101 runs of the package): the impedance repeats every λ/2, and a quarter-wave line turns RL into Z0²/RL. Marked: the worked example length 0.125 λ, Rin = 40 Ω, Xin = -30 Ω.*
 
 ```python
 signal_processing_ai999x.solve('input_impedance', RL=100.0, Z0=50.0, length=0.25)
