@@ -176,9 +176,9 @@ $$
 - **Assumes:** $f > 0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Period as f runs from 30 to 70 Hz, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/period-from-frequency-live-1)
+![T (period) against f (frequency of the signal) from 25 Hz to 75 Hz](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/period-from-frequency-curve)
 
-*Period as f runs from 30 to 70 Hz, every other input as you entered it (41 solutions). Marked: your f = 50 Hz gives T = 20 ms. Your inputs: f = 50 Hz.*
+*T (period) against f (frequency of the signal) from 25 Hz to 75 Hz. 31 points computed by signal-processing-ai999x; marked: the worked example, f = 50 Hz, T = 0.02 s.*
 
 ```python
 signal_processing_ai999x.solve('period_from_frequency', f=50.0)
@@ -222,9 +222,9 @@ $$
 - **Assumes:** $T > 0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Frequency as T runs from 0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/frequency-from-period-live-1)
+![f (frequency) against T (period of the signal) from 0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/frequency-from-period-curve)
 
-*Frequency as T runs from 0.0012 to 0.0028 s, every other input as you entered it (41 solutions). Marked: your T = 0.002 s gives f = 500. Your inputs: T = 0.002 s.*
+*f (frequency) against T (period of the signal) from 0.001 s to 0.003 s. 31 points computed by signal-processing-ai999x; marked: the worked example, T = 0.002 s, f = 500 Hz.*
 
 ```python
 signal_processing_ai999x.solve('frequency_from_period', T=0.002)
@@ -267,9 +267,9 @@ $$
 - **Assumes:** fmax > 0; a baseband (lowpass) signal
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Nyquist rate (minimum sampling rate) as fmax runs from 2400 to 5600 Hz, every other input as you entered it (41 solutions)](https://huggingface.co/AI999X/signal-processing-ai999x/resolve/main/figures/nyquist-rate-live-1.svg)
+![fs_min (Nyquist rate (minimum sampling rate)) against fmax (highest frequency in the signal) from 2000 Hz to 6000 Hz](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/nyquist-rate-curve)
 
-*Nyquist rate (minimum sampling rate) as fmax runs from 2400 to 5600 Hz, every other input as you entered it (41 solutions). Marked: your fmax = 4000 Hz gives fs_min = 8000. Your inputs: fmax = 4000 Hz.*
+*fs_min (Nyquist rate (minimum sampling rate)) against fmax (highest frequency in the signal) from 2000 Hz to 6000 Hz. 31 points computed by signal-processing-ai999x; marked: the worked example, fmax = 4000 Hz, fs_min = 8000 Hz.*
 
 ```python
 signal_processing_ai999x.solve('nyquist_rate', fmax=4000.0)
@@ -312,17 +312,9 @@ $$
 - **Assumes:** $f  \geq  0$; $fs > 0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The frequency a sinusoid appears at after sampling at fs = 10 kHz, for input frequencies 0 to 25 kHz (201 runs of the model): the apparent frequency rises to fs/2 = 5 kHz, then folds back down, a saw-tooth repeating every fs (dashed lines at multiples of fs/2)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/alias-frequency-folding)
+![The frequency a sinusoid appears at after sampling at fs = 10000 Hz, for input frequencies 0 to 25000 Hz (201 runs of the package): the apparent frequency rises to fs/2 = 5000 Hz, then folds back down, a saw-tooth repeating every fs (dashed lines at multiples of fs/2, stated)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/alias-frequency-folding)
 
-*The frequency a sinusoid appears at after sampling at fs = 10 kHz, for input frequencies 0 to 25 kHz (201 runs of the model): the apparent frequency rises to fs/2 = 5 kHz, then folds back down, a saw-tooth repeating every fs (dashed lines at multiples of fs/2). Marked: f = 7 kHz appears at 3 kHz. In SI units: f_alias = 3000 Hz. Your inputs: f = 7000 Hz, fs = 10000 Hz.*
-
-![Apparent (principal alias) frequency as f runs from 4200 to 9800 Hz, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/alias-frequency-live-1)
-
-*Apparent (principal alias) frequency as f runs from 4200 to 9800 Hz, every other input as you entered it (41 solutions). Marked: your f = 7000 Hz gives f_alias = 3000. Your inputs: f = 7000 Hz, fs = 10000 Hz.*
-
-![Apparent (principal alias) frequency as fs runs from 6000 to 1](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/alias-frequency-live-2)
-
-*Apparent (principal alias) frequency as fs runs from 6000 to 1.4e+04 Hz, every other input as you entered it (29 solutions). Marked: your fs = 1e+04 Hz gives f_alias = 3000. Your inputs: f = 7000 Hz, fs = 10000 Hz.*
+*The frequency a sinusoid appears at after sampling at fs = 10000 Hz, for input frequencies 0 to 25000 Hz (201 runs of the package): the apparent frequency rises to fs/2 = 5000 Hz, then folds back down, a saw-tooth repeating every fs (dashed lines at multiples of fs/2, stated). Marked: f = 7000 Hz is seen at 3000 Hz.*
 
 ```python
 signal_processing_ai999x.solve('alias_frequency', f=7000.0, fs=10000.0)
@@ -369,9 +361,9 @@ $$
 - **Assumes:** ratio > 0
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Level in decibels as ratio runs from 50 to 350, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/power-ratio-to-db-live-1)
+![dB (level in decibels (dB)) against ratio (power ratio P2/P1 (a positive number)) from 20 to 2000 on a logarithmic axis](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/power-ratio-to-db-curve)
 
-*Level in decibels as ratio runs from 50 to 350, every other input as you entered it (41 solutions). Marked: your ratio = 200 gives dB = 23.01. Your inputs: ratio = 200.*
+*dB (level in decibels (dB)) against ratio (power ratio P2/P1 (a positive number)) from 20 to 2000 on a logarithmic axis. 41 points computed by signal-processing-ai999x; marked: the worked example, ratio = 200, dB = 23.0103.*
 
 ```python
 signal_processing_ai999x.solve('power_ratio_to_db', ratio=200)
@@ -414,9 +406,9 @@ $$
 - **Assumes:** finite level
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Power ratio P2/P1 as dB runs from 5](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/db-to-power-ratio-live-1)
+![The power ratio for levels from −20 to 40 dB (61 runs of the package, log axis), with the amplitude ratio dashed for comparison: 20 dB is a factor 10 in amplitude but 100 in power](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/db-to-power-ratio-curve)
 
-*Power ratio P2/P1 as dB runs from 5.75 to 40.25, every other input as you entered it (41 solutions). Marked: your dB = 23 gives ratio = 199.5. Your inputs: dB = 23.*
+*The power ratio for levels from −20 to 40 dB (61 runs of the package, log axis), with the amplitude ratio dashed for comparison: 20 dB is a factor 10 in amplitude but 100 in power. Marked: 23.0 dB, ratio 199.526.*
 
 ```python
 signal_processing_ai999x.solve('db_to_power_ratio', dB=23)
@@ -464,9 +456,9 @@ $$
 - **Assumes:** ratio > 0; both amplitudes across equal impedances
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Level in decibels as ratio runs from 12](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/amplitude-ratio-to-db-live-1)
+![dB (level in decibels (dB)) against ratio (amplitude ratio V2/V1 (a positive number)) from 5 to 500 on a logarithmic axis](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/amplitude-ratio-to-db-curve)
 
-*Level in decibels as ratio runs from 12.5 to 87.5, every other input as you entered it (41 solutions). Marked: your ratio = 50 gives dB = 33.98. Your inputs: ratio = 50.*
+*dB (level in decibels (dB)) against ratio (amplitude ratio V2/V1 (a positive number)) from 5 to 500 on a logarithmic axis. 41 points computed by signal-processing-ai999x; marked: the worked example, ratio = 50, dB = 33.9794.*
 
 ```python
 signal_processing_ai999x.solve('amplitude_ratio_to_db', ratio=50)
@@ -508,9 +500,9 @@ $$
 - **Assumes:** finite level
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Amplitude ratio V2/V1 as dB runs from 1](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/db-to-amplitude-ratio-live-1)
+![The amplitude ratio for levels from −20 to 40 dB (61 runs of the package, log axis), with the power ratio dashed for comparison: 20 dB is a factor 10 in amplitude but 100 in power](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/db-to-amplitude-ratio-curve)
 
-*Amplitude ratio V2/V1 as dB runs from 1.5 to 10.5, every other input as you entered it (41 solutions). Marked: your dB = 6 gives ratio = 1.995. Your inputs: dB = 6.*
+*The amplitude ratio for levels from −20 to 40 dB (61 runs of the package, log axis), with the power ratio dashed for comparison: 20 dB is a factor 10 in amplitude but 100 in power. Marked: 6.0 dB, ratio 1.99526.*
 
 ```python
 signal_processing_ai999x.solve('db_to_amplitude_ratio', dB=6)
@@ -553,9 +545,9 @@ $$
 - **Assumes:** $P > 0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Power level in dBm as P runs from 1](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/watts-to-dbm-live-1)
+![dBm (power level in dBm) against P (power) from 0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/watts-to-dbm-curve)
 
-*Power level in dBm as P runs from 1.2 to 2.8 W, every other input as you entered it (41 solutions). Marked: your P = 2 W gives dBm = 33.01. Your inputs: P = 2 W.*
+*dBm (power level in dBm) against P (power) from 0.2 W to 20 W on a logarithmic axis. 41 points computed by signal-processing-ai999x; marked: the worked example, P = 2 W, dBm = 33.0103.*
 
 ```python
 signal_processing_ai999x.solve('watts_to_dbm', P=2.0)
@@ -603,9 +595,9 @@ $$
 - **Assumes:** finite level
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Power as dBm runs from 7](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/dbm-to-watts-live-1)
+![Power in watts for levels from −30 to 60 dBm (91 runs of the package, log axis): every 10 dB is a factor 10, 0 dBm is 1 mW](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/dbm-to-watts-curve)
 
-*Power as dBm runs from 7.5 to 52.5, every other input as you entered it (41 solutions). Marked: your dBm = 30 gives P = 1. Your inputs: dBm = 30.*
+*Power in watts for levels from −30 to 60 dBm (91 runs of the package, log axis): every 10 dB is a factor 10, 0 dBm is 1 mW. Marked: 30.0 dBm = 1 W.*
 
 ```python
 signal_processing_ai999x.solve('dbm_to_watts', dBm=30)
@@ -649,17 +641,13 @@ $$
 - **Assumes:** $Ps > 0$; $Pn > 0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![signal-to-noise ratio in dB (snr_db) over Ps from 0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/snr-from-powers-field)
+![snr_db (signal-to-noise ratio in dB) against Ps (signal power) from 0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/snr-from-powers-curve)
 
-*signal-to-noise ratio in dB (snr_db) over Ps from 0.0002 to 0.02 and Pn from 1e-06 to 0.0001 (logarithmic axes): each of the 143 cells is one computation of the model, shaded by its value (darker is larger; a blank cell: inputs the model refuses). Marked: the inputs given, snr_db = 23.01. Your inputs: Ps = 0.002 W, Pn = 1e-05 W.*
+*snr_db (signal-to-noise ratio in dB) against Ps (signal power) from 0.0002 W to 0.02 W on a logarithmic axis. One curve for each value of Pn (noise power): 1.0000e-05 W, 5.0000e-06 W, 2.0000e-05 W. 41 points per curve computed by signal-processing-ai999x; marked: the worked example, Ps = 0.002 W, snr_db = 23.0103.*
 
-![Signal-to-noise ratio in dB as Ps runs from 0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/snr-from-powers-live-1)
+![snr_db (signal-to-noise ratio in dB) over Ps (signal power) from 0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/snr-from-powers-field)
 
-*Signal-to-noise ratio in dB as Ps runs from 0.0012 to 0.0028 W, every other input as you entered it (41 solutions). Marked: your Ps = 0.002 W gives snr_db = 23.01. Your inputs: Ps = 0.002 W, Pn = 1e-05 W.*
-
-![Signal-to-noise ratio in dB as Pn runs from 6e-06 to 1](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/snr-from-powers-live-2)
-
-*Signal-to-noise ratio in dB as Pn runs from 6e-06 to 1.4e-05 W, every other input as you entered it (29 solutions). Marked: your Pn = 1e-05 W gives snr_db = 23.01. Your inputs: Ps = 0.002 W, Pn = 1e-05 W.*
+*snr_db (signal-to-noise ratio in dB) over Ps (signal power) from 0.0002 W to 0.02 W and Pn (noise power) from 1.0000e-06 W to 0.0001 W (logarithmic axes): each of the 21 × 15 cells is one run of signal-processing-ai999x, shaded by its value (light 3.0103 to dark 43.0103); iso-lines at snr_db = 10, 20, 30, 40. Marked: the worked example, Ps = 0.002 W, Pn = 1.0000e-05 W, snr_db = 23.0103.*
 
 ```python
 signal_processing_ai999x.solve('snr_from_powers', Ps=0.002, Pn=1e-05)
@@ -700,17 +688,9 @@ $$
 - **Assumes:** at least one sample
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The samples x = [1, -2, 3, 0] with the statistics returned by the model: mean 0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/signal-statistics-stems)
+![The samples x = [1, -2, 3, 0] with the statistics returned by the package: mean 0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/signal-statistics-stems)
 
-*The samples x = [1, -2, 3, 0] with the statistics returned by the model: mean 0.5, rms 1.871 (drawn at ±rms), peak |x| 3, energy 14, average power 3.5. Your inputs: x = 1, -2, 3, 0.*
-
-![Root-mean-square value as x[0] runs from 0 to 5, every other input as you entered it (6 solutions)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/signal-statistics-live-1)
-
-*Root-mean-square value as x[0] runs from 0 to 5, every other input as you entered it (6 solutions). Marked: your x[0] = 1 gives rms = 1.871. Your inputs: x = 1, -2, 3, 0.*
-
-![Root-mean-square value as x[1] runs from -6 to 2, every other input as you entered it (9 solutions)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/signal-statistics-live-2)
-
-*Root-mean-square value as x[1] runs from -6 to 2, every other input as you entered it (9 solutions). Marked: your x[1] = -2 gives rms = 1.871. Your inputs: x = 1, -2, 3, 0.*
+*The samples x = [1, -2, 3, 0] with the statistics returned by the package: mean 0.5, rms 1.87083 (drawn at ±rms), peak |x| 3, energy 14, average power 3.5.*
 
 ```python
 signal_processing_ai999x.solve('signal_statistics', x='1, -2, 3, 0')
@@ -754,17 +734,9 @@ $$
 - **Assumes:** $Vp > 0$; a pure sinusoid with no DC offset
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![A sinusoid of peak Vp = 10 V (input) over two periods, with its rectified wave (dashed); returned by the model: Vrms = 7](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/sine-rms-waveform)
+![A sinusoid of peak Vp = 10 V (input) over two periods, with its rectified wave; returned by the package: Vrms = 7](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/sine-rms-waveform)
 
-*A sinusoid of peak Vp = 10 V (input) over two periods, with its rectified wave (dashed); returned by the model: Vrms = 7.071 V, average of the rectified wave Vavg = 6.366 V, peak-to-peak Vpp = 20 V. Your inputs: Vp = 10 V.*
-
-![RMS value as Vp runs from 6 to 14 V, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/sine-rms-live-1)
-
-*RMS value as Vp runs from 6 to 14 V, every other input as you entered it (41 solutions). Marked: your Vp = 10 V gives Vrms = 7.071. Your inputs: Vp = 10 V.*
-
-![Every answer of one unit for your inputs: Vrms (RMS value) = 7](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/sine-rms-live-2)
-
-*Every answer of one unit for your inputs: Vrms (RMS value) = 7.071; Vpp (peak-to-peak value) = 20; Vavg (average of the rectified wave) = 6.366. Your inputs: Vp = 10 V.*
+*A sinusoid of peak Vp = 10 V (input) over two periods, with its rectified wave; returned by the package: Vrms = 7.07107 V, average of the rectified wave Vavg = 6.3662 V, peak-to-peak Vpp = 20 V.*
 
 ```python
 signal_processing_ai999x.solve('sine_rms', Vp=10.0)
@@ -802,9 +774,9 @@ $$
 - **Assumes:** ideal uniform quantizer; full-scale sinusoidal input; noise uniformly distributed
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Signal-to-quantization-noise ratio in dB as bits runs from 1 to 32, every other input as you entered it (32 solutions)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/quantization-snr-live-1)
+![sqnr_db (signal-to-quantization-noise ratio in dB) against bits (resolution in bits) from 1 to 24](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/quantization-snr-curve)
 
-*Signal-to-quantization-noise ratio in dB as bits runs from 1 to 32, every other input as you entered it (32 solutions). Marked: your bits = 12 gives sqnr_db = 74.01. Your inputs: bits = 12.*
+*sqnr_db (signal-to-quantization-noise ratio in dB) against bits (resolution in bits) from 1 to 24. 24 points computed by signal-processing-ai999x; marked: the worked example, bits = 12, sqnr_db = 74.0081.*
 
 ```python
 signal_processing_ai999x.solve('quantization_snr', bits=12)
@@ -847,17 +819,9 @@ $$
 - **Assumes:** uncorrelated signals (their powers add)
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Adding incoherent powers given in dBm: the 2 sources of 10, 10 dBm, shown in watts (from the model's dBm-to-watts capability: 10 mW, 10 mW)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/dbm-power-sum-bars)
+![Adding incoherent powers given in dBm: the worked example's 2 sources of 10, 10 dBm, shown in watts (from the package's dBm-to-watts capability: 0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/dbm-power-sum-bars)
 
-*Adding incoherent powers given in dBm: the 2 sources of 10, 10 dBm, shown in watts (from the model's dBm-to-watts capability: 10 mW, 10 mW). The model returns their total 20 mW = 13.01 dBm: the levels add in watts, not in dB. Your inputs: levels = 10, 10.*
-
-![Total power level in dBm as levels[1] runs from 0 to 30, every other input as you entered it (31 solutions)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/dbm-power-sum-live-1)
-
-*Total power level in dBm as levels[1] runs from 0 to 30, every other input as you entered it (31 solutions). Marked: your levels[1] = 10 gives total_dBm = 13.01. Your inputs: levels = 10, 10.*
-
-![Total power level in dBm as levels[2] runs from 0 to 30, every other input as you entered it (16 solutions)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/dbm-power-sum-live-2)
-
-*Total power level in dBm as levels[2] runs from 0 to 30, every other input as you entered it (16 solutions). Marked: your levels[2] = 10 gives total_dBm = 13.01. Your inputs: levels = 10, 10.*
+*Adding incoherent powers given in dBm: the worked example's 2 sources of 10, 10 dBm, shown in watts (from the package's dBm-to-watts capability: 0.01, 0.01 W). The package returns their total 0.02 W = 13.0103 dBm, the levels add in watts, not in dB.*
 
 ```python
 signal_processing_ai999x.solve('dbm_power_sum', levels='10, 10')
@@ -900,17 +864,13 @@ $$
 - **Assumes:** $fs > 0$; $N  \geq  2$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![frequency resolution (bin spacing) (df) over N from 16 to 6](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/frequency-resolution-field)
+![df (frequency resolution (bin spacing)) against fs (sampling rate) from 24000 Hz to 72000 Hz](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/frequency-resolution-curve)
 
-*frequency resolution (bin spacing) (df) over N from 16 to 6.554e+04 and fs from 2.4e+04 to 7.2e+04 (logarithmic axes): each of the 143 cells is one computation of the model, shaded by its value (darker is larger; a blank cell: inputs the model refuses). Marked: the inputs given, df = 46.88. Your inputs: fs = 48000 Hz, N = 1024.*
+*df (frequency resolution (bin spacing)) against fs (sampling rate) from 24000 Hz to 72000 Hz. One curve for each value of N (number of DFT points): 1024, 512, 2048. 31 points per curve computed by signal-processing-ai999x; marked: the worked example, fs = 48000 Hz, df = 46.875 Hz.*
 
-![Frequency resolution (bin spacing) as fs runs from 2](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/frequency-resolution-live-1)
+![df (frequency resolution (bin spacing)) over N (number of DFT points) from 1 to 2048 and fs (sampling rate) from 24000 Hz to 72000 Hz (logarithmic horizontal axis): each of the 21 × 15 cells is one run of signal-processing-ai999x, shaded by its value (light 11](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/frequency-resolution-field)
 
-*Frequency resolution (bin spacing) as fs runs from 2.88e+04 to 6.72e+04 Hz, every other input as you entered it (41 solutions). Marked: your fs = 4.8e+04 Hz gives df = 46.88. Your inputs: fs = 48000 Hz, N = 1024.*
-
-![Frequency resolution (bin spacing) as N runs from 1004 to 1044, every other input as you entered it (21 solutions)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/frequency-resolution-live-2)
-
-*Frequency resolution (bin spacing) as N runs from 1004 to 1044, every other input as you entered it (21 solutions). Marked: your N = 1024 gives df = 46.88. Your inputs: fs = 48000 Hz, N = 1024.*
+*df (frequency resolution (bin spacing)) over N (number of DFT points) from 1 to 2048 and fs (sampling rate) from 24000 Hz to 72000 Hz (logarithmic horizontal axis): each of the 21 × 15 cells is one run of signal-processing-ai999x, shaded by its value (light 11.7188 Hz to dark 36000 Hz, logarithmic shading); iso-lines at df = 100, 1000, 10000 Hz; blank cells: inputs the capability refuses. Marked: the worked example, N = 1024, fs = 48000 Hz, df = 46.875 Hz.*
 
 ```python
 signal_processing_ai999x.solve('frequency_resolution', fs=48000.0, N=1024)
@@ -949,17 +909,9 @@ $$
 - **Assumes:** $0  \leq  k  \leq  N/2$; $fs > 0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The centre frequency of DFT bin k for N = 1024 points sampled at fs = 48 kHz, k = 0 to 512 (one run of the model per plotted bin): a straight line of slope fs/N reaching fs/2 at k = N/2 (dashed)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/bin-frequency-bins)
+![The centre frequency of DFT bin k for N = 1024 points sampled at fs = 48000 Hz, k = 0 … 512 (one run of the package per plotted bin): a straight line of slope fs/N reaching fs/2 at k = N/2 (dashed, stated)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/bin-frequency-bins)
 
-*The centre frequency of DFT bin k for N = 1024 points sampled at fs = 48 kHz, k = 0 to 512 (one run of the model per plotted bin): a straight line of slope fs/N reaching fs/2 at k = N/2 (dashed). Marked: k = 100, f_k = 4.688 kHz. In SI units: f_k = 4688 Hz. Your inputs: k = 100, fs = 48000 Hz, N = 1024.*
-
-![Frequency of bin k as fs runs from 2](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/bin-frequency-live-1)
-
-*Frequency of bin k as fs runs from 2.88e+04 to 6.72e+04 Hz, every other input as you entered it (41 solutions). Marked: your fs = 4.8e+04 Hz gives f_k = 4688. Your inputs: k = 100, fs = 48000 Hz, N = 1024.*
-
-![Frequency of bin k as k runs from 80 to 120, every other input as you entered it (21 solutions)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/bin-frequency-live-2)
-
-*Frequency of bin k as k runs from 80 to 120, every other input as you entered it (21 solutions). Marked: your k = 100 gives f_k = 4688. Your inputs: k = 100, fs = 48000 Hz, N = 1024.*
+*The centre frequency of DFT bin k for N = 1024 points sampled at fs = 48000 Hz, k = 0 … 512 (one run of the package per plotted bin): a straight line of slope fs/N reaching fs/2 at k = N/2 (dashed, stated). Marked: k = 100, f_k = 4687.5 Hz.*
 
 ```python
 signal_processing_ai999x.solve('bin_frequency', k=100, fs=48000.0, N=1024)
@@ -999,17 +951,9 @@ $$
 - **Assumes:** $0  \leq  k < N$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The DFT bins of x = [1, 2, 3, 4] as phasors in the complex plane (real part across), one run of the model per bin: X[0] = 10; X[1] = -2 + 2j; X[2] = -2; X[3] = -2 - 2j](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/dft-bin-phasors)
+![The DFT bins of x = [1, 2, 3, 4] as phasors in the complex plane, one run of the package per bin: X[0] = 10 + 0j; X[1] = -2 + 2j; X[2] = -2 + 0j; X[3] = -2 − 2j](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/dft-bin-phasors)
 
-*The DFT bins of x = [1, 2, 3, 4] as phasors in the complex plane (real part across), one run of the model per bin: X[0] = 10; X[1] = -2 + 2j; X[2] = -2; X[3] = -2 - 2j. Highlighted: bin k = 1, |X| = 2.828, phase 2.356 rad. Your inputs: x = 1, 2, 3, 4, k = 1.*
-
-![Magnitude as k runs from 0 to 3, every other input as you entered it (4 solutions)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/dft-bin-live-1)
-
-*Magnitude as k runs from 0 to 3, every other input as you entered it (4 solutions). Marked: your k = 1 gives magnitude = 2.828. Your inputs: x = 1, 2, 3, 4, k = 1.*
-
-![Magnitude as x[3] runs from 0 to 8, every other input as you entered it (9 solutions)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/dft-bin-live-2)
-
-*Magnitude as x[3] runs from 0 to 8, every other input as you entered it (9 solutions). Marked: your x[3] = 4 gives magnitude = 2.828. Your inputs: x = 1, 2, 3, 4, k = 1.*
+*The DFT bins of x = [1, 2, 3, 4] as phasors in the complex plane, one run of the package per bin: X[0] = 10 + 0j; X[1] = -2 + 2j; X[2] = -2 + 0j; X[3] = -2 − 2j. Highlighted: the worked example k = 1, |X| = 2.82843, phase 2.35619 rad.*
 
 ```python
 signal_processing_ai999x.solve('dft_bin', x='1, 2, 3, 4', k=1)
@@ -1062,25 +1006,13 @@ $$
 - **Assumes:** real samples
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Magnitude of the 4-point DFT returned by the model for x = [1, 2, 3, 4], bins 0 to 2 shown](https://huggingface.co/AI999X/signal-processing-ai999x/resolve/main/figures/dft-spectrum-spectrum.svg)
+![Magnitude of the 32-point DFT returned by the package for x[n] = sin(2π·3n/32) + 0](https://huggingface.co/AI999X/signal-processing-ai999x/resolve/main/figures/dft-spectrum-spectrum.svg)
 
-*Magnitude of the 4-point DFT returned by the model for x = [1, 2, 3, 4], bins 0 to 2 shown. Marked: the largest of them, |X[0]| = 10. Your inputs: x = 1, 2, 3, 4.*
+*Magnitude of the 32-point DFT returned by the package for x[n] = sin(2π·3n/32) + 0.5 sin(2π·7n/32), n = 0…31 (bins 0–16 shown; the rest mirror them). The two tones appear at bins 3 and 7; marked: |X[3]| = 16, |X[7]| = 8.*
 
-![The signal x = [1, 2, 3, 4] and its DFT returned by the model: magnitudes [10, 2](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/dft-spectrum-stems)
+![The worked example x = [1, 2, 3, 4] and its DFT returned by the package: magnitudes [10, 2](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/dft-spectrum-stems)
 
-*The signal x = [1, 2, 3, 4] and its DFT returned by the model: magnitudes [10, 2.828, 2, 2.828] and phases [0, 2.356, 3.142, -2.356] rad for bins k = 0 to 3; largest |X[0]| = 10. Your inputs: x = 1, 2, 3, 4.*
-
-![Peak magnitude as x[3] runs from 0 to 8, every other input as you entered it (9 solutions)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/dft-spectrum-live-1)
-
-*Peak magnitude as x[3] runs from 0 to 8, every other input as you entered it (9 solutions). Marked: your x[3] = 4 gives peak_magnitude = 10. Your inputs: x = 1, 2, 3, 4.*
-
-![Every entry of magnitude as computed for your inputs (4 entries: 10, 2](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/dft-spectrum-live-2)
-
-*Every entry of magnitude as computed for your inputs (4 entries: 10, 2.828, 2, 2.828). Your inputs: x = 1, 2, 3, 4.*
-
-![Peak magnitude as x[0] runs from 0 to 5, every other input as you entered it (6 solutions)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/dft-spectrum-live-3)
-
-*Peak magnitude as x[0] runs from 0 to 5, every other input as you entered it (6 solutions). Marked: your x[0] = 1 gives peak_magnitude = 10. Your inputs: x = 1, 2, 3, 4.*
+*The worked example x = [1, 2, 3, 4] and its DFT returned by the package: magnitudes [10, 2.828, 2, 2.828] and phases [0, 2.356, 3.142, -2.356] rad for bins k = 0 … 3; largest |X[0]| = 10.*
 
 ```python
 signal_processing_ai999x.solve('dft_spectrum', x='1, 2, 3, 4')
@@ -1129,13 +1061,9 @@ $$
 - **Assumes:** both lists have the same length
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The inverse DFT of the spectrum Re = [10, -2, -2, -2], Im = [0, 2, 0, -2]: the model returns x = [1, 2, 3, 4] with imaginary parts [0, 0, 0, 0], a real signal (the spectrum is conjugate-symmetric)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/inverse-dft-stems)
+![The inverse DFT of the spectrum Re = [10, -2, -2, -2], Im = [0, 2, 0, -2] (inputs): the package returns x = [1, 2, 3, 4] with imaginary parts [0, 0, 0, 0], a real signal, because the spectrum is conjugate-symmetric](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/inverse-dft-stems)
 
-*The inverse DFT of the spectrum Re = [10, -2, -2, -2], Im = [0, 2, 0, -2]: the model returns x = [1, 2, 3, 4] with imaginary parts [0, 0, 0, 0], a real signal (the spectrum is conjugate-symmetric). Your inputs: re_ = 10, -2, -2, -2, im = 0, 2, 0, -2.*
-
-![Every entry of real as computed for your inputs (4 entries: 1, 2, 3, 4)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/inverse-dft-live-1)
-
-*Every entry of real as computed for your inputs (4 entries: 1, 2, 3, 4). Your inputs: re_ = 10, -2, -2, -2, im = 0, 2, 0, -2.*
+*The inverse DFT of the spectrum Re = [10, -2, -2, -2], Im = [0, 2, 0, -2] (inputs): the package returns x = [1, 2, 3, 4] with imaginary parts [0, 0, 0, 0], a real signal, because the spectrum is conjugate-symmetric.*
 
 ```python
 signal_processing_ai999x.solve('inverse_dft', re_='10, -2, -2, -2', im='0, 2, 0, -2')
@@ -1179,13 +1107,9 @@ $$
 - **Assumes:** finite sequences starting at $n = 0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Linear convolution of x = [1, 2, 3] with h = [1, -1]: the model returns y = [1, 1, 1, -3], of length 3 + 2 - 1 = 4](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/linear-convolution-stems)
+![Linear convolution of x = [1, 2, 3] with h = [1, -1]: the package returns y = [1, 1, 1, -3], of length 3 + 2 − 1 = 4](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/linear-convolution-stems)
 
-*Linear convolution of x = [1, 2, 3] with h = [1, -1]: the model returns y = [1, 1, 1, -3], of length 3 + 2 - 1 = 4. Your inputs: x = 1, 2, 3, h = 1, -1.*
-
-![Every entry of y as computed for your inputs (4 entries: 1, 1, 1, -3)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/linear-convolution-live-1)
-
-*Every entry of y as computed for your inputs (4 entries: 1, 1, 1, -3). Your inputs: x = 1, 2, 3, h = 1, -1.*
+*Linear convolution of x = [1, 2, 3] with h = [1, -1]: the package returns y = [1, 1, 1, -3], of length 3 + 2 − 1 = 4.*
 
 ```python
 signal_processing_ai999x.solve('linear_convolution', x='1, 2, 3', h='1, -1')
@@ -1228,13 +1152,9 @@ $$
 - **Assumes:** both sequences have length N
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Circular convolution of x = [1, 2, 3, 4] with h = [1, 0, 0, 1]: the model returns y = [3, 5, 7, 5] (length 4, indices wrap around)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/circular-convolution-stems)
+![Circular convolution of x = [1, 2, 3, 4] with h = [1, 0, 0, 1] (length 4, indices wrap around): the package returns y = [3, 5, 7, 5]](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/circular-convolution-stems)
 
-*Circular convolution of x = [1, 2, 3, 4] with h = [1, 0, 0, 1]: the model returns y = [3, 5, 7, 5] (length 4, indices wrap around). Your inputs: x = 1, 2, 3, 4, h = 1, 0, 0, 1.*
-
-![Every entry of y as computed for your inputs (4 entries: 3, 5, 7, 5)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/circular-convolution-live-1)
-
-*Every entry of y as computed for your inputs (4 entries: 3, 5, 7, 5). Your inputs: x = 1, 2, 3, 4, h = 1, 0, 0, 1.*
+*Circular convolution of x = [1, 2, 3, 4] with h = [1, 0, 0, 1] (length 4, indices wrap around): the package returns y = [3, 5, 7, 5].*
 
 ```python
 signal_processing_ai999x.solve('circular_convolution', x='1, 2, 3, 4', h='1, 0, 0, 1')
@@ -1279,21 +1199,9 @@ $$
 - **Assumes:** finite sequences starting at $n = 0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Cross-correlation of x = [0, 0, 1, 2, 1] with y = [1, 2, 1]: the model returns r at lags -2 to 4, peaking at lag 2 with r = 6, the shift at which y best lines up with x](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/cross-correlation-stems)
+![Cross-correlation of x = [0, 0, 1, 2, 1] with y = [1, 2, 1]: the package returns r at lags -2 … 4, peaking at lag 2 with r = 6, the shift at which y best lines up with x](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/cross-correlation-stems)
 
-*Cross-correlation of x = [0, 0, 1, 2, 1] with y = [1, 2, 1]: the model returns r at lags -2 to 4, peaking at lag 2 with r = 6, the shift at which y best lines up with x. Your inputs: x = 0, 0, 1, 2, 1, y = 1, 2, 1.*
-
-![Lag of the largest correlation (positive: x](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/cross-correlation-live-1)
-
-*Lag of the largest correlation (positive: x... as x[0] runs from 0 to 4, every other input as you entered it (5 solutions). Marked: your x[0] = 0 gives peak_lag = 2. Your inputs: x = 0, 0, 1, 2, 1, y = 1, 2, 1.*
-
-![Every entry of r as computed for your inputs (7 entries: 0, 0, 1, 4, 6, 4, 1)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/cross-correlation-live-2)
-
-*Every entry of r as computed for your inputs (7 entries: 0, 0, 1, 4, 6, 4, 1). Your inputs: x = 0, 0, 1, 2, 1, y = 1, 2, 1.*
-
-![Lag of the largest correlation (positive: x](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/cross-correlation-live-3)
-
-*Lag of the largest correlation (positive: x... as x[1] runs from 0 to 4, every other input as you entered it (5 solutions). Marked: your x[1] = 0 gives peak_lag = 2. Your inputs: x = 0, 0, 1, 2, 1, y = 1, 2, 1.*
+*Cross-correlation of x = [0, 0, 1, 2, 1] with y = [1, 2, 1]: the package returns r at lags -2 … 4, peaking at lag 2 with r = 6, the shift at which y best lines up with x.*
 
 ```python
 signal_processing_ai999x.solve('cross_correlation', x='0, 0, 1, 2, 1', y='1, 2, 1')
@@ -1335,21 +1243,9 @@ $$
 - **Assumes:** $M  \geq  1$; zero initial conditions
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![A 3-point moving average: your x = [3, 6, 9, 12] gives y = [1, 3, 6, 9] (returned by the model); below, a signal chosen for the drawing, x[n] = 5 + 3 sin(2πn/16) plus +2 on every third sample and -1 elsewhere, n = 0 to 23, averaged by the model: the slow wave stays and the ripple is smoothed](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/moving-average-stems)
+![A 3-point moving average applied to a chosen signal x[n] = 5 + 3 sin(2πn/16) plus a ripple of +2 on every third sample and −1 elsewhere, n = 0 … 23 (input stated); the output y returned by the package keeps the slow wave and smooths the ripple](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/moving-average-stems)
 
-*A 3-point moving average: your x = [3, 6, 9, 12] gives y = [1, 3, 6, 9] (returned by the model); below, a signal chosen for the drawing, x[n] = 5 + 3 sin(2πn/16) plus +2 on every third sample and -1 elsewhere, n = 0 to 23, averaged by the model: the slow wave stays and the ripple is smoothed. Your inputs: x = 3, 6, 9, 12, M = 3.*
-
-![Y[1], y[2] and y[3] as x[0] runs from 0 to 7, every other input as you entered it (8 solutions)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/moving-average-live-1)
-
-*Y[1], y[2] and y[3] as x[0] runs from 0 to 7, every other input as you entered it (8 solutions). Marked: your x[0] = 3 gives y[1] = 1. Your inputs: x = 3, 6, 9, 12, M = 3.*
-
-![Every entry of y as computed for your inputs (4 entries: 1, 3, 6, 9)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/moving-average-live-2)
-
-*Every entry of y as computed for your inputs (4 entries: 1, 3, 6, 9). Your inputs: x = 3, 6, 9, 12, M = 3.*
-
-![Y[1], y[2] and y[3] as M runs from 1 to 7, every other input as you entered it (7 solutions)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/moving-average-live-3)
-
-*Y[1], y[2] and y[3] as M runs from 1 to 7, every other input as you entered it (7 solutions). Marked: your M = 3 gives y[1] = 1. Your inputs: x = 3, 6, 9, 12, M = 3.*
+*A 3-point moving average applied to a chosen signal x[n] = 5 + 3 sin(2πn/16) plus a ripple of +2 on every third sample and −1 elsewhere, n = 0 … 23 (input stated); the output y returned by the package keeps the slow wave and smooths the ripple. The worked example is x = [3, 6, 9, 12], M = 3.*
 
 ```python
 signal_processing_ai999x.solve('moving_average', x='3, 6, 9, 12', M=3)
@@ -1392,25 +1288,13 @@ $$
 - **Assumes:** zero initial conditions
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![A sampled signal (fs = 8000 Hz; a 166](https://huggingface.co/AI999X/signal-processing-ai999x/resolve/main/figures/fir-filter-output-signal.svg)
+
+*A sampled signal (fs = 8000 Hz; a 166.7 Hz tone plus a 3000 Hz tone of amplitude 0.4) and the output of the 21-tap Hamming-window FIR low-pass filter (fc = 1000 Hz) designed by the package, the output computed by it sample by sample: the 3000 Hz component is removed and the slow tone passes, delayed by 10 samples (1.25 ms).*
+
 ![The FIR filter b = [0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/fir-filter-output-stems)
 
-*The FIR filter b = [0.5, 0.5] applied to x = [1, 2, 3, 4]: the model returns y = [0.5, 1.5, 2.5, 3.5], each output the taps-weighted sum of the current and previous inputs. Your inputs: b = 0.5, 0.5, x = 1, 2, 3, 4.*
-
-![A test signal chosen for the drawing (a slow tone of 48 samples a period plus a fast tone of amplitude 0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/fir-filter-output-signal)
-
-*A test signal chosen for the drawing (a slow tone of 48 samples a period plus a fast tone of amplitude 0.4 at 3/8 cycle a sample, 72 samples) and its output through the FIR filter b = [0.5, 0.5] given, computed sample by sample by the model. Your own input x = [1, 2, 3, 4] gives y = [0.5, 1.5, 2.5, 3.5]. Your inputs: b = 0.5, 0.5, x = 1, 2, 3, 4.*
-
-![Y[1] and y[2] as x[0] runs from 0 to 5, every other input as you entered it (6 solutions)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/fir-filter-output-live-1)
-
-*Y[1] and y[2] as x[0] runs from 0 to 5, every other input as you entered it (6 solutions). Marked: your x[0] = 1 gives y[1] = 0.5. Your inputs: b = 0.5, 0.5, x = 1, 2, 3, 4.*
-
-![Every entry of y as computed for your inputs (4 entries: 0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/fir-filter-output-live-2)
-
-*Every entry of y as computed for your inputs (4 entries: 0.5, 1.5, 2.5, 3.5). Your inputs: b = 0.5, 0.5, x = 1, 2, 3, 4.*
-
-![Y[1], y[2] and y[3] as b[0] runs from 0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/fir-filter-output-live-3)
-
-*Y[1], y[2] and y[3] as b[0] runs from 0.125 to 0.875, every other input as you entered it (29 solutions). Marked: your b[0] = 0.5 gives y[1] = 0.5. Your inputs: b = 0.5, 0.5, x = 1, 2, 3, 4.*
+*The FIR filter b = [0.5, 0.5] applied to x = [1, 2, 3, 4] (the worked example): the package returns y = [0.5, 1.5, 2.5, 3.5], each output the taps-weighted sum of the current and previous inputs.*
 
 ```python
 signal_processing_ai999x.solve('fir_filter_output', b='0.5, 0.5', x='1, 2, 3, 4')
@@ -1456,19 +1340,7 @@ $$
 
 ![The recursive filter b = [1], a = [1, -0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/iir-filter-output-stems)
 
-*The recursive filter b = [1], a = [1, -0.5] driven by your input x = [1, 0, 0, 0] (the model returns y = [1, 0.5, 0.25, 0.125]) and by an input chosen for the drawing, an impulse then a pulse of six samples, whose output the model also computes: [1, 0.5, 0.25, ..., 0.03079] (16 values). Your inputs: b = 1, a = 1, -0.5, x = 1, 0, 0, 0.*
-
-![Y[1], y[2] and y[3] as b[0] runs from 0 to 5, every other input as you entered it (6 solutions)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/iir-filter-output-live-1)
-
-*Y[1], y[2] and y[3] as b[0] runs from 0 to 5, every other input as you entered it (6 solutions). Marked: your b[0] = 1 gives y[1] = 1. Your inputs: b = 1, a = 1, -0.5, x = 1, 0, 0, 0.*
-
-![Every entry of y as computed for your inputs (4 entries: 1, 0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/iir-filter-output-live-2)
-
-*Every entry of y as computed for your inputs (4 entries: 1, 0.5, 0.25, 0.125). Your inputs: b = 1, a = 1, -0.5, x = 1, 0, 0, 0.*
-
-![Y[1], y[2] and y[3] as x[0] runs from 0 to 5, every other input as you entered it (6 solutions)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/iir-filter-output-live-3)
-
-*Y[1], y[2] and y[3] as x[0] runs from 0 to 5, every other input as you entered it (6 solutions). Marked: your x[0] = 1 gives y[1] = 1. Your inputs: b = 1, a = 1, -0.5, x = 1, 0, 0, 0.*
+*The recursive filter b = [1], a = [1, -0.5] of the worked example driven by an input chosen for the drawing, x = [1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0] (an impulse, then a pulse of six samples): the package's output y decays geometrically after the impulse, rises toward its DC level during the pulse and decays after it; largest output 1.9707.*
 
 ```python
 signal_processing_ai999x.solve('iir_filter_output', b='1', a='1, -0.5', x='1, 0, 0, 0')
@@ -1512,21 +1384,9 @@ $$
 - **Assumes:** a[0] != 0
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The impulse response returned by the model for b = [1], a = [1, -0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/impulse-response-stems)
+![Impulse responses returned by the package, 20 samples each: the worked example b = [1], a = [1, -0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/impulse-response-stems)
 
-*The impulse response returned by the model for b = [1], a = [1, -0.5]: h = [1, 0.5, 0.25, 0.125, 0.0625] for the 5 samples asked, drawn over 20 samples. Beside it, the mirrored filter b = [1], a = [1, 0.5] (z replaced by -z), also computed by the model: the same decay with alternating sign. Your inputs: b = 1, a = 1, -0.5, n = 5.*
-
-![H[1], h[2] and h[3] as b[0] runs from 0 to 5, every other input as you entered it (6 solutions)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/impulse-response-live-1)
-
-*H[1], h[2] and h[3] as b[0] runs from 0 to 5, every other input as you entered it (6 solutions). Marked: your b[0] = 1 gives h[1] = 1. Your inputs: b = 1, a = 1, -0.5, n = 5.*
-
-![Every entry of h as computed for your inputs (5 entries: 1, 0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/impulse-response-live-2)
-
-*Every entry of h as computed for your inputs (5 entries: 1, 0.5, 0.25, 0.125, 0.0625). Your inputs: b = 1, a = 1, -0.5, n = 5.*
-
-![H[1], h[2] and h[3] as a[0] runs from 0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/impulse-response-live-3)
-
-*H[1], h[2] and h[3] as a[0] runs from 0.25 to 1.75, every other input as you entered it (29 solutions). Marked: your a[0] = 1 gives h[1] = 1. Your inputs: b = 1, a = 1, -0.5, n = 5.*
+*Impulse responses returned by the package, 20 samples each: the worked example b = [1], a = [1, -0.5] (pole at 0.5: a geometric decay) and the mirrored filter a = [1, 0.5] (pole at -0.5: the same decay with alternating sign).*
 
 ```python
 signal_processing_ai999x.solve('impulse_response', b='1', a='1, -0.5', n=5)
@@ -1569,21 +1429,9 @@ $$
 - **Assumes:** a[0] != 0
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Step responses returned by the model (24 samples, one dot per sample) for b = [1] with your denominator a = [1, -0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/step-response-stems)
+![Step responses returned by the package (24 samples) for b = [1] with a one-pole denominator 1 − p z⁻¹, p = 0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/step-response-stems)
 
-*Step responses returned by the model (24 samples, one dot per sample) for b = [1] with your denominator a = [1, -0.5] and two comparison denominators; each settles at its DC gain (dashed, from the model's DC-gain capability): a = [1, -0.5]: settles at its DC gain 2; a = [1, -0.8]: settles at its DC gain 5; a = [1, 0.5]: settles at its DC gain 0.6667. Your 4 samples: s = [1, 1.5, 1.75, 1.875]. Your inputs: b = 1, a = 1, -0.5, n = 4.*
-
-![S[1], s[2] and s[3] as b[0] runs from 0 to 5, every other input as you entered it (6 solutions)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/step-response-live-1)
-
-*S[1], s[2] and s[3] as b[0] runs from 0 to 5, every other input as you entered it (6 solutions). Marked: your b[0] = 1 gives s[1] = 1. Your inputs: b = 1, a = 1, -0.5, n = 4.*
-
-![Every entry of s as computed for your inputs (4 entries: 1, 1](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/step-response-live-2)
-
-*Every entry of s as computed for your inputs (4 entries: 1, 1.5, 1.75, 1.875). Your inputs: b = 1, a = 1, -0.5, n = 4.*
-
-![S[1], s[2] and s[3] as a[0] runs from 0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/step-response-live-3)
-
-*S[1], s[2] and s[3] as a[0] runs from 0.25 to 1.75, every other input as you entered it (29 solutions). Marked: your a[0] = 1 gives s[1] = 1. Your inputs: b = 1, a = 1, -0.5, n = 4.*
+*Step responses returned by the package (24 samples) for b = [1] with a one-pole denominator 1 − p z⁻¹, p = 0.5 (the worked example), 0.8 and −0.5; each settles at its DC gain (dashed, from the package's DC-gain capability): pole 0.5: settles at 2; pole 0.8: settles at 5; pole -0.5: settles at 0.666667. A pole nearer 1 is slower; a negative pole rings.*
 
 ```python
 signal_processing_ai999x.solve('step_response', b='1', a='1, -0.5', n=4)
@@ -1623,17 +1471,9 @@ $$
 - **Assumes:** $0  \leq  f  \leq  fs/2$; no pole on the unit circle at f
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Gain and phase of the filter b = [1, 1], a = [1] at fs = 8 kHz, from 0 to fs/2 (101 runs of the model)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/frequency-response-response)
+![Gain and phase of the filter b = [1, 1] at fs = 8000 Hz, from 0 to fs/2 (101 runs of the package)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/frequency-response-response)
 
-*Gain and phase of the filter b = [1, 1], a = [1] at fs = 8 kHz, from 0 to fs/2 (101 runs of the model). Marked: f = 1 kHz, |H| = 1.848, phase -0.3927 rad. Your inputs: b = 1, 1, f = 1000 Hz, fs = 8000 Hz.*
-
-![Magnitude as b[0] runs from 0 to 5, every other input as you entered it (6 solutions)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/frequency-response-live-1)
-
-*Magnitude as b[0] runs from 0 to 5, every other input as you entered it (6 solutions). Marked: your b[0] = 1 gives magnitude = 1.848. Your inputs: b = 1, 1, f = 1000 Hz, fs = 8000 Hz.*
-
-![Magnitude as b[1] runs from 0 to 5, every other input as you entered it (6 solutions)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/frequency-response-live-2)
-
-*Magnitude as b[1] runs from 0 to 5, every other input as you entered it (6 solutions). Marked: your b[1] = 1 gives magnitude = 1.848. Your inputs: b = 1, 1, f = 1000 Hz, fs = 8000 Hz.*
+*Gain and phase of the filter b = [1, 1] at fs = 8000 Hz, from 0 to fs/2 (101 runs of the package). Marked: f = 1000 Hz, |H| = 1.84776 (5.33291 dB), phase -0.392699 rad.*
 
 ```python
 signal_processing_ai999x.solve('frequency_response', b='1, 1', f=1000.0, fs=8000.0)
@@ -1685,17 +1525,9 @@ $$
 - **Assumes:** $0  \leq  f  \leq  fs/2$; no zero or pole of H on the unit circle at f
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Group delay of the filter b = [1, 2, 3, 2, 1] against frequency at fs = 8 kHz, 60 runs of the model; for comparison the order-2 Butterworth low-pass the model designs for fc = fs/8, its delay computed by the model too](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/group-delay-delay)
+![Group delay against frequency at fs = 8000 Hz, 60 runs of the package per curve: the symmetric FIR filter b = [1, 2, 3, 2, 1] delays every frequency by the same 2 samples (linear phase), while the order-2 Butterworth low-pass designed by the package (b = [0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/group-delay-delay)
 
-*Group delay of the filter b = [1, 2, 3, 2, 1] against frequency at fs = 8 kHz, 60 runs of the model; for comparison the order-2 Butterworth low-pass the model designs for fc = fs/8, its delay computed by the model too. Marked: f = 500 Hz, 2 samples. Your inputs: b = 1, 2, 3, 2, 1, f = 500 Hz, fs = 8000 Hz.*
-
-![Group delay in seconds as fs runs from 4800 to 1](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/group-delay-live-1)
-
-*Group delay in seconds as fs runs from 4800 to 1.12e+04 Hz, every other input as you entered it (35 solutions). Marked: your fs = 8000 Hz gives seconds = 0.25 ms. Your inputs: b = 1, 2, 3, 2, 1, f = 500 Hz, fs = 8000 Hz.*
-
-![Group delay in samples as b[4] runs from 0 to 5, every other input as you entered it (6 solutions)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/group-delay-live-2)
-
-*Group delay in samples as b[4] runs from 0 to 5, every other input as you entered it (6 solutions). Marked: your b[4] = 1 gives samples = 2. Your inputs: b = 1, 2, 3, 2, 1, f = 500 Hz, fs = 8000 Hz.*
+*Group delay against frequency at fs = 8000 Hz, 60 runs of the package per curve: the symmetric FIR filter b = [1, 2, 3, 2, 1] delays every frequency by the same 2 samples (linear phase), while the order-2 Butterworth low-pass designed by the package (b = [0.09763, 0.1953, 0.09763], a = [1, -0.9428, 0.3333]) delays frequencies near its cutoff most. Marked: the worked example, f = 500.0 Hz, 2 samples = 0.00025 s.*
 
 ```python
 signal_processing_ai999x.solve('group_delay', b='1, 2, 3, 2, 1', f=500.0, fs=8000.0)
@@ -1740,7 +1572,7 @@ $$
 
 ![The gain of the filter b = [1, 2, 1], a = [1, -0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/dc-gain-response)
 
-*The gain of the filter b = [1, 2, 1], a = [1, -0.5, 0.25] from 0 to half the sampling rate (101 frequency-response runs of the model, fs = 1): at f = 0 it equals the returned DC gain 5.333 (14.54 dB), marked. Your inputs: b = 1, 2, 1, a = 1, -0.5, 0.25.*
+*The gain of the filter b = [1, 2, 1], a = [1, -0.5, 0.25] from 0 to half the sampling rate (101 frequency-response runs of the package, fs = 1): at f = 0 it equals the returned DC gain 5.33333 (14.54 dB), marked.*
 
 ```python
 signal_processing_ai999x.solve('dc_gain', b='1, 2, 1', a='1, -0.5, 0.25')
@@ -1784,17 +1616,13 @@ $$
 - **Assumes:** $N  \geq  1$; $fc > 0$; $f  \geq  0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Gain of Butterworth low-pass filters of order N = 1, 2, 4, 8 with cutoff fc = 1 kHz (each curve 41 frequencies computed by the model, 0](https://huggingface.co/AI999X/signal-processing-ai999x/resolve/main/figures/butterworth-magnitude-response.svg)
+![Gain of Butterworth low-pass filters of order N = 1, 2, 4 and 8 with cutoff fc = 1000 Hz (each curve 81 frequencies computed by the package, 0](https://huggingface.co/AI999X/signal-processing-ai999x/resolve/main/figures/butterworth-magnitude-response.svg)
 
-*Gain of Butterworth low-pass filters of order N = 1, 2, 4, 8 with cutoff fc = 1 kHz (each curve 41 frequencies computed by the model, 0.1 fc to 10 fc on a logarithmic axis; the gain is minus the returned attenuation); every order is 3 dB down at fc and falls by 20N dB per decade. Marked: f = 2 kHz, N = 4, gain = -24.1 dB. In SI units: magnitude = 0.06238. Your inputs: N = 4, fc = 1000 Hz, f = 2000 Hz.*
+*Gain of Butterworth low-pass filters of order N = 1, 2, 4 and 8 with cutoff fc = 1000 Hz (each curve 81 frequencies computed by the package, 0.1 fc to 10 fc on a log axis); every order is 3 dB down at fc and falls by 20N dB per decade. Marked: f = 2000 Hz, N = 4, gain = −24.0993 dB.*
 
-![Magnitude as fc runs from 600 to 1400 Hz, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/butterworth-magnitude-live-1)
+![magnitude (|H(f)|) against fc (cutoff (-3 dB) frequency) from 100 Hz to 10000 Hz on a logarithmic axis, logarithmic output axis](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/butterworth-magnitude-curve)
 
-*Magnitude as fc runs from 600 to 1400 Hz, every other input as you entered it (41 solutions). Marked: your fc = 1000 Hz gives magnitude = 0.06238. Your inputs: N = 4, fc = 1000 Hz, f = 2000 Hz.*
-
-![Magnitude as f runs from 1200 to 2800 Hz, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/butterworth-magnitude-live-2)
-
-*Magnitude as f runs from 1200 to 2800 Hz, every other input as you entered it (29 solutions). Marked: your f = 2000 Hz gives magnitude = 0.06238. Your inputs: N = 4, fc = 1000 Hz, f = 2000 Hz.*
+*magnitude (|H(f)|) against fc (cutoff (-3 dB) frequency) from 100 Hz to 10000 Hz on a logarithmic axis, logarithmic output axis. One curve for each value of f (frequency): 2000 Hz, 1000 Hz, 4000 Hz. Other inputs as in the worked example: N = 4. 41 points per curve computed by signal-processing-ai999x; marked: the worked example, fc = 1000 Hz, magnitude = 0.0623783.*
 
 ```python
 signal_processing_ai999x.solve('butterworth_magnitude', N=4, fc=1000.0, f=2000.0)
@@ -1845,21 +1673,13 @@ $$
 - **Assumes:** $0 < Rp < As$; fp != fstop
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The smallest Butterworth order (lowpass) meeting a passband edge fp = 1 kHz with at most Rp = 1 dB ripple and a stopband attenuation As at the stopband edge fstop, for fstop from 1](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/butterworth-order-analog-order)
+![The smallest Butterworth order meeting a passband edge fp = 1000 Hz with at most Rp = 1 dB ripple and a stopband attenuation As at fstop, for fstop from 1100 to 5000 Hz (79 runs of the package per curve, drawn as steps): a sharper transition or more attenuation needs a higher order](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/butterworth-order-analog-order)
 
-*The smallest Butterworth order (lowpass) meeting a passband edge fp = 1 kHz with at most Rp = 1 dB ripple and a stopband attenuation As at the stopband edge fstop, for fstop from 1.1 kHz to 5 kHz (60 runs of the model per curve, drawn as steps): a sharper transition or more attenuation needs a higher order. Marked: fstop = 2 kHz, As = 40 dB, order 8. Your inputs: fp = 1000 Hz, fstop = 2000 Hz, Rp = 1, As = 40.*
+*The smallest Butterworth order meeting a passband edge fp = 1000 Hz with at most Rp = 1 dB ripple and a stopband attenuation As at fstop, for fstop from 1100 to 5000 Hz (79 runs of the package per curve, drawn as steps): a sharper transition or more attenuation needs a higher order. Marked: the worked example fstop = 2000.0 Hz, As = 40.0 dB, N = 8 (lowpass).*
 
-![Minimum filter order as fstop runs from 1200 to 2800 Hz, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/butterworth-order-analog-live-1)
+![lowpass (fp < fstop) or highpass (fp > fstop) (type) over fp (passband edge frequency) from 100 Hz to 10000 Hz and fstop (stopband edge frequency) from 200 Hz to 20000 Hz (logarithmic axes): each of the 31 × 21 cells is one run of signal-processing-ai999x, coloured by the verdict it returned, highpass: 234 cells, lowpass: 417 cells](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/butterworth-order-analog-decision)
 
-*Minimum filter order as fstop runs from 1200 to 2800 Hz, every other input as you entered it (41 solutions). Marked: your fstop = 2000 Hz gives order = 8. Your inputs: fp = 1000 Hz, fstop = 2000 Hz, Rp = 1, As = 40.*
-
-![Lowpass (fp < fstop) or highpass (fp > fstop) for 24 5 x 5 combinations of fstop and fp around your inputs (the other inputs as entered); the ring marks your inputs, which give lowpass](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/butterworth-order-analog-live-2)
-
-*Lowpass (fp < fstop) or highpass (fp > fstop) for 24 5 x 5 combinations of fstop and fp around your inputs (the other inputs as entered); the ring marks your inputs, which give lowpass. Blank cells admit no answer. Your inputs: fp = 1000 Hz, fstop = 2000 Hz, Rp = 1, As = 40.*
-
-![Minimum filter order as fp runs from 600 to 1400 Hz, every other input as you entered it (23 solutions)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/butterworth-order-analog-live-3)
-
-*Minimum filter order as fp runs from 600 to 1400 Hz, every other input as you entered it (23 solutions). Marked: your fp = 1000 Hz gives order = 8. Your inputs: fp = 1000 Hz, fstop = 2000 Hz, Rp = 1, As = 40.*
+*lowpass (fp < fstop) or highpass (fp > fstop) (type) over fp (passband edge frequency) from 100 Hz to 10000 Hz and fstop (stopband edge frequency) from 200 Hz to 20000 Hz (logarithmic axes): each of the 31 × 21 cells is one run of signal-processing-ai999x, coloured by the verdict it returned, highpass: 234 cells, lowpass: 417 cells. Other inputs as in the worked example: Rp = 1.0, As = 40.0. Marked: the worked example, fp = 1000 Hz, fstop = 2000 Hz → lowpass.*
 
 ```python
 signal_processing_ai999x.solve('butterworth_order_analog', fp=1000.0, fstop=2000.0, Rp=1.0, As=40.0)
@@ -1900,21 +1720,13 @@ $$
 - **Assumes:** $0 < Rp < As$; fp != fstop; both edges below $fs/2$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The smallest Butterworth order for fp = 1 kHz, Rp = 1 dB, As = 40 dB as the stopband edge moves from 1](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/butterworth-order-digital-order)
+![The smallest Butterworth order for fp = 1000 Hz, Rp = 1](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/butterworth-order-digital-order)
 
-*The smallest Butterworth order for fp = 1 kHz, Rp = 1 dB, As = 40 dB as the stopband edge moves from 1.1 kHz to 4.925 kHz: the digital design (bilinear transform at fs = 10 kHz) against the analog one, 60 runs of the model each; frequency warping near fs/2 lets the digital filter use a lower order. Marked: fstop = 2 kHz, order 7. Your inputs: fp = 1000 Hz, fstop = 2000 Hz, fs = 10000 Hz, Rp = 1, As = 40.*
+*The smallest Butterworth order for fp = 1000 Hz, Rp = 1.0 dB, As = 40.0 dB as the stopband edge moves toward fs/2 = 5000 Hz: the digital design (bilinear transform at fs = 10000 Hz) against the analog one, 80 runs of the package each, frequency warping near fs/2 lets the digital filter use a lower order. Marked: fstop = 2000.0 Hz, N = 7.*
 
-![Minimum filter order as fstop runs from 1200 to 2800 Hz, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/butterworth-order-digital-live-1)
+![lowpass (fp < fstop) or highpass (fp > fstop) (type) over fp (passband edge frequency) from 100 Hz to 10000 Hz and fstop (stopband edge frequency) from 200 Hz to 20000 Hz (logarithmic axes): each of the 31 × 21 cells is one run of signal-processing-ai999x, coloured by the verdict it returned, highpass: 154 cells, lowpass: 210 cells; blank cells: inputs the capability refuses](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/butterworth-order-digital-decision)
 
-*Minimum filter order as fstop runs from 1200 to 2800 Hz, every other input as you entered it (41 solutions). Marked: your fstop = 2000 Hz gives order = 7. Your inputs: fp = 1000 Hz, fstop = 2000 Hz, fs = 10000 Hz, Rp = 1, As = 40.*
-
-![Lowpass (fp < fstop) or highpass (fp > fstop) for 25 5 x 5 combinations of fstop and fp around your inputs (the other inputs as entered); the ring marks your inputs, which give lowpass](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/butterworth-order-digital-live-2)
-
-*Lowpass (fp < fstop) or highpass (fp > fstop) for 25 5 x 5 combinations of fstop and fp around your inputs (the other inputs as entered); the ring marks your inputs, which give lowpass. Blank cells admit no answer. Your inputs: fp = 1000 Hz, fstop = 2000 Hz, fs = 10000 Hz, Rp = 1, As = 40.*
-
-![Minimum filter order as fp runs from 600 to 1400 Hz, every other input as you entered it (19 solutions)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/butterworth-order-digital-live-3)
-
-*Minimum filter order as fp runs from 600 to 1400 Hz, every other input as you entered it (19 solutions). Marked: your fp = 1000 Hz gives order = 7. Your inputs: fp = 1000 Hz, fstop = 2000 Hz, fs = 10000 Hz, Rp = 1, As = 40.*
+*lowpass (fp < fstop) or highpass (fp > fstop) (type) over fp (passband edge frequency) from 100 Hz to 10000 Hz and fstop (stopband edge frequency) from 200 Hz to 20000 Hz (logarithmic axes): each of the 31 × 21 cells is one run of signal-processing-ai999x, coloured by the verdict it returned, highpass: 154 cells, lowpass: 210 cells; blank cells: inputs the capability refuses. Other inputs as in the worked example: fs = 10000.0 Hz, Rp = 1.0, As = 40.0. Marked: the worked example, fp = 1000 Hz, fstop = 2000 Hz → lowpass.*
 
 ```python
 signal_processing_ai999x.solve('butterworth_order_digital', fp=1000.0, fstop=2000.0, Rp=1.0, As=40.0, fs=10000.0)
@@ -1954,21 +1766,13 @@ $$
 - **Assumes:** $0 < Rp < As$; fp != fstop
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The smallest analog filter order for passband edge fp = 1 kHz (ripple Rp = 1 dB) and stopband edge fstop = 2 kHz, as the stopband attenuation As grows from 10 to 90 dB: Chebyshev type I against Butterworth (the model's Butterworth capability), 41 runs of the model each, drawn as steps; the equiripple passband needs a lower order](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/chebyshev1-order-analog-order)
+![The smallest analog filter order for passband edge fp = 1000](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/chebyshev1-order-analog-order)
 
-*The smallest analog filter order for passband edge fp = 1 kHz (ripple Rp = 1 dB) and stopband edge fstop = 2 kHz, as the stopband attenuation As grows from 10 to 90 dB: Chebyshev type I against Butterworth (the model's Butterworth capability), 41 runs of the model each, drawn as steps; the equiripple passband needs a lower order. Marked: As = 40 dB, Chebyshev order 5. Your inputs: fp = 1000 Hz, fstop = 2000 Hz, Rp = 1, As = 40.*
+*The smallest analog filter order for passband edge fp = 1000.0 Hz (ripple Rp = 1.0 dB) and stopband edge fstop = 2000.0 Hz, as the stopband attenuation As grows from 10 to 90 dB: Chebyshev type I against Butterworth, 81 runs of the package each, drawn as steps, the equiripple passband buys a lower order. Marked: As = 40.0 dB, Chebyshev N = 5.*
 
-![Minimum filter order as fstop runs from 1200 to 2800 Hz, every other input as you entered it (39 solutions)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/chebyshev1-order-analog-live-1)
+![lowpass (fp < fstop) or highpass (fp > fstop) (type) over fp (passband edge frequency) from 100 Hz to 10000 Hz and fstop (stopband edge frequency) from 200 Hz to 20000 Hz (logarithmic axes): each of the 31 × 21 cells is one run of signal-processing-ai999x, coloured by the verdict it returned, highpass: 234 cells, lowpass: 417 cells](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/chebyshev1-order-analog-decision)
 
-*Minimum filter order as fstop runs from 1200 to 2800 Hz, every other input as you entered it (39 solutions). Marked: your fstop = 2000 Hz gives order = 5. Your inputs: fp = 1000 Hz, fstop = 2000 Hz, Rp = 1, As = 40.*
-
-![Lowpass (fp < fstop) or highpass (fp > fstop) for 25 5 x 5 combinations of fstop and fp around your inputs (the other inputs as entered); the ring marks your inputs, which give lowpass](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/chebyshev1-order-analog-live-2)
-
-*Lowpass (fp < fstop) or highpass (fp > fstop) for 25 5 x 5 combinations of fstop and fp around your inputs (the other inputs as entered); the ring marks your inputs, which give lowpass. Blank cells admit no answer. Your inputs: fp = 1000 Hz, fstop = 2000 Hz, Rp = 1, As = 40.*
-
-![Minimum filter order as fp runs from 600 to 1400 Hz, every other input as you entered it (17 solutions)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/chebyshev1-order-analog-live-3)
-
-*Minimum filter order as fp runs from 600 to 1400 Hz, every other input as you entered it (17 solutions). Marked: your fp = 1000 Hz gives order = 5. Your inputs: fp = 1000 Hz, fstop = 2000 Hz, Rp = 1, As = 40.*
+*lowpass (fp < fstop) or highpass (fp > fstop) (type) over fp (passband edge frequency) from 100 Hz to 10000 Hz and fstop (stopband edge frequency) from 200 Hz to 20000 Hz (logarithmic axes): each of the 31 × 21 cells is one run of signal-processing-ai999x, coloured by the verdict it returned, highpass: 234 cells, lowpass: 417 cells. Other inputs as in the worked example: Rp = 1.0, As = 40.0. Marked: the worked example, fp = 1000 Hz, fstop = 2000 Hz → lowpass.*
 
 ```python
 signal_processing_ai999x.solve('chebyshev1_order_analog', fp=1000.0, fstop=2000.0, Rp=1.0, As=40.0)
@@ -2008,21 +1812,13 @@ $$
 - **Assumes:** $a_{2}  \neq  0$; a causal system (stable iff |p| < 1 for every pole)
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Poles of 1/(1 + a1 z⁻¹ + a2 z⁻²) returned by the model for a1 = -1](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/second-order-poles-poles)
+![Poles of 1/(1 + a1 z⁻¹ + a2 z⁻²) returned by the package for a1 = -1](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/second-order-poles-poles)
 
-*Poles of 1/(1 + a1 z⁻¹ + a2 z⁻²) returned by the model for a1 = -1.2 and four values of a2 (yours is a2 = 0.5): a2 = 0.25: 0.2683, 0.9317, radius 0.9317, stable; a2 = 0.5: 0.6 + 0.3742j, 0.6 - 0.3742j, radius 0.7071, stable; a2 = 0.81: 0.6 + 0.6708j, 0.6 - 0.6708j, radius 0.9, stable; a2 = 1.21: 0.6 + 0.922j, 0.6 - 0.922j, radius 1.1, unstable. Your inputs: a1 = -1.2, a2 = 0.5.*
+*Poles of 1/(1 + a1 z⁻¹ + a2 z⁻²) returned by the package for a1 = -1.2 and four values of a2 (the worked example is a2 = 0.5): a2 = 0.25: 0.268338 ± 0j, radius 0.931662, stable; a2 = 0.5: 0.6 ± 0.374166j, radius 0.707107, stable; a2 = 0.81: 0.6 ± 0.67082j, radius 0.9, stable; a2 = 1.21: 0.6 ± 0.921954j, radius 1.1, unstable. The pole radius is √a2 for complex poles; outside the unit circle the filter is unstable.*
 
-![Radius as a1 runs from -2](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/second-order-poles-live-1)
+![stable if every pole lies inside the unit circle (stability) over a1 (coefficient of z^-1 in the denominator) from -1](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/second-order-poles-decision)
 
-*Radius as a1 runs from -2.1 to -0.3, every other input as you entered it (41 solutions). Marked: your a1 = -1.2 gives radius = 0.7071. Shaded by stable if every pole lies inside the unit circle: unstable, stable. Your inputs: a1 = -1.2, a2 = 0.5.*
-
-![Your inputs give p1 = 0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/second-order-poles-live-2)
-
-*Your inputs give p1 = 0.6 + 0.3742i, p2 = 0.6 - 0.3742i. The lines trace each root as a1 runs from -2.1 to -0.3 (the other inputs as entered). Dashed: the unit circle. Your inputs: a1 = -1.2, a2 = 0.5.*
-
-![Stable if every pole lies inside the unit circle for 25 5 x 5 combinations of a1 and a2 around your inputs (the other inputs as entered); the ring marks your inputs, which give stable](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/second-order-poles-live-3)
-
-*Stable if every pole lies inside the unit circle for 25 5 x 5 combinations of a1 and a2 around your inputs (the other inputs as entered); the ring marks your inputs, which give stable. Blank cells admit no answer. Your inputs: a1 = -1.2, a2 = 0.5.*
+*stable if every pole lies inside the unit circle (stability) over a1 (coefficient of z^-1 in the denominator) from -1.8 to -0.6 and a2 (coefficient of z^-2 in the denominator) from 0.02 to 0.98: each of the 31 × 21 cells is one run of signal-processing-ai999x, coloured by the verdict it returned, stable: 474 cells, unstable: 177 cells. Marked: the worked example, a1 = -1.2, a2 = 0.5 → stable.*
 
 ```python
 signal_processing_ai999x.solve('second_order_poles', a1=-1.2, a2=0.5)
@@ -2069,13 +1865,13 @@ $$
 - **Assumes:** a[0] != 0; orders up to 4; both polynomials in powers of $z^{-1}$ (padded to equal length)
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Poles and zeros returned by the model for b = [1, -1], a = [1, -0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/poles-zeros-poles)
+![Poles and zeros returned by the package for the order-4 Butterworth low-pass filter (fc = 1000 Hz, fs = 8000 Hz) designed by it: 4 poles, largest radius 0](https://huggingface.co/AI999X/signal-processing-ai999x/resolve/main/figures/poles-zeros-poles.svg)
 
-*Poles and zeros returned by the model for b = [1, -1], a = [1, -0.9]: poles 0.9, zeros 1; largest pole radius 0.9 (stable; stable when every pole is inside the unit circle). Your inputs: b = 1, -1, a = 1, -0.9.*
+*Poles and zeros returned by the package for the order-4 Butterworth low-pass filter (fc = 1000 Hz, fs = 8000 Hz) designed by it: 4 poles, largest radius 0.757669 (inside the unit circle: stable), and 4 zeros clustered at z = −1 (each within 0.000861151 of it).*
 
-![Poles and zeros returned by the model for your filter b = [1, -1], a = [1, -0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/poles-zeros-poles-2)
+![Poles and zeros returned by the package for a two-pole resonator b = [1, 0, -1], a = [1, -1](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/poles-zeros-poles-2)
 
-*Poles and zeros returned by the model for your filter b = [1, -1], a = [1, -0.9] (poles 0.9, zeros 1) and for a two-pole resonator chosen for the drawing, b = [1, 0, -1], a = [1, -1.131, 0.64] (poles 0.5655 + 0.5659j, 0.5655 - 0.5659j, radius 0.8, zeros -1, 1). Your inputs: b = 1, -1, a = 1, -0.9.*
+*Poles and zeros returned by the package for a two-pole resonator b = [1, 0, -1], a = [1, -1.131, 0.64] (an input chosen for the drawing): poles at radius 0.8 (stable), zeros at z = ±1; and for the worked example b = [1, -1], a = [1, -0.9]: pole 0.9, zero 1 (stable).*
 
 ```python
 signal_processing_ai999x.solve('poles_zeros', b='1, -1', a='1, -0.9')
@@ -2125,17 +1921,13 @@ $$
 - **Assumes:** $fc > 0$; $fs > 0$; no frequency pre-warping
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The gain of the first-order digital low-pass obtained from an RC filter by the bilinear transform for fc = 1 kHz at fs = 8 kHz: the model returns b0 = 0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/bilinear-rc-lowpass-response)
+![The gain of the first-order digital low-pass obtained from an RC filter by the bilinear transform for fc = 1000 Hz at fs = 8000 Hz: the package returns b0 = 0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/bilinear-rc-lowpass-response)
 
-*The gain of the first-order digital low-pass obtained from an RC filter by the bilinear transform for fc = 1 kHz at fs = 8 kHz: the model returns b0 = 0.282, b1 = 0.282, a1 = -0.4361, and the response of H(z) = (b0 + b1 z⁻¹)/(1 + a1 z⁻¹) is 81 frequency-response runs from fs/400 to fs/2 (logarithmic axis). Marked: the gain at fc, -3.248 dB. Your inputs: fc = 1000 Hz, fs = 8000 Hz.*
+*The gain of the first-order digital low-pass obtained from an RC filter by the bilinear transform for fc = 1000 Hz at fs = 8000 Hz: the package returns b0 = 0.28197, b1 = 0.28197, a1 = -0.43606, and the response H(z) = (b0 + b1 z⁻¹)/(1 + a1 z⁻¹) is 100 frequency-response runs from fs/400 to fs/2 (log axis). Marked: -3.24812 dB at fc; the gain falls to zero at fs/2.*
 
-![Denominator coefficient a1 as fs runs from 4800 to 1](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/bilinear-rc-lowpass-live-1)
+![a1 (denominator coefficient a1 (a0 = 1)) against fc (analog cutoff frequency) from 100 Hz to 10000 Hz on a logarithmic axis](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/bilinear-rc-lowpass-curve)
 
-*Denominator coefficient a1 as fs runs from 4800 to 1.12e+04 Hz, every other input as you entered it (41 solutions). Marked: your fs = 8000 Hz gives a1 = -0.4361. Your inputs: fc = 1000 Hz, fs = 8000 Hz.*
-
-![Denominator coefficient a1 as fc runs from 600 to 1400 Hz, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/bilinear-rc-lowpass-live-2)
-
-*Denominator coefficient a1 as fc runs from 600 to 1400 Hz, every other input as you entered it (29 solutions). Marked: your fc = 1000 Hz gives a1 = -0.4361. Your inputs: fc = 1000 Hz, fs = 8000 Hz.*
+*a1 (denominator coefficient a1 (a0 = 1)) against fc (analog cutoff frequency) from 100 Hz to 10000 Hz on a logarithmic axis. One curve for each value of fs (sampling rate): 8000 Hz, 4000 Hz, 16000 Hz. 41 points per curve computed by signal-processing-ai999x; marked: the worked example, fc = 1000 Hz, a1 = -0.43606.*
 
 ```python
 signal_processing_ai999x.solve('bilinear_rc_lowpass', fc=1000.0, fs=8000.0)
@@ -2175,17 +1967,9 @@ $$
 - **Assumes:** $N  \geq  8$; DFT-even (periodic) windows for spectral analysis
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Main-lobe width in Hz (fs given) as fs runs from 4800 to 1](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/window-mainlobe-width-live-1)
+![width_bins (null-to-null main-lobe width in DFT bins) for each option of window (window type), one run of signal-processing-ai999x per option: rectangular: 2, hann: 4, hamming: 4, blackman: 6](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/window-mainlobe-width-bars)
 
-*Main-lobe width in Hz (fs given) as fs runs from 4800 to 1.12e+04 Hz, every other input as you entered it (41 solutions). Marked: your fs = 8000 Hz gives width_hz = 125. Your inputs: window = hann, N = 256, fs = 8000 Hz.*
-
-![Null-to-null main-lobe width in DFT bins for every choice of window, every other input as you entered it (highlighted: your choice)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/window-mainlobe-width-live-2)
-
-*Null-to-null main-lobe width in DFT bins for every choice of window, every other input as you entered it (highlighted: your choice). rectangular: 2; hann: 4; hamming: 4; blackman: 6. Your inputs: window = hann, N = 256, fs = 8000 Hz.*
-
-![Main-lobe width in Hz (fs given) as N runs from 236 to 276, every other input as you entered it (21 solutions)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/window-mainlobe-width-live-3)
-
-*Main-lobe width in Hz (fs given) as N runs from 236 to 276, every other input as you entered it (21 solutions). Marked: your N = 256 gives width_hz = 125. Your inputs: window = hann, N = 256, fs = 8000 Hz.*
+*width_bins (null-to-null main-lobe width in DFT bins) for each option of window (window type), one run of signal-processing-ai999x per option: rectangular: 2, hann: 4, hamming: 4, blackman: 6. The worked example uses hann. Other inputs as in the worked example: N = 256, fs = 8000.0 Hz.*
 
 ```python
 signal_processing_ai999x.solve('window_mainlobe_width', window='hann', N=256, fs=8000.0)
@@ -2236,17 +2020,9 @@ $$
 - **Assumes:** $N  \geq  2$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The four window shapes of length N = 4 (periodic form) returned by the model, each a run of it; the legend gives each window's coherent gain (rectangular 1, hann 0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/window-coefficients-windows)
+![The four window shapes of length N = 33 (symmetric form) returned by the package, each a run of it; the legend gives each window's coherent gain (rectangular 1, hann 0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/window-coefficients-windows)
 
-*The four window shapes of length N = 4 (periodic form) returned by the model, each a run of it; the legend gives each window's coherent gain (rectangular 1, hann 0.5, hamming 0.54, blackman 0.42). Your window: hann. Your inputs: window = hann, N = 4, form = periodic.*
-
-![Coherent gain: mean of w for every choice of window, every other input as you entered it (highlighted: your choice)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/window-coefficients-live-1)
-
-*Coherent gain: mean of w for every choice of window, every other input as you entered it (highlighted: your choice). rectangular: 1; hann: 0.5; hamming: 0.54; blackman: 0.42. Your inputs: window = hann, N = 4, form = periodic.*
-
-![Every entry of w as computed for your inputs (4 entries: 0, 0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/window-coefficients-live-2)
-
-*Every entry of w as computed for your inputs (4 entries: 0, 0.5, 1, 0.5). Your inputs: window = hann, N = 4, form = periodic.*
+*The four window shapes of length N = 33 (symmetric form) returned by the package, each a run of it; the legend gives each window's coherent gain (rectangular 1, hann 0.484848, hamming 0.526061, blackman 0.407273). The worked example is the 4-point periodic hann window.*
 
 ```python
 signal_processing_ai999x.solve('window_coefficients', window='hann', N=4, form='periodic')
@@ -2297,21 +2073,13 @@ $$
 - **Assumes:** zero-mean waveform with peak A; 50 % duty square wave; symmetric triangle; linear sawtooth
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Fourier-series harmonic amplitudes of three waves of peak amplitude A = 2 (harmonics 1 to 11, each a run of the model, side by side): the square wave has odd harmonics falling as 1/n, the triangle odd harmonics as 1/n², the sawtooth every harmonic as 1/n](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/fourier-series-harmonic-harmonics)
+![Fourier-series harmonic amplitudes of three waves of peak amplitude A = 2 (harmonics 1 … 11, each a run of the package; the stems of each harmonic are side by side): the square wave has odd harmonics falling as 1/n, the triangle odd harmonics as 1/n², the sawtooth every harmonic as 1/n](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/fourier-series-harmonic-harmonics)
 
-*Fourier-series harmonic amplitudes of three waves of peak amplitude A = 2 (harmonics 1 to 11, each a run of the model, side by side): the square wave has odd harmonics falling as 1/n, the triangle odd harmonics as 1/n², the sawtooth every harmonic as 1/n. square: fundamental 2.546; triangle: fundamental 1.621; sawtooth: fundamental 1.273. Your harmonic: square n = 3, amplitude 0.8488. Your inputs: waveform = square, A = 2, n = 3.*
+*Fourier-series harmonic amplitudes of three waves of peak amplitude A = 2 (harmonics 1 … 11, each a run of the package; the stems of each harmonic are side by side): the square wave has odd harmonics falling as 1/n, the triangle odd harmonics as 1/n², the sawtooth every harmonic as 1/n. square: fundamental 2.54648, 3rd 0.848826; triangle: fundamental 1.62114, 3rd 0.180127; sawtooth: fundamental 1.27324, 3rd 0.424413.*
 
-![Amplitude of the n-th harmonic as n runs from 1 to 7, every other input as you entered it (7 solutions)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/fourier-series-harmonic-live-1)
+![amplitude (amplitude of the n-th harmonic) against n (harmonic number (1 = fundamental)) from 1 to 11](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/fourier-series-harmonic-curve)
 
-*Amplitude of the n-th harmonic as n runs from 1 to 7, every other input as you entered it (7 solutions). Marked: your n = 3 gives amplitude = 0.8488. Your inputs: waveform = square, A = 2, n = 3.*
-
-![Amplitude of the n-th harmonic for every choice of waveform, every other input as you entered it (highlighted: your choice)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/fourier-series-harmonic-live-2)
-
-*Amplitude of the n-th harmonic for every choice of waveform, every other input as you entered it (highlighted: your choice). square: 0.8488; triangle: 0.1801; sawtooth: 0.4244. Your inputs: waveform = square, A = 2, n = 3.*
-
-![Amplitude of the n-th harmonic as A runs from 0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/fourier-series-harmonic-live-3)
-
-*Amplitude of the n-th harmonic as A runs from 0.5 to 3.5, every other input as you entered it (29 solutions). Marked: your A = 2 gives amplitude = 0.8488. Your inputs: waveform = square, A = 2, n = 3.*
+*amplitude (amplitude of the n-th harmonic) against n (harmonic number (1 = fundamental)) from 1 to 11. One curve for each value of A (peak amplitude of the wave): 2, 1, 4. Other inputs as in the worked example: waveform = square. 11 points per curve computed by signal-processing-ai999x; marked: the worked example, n = 3, amplitude = 0.848826.*
 
 ```python
 signal_processing_ai999x.solve('fourier_series_harmonic', waveform='square', A=2, n=3)
@@ -2368,17 +2136,9 @@ $$
 - **Assumes:** $A  \neq  0$; $\tau > 0$; the pulse centred at $t = 0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The Fourier transform of a rectangular pulse of amplitude A = 2 and width τ = 1 ms, X(f) = Aτ·sinc(fτ) (even in f), from 0 to 5 kHz (201 runs of the model): a main lobe and side lobes of alternating sign, nulls at multiples of the returned first null 1 kHz (dashed)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/rect-pulse-spectrum-spectrum)
+![The Fourier transform of a rectangular pulse of amplitude A = 2 and width τ = 0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/rect-pulse-spectrum-spectrum)
 
-*The Fourier transform of a rectangular pulse of amplitude A = 2 and width τ = 1 ms, X(f) = Aτ·sinc(fτ) (even in f), from 0 to 5 kHz (201 runs of the model): a main lobe and side lobes of alternating sign, nulls at multiples of the returned first null 1 kHz (dashed). Marked: f = 250 Hz, X = 0.001801. Your inputs: A = 2, tau = 0.001 s, f = 250 Hz.*
-
-![X as A runs from 0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/rect-pulse-spectrum-live-1)
-
-*X as A runs from 0.5 to 3.5, every other input as you entered it (41 solutions). Marked: your A = 2 gives X = 0.001801. Your inputs: A = 2, tau = 0.001 s, f = 250 Hz.*
-
-![X as τ runs from 0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/rect-pulse-spectrum-live-2)
-
-*X as τ runs from 0.0006 to 0.0014 s, every other input as you entered it (29 solutions). Marked: your τ = 0.001 s gives X = 0.001801. Your inputs: A = 2, tau = 0.001 s, f = 250 Hz.*
+*The Fourier transform of a rectangular pulse of amplitude A = 2 and width τ = 0.001 s, X(f) = Aτ·sinc(fτ) (even in f), from 0 to 5 times the returned first null 1000 Hz (201 runs of the package): a main lobe of height Aτ and side lobes of alternating sign. Marked: the worked example f = 250.0 Hz.*
 
 ```python
 signal_processing_ai999x.solve('rect_pulse_spectrum', A=2, tau=0.001, f=250.0)
@@ -2430,17 +2190,9 @@ $$
 - **Assumes:** $A > 0$; $\tau > 0$; x(t) = 0 for $t < 0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Magnitude and phase of the spectrum of A·e^(-t/τ) for t ≥ 0 with A = 1, τ = 1 ms, from f/100 to 100 f (61 runs of the model, logarithmic axes): flat at low frequency, falling 20 dB per decade at high frequency, the phase going from 0 toward -π/2](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/exponential-pulse-spectrum-spectrum)
+![Magnitude and phase of the spectrum of A·e^(−t/τ) for t ≥ 0 with A = 2, τ = 0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/exponential-pulse-spectrum-spectrum)
 
-*Magnitude and phase of the spectrum of A·e^(-t/τ) for t ≥ 0 with A = 1, τ = 1 ms, from f/100 to 100 f (61 runs of the model, logarithmic axes): flat at low frequency, falling 20 dB per decade at high frequency, the phase going from 0 toward -π/2. Marked: f = 159.2 Hz, |X| = 0.0007071, phase -0.7854 rad. Your inputs: A = 1, tau = 0.001 s, f = 159.15494309189535 Hz.*
-
-![Magnitude as τ runs from 0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/exponential-pulse-spectrum-live-1)
-
-*Magnitude as τ runs from 0.0006 to 0.0014 s, every other input as you entered it (41 solutions). Marked: your τ = 0.001 s gives magnitude = 0.0007071. Your inputs: A = 1, tau = 0.001 s, f = 159.15494309189535 Hz.*
-
-![Magnitude as A runs from 0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/exponential-pulse-spectrum-live-2)
-
-*Magnitude as A runs from 0.25 to 1.75, every other input as you entered it (29 solutions). Marked: your A = 1 gives magnitude = 0.0007071. Your inputs: A = 1, tau = 0.001 s, f = 159.15494309189535 Hz.*
+*Magnitude and phase of the spectrum of A·e^(−t/τ) for t ≥ 0 with A = 2, τ = 0.5 s, from 1/100 to 100 times f = 1/(2πτ) = 0.31831 Hz (81 runs of the package, log axes): flat at Aτ below that frequency, falling 20 dB per decade above, the phase going from 0 to −π/2. Marked: the worked example f = 0 Hz, |X| = 1 (phase 0 rad).*
 
 ```python
 signal_processing_ai999x.solve('exponential_pulse_spectrum', A=1, tau=0.001, f=159.15494309189535)
@@ -2484,17 +2236,9 @@ $$
 - **Assumes:** $V_{1} > 0$; amplitudes >= 0 (RMS or peak, all alike)
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Harmonic amplitudes V1 to V4 = [10, 0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/thd-harmonics)
+![Harmonic amplitudes V1 … V4 = [10, 0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/thd-harmonics)
 
-*Harmonic amplitudes V1 to V4 = [10, 0.5, 0.3, 0.1] (input; the fundamental first, highlighted). The model returns THD = √(V2² + ...)/V1 = 0.05916 (5.916 %, -24.56 dB). Your inputs: V = 10, 0.5, 0.3, 0.1.*
-
-![THD as a ratio as V[1] runs from 2](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/thd-live-1)
-
-*THD as a ratio as V[1] runs from 2.5 to 17.5, every other input as you entered it (41 solutions). Marked: your V[1] = 10 gives thd = 0.05916. Your inputs: V = 10, 0.5, 0.3, 0.1.*
-
-![THD as a ratio as V[2] runs from 0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/thd-live-2)
-
-*THD as a ratio as V[2] runs from 0.125 to 0.875, every other input as you entered it (29 solutions). Marked: your V[2] = 0.5 gives thd = 0.05916. Your inputs: V = 10, 0.5, 0.3, 0.1.*
+*Harmonic amplitudes V1 … V4 = [10, 0.5, 0.3, 0.1] (input; the fundamental first, log axis). The package returns THD = √(V2² + … )/V1 = 0.0591608 (5.91608 %, -24.5593 dB).*
 
 ```python
 signal_processing_ai999x.solve('thd', V='10, 0.5, 0.3, 0.1')
@@ -2537,21 +2281,9 @@ $$
 - **Assumes:** the sequence treated as one period (DFT-based transform)
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Your signal x = [1, 0, -1, 0] with its Hilbert transform [0, 1, 0, -1] and the envelope |x + j·H{x}| = [1, 1, 1, 1] returned by the model (drawn at ± the envelope)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/analytic-envelope-envelope)
+![An amplitude-modulated tone chosen for the drawing, x[n] = (1 + 0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/analytic-envelope-envelope)
 
-*Your signal x = [1, 0, -1, 0] with its Hilbert transform [0, 1, 0, -1] and the envelope |x + j·H{x}| = [1, 1, 1, 1] returned by the model (drawn at ± the envelope). Below, a tone chosen for the drawing, x[n] = (1 + 0.6 cos 2πn/64)·cos 2π·8n/64, n = 0 to 63: the envelope the model returns traces the slow modulation. Your inputs: x = 1, 0, -1, 0.*
-
-![Envelope[1], envelope[2] and envelope[4] as x[0] runs from 0 to 5, every other input as you entered it (6 solutions)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/analytic-envelope-live-1)
-
-*Envelope[1], envelope[2] and envelope[4] as x[0] runs from 0 to 5, every other input as you entered it (6 solutions). Marked: your x[0] = 1 gives envelope[1] = 1. Your inputs: x = 1, 0, -1, 0.*
-
-![Every entry of envelope as computed for your inputs (4 entries: 1, 1, 1, 1)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/analytic-envelope-live-2)
-
-*Every entry of envelope as computed for your inputs (4 entries: 1, 1, 1, 1). Your inputs: x = 1, 0, -1, 0.*
-
-![Envelope[3], envelope[2] and envelope[4] as x[2] runs from -5 to 3, every other input as you entered it (9 solutions)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/analytic-envelope-live-3)
-
-*Envelope[3], envelope[2] and envelope[4] as x[2] runs from -5 to 3, every other input as you entered it (9 solutions). Marked: your x[2] = -1 gives envelope[3] = 1. Your inputs: x = 1, 0, -1, 0.*
+*An amplitude-modulated tone chosen for the drawing, x[n] = (1 + 0.6 cos 2πn/64)·cos 2π·8n/64, n = 0 … 63, its Hilbert transform and the envelope |x + j·H{x}| returned by the package (drawn at ± the envelope): the envelope traces the slow modulation, between 0.4 and 1.6. The worked example x = [1, 0, -1, 0] has a constant envelope of 1.*
 
 ```python
 signal_processing_ai999x.solve('analytic_envelope', x='1, 0, -1, 0')
@@ -2590,21 +2322,9 @@ $$
 - **Assumes:** mean removed first; rectangular window; one-sided density scaling
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The 8 samples x = [1, 0, -1, 0, 1, 0, -1, 0] at fs = 8 Hz (top) and the periodogram the model returns for them (bottom): 5 frequencies from 0 to fs/2](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/periodogram-spectrum)
+![The worked example's 8 samples at fs = 8 Hz (top) and the periodogram the package returns for them (bottom): 5 frequencies 0 … fs/2 in steps of fs/8 = 1 Hz](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/periodogram-spectrum)
 
-*The 8 samples x = [1, 0, -1, 0, 1, 0, -1, 0] at fs = 8 Hz (top) and the periodogram the model returns for them (bottom): 5 frequencies from 0 to fs/2. Marked: the returned peak frequency 2 Hz. Your inputs: x = 1, 0, -1, 0, 1, 0, -1, 0, fs = 8 Hz.*
-
-![Frequency of the largest PSD value as x[2] runs from -5 to 3, every other input as you entered it (9 solutions)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/periodogram-live-1)
-
-*Frequency of the largest PSD value as x[2] runs from -5 to 3, every other input as you entered it (9 solutions). Marked: your x[2] = -1 gives peak_frequency = 2. Your inputs: x = 1, 0, -1, 0, 1, 0, -1, 0, fs = 8 Hz.*
-
-![The computed psd plotted against freqs (5 points, from your inputs)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/periodogram-live-2)
-
-*The computed psd plotted against freqs (5 points, from your inputs). Your inputs: x = 1, 0, -1, 0, 1, 0, -1, 0, fs = 8 Hz.*
-
-![Frequency of the largest PSD value as fs runs from 4](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/periodogram-live-3)
-
-*Frequency of the largest PSD value as fs runs from 4.8 to 11.2 Hz, every other input as you entered it (29 solutions). Marked: your fs = 8 Hz gives peak_frequency = 2. Your inputs: x = 1, 0, -1, 0, 1, 0, -1, 0, fs = 8 Hz.*
+*The worked example's 8 samples at fs = 8 Hz (top) and the periodogram the package returns for them (bottom): 5 frequencies 0 … fs/2 in steps of fs/8 = 1 Hz. Marked: the returned peak frequency 2 Hz.*
 
 ```python
 signal_processing_ai999x.solve('periodogram', x='1, 0, -1, 0, 1, 0, -1, 0', fs=8.0)
@@ -2644,21 +2364,13 @@ $$
 - **Assumes:** $0 < m  \leq  1$; a single sinusoidal message
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The line spectrum of an AM signal with carrier power Pc = 1 kW and modulation index m = 0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/am-power-spectrum)
+![The line spectrum of an AM signal with carrier power Pc = 1000 W and modulation index m = 0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/am-power-spectrum)
 
-*The line spectrum of an AM signal with carrier power Pc = 1 kW and modulation index m = 0.8 (inputs): the carrier and the upper and lower sidebands at ±fm, each sideband carrying the returned Pusb = 160 W. Returned: total power Pt = 1.32 kW, both sidebands Psb = 320 W, efficiency 0.2424. In SI units: Pt = 1320 W. Your inputs: Pc = 1000 W, m = 0.8.*
+*The line spectrum of an AM signal with carrier power Pc = 1000 W and modulation index m = 0.8 (inputs): the carrier and the upper and lower sidebands at ±fm, each sideband carrying the returned Pusb = 160 W (the two are equal). Returned: total power Pt = 1320 W, both sidebands Psb = 320 W, efficiency 0.242424.*
 
-![The share of the transmitted AM power that is in the sidebands, for modulation index m from 0 to 1 (51 runs of the model, Pc = 1 kW)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/am-power-efficiency)
+![The share of the transmitted AM power that is in the sidebands, for modulation index m from 0 to 1 (51 runs of the package, Pc = 1000](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/am-power-efficiency)
 
-*The share of the transmitted AM power that is in the sidebands, for modulation index m from 0 to 1 (51 runs of the model, Pc = 1 kW). Marked: m = 0.8, efficiency 0.2424. In SI units: Pt = 1320 W. Your inputs: Pc = 1000 W, m = 0.8.*
-
-![Total transmitted power as m runs from 0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/am-power-live-1)
-
-*Total transmitted power as m runs from 0.2 to 0.98, every other input as you entered it (27 solutions). Marked: your m = 0.8 gives Pt = 1320. Your inputs: Pc = 1000 W, m = 0.8.*
-
-![Total transmitted power as Pc runs from 600 to 1400 W, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/am-power-live-2)
-
-*Total transmitted power as Pc runs from 600 to 1400 W, every other input as you entered it (29 solutions). Marked: your Pc = 1000 W gives Pt = 1320. Your inputs: Pc = 1000 W, m = 0.8.*
+*The share of the transmitted AM power that is in the sidebands, for modulation index m from 0 to 1 (51 runs of the package, Pc = 1000.0 W): at most one third, at m = 1. Marked: m = 0.8, efficiency 0.242424.*
 
 ```python
 signal_processing_ai999x.solve('am_power', Pc=1000.0, m=0.8)
@@ -2703,17 +2415,13 @@ $$
 - **Assumes:** 0 <= Vmin < Vmax; sinusoidal message
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![An AM wave with envelope maximum Vmax = 10 V and minimum Vmin = 2 V (inputs): the model returns the modulation index m = 0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/am-modulation-index-waveform)
+![An AM wave with envelope maximum Vmax = 10 V and minimum Vmin = 2 V (inputs): the package returns the modulation index m = 0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/am-modulation-index-waveform)
 
-*An AM wave with envelope maximum Vmax = 10 V and minimum Vmin = 2 V (inputs): the model returns the modulation index m = 0.6667 and carrier amplitude Ac = 6 V. The wave Ac(1 + m cos 2πt)·cos 2π·8t is drawn from those returned values (a carrier of 8 cycles per modulation period, chosen for the drawing); its envelope (dashed) swings between Ac(1 - m) and Ac(1 + m). Your inputs: Vmax = 10 V, Vmin = 2 V.*
+*An AM wave with envelope maximum Vmax = 10 V and minimum Vmin = 2 V (inputs): the package returns the modulation index m = 0.666667 and carrier amplitude Ac = 6 V. The wave Ac(1 + m cos 2πt)·cos 2π·8t is drawn from those returned values (a carrier of 8 cycles per modulation period, chosen for the drawing); its envelope swings between Vmin and Vmax around Ac.*
 
-![Modulation index as Vmax runs from 6 to 14 V, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/am-modulation-index-live-1)
+![m (modulation index) against Vmax (maximum of the envelope) from 1 V to 100 V on a logarithmic axis](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/am-modulation-index-curve)
 
-*Modulation index as Vmax runs from 6 to 14 V, every other input as you entered it (41 solutions). Marked: your Vmax = 10 V gives m = 0.6667. Your inputs: Vmax = 10 V, Vmin = 2 V.*
-
-![Modulation index as Vmin runs from 1](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/am-modulation-index-live-2)
-
-*Modulation index as Vmin runs from 1.2 to 2.8 V, every other input as you entered it (29 solutions). Marked: your Vmin = 2 V gives m = 0.6667. Your inputs: Vmax = 10 V, Vmin = 2 V.*
+*m (modulation index) against Vmax (maximum of the envelope) from 1 V to 100 V on a logarithmic axis. One curve for each value of Vmin (minimum of the envelope): 2 V, 1 V, 4 V. 34 points per curve computed by signal-processing-ai999x; marked: the worked example, Vmax = 10 V, m = 0.666667.*
 
 ```python
 signal_processing_ai999x.solve('am_modulation_index', Vmax=10.0, Vmin=2.0)
@@ -2756,17 +2464,13 @@ $$
 - **Assumes:** sinusoidal message; $\beta  \leq  100$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The line spectrum of FM with peak deviation Δf = 75 kHz and modulating frequency fm = 15 kHz: modulation index β = 5 and line amplitudes |Jn(β)| at ±n·fm for n = 0 to 9 (n = 0 is the carrier), each a run of the model (J0 = -0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/fm-spectrum-spectrum)
+![The line spectrum of FM with peak deviation Δf = 75000 Hz and modulating frequency fm = 15000 Hz: modulation index β = 5 and line amplitudes |Jn(β)| at ±n·fm for n = 0 … 10 (n = 0 is the carrier, -0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/fm-spectrum-spectrum)
 
-*The line spectrum of FM with peak deviation Δf = 75 kHz and modulating frequency fm = 15 kHz: modulation index β = 5 and line amplitudes |Jn(β)| at ±n·fm for n = 0 to 9 (n = 0 is the carrier), each a run of the model (J0 = -0.1776, J1 = -0.3276, J2 = 0.04657, J3 = 0.3648, J4 = 0.3912). Dashed: the returned Carson bandwidth 180 kHz centred on the carrier. In SI units: carson_bandwidth = 1.8e+05 Hz. Your inputs: df = 75000 Hz, fm = 15000 Hz.*
+*The line spectrum of FM with peak deviation Δf = 75000 Hz and modulating frequency fm = 15000 Hz: modulation index β = 5 and line amplitudes |Jn(β)| at ±n·fm for n = 0 … 10 (n = 0 is the carrier, -0.177597), each a run of the package. Dashed: the returned Carson bandwidth 180000 Hz centred on the carrier (±90000 Hz), which holds 0.993559 of the power.*
 
-![Carson's rule bandwidth 2(df + fm) as df runs from 4](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/fm-spectrum-live-1)
+![carson_bandwidth (Carson's rule bandwidth 2(df + fm)) against df (peak frequency deviation) from 37500 Hz to 112500 Hz](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/fm-spectrum-curve)
 
-*Carson's rule bandwidth 2(df + fm) as df runs from 4.5e+04 to 1.05e+05 Hz, every other input as you entered it (41 solutions). Marked: your df = 7.5e+04 Hz gives carson_bandwidth = 180 kHz. Your inputs: df = 75000 Hz, fm = 15000 Hz.*
-
-![Carson's rule bandwidth 2(df + fm) as fm runs from 9000 to 2](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/fm-spectrum-live-2)
-
-*Carson's rule bandwidth 2(df + fm) as fm runs from 9000 to 2.1e+04 Hz, every other input as you entered it (29 solutions). Marked: your fm = 1.5e+04 Hz gives carson_bandwidth = 180 kHz. Your inputs: df = 75000 Hz, fm = 15000 Hz.*
+*carson_bandwidth (Carson's rule bandwidth 2(df + fm)) against df (peak frequency deviation) from 37500 Hz to 112500 Hz. One curve for each value of fm (modulating (message) frequency): 15000 Hz, 7500 Hz, 30000 Hz. 31 points per curve computed by signal-processing-ai999x; marked: the worked example, df = 75000 Hz, carson_bandwidth = 180000 Hz.*
 
 ```python
 signal_processing_ai999x.solve('fm_spectrum', df=75000.0, fm=15000.0)
@@ -2810,17 +2514,13 @@ $$
 - **Assumes:** additive white Gaussian noise; SNR stated in dB
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![capacity in bit/s (C) over B from 1500 to 4500 and snr_db from 15 to 45: each of the 143 cells is one computation of the model, shaded by its value (darker is larger; a blank cell: inputs the model refuses)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/shannon-capacity-field)
+![C (capacity in bit/s) against B (bandwidth) from 1500 Hz to 4500 Hz](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/shannon-capacity-curve)
 
-*capacity in bit/s (C) over B from 1500 to 4500 and snr_db from 15 to 45: each of the 143 cells is one computation of the model, shaded by its value (darker is larger; a blank cell: inputs the model refuses). Marked: the inputs given, C = 2.99e+04. Your inputs: B = 3000 Hz, snr_db = 30.*
+*C (capacity in bit/s) against B (bandwidth) from 1500 Hz to 4500 Hz. One curve for each value of snr_db (signal-to-noise ratio in dB): 30, 15, 60. 31 points per curve computed by signal-processing-ai999x; marked: the worked example, B = 3000 Hz, C = 29901.7.*
 
-![Capacity in bit/s as B runs from 1800 to 4200 Hz, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/shannon-capacity-live-1)
+![C (capacity in bit/s) over B (bandwidth) from 1500 Hz to 4500 Hz and snr_db (signal-to-noise ratio in dB) from 15 to 45: each of the 21 × 15 cells is one run of signal-processing-ai999x, shaded by its value (light 7541](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/shannon-capacity-field)
 
-*Capacity in bit/s as B runs from 1800 to 4200 Hz, every other input as you entered it (41 solutions). Marked: your B = 3000 Hz gives C = 2.99e+04. Your inputs: B = 3000 Hz, snr_db = 30.*
-
-![Capacity in bit/s as snr_db runs from 7](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/shannon-capacity-live-2)
-
-*Capacity in bit/s as snr_db runs from 7.5 to 52.5, every other input as you entered it (29 solutions). Marked: your snr_db = 30 gives C = 2.99e+04. Your inputs: B = 3000 Hz, snr_db = 30.*
+*C (capacity in bit/s) over B (bandwidth) from 1500 Hz to 4500 Hz and snr_db (signal-to-noise ratio in dB) from 15 to 45: each of the 21 × 15 cells is one run of signal-processing-ai999x, shaded by its value (light 7541.71 to dark 67269.2); iso-lines at C = 10000, 20000, 30000, 40000, 50000, 60000. Marked: the worked example, B = 3000 Hz, snr_db = 30, C = 29901.7.*
 
 ```python
 signal_processing_ai999x.solve('shannon_capacity', B=3000.0, snr_db=30.0)
@@ -2866,13 +2566,9 @@ $$
 - **Assumes:** additive white Gaussian noise; $C/B  \leq  200$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Minimum SNR in dB as B runs from 1](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/shannon-min-snr-live-1)
+![snr_db (minimum SNR in dB) against C (data rate in bit/s) from 1e+06 to 1](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/shannon-min-snr-curve)
 
-*Minimum SNR in dB as B runs from 1.2e+06 to 2.8e+06 Hz, every other input as you entered it (41 solutions). Marked: your B = 2e+06 Hz gives snr_db = 14.91. Your inputs: C = 10000000, B = 2000000 Hz.*
-
-![Minimum SNR in dB as C runs from 2](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/shannon-min-snr-live-2)
-
-*Minimum SNR in dB as C runs from 2.5e+06 to 1.75e+07, every other input as you entered it (29 solutions). Marked: your C = 1e+07 gives snr_db = 14.91. Your inputs: C = 10000000, B = 2000000 Hz.*
+*snr_db (minimum SNR in dB) against C (data rate in bit/s) from 1e+06 to 1.0000e+08 on a logarithmic axis. One curve for each value of B (bandwidth): 2e+06 Hz, 1e+06 Hz, 4e+06 Hz. 41 points per curve computed by signal-processing-ai999x; marked: the worked example, C = 1.0000e+07, snr_db = 14.9136.*
 
 ```python
 signal_processing_ai999x.solve('shannon_min_snr', C=10000000.0, B=2000000.0)
@@ -2914,13 +2610,9 @@ $$
 - **Assumes:** coherent detection; AWGN channel; $Eb/N_{0}$ stated in dB
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Bit error probability against Eb/N0 from 0 to 14 dB, one run of the model per 0](https://huggingface.co/AI999X/signal-processing-ai999x/resolve/main/figures/bpsk-ber-ber.svg)
+![Bit error probability of coherent BPSK and of coherent binary FSK; FSK needs 3 dB more for the same error rate](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/bpsk-ber-ber)
 
-*Bit error probability against Eb/N0 from 0 to 14 dB, one run of the model per 0.25 dB, logarithmic axis (values below 1e-8 are off the axis): coherent BPSK, coherent BFSK. Marked: Eb/N0 = 8 dB, ber = 0.0001909, ber_bfsk = 0.006004. Your inputs: ebn0_db = 8.*
-
-![BPSK bit error rate as ebn0_db runs from 2 to 14, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/bpsk-ber-live-1)
-
-*BPSK bit error rate as ebn0_db runs from 2 to 14, every other input as you entered it (41 solutions). Marked: your ebn0_db = 8 gives ber = 0.0001909. Your inputs: ebn0_db = 8.*
+*Bit error probability of coherent BPSK and of coherent binary FSK; FSK needs 3 dB more for the same error rate. Eb/N0 from 0 to 14 dB, one run of the package per 0.25 dB, logarithmic axis (values below 10⁻⁷ are off the axis). Marked: the worked example, Eb/N0 = 8.0 dB, ber = 0.000190908.*
 
 ```python
 signal_processing_ai999x.solve('bpsk_ber', ebn0_db=8.0)
@@ -2962,13 +2654,9 @@ $$
 - **Assumes:** coherent detection; Gray coding; AWGN channel
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Error probability against Eb/N0 from 0 to 14 dB, one run of the model per 0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/qpsk-error-rates-ber)
+![Bit and symbol error probabilities of Gray-coded QPSK](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/qpsk-error-rates-ber)
 
-*Error probability against Eb/N0 from 0 to 14 dB, one run of the model per 0.25 dB, logarithmic axis (values below 1e-8 are off the axis): bit error rate, symbol error rate. Marked: Eb/N0 = 6 dB, ber = 0.002388, ser = 0.004771. Your inputs: ebn0_db = 6.*
-
-![Symbol error rate as ebn0_db runs from 1](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/qpsk-error-rates-live-1)
-
-*Symbol error rate as ebn0_db runs from 1.5 to 10.5, every other input as you entered it (41 solutions). Marked: your ebn0_db = 6 gives ser = 0.004771. Your inputs: ebn0_db = 6.*
+*Bit and symbol error probabilities of Gray-coded QPSK. Eb/N0 from 0 to 14 dB, one run of the package per 0.25 dB, logarithmic axis (values below 10⁻⁷ are off the axis). Marked: the worked example, Eb/N0 = 6.0 dB, ber = 0.00238829.*
 
 ```python
 signal_processing_ai999x.solve('qpsk_error_rates', ebn0_db=6.0)
@@ -3004,13 +2692,9 @@ $$
 - **Assumes:** AWGN channel; slow phase variation (DPSK); orthogonal tones (FSK)
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Bit error probability of DPSK and non-coherent binary FSK, with coherent BPSK (the model's BPSK capability) for comparison](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/noncoherent-ber-ber)
+![Bit error probability of DPSK and non-coherent binary FSK, with coherent BPSK for comparison](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/noncoherent-ber-ber)
 
-*Bit error probability of DPSK and non-coherent binary FSK, with coherent BPSK (the model's BPSK capability) for comparison. Eb/N0 from 0 to 14 dB, one run of the model per 0.25 dB, logarithmic axis (values below 1e-8 are off the axis). Marked: Eb/N0 = 3.01 dB, DPSK 0.06767, non-coherent FSK 0.1839. Your inputs: ebn0_db = 3.010299956639812.*
-
-![DPSK bit error rate as ebn0_db runs from 0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/noncoherent-ber-live-1)
-
-*DPSK bit error rate as ebn0_db runs from 0.7526 to 5.268, every other input as you entered it (41 solutions). Marked: your ebn0_db = 3.01 gives ber_dpsk = 0.06767. Your inputs: ebn0_db = 3.010299956639812.*
+*Bit error probability of DPSK and non-coherent binary FSK, with coherent BPSK for comparison. Eb/N0 from 0 to 14 dB, one run of the package per 0.25 dB, logarithmic axis (values below 10⁻⁷ are off the axis). Marked: the worked example, Eb/N0 = 8.0 dB, ber_dpsk = 0.000909404.*
 
 ```python
 signal_processing_ai999x.solve('noncoherent_ber', ebn0_db=3.010299956639812)
@@ -3048,17 +2732,9 @@ $$
 - **Assumes:** square constellation; coherent detection; AWGN channel
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Symbol error probability of M-QAM for M = 4, 16, 64, 256: each step up in M costs more Eb/N0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/mqam-symbol-error-ber)
+![Symbol error probability of square M-QAM for M = 4, 16, 64 and 256](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/mqam-symbol-error-ber)
 
-*Symbol error probability of M-QAM for M = 4, 16, 64, 256: each step up in M costs more Eb/N0. Eb/N0 from 0 to 14 dB, one run of the model per 0.5 dB, logarithmic axis (values below 1e-8 are off the axis). Marked: M = 16, Eb/N0 = 10 dB, ser = 0.007004. Your inputs: M = 16, ebn0_db = 10.*
-
-![Symbol error rate as ebn0_db runs from 2](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/mqam-symbol-error-live-1)
-
-*Symbol error rate as ebn0_db runs from 2.5 to 17.5, every other input as you entered it (41 solutions). Marked: your ebn0_db = 10 gives ser = 0.007004. Your inputs: M = 16, ebn0_db = 10.*
-
-![Symbol error rate for every choice of M, every other input as you entered it (highlighted: your choice)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/mqam-symbol-error-live-2)
-
-*Symbol error rate for every choice of M, every other input as you entered it (highlighted: your choice). 4: 7.744e-06; 16: 0.007004; 64: 0.1529; 256: 0.5256; 1024: 0.8149. Your inputs: M = 16, ebn0_db = 10.*
+*Symbol error probability of square M-QAM for M = 4, 16, 64 and 256. Eb/N0 from 0 to 14 dB, one run of the package per 0.25 dB, logarithmic axis (values below 10⁻⁷ are off the axis). Marked: the worked example, Eb/N0 = 10.0 dB, ser = 0.00700429.*
 
 ```python
 signal_processing_ai999x.solve('mqam_symbol_error', M='16', ebn0_db=10.0)
@@ -3102,17 +2778,9 @@ $$
 - **Assumes:** coherent detection; AWGN channel
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Symbol error probability of M-PSK: your point, M = 2 at Eb/N0 = 4 dB, ser = 0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/mpsk-symbol-error-ber)
+![Symbol error probability of M-ary PSK for M = 2, 4, 8, 16 and 32: each doubling of M costs more Eb/N0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/mpsk-symbol-error-ber)
 
-*Symbol error probability of M-PSK: your point, M = 2 at Eb/N0 = 4 dB, ser = 0.0125 (returned by the model), against the symbol error curves of M = 2 (BPSK) and M = 4 (QPSK) from the model's BPSK and QPSK capabilities, one run per 0.25 dB from 0 to 14 dB, logarithmic axis (values below 1e-8 are off the axis). A larger M needs more Eb/N0 for the same error rate. Your inputs: M = 2, ebn0_db = 4.*
-
-![Symbol error rate as ebn0_db runs from 1 to 7, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/mpsk-symbol-error-live-1)
-
-*Symbol error rate as ebn0_db runs from 1 to 7, every other input as you entered it (41 solutions). Marked: your ebn0_db = 4 gives ser = 0.0125. Your inputs: M = 2, ebn0_db = 4.*
-
-![Symbol error rate for every choice of M, every other input as you entered it (highlighted: your choice)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/mpsk-symbol-error-live-2)
-
-*Symbol error rate for every choice of M, every other input as you entered it (highlighted: your choice). 2: 0.0125; 4: 0.02485; 8: 0.1374; 16: 0.3818; 32: 0.6233; 64: 0.7876. Your inputs: M = 2, ebn0_db = 4.*
+*Symbol error probability of M-ary PSK for M = 2, 4, 8, 16 and 32: each doubling of M costs more Eb/N0. Eb/N0 from 0 to 14 dB, one run of the package per 0.25 dB, logarithmic axis (values below 10⁻⁷ are off the axis). Marked: the worked example, Eb/N0 = 10.0 dB, ser = 0.00303419.*
 
 ```python
 signal_processing_ai999x.solve('mpsk_symbol_error', M='2', ebn0_db=4.0)
@@ -3162,9 +2830,9 @@ $$
 - **Assumes:** impedance-matched stages; noise figures referred to $T_{0} = 290$ K; one gain per stage
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Friis noise cascade of 3 stages with noise figures [2, 6, 10] dB and gains [15, 20, 10] dB (inputs): the cascade figure after each stage, each a run of the model on the first stages: 2, 2](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/noise-figure-cascade-bars)
+![Friis noise cascade of 3 stages with noise figures [2, 6, 10] dB and gains [15, 20, 10] dB (inputs): the cascade figure after each stage, each a run of the package on the first stages, 2, 2](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/noise-figure-cascade-bars)
 
-*Friis noise cascade of 3 stages with noise figures [2, 6, 10] dB and gains [15, 20, 10] dB (inputs): the cascade figure after each stage, each a run of the model on the first stages: 2, 2.251, 2.258 dB. The first stage dominates; later stages add little because the gain in front divides their noise. Your inputs: nf_db = 2, 6, 10, gain_db = 15, 20, 10.*
+*Friis noise cascade of 3 stages with noise figures [2, 6, 10] dB and gains [15, 20, 10] dB (inputs): the cascade figure after each stage, each a run of the package on the first stages, 2, 2.25093, 2.25828 dB. The first stage dominates; later noisy stages add little because the gain in front divides their contribution. Whole chain: F = 1.68201, Te = 197.783 K, gain 45 dB.*
 
 ```python
 signal_processing_ai999x.solve('noise_figure_cascade', nf_db='2, 6, 10', gain_db='15, 20, 10')
@@ -3208,17 +2876,13 @@ $$
 - **Assumes:** free space, line of sight; far field (d >= one wavelength); isotropic antennas
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![free-space path loss in dB (loss_db) over d from 10 to 1000 and f from 2](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/free-space-path-loss-field)
+![loss_db (free-space path loss in dB) against d (distance) from 10 m to 1000 m on a logarithmic axis](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/free-space-path-loss-curve)
 
-*free-space path loss in dB (loss_db) over d from 10 to 1000 and f from 2.4e+08 to 2.4e+10 (logarithmic axes): each of the 143 cells is one computation of the model, shaded by its value (darker is larger; a blank cell: inputs the model refuses). Marked: the inputs given, loss_db = 80.05. Your inputs: d = 100 m, f = 2400000000 Hz.*
+*loss_db (free-space path loss in dB) against d (distance) from 10 m to 1000 m on a logarithmic axis. One curve for each value of f (frequency): 2.4000e+09 Hz, 1.2000e+09 Hz, 4.8000e+09 Hz. 41 points per curve computed by signal-processing-ai999x; marked: the worked example, d = 100 m, loss_db = 80.052.*
 
-![Free-space path loss in dB as d runs from 60 to 140 m, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/free-space-path-loss-live-1)
+![loss_db (free-space path loss in dB) over d (distance) from 10 m to 1000 m and f (frequency) from 2](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/free-space-path-loss-field)
 
-*Free-space path loss in dB as d runs from 60 to 140 m, every other input as you entered it (41 solutions). Marked: your d = 100 m gives loss_db = 80.05. Your inputs: d = 100 m, f = 2400000000 Hz.*
-
-![Free-space path loss in dB as f runs from 1](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/free-space-path-loss-live-2)
-
-*Free-space path loss in dB as f runs from 1.44e+09 to 3.36e+09 Hz, every other input as you entered it (29 solutions). Marked: your f = 2.4e+09 Hz gives loss_db = 80.05. Your inputs: d = 100 m, f = 2400000000 Hz.*
+*loss_db (free-space path loss in dB) over d (distance) from 10 m to 1000 m and f (frequency) from 2.4000e+08 Hz to 2.4000e+10 Hz (logarithmic axes): each of the 21 × 15 cells is one run of signal-processing-ai999x, shaded by its value (light 40.052 to dark 120.052); iso-lines at loss_db = 60, 80, 100. Marked: the worked example, d = 100 m, f = 2.4000e+09 Hz, loss_db = 80.052.*
 
 ```python
 signal_processing_ai999x.solve('free_space_path_loss', d=100.0, f=2400000000.0)
@@ -3262,15 +2926,11 @@ $$
 
 ![A free-space link budget: Pt = 1 W = 30 dBm, transmit gain 10 dBi, path loss 100](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/friis-received-power-budget)
 
-*A free-space link budget: Pt = 1 W = 30 dBm, transmit gain 10 dBi, path loss 100.1 dB at d = 1 km and f = 2.4 GHz (from the model's dBm and path-loss capabilities), receive gain 5 dBi; the running level ends at the model's received power Pr = -55.05 dBm = 3.125 nW. Your inputs: Pt = 1 W, Gt_db = 10, Gr_db = 5, f = 2400000000 Hz, d = 1000 m.*
+*A free-space link budget: Pt = 1 W = 30 dBm, transmit gain 10 dBi, path loss 100.052 dB at d = 1000 m and f = 2.4000e+09 Hz (from the package's dBm and path-loss capabilities), receive gain 5 dBi; the running level ends at the package's received power Pr = -55.052 dBm = 3.1246e-09 W.*
 
-![Received power in dBm as f runs from 1](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/friis-received-power-live-1)
+![Received power against distance from 1 m to 100 km (61 runs of the package, log axis) for Pt = 1](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/friis-received-power-curve)
 
-*Received power in dBm as f runs from 1.44e+09 to 3.36e+09 Hz, every other input as you entered it (41 solutions). Marked: your f = 2.4e+09 Hz gives Pr_dbm = -55.05. Your inputs: Pt = 1 W, Gt_db = 10, Gr_db = 5, f = 2400000000 Hz, d = 1000 m.*
-
-![Received power in dBm as d runs from 600 to 1400 m, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/friis-received-power-live-2)
-
-*Received power in dBm as d runs from 600 to 1400 m, every other input as you entered it (29 solutions). Marked: your d = 1000 m gives Pr_dbm = -55.05. Your inputs: Pt = 1 W, Gt_db = 10, Gr_db = 5, f = 2400000000 Hz, d = 1000 m.*
+*Received power against distance from 1 m to 100 km (61 runs of the package, log axis) for Pt = 1.0 W, Gt = 10.0 dBi, Gr = 5.0 dBi, f = 2400000000.0 Hz: a straight line falling 20 dB per decade of distance. Marked: d = 1000.0 m, Pr = -55.052 dBm.*
 
 ```python
 signal_processing_ai999x.solve('friis_received_power', Pt=1.0, Gt_db=10.0, Gr_db=5.0, f=2400000000.0, d=1000.0)
@@ -3311,13 +2971,9 @@ $$
 - **Assumes:** $0 < \eta  \leq  1$; D >= one wavelength
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Gain in dBi as D runs from 1](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/dish-antenna-gain-live-1)
+![G_dbi (gain in dBi) against eta (aperture efficiency (0 < eta <= 1)) from 0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/dish-antenna-gain-curve)
 
-*Gain in dBi as D runs from 1.8 to 4.2 m, every other input as you entered it (41 solutions). Marked: your D = 3 m gives G_dbi = 47.35. Your inputs: D = 3 m, f = 10000000000 Hz, eta = 0.55.*
-
-![Gain in dBi as f runs from 6e+09 to 1](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/dish-antenna-gain-live-2)
-
-*Gain in dBi as f runs from 6e+09 to 1.4e+10 Hz, every other input as you entered it (29 solutions). Marked: your f = 1e+10 Hz gives G_dbi = 47.35. Your inputs: D = 3 m, f = 10000000000 Hz, eta = 0.55.*
+*G_dbi (gain in dBi) against eta (aperture efficiency (0 < eta <= 1)) from 0.02 to 0.98. One curve for each value of D (dish diameter): 3 m, 1.5 m, 6 m. Other inputs as in the worked example: f = 10000000000.0 Hz. 41 points per curve computed by signal-processing-ai999x; marked: the worked example, eta = 0.55, G_dbi = 47.3526.*
 
 ```python
 signal_processing_ai999x.solve('dish_antenna_gain', D=3.0, f=10000000000.0, eta=0.55)
@@ -3358,13 +3014,9 @@ $$
 - **Assumes:** monostatic radar, one antenna; free space, no losses; far field
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Received echo power as G_db runs from 10 to 70, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/radar-received-power-live-1)
+![Echo power against range from 1 km to 1000 km (61 runs of the package, log axis) for Pt = 1000000](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/radar-received-power-curve)
 
-*Received echo power as G_db runs from 10 to 70, every other input as you entered it (41 solutions). Marked: your G_db = 40 gives Pr = 5.032e-12. Your inputs: Pt = 1000000 W, G_db = 40, f = 3000000000 Hz, sigma = 1 m^2, R = 100000 m.*
-
-![Received echo power as R runs from 6e+04 to 1](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/radar-received-power-live-2)
-
-*Received echo power as R runs from 6e+04 to 1.4e+05 m, every other input as you entered it (29 solutions). Marked: your R = 1e+05 m gives Pr = 5.032e-12. Your inputs: Pt = 1000000 W, G_db = 40, f = 3000000000 Hz, sigma = 1 m^2, R = 100000 m.*
+*Echo power against range from 1 km to 1000 km (61 runs of the package, log axis) for Pt = 1000000.0 W, antenna gain 40.0 dBi, f = 3000000000.0 Hz, target cross-section σ = 1.0 m²: 40 dB lost per decade of range (the 1/R⁴ law). Marked: R = 100000.0 m, Pr = -82.9823 dBm = 5.0323e-12 W.*
 
 ```python
 signal_processing_ai999x.solve('radar_received_power', Pt=1000000.0, G_db=40.0, f=3000000000.0, sigma=1.0, R=100000.0)
@@ -3404,13 +3056,9 @@ $$
 - **Assumes:** monostatic radar; free space, no losses
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Maximum detection range as G_db runs from 10 to 70, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/radar-max-range-live-1)
+![Rmax (maximum detection range) against G_db (antenna gain in dBi) from 20 to 60](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/radar-max-range-curve)
 
-*Maximum detection range as G_db runs from 10 to 70, every other input as you entered it (41 solutions). Marked: your G_db = 40 gives Rmax = 266.3 km. Your inputs: Pt = 1000000 W, G_db = 40, f = 3000000000 Hz, sigma = 1 m^2, Pmin = 1e-13 W.*
-
-![Maximum detection range as f runs from 1](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/radar-max-range-live-2)
-
-*Maximum detection range as f runs from 1.8e+09 to 4.2e+09 Hz, every other input as you entered it (29 solutions). Marked: your f = 3e+09 Hz gives Rmax = 266.3 km. Your inputs: Pt = 1000000 W, G_db = 40, f = 3000000000 Hz, sigma = 1 m^2, Pmin = 1e-13 W.*
+*Rmax (maximum detection range) against G_db (antenna gain in dBi) from 20 to 60. One curve for each value of f (frequency): 3.0000e+09 Hz, 1.5000e+09 Hz, 6.0000e+09 Hz. Other inputs as in the worked example: Pt = 1000000.0 W, sigma = 1.0 m^2, Pmin = 1e-13 W. 31 points per curve computed by signal-processing-ai999x; marked: the worked example, G_db = 40, Rmax = 266344 m.*
 
 ```python
 signal_processing_ai999x.solve('radar_max_range', Pt=1000000.0, G_db=40.0, f=3000000000.0, sigma=1.0, Pmin=1e-13)
@@ -3447,17 +3095,13 @@ $$
 - **Assumes:** monostatic radar; |v| much smaller than c
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Doppler shift of the echo (fd) over v from 15 to 45 and f from 5e+09 to 1](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/radar-doppler-field)
+![fd (Doppler shift of the echo) against v (radial velocity, positive when approaching) from 15 m/s to 45 m/s](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/radar-doppler-curve)
 
-*Doppler shift of the echo (fd) over v from 15 to 45 and f from 5e+09 to 1.5e+10: each of the 143 cells is one computation of the model, shaded by its value (darker is larger; a blank cell: inputs the model refuses). Marked: the inputs given, fd = 2001. Your inputs: v = 30 m/s, f = 10000000000 Hz.*
+*fd (Doppler shift of the echo) against v (radial velocity, positive when approaching) from 15 m/s to 45 m/s. One curve for each value of f (transmitted frequency): 1.0000e+10 Hz, 5.0000e+09 Hz, 2.0000e+10 Hz. 31 points per curve computed by signal-processing-ai999x; marked: the worked example, v = 30 m/s, fd = 2001.38 Hz.*
 
-![Doppler shift of the echo as v runs from 18 to 42 m/s, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/radar-doppler-live-1)
+![fd (Doppler shift of the echo) over v (radial velocity, positive when approaching) from 15 m/s to 45 m/s and f (transmitted frequency) from 5](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/radar-doppler-field)
 
-*Doppler shift of the echo as v runs from 18 to 42 m/s, every other input as you entered it (41 solutions). Marked: your v = 30 m/s gives fd = 2001. Your inputs: v = 30 m/s, f = 10000000000 Hz.*
-
-![Doppler shift of the echo as f runs from 6e+09 to 1](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/radar-doppler-live-2)
-
-*Doppler shift of the echo as f runs from 6e+09 to 1.4e+10 Hz, every other input as you entered it (29 solutions). Marked: your f = 1e+10 Hz gives fd = 2001. Your inputs: v = 30 m/s, f = 10000000000 Hz.*
+*fd (Doppler shift of the echo) over v (radial velocity, positive when approaching) from 15 m/s to 45 m/s and f (transmitted frequency) from 5.0000e+09 Hz to 1.5000e+10 Hz: each of the 21 × 15 cells is one run of signal-processing-ai999x, shaded by its value (light 500.346 Hz to dark 4503.12 Hz); iso-lines at fd = 1000, 2000, 3000, 4000 Hz. Marked: the worked example, v = 30 m/s, f = 1.0000e+10 Hz, fd = 2001.38 Hz.*
 
 ```python
 signal_processing_ai999x.solve('radar_doppler', v=30.0, f=10000000000.0)
@@ -3501,17 +3145,9 @@ $$
 - **Assumes:** $RL > 0$; Z0 real (lossless line)
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The reflection coefficient Γ of the load ZL = 75 + j25 Ω on a Z0 = 50 Ω line in the unit circle of the Γ-plane: the model returns Γ = 0](https://huggingface.co/AI999X/signal-processing-ai999x/resolve/main/figures/reflection-coefficient-gamma.svg)
+![The reflection coefficient Γ of the load ZL = 75](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/reflection-coefficient-gamma)
 
-*The reflection coefficient Γ of the load ZL = 75 + j25 Ω on a Z0 = 50 Ω line in the unit circle of the Γ-plane: the model returns Γ = 0.2308 + j0.1538 (|Γ| = 0.2774), VSWR 1.768, return loss 11.14 dB. Dashed: the circle of loads with the same |Γ|. Grey dots: purely resistive loads from Z0/10 to 10 Z0, each a run of the model. Your inputs: RL = 75 ohm, Z0 = 50 ohm, XL = 25 ohm.*
-
-![Gamma mag as RL runs from 45 to 105 ohm, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/reflection-coefficient-live-1)
-
-*Gamma mag as RL runs from 45 to 105 ohm, every other input as you entered it (41 solutions). Marked: your RL = 75 ohm gives γ_mag = 0.2774. Your inputs: RL = 75 ohm, Z0 = 50 ohm, XL = 25 ohm.*
-
-![Gamma mag as Z0 runs from 30 to 70 ohm, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/reflection-coefficient-live-2)
-
-*Gamma mag as Z0 runs from 30 to 70 ohm, every other input as you entered it (29 solutions). Marked: your Z0 = 50 ohm gives γ_mag = 0.2774. Your inputs: RL = 75 ohm, Z0 = 50 ohm, XL = 25 ohm.*
+*The reflection coefficient Γ of the load ZL = 75.0 + j25.0 Ω on a Z0 = 50.0 Ω line in the unit circle of the Γ-plane: the package returns Γ = 0.230769 + j0.153846 (|Γ| = 0.27735, angle 33.6901°), VSWR 1.76759, return loss 11.1394 dB. Dashed: the circle of loads with the same |Γ|. Grey dots: purely resistive loads for comparison (25 Ω: Γ = -0.333333; 50 Ω: Γ = 0; 100 Ω: Γ = 0.333333); the centre is a matched load.*
 
 ```python
 signal_processing_ai999x.solve('reflection_coefficient', RL=75.0, XL=25.0, Z0=50.0)
@@ -3555,9 +3191,9 @@ $$
 - **Assumes:** 0 <= |Gamma| < 1
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Voltage standing wave ratio as γ runs from 0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/vswr-from-reflection-live-1)
+![Voltage standing-wave ratio (log axis) and return loss for reflection magnitudes 0 to 0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/vswr-from-reflection-curve)
 
-*Voltage standing wave ratio as γ runs from 0.05 to 0.35, every other input as you entered it (41 solutions). Marked: your γ = 0.2 gives vswr = 1.5. Your inputs: gamma = 0.2.*
+*Voltage standing-wave ratio (log axis) and return loss for reflection magnitudes 0 to 0.95, 77 runs of the package (return loss is infinite at |Γ| = 0 and left out there). Marked: the worked example |Γ| = 0.2: VSWR 1.5, return loss 13.9794 dB, mismatch loss 0.177288 dB.*
 
 ```python
 signal_processing_ai999x.solve('vswr_from_reflection', gamma=0.2)
@@ -3595,9 +3231,9 @@ $$
 - **Assumes:** VSWR >= 1
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Gamma as vswr runs from 1](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/reflection-from-vswr-live-1)
+![gamma (|Gamma|) against vswr (voltage standing wave ratio (>= 1)) from 1 to 3](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/reflection-from-vswr-curve)
 
-*Gamma as vswr runs from 1.025 to 3.5, every other input as you entered it (34 solutions). Marked: your vswr = 2 gives γ = 0.3333. Your inputs: vswr = 2.*
+*gamma (|Gamma|) against vswr (voltage standing wave ratio (>= 1)) from 1 to 3. 31 points computed by signal-processing-ai999x; marked: the worked example, vswr = 2, gamma = 0.333333.*
 
 ```python
 signal_processing_ai999x.solve('reflection_from_vswr', vswr=2.0)
@@ -3638,13 +3274,9 @@ $$
 - **Assumes:** lossless line; $RL > 0$; length >= 0 in wavelengths
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Input resistance and abs_zin as length runs from 0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/input-impedance-live-1)
+![Input impedance of a lossless line of characteristic impedance Z0 = 50 Ω terminated in RL = 100 Ω, for lengths 0 to half a wavelength (101 runs of the package): the impedance repeats every λ/2, and a quarter-wave line turns RL into Z0²/RL](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/input-impedance-curve)
 
-*Input resistance and abs_zin as length runs from 0.0625 to 0.4375, every other input as you entered it (41 solutions). Marked: your length = 0.25 gives Rin = 25. Your inputs: RL = 100 ohm, Z0 = 50 ohm, length = 0.25.*
-
-![Input resistance and abs_zin as Z0 runs from 30 to 70 ohm, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/input-impedance-live-2)
-
-*Input resistance and abs_zin as Z0 runs from 30 to 70 ohm, every other input as you entered it (29 solutions). Marked: your Z0 = 50 ohm gives Rin = 25. Your inputs: RL = 100 ohm, Z0 = 50 ohm, length = 0.25.*
+*Input impedance of a lossless line of characteristic impedance Z0 = 50 Ω terminated in RL = 100 Ω, for lengths 0 to half a wavelength (101 runs of the package): the impedance repeats every λ/2, and a quarter-wave line turns RL into Z0²/RL. Marked: the worked example length 0.125 λ, Rin = 40 Ω, Xin = -30 Ω.*
 
 ```python
 signal_processing_ai999x.solve('input_impedance', RL=100.0, Z0=50.0, length=0.25)
@@ -3690,13 +3322,9 @@ $$
 - **Assumes:** resistive load; lossless lines; exact match at the design frequency only
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Physical length of the section (f given) as f runs from 6e+08 to 1](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/quarter-wave-transformer-live-1)
+![Zt (characteristic impedance of the transformer) against RL (load resistance) from 50 ohm to 150 ohm](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/quarter-wave-transformer-curve)
 
-*Physical length of the section (f given) as f runs from 6e+08 to 1.4e+09 Hz, every other input as you entered it (41 solutions). Marked: your f = 1e+09 Hz gives length = 74.95 mm. Your inputs: RL = 100 ohm, Z0 = 50 ohm, f = 1000000000 Hz.*
-
-![Characteristic impedance of the transformer as RL runs from 60 to 140 ohm, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/quarter-wave-transformer-live-2)
-
-*Characteristic impedance of the transformer as RL runs from 60 to 140 ohm, every other input as you entered it (29 solutions). Marked: your RL = 100 ohm gives Zt = 70.71. Your inputs: RL = 100 ohm, Z0 = 50 ohm, f = 1000000000 Hz.*
+*Zt (characteristic impedance of the transformer) against RL (load resistance) from 50 ohm to 150 ohm. One curve for each value of Z0 (impedance to match to): 50 ohm, 25 ohm, 100 ohm. Other inputs as in the worked example: f = 1000000000.0 Hz. 31 points per curve computed by signal-processing-ai999x; marked: the worked example, RL = 100 ohm, Zt = 70.7107 ohm.*
 
 ```python
 signal_processing_ai999x.solve('quarter_wave_transformer', RL=100.0, Z0=50.0, f=1000000000.0)
@@ -3741,17 +3369,13 @@ $$
 - **Assumes:** $d < D$; $er  \geq  1$; lossless conductors and dielectric
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Cross-section of a coaxial line to scale: inner conductor d = 1 mm, outer conductor inner diameter D = 3](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/coax-impedance-section)
+![Cross-section of a coaxial line to scale (dimensions converted to mm): inner conductor d = 0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/coax-impedance-section)
 
-*Cross-section of a coaxial line to scale: inner conductor d = 1 mm, outer conductor inner diameter D = 3.5 mm, dielectric εr = 2.25 (inputs). Returned by the model: characteristic impedance Z0 = 50.08 Ω and velocity factor 0.6667. Your inputs: D = 0.0035 m, d = 0.001 m, er = 2.25.*
+*Cross-section of a coaxial line to scale (dimensions converted to mm): inner conductor d = 0.001 m, outer conductor inner diameter D = 0.0035 m, dielectric εr = 2.25 (inputs). Returned: characteristic impedance Z0 = 50.0759 Ω and velocity factor 0.666667.*
 
-![Characteristic impedance as D runs from 0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/coax-impedance-live-1)
+![Z0 (characteristic impedance) against er (relative permittivity of the dielectric (1 if not given)) from 1](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/coax-impedance-curve)
 
-*Characteristic impedance as D runs from 0.0021 to 0.0049 m, every other input as you entered it (41 solutions). Marked: your D = 0.0035 m gives Z0 = 50.08. Your inputs: D = 0.0035 m, d = 0.001 m, er = 2.25.*
-
-![Characteristic impedance as d runs from 0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/coax-impedance-live-2)
-
-*Characteristic impedance as d runs from 0.0006 to 0.0014 m, every other input as you entered it (29 solutions). Marked: your d = 0.001 m gives Z0 = 50.08. Your inputs: D = 0.0035 m, d = 0.001 m, er = 2.25.*
+*Z0 (characteristic impedance) against er (relative permittivity of the dielectric (1 if not given)) from 1.125 to 3.375. One curve for each value of d (diameter of the inner conductor): 0.001 m, 0.0005 m, 0.002 m. Other inputs as in the worked example: D = 0.0035 m. 31 points per curve computed by signal-processing-ai999x; marked: the worked example, er = 2.25, Z0 = 50.0759 ohm.*
 
 ```python
 signal_processing_ai999x.solve('coax_impedance', D=0.0035, d=0.001, er=2.25)
@@ -3791,25 +3415,13 @@ $$
 - **Assumes:** $0 < fc < fs/2$; $1  \leq  N  \leq  8$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Gain (top, down to -100 dB) and unwrapped phase (bottom) of digital Butterworth filters designed by the model for fc = 1 kHz at fs = 8 kHz: yours: order 2 lowpass (b = [0](https://huggingface.co/AI999X/signal-processing-ai999x/resolve/main/figures/butterworth-design-response.svg)
+![Impulse response (stems) and step response (line) of the order-4 Butterworth low-pass filter designed by the package for fc = 1000 Hz at fs = 8000 Hz (b = [0](https://huggingface.co/AI999X/signal-processing-ai999x/resolve/main/figures/butterworth-design-stems.svg)
 
-*Gain (top, down to -100 dB) and unwrapped phase (bottom) of digital Butterworth filters designed by the model for fc = 1 kHz at fs = 8 kHz: yours: order 2 lowpass (b = [0.09763, 0.1953, 0.09763], a = [1, -0.9428, 0.3333]); order 2 highpass (b = [0.569, -1.138, 0.569], a = [1, -0.9428, 0.3333]); order 4 lowpass (b = [0.01021, 0.04084, 0.06126, 0.04084, 0.01021], a = [1, -1.968, 1.736, -0.7245, 0.1204]). Each response is 61 runs of the model's frequency response from fs/400 to fs/2 (logarithmic axis). Marked: the gain of your design at fc, -3.01 dB. Your inputs: N = 2, fc = 1000 Hz, fs = 8000 Hz, btype = lowpass.*
+*Impulse response (stems) and step response (line) of the order-4 Butterworth low-pass filter designed by the package for fc = 1000 Hz at fs = 8000 Hz (b = [0.01021, 0.04084, 0.06126, 0.04084, 0.01021], a = [1, -1.968, 1.736, -0.7245, 0.1204]), 30 samples each computed by the package; the step response settles at the DC gain 1 after overshooting to 1.11966. Marked: the largest impulse sample h[4] = 0.289522.*
 
-![Impulse response (stems) and step response (line) of the Butterworth filter designed by the model (b = [0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/butterworth-design-stems)
+![Gain and phase of digital Butterworth filters designed by the package for fc = 1000 Hz at fs = 8000 Hz: the order-2 low-pass (b = [0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/butterworth-design-response)
 
-*Impulse response (stems) and step response (line) of the Butterworth filter designed by the model (b = [0.09763, 0.1953, 0.09763], a = [1, -0.9428, 0.3333]), 30 samples each computed by the model's impulse- and step-response capabilities; the step response ends at 1. Your inputs: N = 2, fc = 1000 Hz, fs = 8000 Hz, btype = lowpass.*
-
-![B[1], b[2] and b[3] as N runs from 1 to 6, every other input as you entered it (6 solutions)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/butterworth-design-live-1)
-
-*B[1], b[2] and b[3] as N runs from 1 to 6, every other input as you entered it (6 solutions). Marked: your N = 2 gives b[1] = 0.09763. Your inputs: N = 2, fc = 1000 Hz, fs = 8000 Hz, btype = lowpass.*
-
-![Numerator coefficients b[0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/butterworth-design-live-2)
-
-*Numerator coefficients b[0..N], entry 1 for every choice of btype, every other input as you entered it (highlighted: your choice). lowpass: 0.09763; highpass: 0.569. Your inputs: N = 2, fc = 1000 Hz, fs = 8000 Hz, btype = lowpass.*
-
-![Every entry of b, a as computed for your inputs (3 entries, b first: 0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/butterworth-design-live-3)
-
-*Every entry of b, a as computed for your inputs (3 entries, b first: 0.09763, 0.1953, 0.09763). Your inputs: N = 2, fc = 1000 Hz, fs = 8000 Hz, btype = lowpass.*
+*Gain and phase of digital Butterworth filters designed by the package for fc = 1000 Hz at fs = 8000 Hz: the order-2 low-pass (b = [0.09763, 0.1953, 0.09763], a = [1, -0.9428, 0.3333]), the order-2 high-pass (b = [0.569, -1.138, 0.569], a = [1, -0.9428, 0.3333]) and an order-4 low-pass; each response is 120 frequency-response runs of the package from 0 to fs/2 (gain clipped at −80 dB). Marked: the order-2 low-pass at fc, -3.0103 dB.*
 
 ```python
 signal_processing_ai999x.solve('butterworth_design', N=2, fc=1000.0, fs=8000.0, btype='lowpass')
@@ -3854,25 +3466,13 @@ $$
 - **Assumes:** $0 < fc < fs/2$; symmetric window; taps scaled so that the DC gain is 1
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Gain of the four 5-tap FIR low-pass designs of fc = 1 kHz, fs = 8 kHz (taps from the model, each response 41 frequency-response runs, clipped at -110 dB): the rectangular window gives the sharpest edge but the highest stopband ripple; Blackman the deepest stopband and widest edge](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/fir-window-design-response)
+![Taps of 21-tap low-pass FIR filters designed by the package for fc = 1000 Hz at fs = 8000 Hz with four windows (the worked example is 5 taps, hamming): the windowed sinc, tapered toward zero at the ends by every window but the rectangular one; rectangular centre tap 0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/fir-window-design-taps)
 
-*Gain of the four 5-tap FIR low-pass designs of fc = 1 kHz, fs = 8 kHz (taps from the model, each response 41 frequency-response runs, clipped at -110 dB): the rectangular window gives the sharpest edge but the highest stopband ripple; Blackman the deepest stopband and widest edge. Your design (hamming window): h = [0.02455, 0.2344, 0.4821, 0.2344, 0.02455]. Your inputs: N = 5, fc = 1000 Hz, fs = 8000 Hz, window = hamming.*
+*Taps of 21-tap low-pass FIR filters designed by the package for fc = 1000 Hz at fs = 8000 Hz with four windows (the worked example is 5 taps, hamming): the windowed sinc, tapered toward zero at the ends by every window but the rectangular one; rectangular centre tap 0.244677; hann centre tap 0.249382; hamming centre tap 0.248999; blackman centre tap 0.250496.*
 
-![Taps of 5-tap low-pass FIR filters designed by the model for fc = 1 kHz at fs = 8 kHz with four windows: the windowed sinc, tapered toward zero at the ends by every window but the rectangular one; rectangular centre tap 0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/fir-window-design-taps)
+![Gain of the four 21-tap FIR low-pass designs of fc = 1000 Hz, fs = 8000 Hz (taps from the package, each response 121 frequency-response runs, clipped at −110 dB): the rectangular window gives the sharpest edge but the highest stopband ripple; Blackman the deepest stopband and widest edge](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/fir-window-design-response)
 
-*Taps of 5-tap low-pass FIR filters designed by the model for fc = 1 kHz at fs = 8 kHz with four windows: the windowed sinc, tapered toward zero at the ends by every window but the rectangular one; rectangular centre tap 0.2455; hann centre tap 0.5262; hamming centre tap 0.4821; blackman centre tap 0.6203. Your window: hamming, h = [0.02455, 0.2344, 0.4821, 0.2344, 0.02455]. Your inputs: N = 5, fc = 1000 Hz, fs = 8000 Hz, window = hamming.*
-
-![H[1], h[2] and h[3] as N runs from 1 to 9, every other input as you entered it (9 solutions)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/fir-window-design-live-1)
-
-*H[1], h[2] and h[3] as N runs from 1 to 9, every other input as you entered it (9 solutions). Marked: your N = 5 gives h[1] = 0.02455. Your inputs: N = 5, fc = 1000 Hz, fs = 8000 Hz, window = hamming.*
-
-![Filter taps h[0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/fir-window-design-live-2)
-
-*Filter taps h[0..N-1], entry 1 for every choice of window, every other input as you entered it (highlighted: your choice). rectangular: 0.1563; hann: 0; hamming: 0.02455; blackman: 0. Your inputs: N = 5, fc = 1000 Hz, fs = 8000 Hz, window = hamming.*
-
-![Every entry of h as computed for your inputs (5 entries: 0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/fir-window-design-live-3)
-
-*Every entry of h as computed for your inputs (5 entries: 0.02455, 0.2344, 0.4821, 0.2344, 0.02455). Your inputs: N = 5, fc = 1000 Hz, fs = 8000 Hz, window = hamming.*
+*Gain of the four 21-tap FIR low-pass designs of fc = 1000 Hz, fs = 8000 Hz (taps from the package, each response 121 frequency-response runs, clipped at −110 dB): the rectangular window gives the sharpest edge but the highest stopband ripple; Blackman the deepest stopband and widest edge.*
 
 ```python
 signal_processing_ai999x.solve('fir_window_design', N=5, fc=1000.0, fs=8000.0, window='hamming')
@@ -3916,25 +3516,13 @@ $$
 - **Assumes:** $0 < f_{0} < fs/2$; $Q > 0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Poles and zeros of the notch filter designed by the model for f0 = 60 Hz, Q = 30, fs = 1 kHz (from the model's pole-zero capability): zeros 0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/notch-filter-design-poles)
+![The gain of the second-order notch filter designed by the package for f0 = 60 Hz, Q = 30, fs = 1000 Hz (b = [0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/notch-filter-design-response)
 
-*Poles and zeros of the notch filter designed by the model for f0 = 60 Hz, Q = 30, fs = 1 kHz (from the model's pole-zero capability): zeros 0.9298 + 0.3681j, 0.9298 - 0.3681j on the unit circle at the notch angle, poles 0.924 + 0.3658j, 0.924 - 0.3658j just inside them, largest radius 0.9937 (stable). The filter: b = [0.9938, -1.848, 0.9938], a = [1, -1.848, 0.9875]. Your inputs: f0 = 60 Hz, Q = 30, fs = 1000 Hz.*
+*The gain of the second-order notch filter designed by the package for f0 = 60 Hz, Q = 30, fs = 1000 Hz (b = [0.993756, -1.84794, 0.993756], a = [1, -1.84794, 0.987512]): 120 frequency-response runs from f0/2 to 1.5 f0, dense near f0 and down to 1 ppm from it; the plot is clipped at −60 dB (exactly at f0 the gain is zero, −∞ dB). The notch is only about f0/Q = 2 Hz wide at −3 dB; elsewhere the gain is 0 dB.*
 
-![The gain of the second-order notch filter designed by the model for f0 = 60 Hz, Q = 30, fs = 1 kHz (b = [0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/notch-filter-design-response)
+![Poles and zeros of the notch filter designed by the package for f0 = 60](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/notch-filter-design-poles)
 
-*The gain of the second-order notch filter designed by the model for f0 = 60 Hz, Q = 30, fs = 1 kHz (b = [0.9938, -1.848, 0.9938], a = [1, -1.848, 0.9875]): 121 frequency-response runs of the model from f0/2 to 1.5 f0, dense near f0; the plot is clipped at -60 dB. Your inputs: f0 = 60 Hz, Q = 30, fs = 1000 Hz.*
-
-![B[1], b[2] and b[3] as fs runs from 600 to 1400 Hz, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/notch-filter-design-live-1)
-
-*B[1], b[2] and b[3] as fs runs from 600 to 1400 Hz, every other input as you entered it (41 solutions). Marked: your fs = 1000 Hz gives b[1] = 0.9938. Your inputs: f0 = 60 Hz, Q = 30, fs = 1000 Hz.*
-
-![Every entry of b, a as computed for your inputs (3 entries, b first: 0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/notch-filter-design-live-2)
-
-*Every entry of b, a as computed for your inputs (3 entries, b first: 0.9938, -1.848, 0.9938). Your inputs: f0 = 60 Hz, Q = 30, fs = 1000 Hz.*
-
-![B[1], b[2] and b[3] as f0 runs from 36 to 84 Hz, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/notch-filter-design-live-3)
-
-*B[1], b[2] and b[3] as f0 runs from 36 to 84 Hz, every other input as you entered it (29 solutions). Marked: your f0 = 60 Hz gives b[1] = 0.9938. Your inputs: f0 = 60 Hz, Q = 30, fs = 1000 Hz.*
+*Poles and zeros of the notch filter designed by the package for f0 = 60.0 Hz, Q = 30.0, fs = 1000.0 Hz (from the package's pole–zero capability): the zeros sit on the unit circle at angle ±2πf0/fs and the poles just inside them, largest radius 0.993736 (stable).*
 
 ```python
 signal_processing_ai999x.solve('notch_filter_design', f0=60.0, Q=30.0, fs=1000.0)
@@ -3972,21 +3560,9 @@ $$
 - **Assumes:** length a power of two; levels <= log2 N
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The Haar wavelet transform of x = [4, 6, 10, 12, 8, 6, 5, 5] returned by the model: each coefficient is drawn at the centre of the samples it summarises (a level-l coefficient spans 2^l samples)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/haar-dwt-coefficients)
+![The 2-level Haar wavelet transform of x = [4, 6, 10, 12, 8, 6, 5, 5]: each coefficient is drawn at the centre of the samples it summarises (a level-ℓ coefficient spans 2^ℓ samples)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/haar-dwt-coefficients)
 
-*The Haar wavelet transform of x = [4, 6, 10, 12, 8, 6, 5, 5] returned by the model: each coefficient is drawn at the centre of the samples it summarises (a level-l coefficient spans 2^l samples). Details level 1: [-1.414, -1.414, 1.414, 0]; level 2: [-6, 2]; approximation [16, 12]. Large details mark sharp changes. Your inputs: x = 4, 6, 10, 12, 8, 6, 5, 5, levels = 2.*
-
-![Approximation[1] and approximation[2] as levels runs from 1 to 3, every other input as you entered it (3 solutions)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/haar-dwt-live-1)
-
-*Approximation[1] and approximation[2] as levels runs from 1 to 3, every other input as you entered it (3 solutions). Marked: your levels = 2 gives approximation[1] = 16. Your inputs: x = 4, 6, 10, 12, 8, 6, 5, 5, levels = 2.*
-
-![Every entry of approximation as computed for your inputs (2 entries: 16, 12)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/haar-dwt-live-2)
-
-*Every entry of approximation as computed for your inputs (2 entries: 16, 12). Your inputs: x = 4, 6, 10, 12, 8, 6, 5, 5, levels = 2.*
-
-![Approximation coefficients after the last level, entry 1 as x[3] runs from 0 to 32, every other input as you entered it (17 solutions)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/haar-dwt-live-3)
-
-*Approximation coefficients after the last level, entry 1 as x[3] runs from 0 to 32, every other input as you entered it (17 solutions). Marked: your x[3] = 12 gives approximation[1] = 16. Your inputs: x = 4, 6, 10, 12, 8, 6, 5, 5, levels = 2.*
+*The 2-level Haar wavelet transform of x = [4, 6, 10, 12, 8, 6, 5, 5]: each coefficient is drawn at the centre of the samples it summarises (a level-ℓ coefficient spans 2^ℓ samples). Returned: level-1 details [-1.414, -1.414, 1.414, 0]; level-2 details [-6, 2]; approximation [16, 12]. Large details mark jumps (from 6 to 10 and from 12 to 8); the approximation is a scaled local average.*
 
 ```python
 signal_processing_ai999x.solve('haar_dwt', x='4, 6, 10, 12, 8, 6, 5, 5', levels=2)
@@ -4028,13 +3604,9 @@ $$
 - **Assumes:** equal lengths
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![One level of the inverse Haar transform: approximation cA = [16, 12] and details cD = [-6, 2] (inputs) give x = [7](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/haar-idwt-coefficients)
+![One level of the inverse Haar transform: approximation cA = [16, 12] and details cD = [-6, 2] (inputs, drawn at the centre of the two samples each one rebuilds) give x = [7](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/haar-idwt-coefficients)
 
-*One level of the inverse Haar transform: approximation cA = [16, 12] and details cD = [-6, 2] (inputs) give x = [7.071, 15.56, 9.899, 7.071] (returned by the model): each pair is (cA ± cD)/√2. Your inputs: cA = 16, 12, cD = -6, 2.*
-
-![Every entry of x as computed for your inputs (4 entries: 7](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/haar-idwt-live-1)
-
-*Every entry of x as computed for your inputs (4 entries: 7.071, 15.56, 9.899, 7.071). Your inputs: cA = 16, 12, cD = -6, 2.*
+*One level of the inverse Haar transform: approximation cA = [16, 12] and details cD = [-6, 2] (inputs, drawn at the centre of the two samples each one rebuilds) give x = [7.07107, 15.5563, 9.89949, 7.07107] (returned): each pair is (cA ± cD)/√2.*
 
 ```python
 signal_processing_ai999x.solve('haar_idwt', cA='16, 12', cD='-6, 2')
@@ -4077,17 +3649,9 @@ $$
 - **Assumes:** a[0] != 0; numerator not identically zero; distinct poles (at least 0.001 apart); no pole cancelled by a zero; causal sequence: ROC |z| > largest pole radius
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Roc radius as a[0] runs from 0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/inverse-z-transform-live-1)
+![poles p_i (real ascending, then complex) (poles) returned by signal-processing-ai999x for the worked example (b = 1, a = 1, -1](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/inverse-z-transform-complex)
 
-*Roc radius as a[0] runs from 0.25 to 1.75, every other input as you entered it (41 solutions). Marked: your a[0] = 1 gives roc_radius = 1. Your inputs: b = 1, a = 1, -1.5, 0.5, n = 5.*
-
-![Every entry of residues as computed for your inputs (2 entries: -1, 2)](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/inverse-z-transform-live-2)
-
-*Every entry of residues as computed for your inputs (2 entries: -1, 2). Your inputs: b = 1, a = 1, -1.5, 0.5, n = 5.*
-
-![Roc radius as a[1] runs from -2](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/inverse-z-transform-live-3)
-
-*Roc radius as a[1] runs from -2.625 to -0.375, every other input as you entered it (29 solutions). Marked: your a[1] = -1.5 gives roc_radius = 1. Your inputs: b = 1, a = 1, -1.5, 0.5, n = 5.*
+*poles p_i (real ascending, then complex) (poles) returned by signal-processing-ai999x for the worked example (b = 1, a = 1, -1.5, 0.5, n = 5), drawn in the complex plane: 0.5 + 0i, 1 + 0i.*
 
 ```python
 signal_processing_ai999x.solve('inverse_z_transform', b='1', a='1, -1.5, 0.5', n=5)
@@ -4146,13 +3710,13 @@ $$
 - **Assumes:** $a_{0}  \neq  0$ and $aN  \neq  0$; N initial conditions for an equation of order N; the input ratio q is not a pole of the system (no resonance: repeated poles are refused); the input or an initial condition is non-zero; no pole cancelled by a zero
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Roc radius as input_ratio runs from 0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/difference-equation-z-live-1)
+![The plane vectors of the worked example as arrows from the origin: input a = (1, -0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/difference-equation-z-vectors)
 
-*Roc radius as input_ratio runs from 0.25 to 1.75, every other input as you entered it (39 solutions). Marked: your input_ratio = 1 gives roc_radius = 1. Your inputs: a = 1, -0.5, b = 1, initial_conditions = 1, input_amplitude = 1, input_ratio = 1, n = 5.*
+*The plane vectors of the worked example as arrows from the origin: input a = (1, -0.5); returned by signal-processing-ai999x: residues = (-0.5, 2), poles = (0.5, 1); also returned roc_radius = 1. Other inputs: b = 1, initial_conditions = 1, input_amplitude = 1.0, input_ratio = 1.0, n = 5. Marked: the tip of each returned vector.*
 
-![Every entry of residues as computed for your inputs (2 entries: -0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/difference-equation-z-live-2)
+![poles p_i of Y(z) (of the system and of the input) (poles) returned by signal-processing-ai999x for the worked example (a = 1, -0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/difference-equation-z-complex)
 
-*Every entry of residues as computed for your inputs (2 entries: -0.5, 2). Your inputs: a = 1, -0.5, b = 1, initial_conditions = 1, input_amplitude = 1, input_ratio = 1, n = 5.*
+*poles p_i of Y(z) (of the system and of the input) (poles) returned by signal-processing-ai999x for the worked example (a = 1, -0.5, b = 1, initial_conditions = 1, input_amplitude = 1.0, input_ratio = 1.0, n = 5), drawn in the complex plane: 0.5 + 0i, 1 + 0i.*
 
 ```python
 signal_processing_ai999x.solve('difference_equation_z', a='1, -0.5', b='1', initial_conditions='1', input_amplitude=1, input_ratio=1, n=5)
@@ -4205,13 +3769,9 @@ $$
 - **Assumes:** coefficients and ratios non-zero; powers 0 or 1; no two terms with the same ratio and power; causal sequence (x[n] = 0 for n < 0)
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Roc radius as ratios[1] runs from 0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/z-transform-sequence-live-1)
+![The worked example of z-transform of a sequence (table terms) as inputs and results: stated coefficients = 1, ratios = 0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/z-transform-sequence-io)
 
-*Roc radius as ratios[1] runs from 0.125 to 0.875, every other input as you entered it (41 solutions). Marked: your ratios[1] = 0.5 gives roc_radius = 0.5. Your inputs: coefficients = 1, ratios = 0.5.*
-
-![Every entry of a as computed for your inputs (2 entries: 1, -0](https://www.ai999x.com/?ax_fig=signal-processing-ai999x/z-transform-sequence-live-2)
-
-*Every entry of a as computed for your inputs (2 entries: 1, -0.5). Your inputs: coefficients = 1, ratios = 0.5.*
+*The worked example of z-transform of a sequence (table terms) as inputs and results: stated coefficients = 1, ratios = 0.5; returned by signal-processing-ai999x: b = [1.0], a = [1.0, -0.5], roc_radius = 0.5.*
 
 ```python
 signal_processing_ai999x.solve('z_transform_sequence', coefficients='1', ratios='0.5')
