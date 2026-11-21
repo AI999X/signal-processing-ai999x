@@ -10,8 +10,8 @@ Signal Processing covers sampling, Fourier series and transforms, the DFT and FF
 
 | | |
 |---|---|
-| **Desktop app** (Windows, Linux) | [Windows](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.6/ai999x-signal-processing-1.6.6-windows-x86_64.zip) · [Linux](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.6/ai999x-signal-processing-1.6.6-linux-x86_64.tar.gz) |
-| **Command line** `signal-processing` (Windows, Linux) | [Windows](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.6/ai999x-cli-1.6.6-windows-x86_64.zip) · [Linux](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.6/ai999x-cli-1.6.6-linux-x86_64.tar.gz) |
+| **Desktop app** (Windows, Linux) | [Windows](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.7/ai999x-signal-processing-1.6.7-windows-x86_64.zip) · [Linux](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.7/ai999x-signal-processing-1.6.7-linux-x86_64.tar.gz) |
+| **Command line** `signal-processing` (Windows, Linux) | [Windows](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.7/ai999x-cli-1.6.7-windows-x86_64.zip) · [Linux](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.7/ai999x-cli-1.6.7-linux-x86_64.tar.gz) |
 | **Browser** (any device) | [Try it on the model page](https://www.ai999x.com/models/signal-processing-ai999x/#capabilities) |
 | **Python** 3.10+ | `pip install signal-processing-ai999x`: on Windows and Linux (x86-64) `pip` installs the same compiled engine; on other systems (macOS, ARM) it installs a pure-Python build that gives the same answers |
 
@@ -143,77 +143,6 @@ print(a.outcome, a.values)
 # SOLVED {'f': 500.0, 'omega': 3141.592653589793}
 ```
 
-## Command line: 15 examples
-
-Each command below was run with `signal-processing` of this release; the lines under it are the answer it printed (the full answer goes on with the method, every input in SI units and the conditions it assumes).
-
-```text
-$ signal-processing solve butterworth_magnitude N=4 "fc=1 kHz" "f=2 kHz"
-magnitude = 0.06237828616
-attenuation_db = 24.09933123
-
-$ signal-processing solve dish_antenna_gain "D=3 m" "f=10 GHz" eta=0.55
-G_dbi = 47.35263538
-G = 54358.00866
-Ae = 3.887720909 m^2
-
-$ signal-processing solve shannon_min_snr "B=2 MHz" C=10000000
-snr_db = 14.91361694
-snr = 31
-ebn0_min_db = 7.923916895
-
-$ signal-processing solve circular_convolution "x=[1, 2, 3, 4]" "h=[1, 0, 0, 1]"
-y = [3.0,5.0,7.0,5.0]
-
-$ signal-processing solve dft_spectrum "x=[1, 2, 3, 4]"
-peak_magnitude = 10
-peak_bin = 0
-magnitude = [10.0,2.8284271247461903,2.0,2.8284271247461903]
-phase = [0.0,2.356194490192345,3.141592653589793,-2.356194490192345]
-real = [10.0,-2.0,-2.0,-2.0]
-imag = [0.0,2.0,0.0,-2.0]
-
-$ signal-processing solve amplitude_ratio_to_db ratio=50
-dB = 33.97940009
-
-$ signal-processing solve qpsk_error_rates ebn0_db=6
-ber = 0.002388290781
-ser = 0.004770877629
-
-$ signal-processing solve bilinear_rc_lowpass "fs=8 kHz" "fc=1 kHz"
-b0 = 0.2819698001
-b1 = 0.2819698001
-a1 = -0.4360603998
-
-$ signal-processing solve butterworth_design btype=lowpass N=2 "fs=8 kHz" "fc=1 kHz"
-b = [0.0976310729378,0.195262145876,0.0976310729378]
-a = [1.0,-0.942809041582,0.333333333333]
-
-$ signal-processing solve analytic_envelope "x=[1, 0, -1, 0]"
-envelope = [1.0,1.0,1.0,1.0]
-hilbert = [0.0,1.0,0.0,-1.0]
-
-$ signal-processing solve am_modulation_index "Vmax=10 V" "Vmin=2 V"
-m = 0.6666666667
-Ac = 6 V
-
-$ signal-processing solve free_space_path_loss "d=100 m" "f=2.4 GHz"
-loss_db = 80.05200806
-loss = 101204728.8
-wavelength = 0.1249135242 m
-
-$ signal-processing solve radar_doppler "v=30 m/s" "f=10 GHz"
-fd = 2001.384771 Hz
-wavelength = 0.0299792458 m
-
-$ signal-processing solve alias_frequency "fs=10 kHz" "f=7 kHz"
-f_alias = 3000 Hz
-
-$ signal-processing solve coax_impedance "D=3.5 mm" "d=1 mm" er=2.25
-Z0 = 50.07585194 ohm
-vf = 0.6666666667
-```
-
 ## Guides
 
 - Desktop app guide: the window, every calculation, scenes and charts: [PDF](https://huggingface.co/AI999X/signal-processing-ai999x/blob/main/docs/signal_processing_ai999x_desktop_guide.pdf) · [HTML](https://huggingface.co/AI999X/signal-processing-ai999x/blob/main/docs/signal_processing_ai999x_desktop_guide.html) · [Markdown](https://huggingface.co/AI999X/signal-processing-ai999x/blob/main/docs/signal_processing_ai999x_desktop_guide.md)
@@ -222,13 +151,13 @@ vf = 0.6666666667
 
 Every calculation, with its formula, a worked example and its figures: **[Signal Processing on ai999x.com](https://www.ai999x.com/models/signal-processing-ai999x/)**. Install guides for the app and the command line: [https://www.ai999x.com/desktop-cli/](https://www.ai999x.com/desktop-cli/).
 
-Version 1.6.6 · License: Apache-2.0 · Author: Ibnul Jaif Farabi · Organization: AI999X · Contact: support@ai999x.com · [Support the project](https://buymeacoffee.com/ibnuljaiffarabi)
+Version 1.6.7 · License: Apache-2.0 · Author: Ibnul Jaif Farabi · Organization: AI999X · Contact: support@ai999x.com · [Support the project](https://buymeacoffee.com/ibnuljaiffarabi)
 
 *The Future Is Self-Improving.*
 
 ## Source and releases
 
-This repository holds the installable source of each release, exactly as published on [PyPI](https://pypi.org/project/signal-processing-ai999x/) (`pip install .` builds it). Releases are tagged `v1.6.6`; the [GitHub release](https://github.com/AI999X/signal-processing-ai999x/releases/tag/v1.6.6) carries the wheel, the desktop app and the command-line program for Windows and Linux, and their checksums.
+This repository holds the installable source of each release, exactly as published on [PyPI](https://pypi.org/project/signal-processing-ai999x/) (`pip install .` builds it). Releases are tagged `v1.6.7`; the [GitHub release](https://github.com/AI999X/signal-processing-ai999x/releases/tag/v1.6.7) carries the wheel, the desktop app and the command-line program for Windows and Linux, and their checksums.
 
 ## Build the program from source
 
