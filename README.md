@@ -10,8 +10,8 @@ Signal Processing covers sampling, Fourier series and transforms, the DFT and FF
 
 | | |
 |---|---|
-| **Desktop app** (Windows, Linux) | [Windows](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.5/ai999x-signal-processing-1.6.5-windows-x86_64.zip) · [Linux](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.5/ai999x-signal-processing-1.6.5-linux-x86_64.tar.gz) |
-| **Command line** `signal-processing` (Windows, Linux) | [Windows](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.4/ai999x-cli-1.6.4-windows-x86_64.zip) · [Linux](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.4/ai999x-cli-1.6.4-linux-x86_64.tar.gz) |
+| **Desktop app** (Windows, Linux) | [Windows](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.6/ai999x-signal-processing-1.6.6-windows-x86_64.zip) · [Linux](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.6/ai999x-signal-processing-1.6.6-linux-x86_64.tar.gz) |
+| **Command line** `signal-processing` (Windows, Linux) | [Windows](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.6/ai999x-cli-1.6.6-windows-x86_64.zip) · [Linux](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.6/ai999x-cli-1.6.6-linux-x86_64.tar.gz) |
 | **Browser** (any device) | [Try it on the model page](https://www.ai999x.com/models/signal-processing-ai999x/#capabilities) |
 | **Python** 3.10+ | `pip install signal-processing-ai999x`: on Windows and Linux (x86-64) `pip` installs the same compiled engine; on other systems (macOS, ARM) it installs a pure-Python build that gives the same answers |
 
@@ -214,104 +214,6 @@ Z0 = 50.07585194 ohm
 vf = 0.6666666667
 ```
 
-## Rust library: 15 examples
-
-The crate `signal-processing-ai999x` (in `rust/` of the GitHub repository) answers a JSON request with `signal_processing_ai999x::solve_json`. Each call below was compiled and run on this release; the comment under it is what it printed. The whole program is `rust/signal-processing/examples/readme.rs`: `cd rust && cargo run --release --example readme -p signal-processing-ai999x`.
-
-```rust
-use serde_json::{json, Value};
-
-fn show(request: Value) {
-    let answer: Value = serde_json::from_str(&signal_processing_ai999x::solve_json(&request.to_string())).unwrap();
-    println!("{}", answer["outcome"].as_str().unwrap_or(""));
-    for v in answer["values"].as_array().into_iter().flatten() {
-        let unit = v[2].as_str().unwrap_or("");
-        let unit = if unit.is_empty() || unit == "1" { String::new() } else { format!(" {unit}") };
-        println!("{} = {}{}", v[0].as_str().unwrap_or(""), v[1], unit);
-    }
-}
-
-show(json!({"key": "butterworth_magnitude", "inputs": {"N": "4", "fc": "1 kHz", "f": "2 kHz"}}));
-// SOLVED
-// magnitude = 0.06237828615518053
-// attenuation_db = 24.099331233312945
-
-show(json!({"key": "dish_antenna_gain", "inputs": {"D": "3 m", "f": "10 GHz", "eta": "0.55"}}));
-// SOLVED
-// G_dbi = 47.352635384659806
-// G = 54358.00865599061
-// Ae = 3.8877209088173696 m^2
-
-show(json!({"key": "shannon_min_snr", "inputs": {"B": "2 MHz", "C": "10000000"}}));
-// SOLVED
-// snr_db = 14.913616938342727
-// snr = 31.0
-// ebn0_min_db = 7.923916894982539
-
-show(json!({"key": "circular_convolution", "inputs": {"x": [1, 2, 3, 4], "h": [1, 0, 0, 1]}}));
-// SOLVED
-// y = [3.0,5.0,7.0,5.0]
-
-show(json!({"key": "dft_spectrum", "inputs": {"x": [1, 2, 3, 4]}}));
-// SOLVED
-// peak_magnitude = 10.0
-// peak_bin = 0
-// magnitude = [10.0,2.8284271247461903,2.0,2.8284271247461903]
-// phase = [0.0,2.356194490192345,3.141592653589793,-2.356194490192345]
-// real = [10.0,-2.0,-2.0,-2.0]
-// imag = [0.0,2.0,0.0,-2.0]
-
-show(json!({"key": "amplitude_ratio_to_db", "inputs": {"ratio": "50"}}));
-// SOLVED
-// dB = 33.979400086720375
-
-show(json!({"key": "qpsk_error_rates", "inputs": {"ebn0_db": "6"}}));
-// SOLVED
-// ber = 0.0023882907809328075
-// ser = 0.004770877629011326
-
-show(json!({"key": "bilinear_rc_lowpass", "inputs": {"fs": "8 kHz", "fc": "1 kHz"}}));
-// SOLVED
-// b0 = 0.2819698001234662
-// b1 = 0.2819698001234662
-// a1 = -0.4360603997530677
-
-show(json!({"key": "butterworth_design", "inputs": {"btype": "lowpass", "N": "2", "fs": "8 kHz", "fc": "1 kHz"}}));
-// SOLVED
-// b = [0.0976310729378,0.195262145876,0.0976310729378]
-// a = [1.0,-0.942809041582,0.333333333333]
-
-show(json!({"key": "analytic_envelope", "inputs": {"x": [1, 0, -1, 0]}}));
-// SOLVED
-// envelope = [1.0,1.0,1.0,1.0]
-// hilbert = [0.0,1.0,0.0,-1.0]
-
-show(json!({"key": "am_modulation_index", "inputs": {"Vmax": "10 V", "Vmin": "2 V"}}));
-// SOLVED
-// m = 0.6666666666666666
-// Ac = 6.0 V
-
-show(json!({"key": "free_space_path_loss", "inputs": {"d": "100 m", "f": "2.4 GHz"}}));
-// SOLVED
-// loss_db = 80.0520080561155
-// loss = 101204728.84315346
-// wavelength = 0.12491352416666666 m
-
-show(json!({"key": "radar_doppler", "inputs": {"v": "30 m/s", "f": "10 GHz"}}));
-// SOLVED
-// fd = 2001.3847714659423 Hz
-// wavelength = 0.0299792458 m
-
-show(json!({"key": "alias_frequency", "inputs": {"fs": "10 kHz", "f": "7 kHz"}}));
-// SOLVED
-// f_alias = 3000.0 Hz
-
-show(json!({"key": "coax_impedance", "inputs": {"D": "3.5 mm", "d": "1 mm", "er": "2.25"}}));
-// SOLVED
-// Z0 = 50.07585194223886 ohm
-// vf = 0.6666666666666666
-```
-
 ## Guides
 
 - Desktop app guide: the window, every calculation, scenes and charts: [PDF](https://huggingface.co/AI999X/signal-processing-ai999x/blob/main/docs/signal_processing_ai999x_desktop_guide.pdf) · [HTML](https://huggingface.co/AI999X/signal-processing-ai999x/blob/main/docs/signal_processing_ai999x_desktop_guide.html) · [Markdown](https://huggingface.co/AI999X/signal-processing-ai999x/blob/main/docs/signal_processing_ai999x_desktop_guide.md)
@@ -320,7 +222,7 @@ show(json!({"key": "coax_impedance", "inputs": {"D": "3.5 mm", "d": "1 mm", "er"
 
 Every calculation, with its formula, a worked example and its figures: **[Signal Processing on ai999x.com](https://www.ai999x.com/models/signal-processing-ai999x/)**. Install guides for the app and the command line: [https://www.ai999x.com/desktop-cli/](https://www.ai999x.com/desktop-cli/).
 
-Version 1.6.4 · License: Apache-2.0 · Author: Ibnul Jaif Farabi · Organization: AI999X · Contact: support@ai999x.com · [Support the project](https://buymeacoffee.com/ibnuljaiffarabi)
+Version 1.6.6 · License: Apache-2.0 · Author: Ibnul Jaif Farabi · Organization: AI999X · Contact: support@ai999x.com · [Support the project](https://buymeacoffee.com/ibnuljaiffarabi)
 
 *The Future Is Self-Improving.*
 
